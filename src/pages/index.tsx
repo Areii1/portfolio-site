@@ -62,11 +62,15 @@ const IndexPage = () => {
       <ContentSection
         headline={pageContentLabels.introduction}
         description={content.description}
+        showButton={false}
+        language={language}
       />
       <ContentSection
         headline={pageContentLabels.workExperience}
         subHeadlineDetails={content.experience[0]}
         description={content.experience[0].description}
+        showButton
+        language={language}
       />
     </Wrapper>
   );
