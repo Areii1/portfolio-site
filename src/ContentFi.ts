@@ -8,7 +8,7 @@ const profileDetails: ProfileDetails = {
   gitlabUsername: "arpejaa",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
-  jobTitle: "front-end developer",
+  jobTitle: "front-end kehittäjä",
 };
 
 const experience: Array<ExperienceItem> = [

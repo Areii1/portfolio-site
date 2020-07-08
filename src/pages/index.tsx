@@ -6,11 +6,33 @@ import { ContentEn } from "../ContentEn";
 import { ContentFi } from "../ContentFi";
 import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
+import { ContentSection } from "../components/contentSection/ContentSection";
+
+const pageContentLabelsFi = {
+  introduction: "Tietoa minusta",
+  workExperience: "Työkokemus",
+  education: "Koulutus",
+  contactDetails: "Yhteystiedot",
+  contactForm: "Ota minuun yhteyttä",
+};
+
+const pageContentLabelsEn = {
+  introduction: "About me",
+  workExperience: "Experience",
+  education: "Education",
+  contactDetails: "Information",
+  contactForm: "Contact Me",
+};
 
 export enum lan {
   FINNISH,
   ENGLISH,
 }
+
+const Wrapper = styled.div`
+  background-color: #f0f0f0;
+  height: 4000px;
+`;
 
 const ProfileBallWrapper = styled.div`
   position: absolute;
@@ -24,8 +46,10 @@ const IndexPage = () => {
     setLanguage(lan);
   };
   const content = language === lan.ENGLISH ? ContentEn : ContentFi;
+  const pageContentLabels =
+    language === lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
-    <div>
+    <Wrapper>
       <SEO title="Home" />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
@@ -35,7 +59,11 @@ const IndexPage = () => {
       <ProfileBallWrapper>
         <ProfileBall picture="sd" />
       </ProfileBallWrapper>
-    </div>
+      <ContentSection
+        headline={pageContentLabels.introduction}
+        description={content.description}
+      />
+    </Wrapper>
   );
 };
 
