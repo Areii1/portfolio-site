@@ -7,6 +7,15 @@ import { ContentFi } from "../ContentFi";
 import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
+import { InformationSection } from "../components/informationSection/InformationSection";
+
+export type PageContentLabels = {
+  introduction: string;
+  workExperience: string;
+  education: string;
+  contactDetails: string;
+  contactForm: string;
+};
 
 const pageContentLabelsFi = {
   introduction: "Tietoa minusta",
@@ -31,7 +40,6 @@ export enum lan {
 
 const Wrapper = styled.div`
   background-color: #f0f0f0;
-  height: 4000px;
 `;
 
 const ProfileBallWrapper = styled.div`
@@ -71,6 +79,10 @@ const IndexPage = () => {
         description={content.experience[0].description}
         showButton
         language={language}
+      />
+      <InformationSection
+        profileDetails={content.profile}
+        pageContentLabels={pageContentLabels}
       />
     </Wrapper>
   );

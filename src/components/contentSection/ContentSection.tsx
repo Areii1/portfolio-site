@@ -30,7 +30,7 @@ export const ContentSection = (props: Props) => {
   return (
     <Wrapper>
       <TopSectionWrapper>
-        <Headline text={props.headline} />
+        <Headline text={props.headline} isBlack />
         {props.showButton && <DownloadCVButton language={props.language} />}
       </TopSectionWrapper>
       {props.subHeadlineDetails && (

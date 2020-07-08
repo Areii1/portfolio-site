@@ -14,6 +14,7 @@ const HeadlineText = styled.h3`
 
 type Props = {
   text: string;
+  isBlack: boolean;
 };
 
 export const Headline = (props: Props) => {
