@@ -19,7 +19,7 @@ export type ExperienceItem = {
   beginDate: ExperienceItemDate;
   endingDate?: ExperienceItemDate;
   jobTitle: string;
-  description: string;
+  description: Description;
   institute: string;
 };
 
@@ -30,4 +30,4 @@ export type PageContent = {
   education: Array<ExperienceItem>;
 };
 
-export type Description = [string, string];
+export type Description = [string, string] | string;

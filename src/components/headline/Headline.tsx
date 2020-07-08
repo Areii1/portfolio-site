@@ -7,10 +7,9 @@ const UnderLine = styled.div`
   background-color: red;
 `;
 
-const HeadlineText = styled.div`
+const HeadlineText = styled.h3`
   font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin: 0 0 1.5rem 0;
 `;
 
 type Props = {

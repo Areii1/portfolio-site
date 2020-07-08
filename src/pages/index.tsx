@@ -63,6 +63,11 @@ const IndexPage = () => {
         headline={pageContentLabels.introduction}
         description={content.description}
       />
+      <ContentSection
+        headline={pageContentLabels.workExperience}
+        subHeadlineDetails={content.experience[0]}
+        description={content.experience[0].description}
+      />
     </Wrapper>
   );
 };

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Description } from "../../Types";
 
 type Props = {
-  paragraphs: Description;
+  content: Description;
 };
 
 const Wrapper = styled.div`
@@ -19,10 +19,16 @@ const Paragraph = styled.p`
 `;
 
 export const Paragraphs = (props: Props) => {
+  const firstItem = Array.isArray(props.content)
+    ? props.content[0]
+    : props.content;
+  const secondItem = Array.isArray(props.content)
+    ? props.content[1]
+    : undefined;
   return (
     <Wrapper>
-      <Paragraph>{props.paragraphs[0]}</Paragraph>
-      <Paragraph>{props.paragraphs[1]}</Paragraph>
+      <Paragraph>{firstItem}</Paragraph>
+      {secondItem && <Paragraph>{secondItem}</Paragraph>}
     </Wrapper>
   );
 };
