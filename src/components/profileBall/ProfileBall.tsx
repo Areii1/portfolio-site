@@ -6,6 +6,16 @@ type Props = {
   picture: string;
 };
 
+export const ProfileBall = (props: Props) => {
+  return (
+    <Wrapper>
+      <ProfileImageWrapper>
+        <ProfileImage src={profile} alt="profile" />
+      </ProfileImageWrapper>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.div`
   width: 350px;
   height: 350px;
@@ -31,13 +41,3 @@ const ProfileImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 50%;
 `;
-
-export const ProfileBall = (props: Props) => {
-  return (
-    <Wrapper>
-      <ProfileImageWrapper>
-        <ProfileImage src={profile} alt="profile" />
-      </ProfileImageWrapper>
-    </Wrapper>
-  );
-};

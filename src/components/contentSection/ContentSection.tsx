@@ -8,16 +8,6 @@ import { ExperienceItemDetails } from "../experienceItemDetails/ExperienceItemDe
 import { DownloadCVButton } from "../downloadCVButton/DownloadCVButton";
 import { lan } from "../../pages/index";
 
-const Wrapper = styled.section`
-  padding: 23rem 15rem 0 15rem;
-  width: 100%;
-`;
-
-const TopSectionWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
 type Props = {
   headline: string;
   description: Description;
@@ -40,3 +30,13 @@ export const ContentSection = (props: Props) => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+  padding: 23rem 15rem 0 15rem;
+  width: 100%;
+`;
+
+const TopSectionWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;

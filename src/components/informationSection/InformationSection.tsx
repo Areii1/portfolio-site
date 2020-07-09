@@ -10,6 +10,46 @@ type Props = {
   pageContentLabels: PageContentLabels;
 };
 
+export const InformationSection = (props: Props) => {
+  return (
+    <Wrapper>
+      <ImageWrapper></ImageWrapper>
+      <Information>
+        <ContentWrapper>
+          <Headline text={props.pageContentLabels.contactDetails} isBlack />
+          <DetailsList>
+            <DetailsListItem>
+              <DetailsListItemLabel>email:</DetailsListItemLabel>
+              <DetailsListItemText>
+                {props.profileDetails.email}
+              </DetailsListItemText>
+            </DetailsListItem>
+            <DetailsListItem>
+              <DetailsListItemLabel>gitlab:</DetailsListItemLabel>
+              <DetailsListItemText>
+                {`gitlab.com/${props.profileDetails.gitlabUsername}`}
+              </DetailsListItemText>
+            </DetailsListItem>
+            <DetailsListItem>
+              <DetailsListItemLabel>github:</DetailsListItemLabel>
+              <DetailsListItemText>
+                {`github.com/${props.profileDetails.githubUsername}`}
+              </DetailsListItemText>
+            </DetailsListItem>
+            <DetailsListItem>
+              <DetailsListItemLabel>linkedin:</DetailsListItemLabel>
+              <DetailsListItemText>
+                {`linkedin.com/in/${props.profileDetails.linkedInPageName}`}
+              </DetailsListItemText>
+            </DetailsListItem>
+          </DetailsList>
+        </ContentWrapper>
+      </Information>
+      <Contact>d</Contact>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.section`
   margin-top: 15rem;
   height: 1500px;
@@ -75,43 +115,3 @@ const DetailsListItemText = styled.h6`
   margin: 0;
   font-size: 1rem;
 `;
-
-export const InformationSection = (props: Props) => {
-  return (
-    <Wrapper>
-      <ImageWrapper></ImageWrapper>
-      <Information>
-        <ContentWrapper>
-          <Headline text={props.pageContentLabels.contactDetails} isBlack />
-          <DetailsList>
-            <DetailsListItem>
-              <DetailsListItemLabel>email:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {props.profileDetails.email}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>gitlab:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`gitlab.com/${props.profileDetails.gitlabUsername}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>github:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`github.com/${props.profileDetails.githubUsername}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>linkedin:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`linkedin.com/in/${props.profileDetails.linkedInPageName}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-          </DetailsList>
-        </ContentWrapper>
-      </Information>
-      <Contact>d</Contact>
-    </Wrapper>
-  );
-};

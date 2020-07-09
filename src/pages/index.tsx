@@ -38,16 +38,6 @@ export enum lan {
   ENGLISH,
 }
 
-const Wrapper = styled.div`
-  background-color: #f0f0f0;
-`;
-
-const ProfileBallWrapper = styled.div`
-  position: absolute;
-  top: 425px;
-  left: calc(50% - 175px);
-`;
-
 const IndexPage = () => {
   const [language, setLanguage] = React.useState<lan>(lan.FINNISH);
   const updateLanguage = (lan: lan) => {
@@ -89,3 +79,14 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+
+const Wrapper = styled.div`
+  background-color: #f0f0f0;
+`;
+
+const ProfileBallWrapper = styled.div`
+  position: absolute;
+  top: 425px;
+  left: calc(50% - 175px);
+`;

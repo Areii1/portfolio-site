@@ -6,18 +6,6 @@ type Props = {
   content: Description;
 };
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 3rem;
-`;
-
-const Paragraph = styled.p`
-  width: 45%;
-  font-size: 1.3rem;
-`;
-
 export const Paragraphs = (props: Props) => {
   const firstItem = Array.isArray(props.content)
     ? props.content[0]
@@ -32,3 +20,15 @@ export const Paragraphs = (props: Props) => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 3rem;
+`;
+
+const Paragraph = styled.p`
+  width: 45%;
+  font-size: 1.3rem;
+`;

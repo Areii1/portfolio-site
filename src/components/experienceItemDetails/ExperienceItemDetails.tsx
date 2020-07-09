@@ -6,21 +6,6 @@ type Props = {
   subHeadlineDetails: ExperienceItem;
 };
 
-const Wrapper = styled.div`
-  margin: 3rem 0 -1.5rem 0;
-`;
-
-const Title = styled.h4`
-  font-size: 1.7rem;
-  margin: 0;
-`;
-
-const Date = styled.h5`
-  font-size: 1.5rem;
-  color: #94a3ba;
-  margin: 0.5rem 0 0 0;
-`;
-
 const getDateString = (subHeadlineDetails: ExperienceItem) => {
   const beginDateStr = `${subHeadlineDetails.beginDate.month}/${subHeadlineDetails.beginDate.year}`;
   const endingDateStr = subHeadlineDetails.endingDate
@@ -37,3 +22,18 @@ export const ExperienceItemDetails = (props: Props) => {
     </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  margin: 3rem 0 -1.5rem 0;
+`;
+
+const Title = styled.h4`
+  font-size: 1.7rem;
+  margin: 0;
+`;
+
+const Date = styled.h5`
+  font-size: 1.5rem;
+  color: #94a3ba;
+  margin: 0.5rem 0 0 0;
+`;

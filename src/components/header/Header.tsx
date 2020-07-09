@@ -3,6 +3,36 @@ import styled from "styled-components";
 import headerBg from "../../assets/header.jpg";
 import { lan } from '../../pages/index';
 
+type PropTypes = {
+  name: string;
+  jobTitle: string;
+  updateLanguage: any;
+};
+
+export const Header = (props: PropTypes) => {
+  return (
+    <Wrapper>
+      <ImageWrapper></ImageWrapper>
+      <TitlesWrapper>
+        <Headline>{props.name}</Headline>
+        <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
+      </TitlesWrapper>
+      <LanguageList>
+        <LanguageListItem>
+          <LanguageListItemButton onClick={() => props.updateLanguage(lan.ENGLISH)}>
+            EN
+          </LanguageListItemButton>
+        </LanguageListItem>
+        <LanguageListItem>
+          <LanguageListItemButton onClick={() => props.updateLanguage(lan.FINNISH)}>
+            FI
+          </LanguageListItemButton>
+        </LanguageListItem>
+      </LanguageList>
+    </Wrapper>
+  );
+};
+
 const Wrapper = styled.header`
   height: 600px;
   overflow: hidden;
@@ -63,33 +93,3 @@ const LanguageListItemButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
 `;
-
-type PropTypes = {
-  name: string;
-  jobTitle: string;
-  updateLanguage: any;
-};
-
-export const Header = (props: PropTypes) => {
-  return (
-    <Wrapper>
-      <ImageWrapper></ImageWrapper>
-      <TitlesWrapper>
-        <Headline>{props.name}</Headline>
-        <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
-      </TitlesWrapper>
-      <LanguageList>
-        <LanguageListItem>
-          <LanguageListItemButton onClick={() => props.updateLanguage(lan.ENGLISH)}>
-            EN
-          </LanguageListItemButton>
-        </LanguageListItem>
-        <LanguageListItem>
-          <LanguageListItemButton onClick={() => props.updateLanguage(lan.FINNISH)}>
-            FI
-          </LanguageListItemButton>
-        </LanguageListItem>
-      </LanguageList>
-    </Wrapper>
-  );
-};
