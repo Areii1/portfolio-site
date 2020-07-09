@@ -32,7 +32,7 @@ export const ContentSection = (props: Props) => {
 };
 
 const Wrapper = styled.section`
-  padding: 23rem 15rem 0 15rem;
+  padding: 15rem 15rem 0 15rem;
   width: 100%;
 `;
 

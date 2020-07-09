@@ -73,6 +73,7 @@ const IndexPage = () => {
       <InformationSection
         profileDetails={content.profile}
         pageContentLabels={pageContentLabels}
+        language={language}
       />
     </Wrapper>
   );

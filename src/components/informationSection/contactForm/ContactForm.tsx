@@ -1,7 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { lan } from "../../../pages/index";
 
-export const ContactForm = (props: any) => {
+const fieldPlaceholdersFi = {
+  name: "Nimi",
+  email: "Sähköposti",
+  subject: "Aihe",
+  message: "Viesti",
+};
+
+const fieldPlaceholdersEn = {
+  name: "Name",
+  email: "Email",
+  subject: "Subject",
+  message: "Message",
+};
+
+type Props = {
+  language: lan;
+};
+
+export const ContactForm = (props: Props) => {
   const [nameField, setNameField] = React.useState<string>("");
   const [emailield, setEmailField] = React.useState<string>("");
   const [subjectField, setSubjectField] = React.useState<string>("");
@@ -9,10 +28,17 @@ export const ContactForm = (props: any) => {
 
   const handleFormSubmit = (event: any) => {
     event.preventDefault();
+    setNameField("");
+    setEmailField("");
+    setSubjectField("");
+    setMessageField("");
     alert(
       `name ${nameField} email ${emailield} subject ${subjectField} message ${messageField}`
     );
   };
+
+  const fieldPlaceholders =
+    props.language === lan.ENGLISH ? fieldPlaceholdersEn : fieldPlaceholdersFi;
 
   const handleFieldValueChange = (event: any) => {
     switch (event.target.id) {
@@ -40,26 +66,26 @@ export const ContactForm = (props: any) => {
       <InputWrapper>
         <InputField
           type="text"
-          placeholder="name"
+          placeholder={fieldPlaceholders.name}
           onChange={handleFieldValueChange}
           id="name"
         />
         <InputField
           type="text"
-          placeholder="email"
+          placeholder={fieldPlaceholders.email}
           onChange={handleFieldValueChange}
           id="email"
         />
       </InputWrapper>
       <InputField
         type="text"
-        placeholder="subject"
+        placeholder={fieldPlaceholders.subject}
         onChange={handleFieldValueChange}
         id="subject"
       />
       <InputField
         type="text"
-        placeholder="message"
+        placeholder={fieldPlaceholders.message}
         onChange={handleFieldValueChange}
         id="message"
       />
@@ -72,8 +98,6 @@ export const ContactForm = (props: any) => {
 
 const Form = styled.form`
   margin-top: 2.5rem;
-  display: flex;
-  flex-direction: column;
 `;
 
 const InputWrapper = styled.div`
@@ -85,6 +109,7 @@ const InputField = styled.input`
   width: 15rem;
   border: none;
   border-bottom: 1px solid black;
+  display: block;
 `;
 
 const SubmitButton = styled.button`
@@ -92,4 +117,6 @@ const SubmitButton = styled.button`
   border: none;
   color: white;
   cursor: pointer;
+  display: block;
+  padding: 0;
 `;

@@ -1,35 +1,45 @@
 import React from "react";
 import styled from "styled-components";
 import { ProfileDetails } from "../../../Types";
+import { lan } from "../../../pages/index";
 
 type Props = {
   profileDetails: ProfileDetails;
+  language: lan;
 };
 
 export const DetailsList = (props: Props) => {
   return (
     <List>
       <ListItem>
-        <ListItemLabel>email:</ListItemLabel>
+        <ListItemLabel>
+          {props.language === lan.ENGLISH ? "email:" : "sähköposti:"}
+        </ListItemLabel>
         <ListItemText>{props.profileDetails.email}</ListItemText>
       </ListItem>
       <ListItem>
         <ListItemLabel>gitlab:</ListItemLabel>
-        <ListItemText>
+        <ListItemLink
+          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+        >
           {`gitlab.com/${props.profileDetails.gitlabUsername}`}
-        </ListItemText>
+        </ListItemLink>
       </ListItem>
       <ListItem>
         <ListItemLabel>github:</ListItemLabel>
-        <ListItemText>
+        <ListItemLink
+          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+        >
           {`github.com/${props.profileDetails.githubUsername}`}
-        </ListItemText>
+        </ListItemLink>
       </ListItem>
       <ListItem>
         <ListItemLabel>linkedin:</ListItemLabel>
-        <ListItemText>
+        <ListItemLink
+          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+        >
           {`linkedin.com/in/${props.profileDetails.linkedInPageName}`}
-        </ListItemText>
+        </ListItemLink>
       </ListItem>
     </List>
   );
@@ -52,10 +62,18 @@ const ListItem = styled.li`
 const ListItemLabel = styled.h6`
   margin: 0 2rem 0 0;
   font-size: 1.5rem;
+  width: 8rem;
 `;
 
 const ListItemText = styled.h6`
   margin: 0;
   font-size: 1.5rem;
   font-weight: 400;
+`;
+
+const ListItemLink = styled.a`
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
 `;

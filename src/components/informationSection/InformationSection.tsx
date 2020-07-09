@@ -6,10 +6,12 @@ import { Headline } from "../headline/Headline";
 import { PageContentLabels } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
+import { lan } from "../../pages/index";
 
 type Props = {
   profileDetails: ProfileDetails;
   pageContentLabels: PageContentLabels;
+  language: lan;
 };
 
 export const InformationSection = (props: Props) => {
@@ -19,14 +21,17 @@ export const InformationSection = (props: Props) => {
       <Information>
         <ContentWrapper>
           <Headline text={props.pageContentLabels.contactDetails} isBlack />
-          <DetailsList profileDetails={props.profileDetails} />
+          <DetailsList
+            profileDetails={props.profileDetails}
+            language={props.language}
+          />
         </ContentWrapper>
       </Information>
       <Contact>
-        <ContentWrapper>
+        <ContentWrapperContact>
           <Headline text={props.pageContentLabels.contactForm} isBlack />
-          <ContactForm />
-        </ContentWrapper>
+          <ContactForm language={props.language} />
+        </ContentWrapperContact>
       </Contact>
     </Wrapper>
   );
@@ -71,5 +76,11 @@ const Contact = styled.div`
 const ContentWrapper = styled.div`
   width: 60%;
   margin: 0 0 0 auto;
+  padding-top: 5rem;
+`;
+
+const ContentWrapperContact = styled.div`
+  width: 60%;
+  margin: 0 auto 0 5rem;
   padding-top: 5rem;
 `;
