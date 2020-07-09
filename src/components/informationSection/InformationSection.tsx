@@ -4,6 +4,8 @@ import { ProfileDetails } from "../../Types";
 import contactBg from "../../assets/contact.jpg";
 import { Headline } from "../headline/Headline";
 import { PageContentLabels } from "../../pages/index";
+import { DetailsList } from "./detailsList/DetailsList";
+import { ContactForm } from "./contactForm/ContactForm";
 
 type Props = {
   profileDetails: ProfileDetails;
@@ -17,35 +19,15 @@ export const InformationSection = (props: Props) => {
       <Information>
         <ContentWrapper>
           <Headline text={props.pageContentLabels.contactDetails} isBlack />
-          <DetailsList>
-            <DetailsListItem>
-              <DetailsListItemLabel>email:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {props.profileDetails.email}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>gitlab:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`gitlab.com/${props.profileDetails.gitlabUsername}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>github:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`github.com/${props.profileDetails.githubUsername}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-            <DetailsListItem>
-              <DetailsListItemLabel>linkedin:</DetailsListItemLabel>
-              <DetailsListItemText>
-                {`linkedin.com/in/${props.profileDetails.linkedInPageName}`}
-              </DetailsListItemText>
-            </DetailsListItem>
-          </DetailsList>
+          <DetailsList profileDetails={props.profileDetails} />
         </ContentWrapper>
       </Information>
-      <Contact>d</Contact>
+      <Contact>
+        <ContentWrapper>
+          <Headline text={props.pageContentLabels.contactForm} isBlack />
+          <ContactForm />
+        </ContentWrapper>
+      </Contact>
     </Wrapper>
   );
 };
@@ -87,31 +69,7 @@ const Contact = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  width: 50%;
+  width: 60%;
   margin: 0 0 0 auto;
   padding-top: 5rem;
-`;
-
-const DetailsList = styled.ul`
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  margin-top: 2.5rem;
-`;
-
-const DetailsListItem = styled.li`
-  display: flex;
-  color: white;
-  margin: 0.5rem 0;
-`;
-
-const DetailsListItemLabel = styled.h6`
-  margin: 0 2rem 0 0;
-  font-size: 1rem;
-`;
-
-const DetailsListItemText = styled.h6`
-  margin: 0;
-  font-size: 1rem;
 `;
