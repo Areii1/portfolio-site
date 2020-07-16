@@ -24,6 +24,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 800px) {
+    width: 150px;
+    height: 150px;
+    border-radius: 150px;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -40,4 +45,9 @@ const ProfileImageWrapper = styled.div`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  @media (max-width: 800px) {
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+  }
 `;

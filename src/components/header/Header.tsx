@@ -42,12 +42,15 @@ const Wrapper = styled.header`
 const ImageWrapper = styled.div`
   height: 700px;
   width: 110vw;
-  margin: -70px;
+  margin: -70px -70px 0 -70px;
   filter: blur(10px);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${headerBg});
+  @media (max-width: 800px) {
+    margin: 0;
+  }
 `;
 
 const Headline = styled.h1`
@@ -56,6 +59,9 @@ const Headline = styled.h1`
   text-align: center;
   color: white;
   margin: 0;
+  @media (max-width: 800px) {
+    font-size: 3rem;
+  }
 `;
 
 const SecondaryHeadline = styled.h2`
@@ -63,6 +69,9 @@ const SecondaryHeadline = styled.h2`
   text-align: center;
   margin: 0;
   color: #94a3ba;
+  @media (max-width: 800px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const TitlesWrapper = styled.div`
@@ -73,6 +82,10 @@ const TitlesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 800px) {
+    width: 300px;
+    left: calc(50% - 150px);
+  }
 `;
 
 const LanguageList = styled.ul`

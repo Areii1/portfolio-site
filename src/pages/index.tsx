@@ -90,4 +90,8 @@ const ProfileBallWrapper = styled.div`
   position: absolute;
   top: 425px;
   left: calc(50% - 175px);
+  @media (max-width: 800px) {
+    top: 525px;
+    left: calc(50% - 75px);
+  }
 `;

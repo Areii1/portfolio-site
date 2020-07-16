@@ -16,11 +16,11 @@ export const DownloadCVButton = (props: Props) => {
   const buttonText =
     props.language === lan.ENGLISH ? buttonTextEn : buttonTextFi;
   return (
-    <a href={file} download>
+    <DownloadLink href={file} download>
       <Button type="button" title={buttonText.toLowerCase()}>
         {buttonText}
       </Button>
-    </a>
+    </DownloadLink>
   );
 };
 
@@ -32,4 +32,11 @@ const Button = styled.button`
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
+`;
+
+const DownloadLink = styled.a`
+  display: block;
+  @media (max-width: 800px) {
+    margin-top: 2rem;
+  }
 `;

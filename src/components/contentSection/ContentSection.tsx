@@ -45,4 +45,8 @@ const Wrapper = styled.section`
 const TopSectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    display: inherit;
+    justify-content: inherit;
+  }
 `;
