@@ -68,7 +68,11 @@ const SecondaryHeadline = styled.h2`
 const TitlesWrapper = styled.div`
   position: absolute;
   top: calc(50% - 70px);
-  left: calc(50% - 400px);
+  left: calc(50% - 500px);
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const LanguageList = styled.ul`

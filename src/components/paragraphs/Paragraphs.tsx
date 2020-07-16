@@ -26,9 +26,15 @@ const Wrapper = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 3rem;
+  @media (max-width: 800px) {
+    display: inherit; 
+  }
 `;
 
 const Paragraph = styled.p`
   width: 45%;
   font-size: 1.3rem;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `;

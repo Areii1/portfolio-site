@@ -8,11 +8,18 @@ type Props = {
   language: lan;
 };
 
+const buttonTextFi = "LATAA CV";
+const buttonTextEn = "DOWNLOAD CV";
+
 export const DownloadCVButton = (props: Props) => {
   const file = props.language === lan.ENGLISH ? CVFileEn : CVFileFi;
+  const buttonText =
+    props.language === lan.ENGLISH ? buttonTextEn : buttonTextFi;
   return (
     <a href={file} download>
-      <Button>DOWNLOAD CV</Button>
+      <Button type="button" title={buttonText.toLowerCase()}>
+        {buttonText}
+      </Button>
     </a>
   );
 };

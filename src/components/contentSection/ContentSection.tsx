@@ -24,7 +24,10 @@ export const ContentSection = (props: Props) => {
         {props.showButton && <DownloadCVButton language={props.language} />}
       </TopSectionWrapper>
       {props.subHeadlineDetails && (
-        <ExperienceItemDetails subHeadlineDetails={props.subHeadlineDetails} />
+        <ExperienceItemDetails
+          subHeadlineDetails={props.subHeadlineDetails}
+          language={props.language}
+        />
       )}
       <Paragraphs content={props.description} />
     </Wrapper>
@@ -34,6 +37,9 @@ export const ContentSection = (props: Props) => {
 const Wrapper = styled.section`
   padding: 15rem 15rem 0 15rem;
   width: 100%;
+  @media (max-width: 800px) {
+    padding: 15rem 1rem 0 1rem;
+  }
 `;
 
 const TopSectionWrapper = styled.div`
