@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { lan } from "../../pages/index";
-import { LanguageList } from "../languageList/LanguageList";
+import { LanguageList } from "../toggleLanguage/ToggleLanguage";
 
 type Props = {
   setModalOpen: (modalOpen: boolean) => void;

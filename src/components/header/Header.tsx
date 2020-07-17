@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import headerBg from "../../assets/header.jpg";
 import { lan } from "../../pages/index";
-import { LanguageList } from "../languageList/LanguageList";
+import { LanguageList } from "../toggleLanguage/ToggleLanguage";
 
 type PropTypes = {
   name: string;
