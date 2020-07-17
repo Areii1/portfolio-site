@@ -20,7 +20,6 @@ const closeVideoTextEn = "close video";
 const closeVideoTextFi = "sulje video";
 
 export const Modal = (props: Props) => {
-  const videoSrc = props.language === lan.ENGLISH ? videoSrcEn : videoSrcFi;
   const closeVideoText =
     props.language === lan.ENGLISH ? closeVideoTextEn : closeVideoTextFi;
   return (
@@ -40,9 +39,16 @@ export const Modal = (props: Props) => {
               <CloseButtonText>X</CloseButtonText>
             </CloseButton>
           </Header>
-          <video preload="auto" poster={posterSrc} controls width="300px">
-            <source src={videoSrc} type="video/mp4" />
-          </video>
+          {props.language == lan.ENGLISH && (
+            <video preload="auto" poster={posterSrc} controls width="300px">
+              <source src={videoSrcEn} type="video/mp4" />
+            </video>
+          )}
+          {props.language === lan.FINNISH && (
+            <video preload="auto" poster={posterSrc} controls width="300px">
+              <source src={videoSrcFi} type="video/mp4" />
+            </video>
+          )}
         </ContentWrapper>
       </ModalBox>
     </ModalWrapper>
@@ -55,7 +61,7 @@ const ModalWrapper = styled.div`
   left: 0;
   width: 100vw;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 15, 0.7);
 `;
 
 const ModalBox = styled.div`
@@ -68,6 +74,9 @@ const ModalBox = styled.div`
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
 const Header = styled.div`

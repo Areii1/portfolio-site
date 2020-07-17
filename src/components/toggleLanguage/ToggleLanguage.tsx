@@ -12,7 +12,11 @@ export const LanguageList = (props: Props) => {
   return (
     <List>
       <ListItem>
-        <Button onClick={() => props.updateLanguage(lan.ENGLISH)} title="english">
+        <Button
+          onClick={() => props.updateLanguage(lan.ENGLISH)}
+          title={props.language === lan.ENGLISH ? "" : "english"}
+          isActive={props.language === lan.ENGLISH}
+        >
           <ButtonText
             isBlack={props.isBlack}
             isActive={props.language === lan.ENGLISH}
@@ -22,7 +26,11 @@ export const LanguageList = (props: Props) => {
         </Button>
       </ListItem>
       <ListItem>
-        <Button onClick={() => props.updateLanguage(lan.FINNISH)} title="finnish">
+        <Button
+          onClick={() => props.updateLanguage(lan.FINNISH)}
+          title={props.language === lan.FINNISH ? "" : "finnish"}
+          isActive={props.language === lan.FINNISH}
+        >
           <ButtonText
             isBlack={props.isBlack}
             isActive={props.language === lan.FINNISH}
@@ -46,11 +54,15 @@ const ListItem = styled.li`
   margin-left: 1rem;
 `;
 
+type ButtonProps = {
+  isActive: boolean;
+};
+
 const Button = styled.button`
   padding: 0;
   background-color: transparent;
   border: 1px solid transparent;
-  cursor: pointer;
+  cursor: ${(props: ButtonProps) => (props.isActive ? "auto" : "pointer")};
 `;
 
 type ButtonTextProps = {
