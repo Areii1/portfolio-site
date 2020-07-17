@@ -3,11 +3,17 @@ import styled from "styled-components";
 
 type Props = {
   text: string;
+  onClick?: (modalOpen: boolean) => void;
 };
 
 export const Button = (props: Props) => {
+  const onClick = props.onClick ? props.onClick : () => {};
   return (
-    <ButtonElement type="button" title={props.text.toLowerCase()}>
+    <ButtonElement
+      type="button"
+      title={props.text.toLowerCase()}
+      onClick={() => onClick(true)}
+    >
       {props.text}
     </ButtonElement>
   );

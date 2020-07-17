@@ -5,7 +5,6 @@ import { Description } from "../../Types";
 import { Paragraphs } from "../paragraphs/Paragraphs";
 import { ExperienceItem } from "../../Types";
 import { ExperienceItemDetails } from "../experienceItemDetails/ExperienceItemDetails";
-import { DownloadCVButton } from "../downloadCVButton/DownloadCVButton";
 import { lan } from "../../pages/index";
 
 type Props = {
@@ -14,6 +13,7 @@ type Props = {
   subHeadlineDetails?: ExperienceItem;
   showButton: boolean;
   language: lan;
+  button: any;
 };
 
 export const ContentSection = (props: Props) => {
@@ -21,7 +21,7 @@ export const ContentSection = (props: Props) => {
     <Wrapper>
       <TopSectionWrapper>
         <Headline text={props.headline} isBlack />
-        {props.showButton && <DownloadCVButton language={props.language} />}
+        {props.button}
       </TopSectionWrapper>
       {props.subHeadlineDetails && (
         <ExperienceItemDetails

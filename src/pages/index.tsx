@@ -8,6 +8,9 @@ import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
+import { DownloadCVButton } from "../components/downloadCVButton/DownloadCVButton";
+import { Button } from "../components/button/Button";
+import { Modal } from "../components/modal/Modal";
 
 export type PageContentLabels = {
   introduction: string;
@@ -40,14 +43,30 @@ export enum lan {
 
 const IndexPage = () => {
   const [language, setLanguage] = React.useState<lan>(lan.FINNISH);
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const wrapperNode = React.useRef<HTMLDivElement>(null);
   const updateLanguage = (lan: lan) => {
     setLanguage(lan);
+  };
+  React.useEffect(() => {
+    const reffedWrapperNode = wrapperNode.current;
+    if (reffedWrapperNode) {
+      reffedWrapperNode.addEventListener("click", (event: MouseEvent) =>
+        handleWrapperClick(event)
+      );
+    }
+  }, []);
+  const handleWrapperClick = (event: MouseEvent) => {
+    if (modalOpen) {
+      console.log("setting modalOpen to false");
+      setModalOpen(false);
+    }
   };
   const content = language === lan.ENGLISH ? ContentEn : ContentFi;
   const pageContentLabels =
     language === lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperNode}>
       <SEO title="Ari-Pekka Jääskeläinen" />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
@@ -62,6 +81,7 @@ const IndexPage = () => {
         description={content.description}
         showButton={false}
         language={language}
+        button={<Button text="KATSO VIDEO" onClick={setModalOpen} />}
       />
       <ContentSection
         headline={pageContentLabels.workExperience}
@@ -69,12 +89,14 @@ const IndexPage = () => {
         description={content.experience[0].description}
         showButton
         language={language}
+        button={<DownloadCVButton language={language} />}
       />
       <InformationSection
         profileDetails={content.profile}
         pageContentLabels={pageContentLabels}
         language={language}
       />
+      {modalOpen && <Modal setModalOpen={setModalOpen} />}
     </Wrapper>
   );
 };
@@ -83,6 +105,7 @@ export default IndexPage;
 
 const Wrapper = styled.div`
   background-color: #f0f0f0;
+  position: relative;
 `;
 
 const ProfileBallWrapper = styled.div`
