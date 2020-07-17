@@ -26,6 +26,7 @@ const pageContentLabelsFi = {
   education: "Koulutus",
   contactDetails: "Yhteystiedot",
   contactForm: "Ota minuun yhteyttä",
+  videoButton: "KATSO VIDEO"
 };
 
 const pageContentLabelsEn = {
@@ -34,6 +35,7 @@ const pageContentLabelsEn = {
   education: "Education",
   contactDetails: "Information",
   contactForm: "Contact Me",
+  videoButton: "WATCH VIDEO"
 };
 
 export enum lan {
@@ -81,7 +83,7 @@ const IndexPage = () => {
         description={content.description}
         showButton={false}
         language={language}
-        button={<Button text="KATSO VIDEO" onClick={setModalOpen} />}
+        button={<Button text={pageContentLabels.videoButton} onClick={setModalOpen} />}
       />
       <ContentSection
         headline={pageContentLabels.workExperience}
