@@ -62,6 +62,10 @@ const Information = styled.div`
   height: 650px;
   width: 50vw;
   background-color: #2c4a78;
+  @media (max-width: 800px) {
+    top: 150px;
+    width: 100vw;
+  }
 `;
 
 const Contact = styled.div`
@@ -71,16 +75,31 @@ const Contact = styled.div`
   height: 650px;
   width: 50vw;
   background-color: #b4c3da;
+  @media (max-width: 800px) {
+    top: 800px;
+    width: 100vw;
+  }
 `;
 
 const ContentWrapper = styled.div`
   width: 60%;
   margin: 0 0 0 auto;
   padding-top: 5rem;
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    width: 100%;
+    padding: 5rem 1rem;
+  }
 `;
 
 const ContentWrapperContact = styled.div`
   width: 60%;
   margin: 0 auto 0 5rem;
   padding-top: 5rem;
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
 `;

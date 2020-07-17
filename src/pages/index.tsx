@@ -48,7 +48,7 @@ const IndexPage = () => {
     language === lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
     <Wrapper>
-      <SEO title="Home" />
+      <SEO title="Ari-Pekka Jääskeläinen" />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
@@ -80,7 +80,6 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
-
 
 const Wrapper = styled.div`
   background-color: #f0f0f0;
