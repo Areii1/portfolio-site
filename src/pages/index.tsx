@@ -27,6 +27,7 @@ const pageContentLabelsFi = {
   contactDetails: "Yhteystiedot",
   contactForm: "Ota minuun yhteyttä",
   videoButton: "KATSO VIDEO",
+  viewPdf: "KATSO CV",
 };
 
 const pageContentLabelsEn = {
@@ -36,6 +37,7 @@ const pageContentLabelsEn = {
   contactDetails: "Information",
   contactForm: "Contact Me",
   videoButton: "WATCH VIDEO",
+  viewPdf: "VIEW CV",
 };
 
 export enum lan {
@@ -43,9 +45,18 @@ export enum lan {
   ENGLISH,
 }
 
+export enum ModalTypes {
+  VIDEO,
+  CV,
+}
+
+export type SetModalType = (modalType: ModalTypes | undefined) => void;
+
 const IndexPage = () => {
   const [language, setLanguage] = React.useState<lan>(lan.FINNISH);
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
+    undefined
+  );
   const wrapperNode = React.useRef<HTMLDivElement>(null);
   const updateLanguage = (lan: lan) => {
     setLanguage(lan);
@@ -59,9 +70,9 @@ const IndexPage = () => {
     }
   }, []);
   const handleWrapperClick = (event: MouseEvent) => {
-    if (modalOpen) {
+    if (modalType) {
       console.log("setting modalOpen to false");
-      setModalOpen(false);
+      setModalType(undefined);
     }
   };
   const content = language === lan.ENGLISH ? ContentEn : ContentFi;
@@ -85,7 +96,11 @@ const IndexPage = () => {
         showButton={false}
         language={language}
         button={
-          <Button text={pageContentLabels.videoButton} onClick={setModalOpen} />
+          <Button
+            text={pageContentLabels.videoButton}
+            setModalType={setModalType}
+            type={ModalTypes.VIDEO}
+          />
         }
       />
       <ContentSection
@@ -94,18 +109,25 @@ const IndexPage = () => {
         description={content.experience[0].description}
         showButton
         language={language}
-        button={<DownloadCVButton language={language} />}
+        button={
+          <Button
+            text={pageContentLabels.viewPdf}
+            setModalType={setModalType}
+            type={ModalTypes.CV}
+          />
+        }
       />
       <InformationSection
         profileDetails={content.profile}
         pageContentLabels={pageContentLabels}
         language={language}
       />
-      {modalOpen && (
+      {modalType !== undefined && (
         <Modal
           language={language}
-          setModalOpen={setModalOpen}
+          setModalType={setModalType}
           updateLanguage={updateLanguage}
+          isVideo={modalType === ModalTypes.VIDEO}
         />
       )}
     </Wrapper>

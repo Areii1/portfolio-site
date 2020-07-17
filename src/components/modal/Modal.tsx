@@ -1,30 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import { lan } from "../../pages/index";
+import { lan, ModalTypes } from "../../pages/index";
 import { LanguageList } from "../toggleLanguage/ToggleLanguage";
+import { VideoSection } from "./videoSection/VideoSection";
+import { PdfSection } from "./pdfSection/PdfSection";
 
 type Props = {
-  setModalOpen: (modalOpen: boolean) => void;
+  setModalType: (modalTypes: ModalTypes | undefined) => void;
   updateLanguage: (language: lan) => void;
   language: lan;
+  isVideo: boolean;
+  type: ModalTypes;
 };
 
-const videoSrcEn =
-  "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/video-english.mp4";
-const videoSrcFi =
-  "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/video-finnish.mp4";
-const posterSrc =
-  "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png";
-
-const closeVideoTextEn = "close video";
-const closeVideoTextFi = "sulje video";
+const closeModalTextEn = "close modal";
+const closeModalTextFi = "sulje modaali";
 
 export const Modal = (props: Props) => {
   const closeVideoText =
-    props.language === lan.ENGLISH ? closeVideoTextEn : closeVideoTextFi;
+    props.language === lan.ENGLISH ? closeModalTextEn : closeModalTextFi;
   return (
     <ModalWrapper>
-      <ModalBox>
+      <ModalBox type={props.type}>
         <ContentWrapper>
           <Header>
             <LanguageList
@@ -33,22 +30,14 @@ export const Modal = (props: Props) => {
               language={props.language}
             />
             <CloseButton
-              onClick={() => props.setModalOpen(false)}
+              onClick={() => props.setModalType(undefined)}
               title={closeVideoText}
             >
               <CloseButtonText>X</CloseButtonText>
             </CloseButton>
           </Header>
-          {props.language == lan.ENGLISH && (
-            <video preload="auto" poster={posterSrc} controls width="300px">
-              <source src={videoSrcEn} type="video/mp4" />
-            </video>
-          )}
-          {props.language === lan.FINNISH && (
-            <video preload="auto" poster={posterSrc} controls width="300px">
-              <source src={videoSrcFi} type="video/mp4" />
-            </video>
-          )}
+          {props.isVideo && <VideoSection language={props.language} />}
+          {!props.isVideo && <PdfSection language={props.language} />}
         </ContentWrapper>
       </ModalBox>
     </ModalWrapper>
@@ -64,9 +53,16 @@ const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 15, 0.7);
 `;
 
+type ModalBoxProps = {
+  type: ModalTypes;
+};
+
 const ModalBox = styled.div`
   position: fixed;
-  top: calc(50% - 400px);
+  top: ${(modalBoxProps: ModalBoxProps) =>
+    modalBoxProps.type === ModalTypes.VIDEO
+      ? "calc(50% - 275px)"
+      : "calc(50% - 400px)"};
   left: calc(50% - 150px);
   background-color: white;
 `;
