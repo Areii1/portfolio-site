@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import headerBg from "../../assets/header.jpg";
-import { lan } from '../../pages/index';
+import { lan } from "../../pages/index";
+import { LanguageList } from "../languageList/LanguageList";
 
 type PropTypes = {
   name: string;
@@ -17,18 +18,7 @@ export const Header = (props: PropTypes) => {
         <Headline>{props.name}</Headline>
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
       </TitlesWrapper>
-      <LanguageList>
-        <LanguageListItem>
-          <LanguageListItemButton onClick={() => props.updateLanguage(lan.ENGLISH)}>
-            EN
-          </LanguageListItemButton>
-        </LanguageListItem>
-        <LanguageListItem>
-          <LanguageListItemButton onClick={() => props.updateLanguage(lan.FINNISH)}>
-            FI
-          </LanguageListItemButton>
-        </LanguageListItem>
-      </LanguageList>
+      <LanguageList updateLanguage={props.updateLanguage} />
     </Wrapper>
   );
 };
@@ -86,27 +76,4 @@ const TitlesWrapper = styled.div`
     width: 300px;
     left: calc(50% - 150px);
   }
-`;
-
-const LanguageList = styled.ul`
-  position: absolute;
-  top: 0;
-  right: 0;
-  list-style-type: none;
-  padding: 1rem;
-  margin: 0;
-  display: flex;
-`;
-
-const LanguageListItem = styled.li`
-  margin-left: 1rem;
-`;
-
-const LanguageListItemButton = styled.button`
-  padding: 0;
-  background-color: transparent;
-  border: 1px solid transparent;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
 `;

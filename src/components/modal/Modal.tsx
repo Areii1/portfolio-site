@@ -14,22 +14,26 @@ const videoSrcFi =
 const posterSrc =
   "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png";
 
+const closeVideoTextEn = "close video";
+const closeVideoTextFi = "sulje video";
+
 export const Modal = (props: Props) => {
-  console.log("modal rendered");
   const videoSrc = props.language === lan.ENGLISH ? videoSrcEn : videoSrcFi;
+  const closeVideoText =
+    props.language === lan.ENGLISH ? closeVideoTextEn : closeVideoTextFi;
   return (
     <ModalWrapper>
       <ModalBox>
         <ContentWrapper>
           <CloseButton
             onClick={() => props.setModalOpen(false)}
-            title="close video"
+            title={closeVideoText}
           >
             <CloseButtonText>X</CloseButtonText>
           </CloseButton>
-          <video preload="auto" poster={posterSrc} controls width="400px">
+          <Video preload="auto" poster={posterSrc} controls width="300px">
             <source src={videoSrc} type="video/mp4" />
-          </video>
+          </Video>
         </ContentWrapper>
       </ModalBox>
     </ModalWrapper>
@@ -47,16 +51,19 @@ const ModalWrapper = styled.div`
 
 const ModalBox = styled.div`
   position: fixed;
-  top: calc(50% - 350px);
-  left: calc(50% - 200px);
-  height: 700px;
-  width: 400px;
+  top: calc(50% - 400px);
+  left: calc(50% - 150px);
+  height: 600px;
   background-color: white;
-  opacity: 1;
+`;
+
+const Video = styled.video`
+  margin: auto 0 0 0;
 `;
 
 const ContentWrapper = styled.div`
   position: relative;
+  display: flex;
   width: 100%;
   height: 100%;
 `;
@@ -66,8 +73,8 @@ const CloseButton = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
-  top: 0;
-  right: -2rem;
+  top: 0.5rem;
+  right: 0.5rem;
   cursor: pointer;
 `;
 
@@ -75,5 +82,5 @@ const CloseButtonText = styled.h6`
   margin: 0;
   font-size: 3em;
   font-weight: lighter;
-  color: white;
+  color: gray;
 `;
