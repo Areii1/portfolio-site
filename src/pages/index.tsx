@@ -74,6 +74,7 @@ const IndexPage = () => {
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
         updateLanguage={updateLanguage}
+        language={language}
       />
       <ProfileBallWrapper>
         <ProfileBall picture="sd" />

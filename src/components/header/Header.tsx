@@ -8,6 +8,7 @@ type PropTypes = {
   name: string;
   jobTitle: string;
   updateLanguage: any;
+  language: lan;
 };
 
 export const Header = (props: PropTypes) => {
@@ -19,7 +20,11 @@ export const Header = (props: PropTypes) => {
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
       </TitlesWrapper>
       <ListWrapper>
-        <LanguageList updateLanguage={props.updateLanguage} isBlack={false} />
+        <LanguageList
+          updateLanguage={props.updateLanguage}
+          isBlack={false}
+          language={props.language}
+        />
       </ListWrapper>
     </Wrapper>
   );

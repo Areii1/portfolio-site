@@ -28,7 +28,11 @@ export const Modal = (props: Props) => {
       <ModalBox>
         <ContentWrapper>
           <Header>
-            <LanguageList updateLanguage={props.updateLanguage} isBlack />
+            <LanguageList
+              updateLanguage={props.updateLanguage}
+              isBlack
+              language={props.language}
+            />
             <CloseButton
               onClick={() => props.setModalOpen(false)}
               title={closeVideoText}
