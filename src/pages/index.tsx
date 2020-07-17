@@ -96,7 +96,7 @@ const IndexPage = () => {
         pageContentLabels={pageContentLabels}
         language={language}
       />
-      {modalOpen && <Modal setModalOpen={setModalOpen} />}
+      {modalOpen && <Modal language={language} setModalOpen={setModalOpen} />}
     </Wrapper>
   );
 };
