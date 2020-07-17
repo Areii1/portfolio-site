@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { lan } from "../../pages/index";
+import { LanguageList } from "../languageList/LanguageList";
 
 type Props = {
   setModalOpen: (modalOpen: boolean) => void;
+  updateLanguage: (language: lan) => void;
   language: lan;
 };
 
@@ -25,15 +27,18 @@ export const Modal = (props: Props) => {
     <ModalWrapper>
       <ModalBox>
         <ContentWrapper>
-          <CloseButton
-            onClick={() => props.setModalOpen(false)}
-            title={closeVideoText}
-          >
-            <CloseButtonText>X</CloseButtonText>
-          </CloseButton>
-          <Video preload="auto" poster={posterSrc} controls width="300px">
+          <Header>
+            <LanguageList updateLanguage={props.updateLanguage} isBlack />
+            <CloseButton
+              onClick={() => props.setModalOpen(false)}
+              title={closeVideoText}
+            >
+              <CloseButtonText>X</CloseButtonText>
+            </CloseButton>
+          </Header>
+          <video preload="auto" poster={posterSrc} controls width="300px">
             <source src={videoSrc} type="video/mp4" />
-          </Video>
+          </video>
         </ContentWrapper>
       </ModalBox>
     </ModalWrapper>
@@ -53,34 +58,31 @@ const ModalBox = styled.div`
   position: fixed;
   top: calc(50% - 400px);
   left: calc(50% - 150px);
-  height: 600px;
   background-color: white;
 `;
 
-const Video = styled.video`
-  margin: auto 0 0 0;
-`;
-
 const ContentWrapper = styled.div`
-  position: relative;
-  display: flex;
   width: 100%;
   height: 100%;
 `;
 
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const CloseButton = styled.button`
-  position: absolute;
   background-color: transparent;
   border: none;
   padding: 0;
-  top: 0.5rem;
-  right: 0.5rem;
+  margin: 0 1rem 0 0;
   cursor: pointer;
 `;
 
 const CloseButtonText = styled.h6`
   margin: 0;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: lighter;
-  color: gray;
+  color: black;
 `;

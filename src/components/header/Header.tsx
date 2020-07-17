@@ -18,7 +18,9 @@ export const Header = (props: PropTypes) => {
         <Headline>{props.name}</Headline>
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
       </TitlesWrapper>
-      <LanguageList updateLanguage={props.updateLanguage} />
+      <ListWrapper>
+        <LanguageList updateLanguage={props.updateLanguage} isBlack={false} />
+      </ListWrapper>
     </Wrapper>
   );
 };
@@ -27,6 +29,7 @@ const Wrapper = styled.header`
   height: 600px;
   overflow: hidden;
   position: relative;
+  padding: 1rem;
 `;
 
 const ImageWrapper = styled.div`
@@ -76,4 +79,11 @@ const TitlesWrapper = styled.div`
     width: 300px;
     left: calc(50% - 150px);
   }
+`;
+
+const ListWrapper = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
 `;

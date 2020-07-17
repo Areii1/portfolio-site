@@ -26,7 +26,7 @@ const pageContentLabelsFi = {
   education: "Koulutus",
   contactDetails: "Yhteystiedot",
   contactForm: "Ota minuun yhteyttä",
-  videoButton: "KATSO VIDEO"
+  videoButton: "KATSO VIDEO",
 };
 
 const pageContentLabelsEn = {
@@ -35,7 +35,7 @@ const pageContentLabelsEn = {
   education: "Education",
   contactDetails: "Information",
   contactForm: "Contact Me",
-  videoButton: "WATCH VIDEO"
+  videoButton: "WATCH VIDEO",
 };
 
 export enum lan {
@@ -83,7 +83,9 @@ const IndexPage = () => {
         description={content.description}
         showButton={false}
         language={language}
-        button={<Button text={pageContentLabels.videoButton} onClick={setModalOpen} />}
+        button={
+          <Button text={pageContentLabels.videoButton} onClick={setModalOpen} />
+        }
       />
       <ContentSection
         headline={pageContentLabels.workExperience}
@@ -98,7 +100,13 @@ const IndexPage = () => {
         pageContentLabels={pageContentLabels}
         language={language}
       />
-      {modalOpen && <Modal language={language} setModalOpen={setModalOpen} />}
+      {modalOpen && (
+        <Modal
+          language={language}
+          setModalOpen={setModalOpen}
+          updateLanguage={updateLanguage}
+        />
+      )}
     </Wrapper>
   );
 };
