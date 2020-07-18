@@ -1,6 +1,6 @@
 import React from "react";
-// import styled from "styled-components";
 import { lan } from "../../../pages/index";
+import styled from "styled-components";
 
 type Props = {
   language: lan;
@@ -14,14 +14,50 @@ const cvCover =
   "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/cv-cover.png";
 
 export const PdfSection = (props: Props) => {
+  React.useEffect(() => {}, [props.language]);
+  const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
+  const handleLoaded = () => {
+    setIsLoaded(true);
+  };
   return (
     <>
-      {props.language == lan.ENGLISH && (
-        <iframe src={cvEn} width="400px" height="800px" />
-      )}
-      {props.language === lan.FINNISH && (
-        <iframe src={cvFi} width="400px" height="800px" />
-      )}
+      {!isLoaded && <Image src={cvCover} />}
+      <>
+        {props.language == lan.ENGLISH && (
+          <Iframe
+            src={`${cvEn}#toolbar=0`}
+            width="100%"
+            height="100%"
+            allow="allowfullscreen"
+            onLoad={handleLoaded}
+            loaded={isLoaded}
+          />
+        )}
+        {props.language === lan.FINNISH && (
+          <Iframe
+            src={`${cvFi}#toolbar=0`}
+            width="100%"
+            height="100%"
+            allow="allowfullscreen"
+            onLoad={handleLoaded}
+            loaded={isLoaded}
+          />
+        )}
+      </>
     </>
   );
 };
+
+const Image = styled.img`
+  margin: 0;
+  width: 300px;
+  max-height: 100%;
+`;
+
+type IframeProps = {
+  loaded: boolean;
+};
+
+const Iframe = styled.iframe`
+  display: ${(props: IframeProps) => (props.loaded ? "initial" : "none")};
+`;

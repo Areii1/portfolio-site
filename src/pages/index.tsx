@@ -128,6 +128,7 @@ const IndexPage = () => {
           setModalType={setModalType}
           updateLanguage={updateLanguage}
           isVideo={modalType === ModalTypes.VIDEO}
+          type={modalType}
         />
       )}
     </Wrapper>
