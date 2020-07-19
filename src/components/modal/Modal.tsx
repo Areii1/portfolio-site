@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { lan, ModalTypes } from "../../pages/index";
-import { LanguageList } from "../toggleLanguage/ToggleLanguage";
 import { VideoSection } from "./videoSection/VideoSection";
 import { PdfSection } from "./pdfSection/PdfSection";
-import FullscreenIcon from "../../images/full-screen.png";
-import OutOfFullscreenIcon from "../../images/out-of-fullscreen.png";
-import DownloadIcon from "../../images/download-icon.png";
+import { ModalHeader } from "./modalHeader/ModalHeader";
 
 type Props = {
   setModalType: (modalTypes: ModalTypes | undefined) => void;
@@ -16,68 +13,21 @@ type Props = {
   type: ModalTypes;
 };
 
-const modalContentLabelsEn = {
-  closeModal: "close modal",
-  fullscreen: "fullscreen",
-  outOfFullscreen: "minimize",
-  downloadCv: "download cv",
-};
-
-const modalContentLabelsFi = {
-  closeModal: "sulje modaali",
-  fullscreen: "koko ruudun tila",
-  outOfFullscreen: "pois koko ruudun tilasta",
-  downloadCv: "lataa cv",
-};
-
 export const Modal = (props: Props) => {
   const [pdfInFullScreen, setPdfInFullScreen] = React.useState<boolean>(false);
-  const modalContentLabels =
-    props.language === lan.ENGLISH
-      ? modalContentLabelsEn
-      : modalContentLabelsFi;
   return (
     <ModalWrapper>
       <ModalBox type={props.type} pdfInFullScreen={pdfInFullScreen}>
         <ContentWrapper type={props.type} pdfInFullScreen={pdfInFullScreen}>
-          <Header pdfInFullScreen={pdfInFullScreen}>
-            <LanguageList
-              updateLanguage={props.updateLanguage}
-              isBlack
-              language={props.language}
-            />
-            {props.type === ModalTypes.CV && (
-              <>
-                <Button
-                  type="button"
-                  onClick={() => setPdfInFullScreen(!pdfInFullScreen)}
-                  title={
-                    pdfInFullScreen
-                      ? modalContentLabels.outOfFullscreen
-                      : modalContentLabels.fullscreen
-                  }
-                >
-                  <Image
-                    src={pdfInFullScreen ? OutOfFullscreenIcon : FullscreenIcon}
-                  />
-                </Button>
-                <Button
-                  type="button"
-                  onClick={() => setPdfInFullScreen(!pdfInFullScreen)}
-                  title={modalContentLabels.downloadCv}
-                >
-                  <Image src={DownloadIcon} />
-                </Button>
-              </>
-            )}
-            <Button
-              type="button"
-              onClick={() => props.setModalType(undefined)}
-              title={modalContentLabels.closeModal}
-            >
-              <CloseButtonText>X</CloseButtonText>
-            </Button>
-          </Header>
+          <ModalHeader
+            pdfInFullScreen={pdfInFullScreen}
+            setModalType={props.setModalType}
+            updateLanguage={props.updateLanguage}
+            setPdfInFullScreen={setPdfInFullScreen}
+            language={props.language}
+            isVideo={props.isVideo}
+            type={props.type}
+          />
           {props.isVideo && <VideoSection language={props.language} />}
           {!props.isVideo && <PdfSection language={props.language} />}
         </ContentWrapper>
@@ -100,6 +50,29 @@ type ModalBoxProps = {
   pdfInFullScreen: boolean;
 };
 
+const ModalBox = styled.div`
+  position: fixed;
+  top: ${(props: ModalBoxProps) =>
+    getModalBoxTopPosition(props.pdfInFullScreen, props.type, false)};
+  @media (max-width: 800px) {
+    top: ${(props: ModalBoxProps) =>
+      getModalBoxTopPosition(props.pdfInFullScreen, props.type, true)};
+  }
+  left: ${(props: ModalBoxProps) =>
+    props.pdfInFullScreen && props.type === ModalTypes.CV
+      ? "0"
+      : "calc(50% - 150px);"};
+  background-color: white;
+  width: ${(props: ModalBoxProps) =>
+    props.pdfInFullScreen && props.type === ModalTypes.CV ? "100vw" : "auto"};
+  height: ${(props: ModalBoxProps) =>
+    getModalBoxHeight(props.pdfInFullScreen, props.type, false)};
+  @media (max-width: 800px) {
+    height: ${(props: ModalBoxProps) =>
+      getModalBoxHeight(props.pdfInFullScreen, props.type, true)};
+  }
+`;
+
 const getModalBoxTopPosition = (
   pdfInFullScreen: boolean,
   modalContentType: ModalTypes,
@@ -111,32 +84,32 @@ const getModalBoxTopPosition = (
     if (modalContentType === ModalTypes.VIDEO) {
       return "calc(50% - 275px)";
     } else {
-      return "calc(50% - 400px)";
+      if (!isMobile) {
+        return "calc(50% - 400px)";
+      } else {
+        return "calc(50% - 200px)";
+      }
     }
   }
 };
 
-const ModalBox = styled.div`
-  position: fixed;
-  top: ${(props: ModalBoxProps) =>
-    getModalBoxTopPosition(props.pdfInFullScreen, props.type, false)};
-  left: ${(props: ModalBoxProps) =>
-    props.pdfInFullScreen && props.type === ModalTypes.CV
-      ? "0"
-      : "calc(50% - 150px);"};
-  background-color: white;
-  width: ${(props: ModalBoxProps) =>
-    props.pdfInFullScreen && props.type === ModalTypes.CV ? "100vw" : "auto"};
-  height: ${(props: ModalBoxProps) => {
-    if (props.pdfInFullScreen && props.type === ModalTypes.CV) {
-      return "100vh";
-    } else if (!props.pdfInFullScreen && props.type === ModalTypes.CV) {
+const getModalBoxHeight = (
+  pdfInFullScreen: boolean,
+  modalContentType: ModalTypes,
+  isMobile: boolean
+) => {
+  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    return "100vh";
+  } else if (!pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    if (!isMobile) {
       return "800px";
     } else {
-      return "auto";
+      return "400px";
     }
-  }};
-`;
+  } else {
+    return "auto";
+  }
+};
 
 const ContentWrapper = styled.div`
   width: 100%;
@@ -147,35 +120,4 @@ const ContentWrapper = styled.div`
     !props.pdfInFullScreen && props.type === ModalTypes.CV
       ? "start"
       : "space-between"};
-`;
-
-type HeaderProps = {
-  pdfInFullScreen: boolean;
-};
-
-const Header = styled.div`
-  height: ${(props: HeaderProps) => (props.pdfInFullScreen ? "80px" : "40px")};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0 1rem 0 0;
-  cursor: pointer;
-`;
-
-const CloseButtonText = styled.h6`
-  margin: 0;
-  font-size: 2.5em;
-  font-weight: lighter;
-  color: black;
-`;
-
-const Image = styled.img`
-  width: 40px;
-  max-height: 40px;
 `;
