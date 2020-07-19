@@ -6,6 +6,7 @@ import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
 import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, lan } from "../../../pages/index";
 import { downloadFile } from "../../../util";
+import { FileDetails } from "../../../Types";
 
 const modalHeaderContentLabelsEn = {
   closeModal: "close modal",
@@ -21,11 +22,6 @@ const modalHeaderContentLabelsFi = {
   downloadCv: "lataa cv",
 };
 
-type Cv = {
-  link: string;
-  name: string;
-};
-
 type ModalHeader = {
   pdfInFullScreen: boolean;
   setModalType: (modalTypes: ModalTypes | undefined) => void;
@@ -34,7 +30,7 @@ type ModalHeader = {
   language: lan;
   isVideo: boolean;
   type: ModalTypes;
-  cv: Cv;
+  cv: FileDetails;
 };
 
 export const ModalHeader = (props: ModalHeader) => {
@@ -67,7 +63,7 @@ export const ModalHeader = (props: ModalHeader) => {
           <Button
             type="button"
             title={modalContentLabels.downloadCv}
-            onClick={() => downloadFile(props.cv.name, props.cv.link)}
+            onClick={() => downloadFile(props.cv.fileName, props.cv.fileUrl)}
           >
             <Image src={DownloadIcon} />
           </Button>

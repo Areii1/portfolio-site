@@ -9,6 +9,20 @@ const profileDetails: ProfileDetails = {
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
   jobTitle: "front-end kehittäjä",
+  cv: {
+    fileUrl:
+      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/ansioluettelo_ari-pekka_jaaskelainen.pdf",
+    filePosterUrl:
+      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/cv-cover.png",
+    fileName: "ansioluettelo_ari-pekka_jaaskelainen.pdf",
+  },
+  introductionVideo: {
+    fileUrl:
+      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/video-finnish.mp4",
+    filePosterUrl:
+      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
+    fileName: "video-finnish.mp4",
+  },
 };
 
 const experience: Array<ExperienceItem> = [

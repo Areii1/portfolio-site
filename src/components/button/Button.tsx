@@ -10,7 +10,6 @@ type Props = {
 
 export const Button = (props: Props) => {
   const onClick = props.setModalType ? props.setModalType : () => {};
-  console.log(props.type, 'type');
   return (
     <ButtonElement
       type="button"

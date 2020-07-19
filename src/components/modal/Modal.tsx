@@ -4,6 +4,7 @@ import { lan, ModalTypes } from "../../pages/index";
 import { VideoSection } from "./videoSection/VideoSection";
 import { PdfSection } from "./pdfSection/PdfSection";
 import { ModalHeader } from "./modalHeader/ModalHeader";
+import { ProfileDetails } from "../../Types";
 
 type Props = {
   setModalType: (modalTypes: ModalTypes | undefined) => void;
@@ -11,6 +12,7 @@ type Props = {
   language: lan;
   isVideo: boolean;
   type: ModalTypes;
+  profileDetails: ProfileDetails;
 };
 
 export const Modal = (props: Props) => {
@@ -27,10 +29,20 @@ export const Modal = (props: Props) => {
             language={props.language}
             isVideo={props.isVideo}
             type={props.type}
-            cv={{ link: "", name: "" }}
+            cv={props.profileDetails.cv}
           />
-          {props.isVideo && <VideoSection language={props.language} />}
-          {!props.isVideo && <PdfSection language={props.language} />}
+          {props.isVideo && (
+            <VideoSection
+              language={props.language}
+              introductionVideo={props.profileDetails.introductionVideo}
+            />
+          )}
+          {!props.isVideo && (
+            <PdfSection
+              language={props.language}
+              cv={props.profileDetails.cv}
+            />
+          )}
         </ContentWrapper>
       </ModalBox>
     </ModalWrapper>

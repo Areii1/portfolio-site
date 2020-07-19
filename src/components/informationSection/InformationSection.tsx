@@ -15,7 +15,6 @@ type Props = {
 };
 
 export const InformationSection = (props: Props) => {
-  console.log("information section rendered");
   return (
     <Wrapper>
       <ImageWrapper></ImageWrapper>

@@ -8,7 +8,6 @@ import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
-import { DownloadCVButton } from "../components/downloadCVButton/DownloadCVButton";
 import { Button } from "../components/button/Button";
 import { Modal } from "../components/modal/Modal";
 
@@ -129,6 +128,7 @@ const IndexPage = () => {
           updateLanguage={updateLanguage}
           isVideo={modalType === ModalTypes.VIDEO}
           type={modalType}
+          profileDetails={content.profile}
         />
       )}
     </Wrapper>

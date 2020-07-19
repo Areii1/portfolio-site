@@ -1,9 +1,9 @@
 export const downloadFile = (fileName: string, fileUrl: string) => {
-  // eslint-disable-next-line
   const newPromise = new Promise((resolve, _) => {
     fetch(fileUrl)
       .then(res => res.blob())
       .then(blob => {
+        console.log(blob, 'blob');
         const a = document.createElement("a");
         a.style.display = "none";
         document.body.appendChild(a);

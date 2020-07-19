@@ -1,3 +1,9 @@
+export type FileDetails = {
+  fileUrl: string;
+  filePosterUrl: string;
+  fileName: string;
+};
+
 export type ProfileDetails = {
   firstName: string;
   lastName: string;
@@ -8,6 +14,8 @@ export type ProfileDetails = {
   linkedInPageName: string;
   phoneNumber?: string;
   jobTitle: string;
+  cv: FileDetails;
+  introductionVideo: FileDetails;
 };
 
 type ExperienceItemDate = {
