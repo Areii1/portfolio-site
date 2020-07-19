@@ -100,19 +100,26 @@ type ModalBoxProps = {
   pdfInFullScreen: boolean;
 };
 
+const getModalBoxTopPosition = (
+  pdfInFullScreen: boolean,
+  modalContentType: ModalTypes,
+  isMobile: boolean
+) => {
+  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    return "calc(50% - 50vh)";
+  } else {
+    if (modalContentType === ModalTypes.VIDEO) {
+      return "calc(50% - 275px)";
+    } else {
+      return "calc(50% - 400px)";
+    }
+  }
+};
+
 const ModalBox = styled.div`
   position: fixed;
-  top: ${(props: ModalBoxProps) => {
-    if (props.pdfInFullScreen && props.type === ModalTypes.CV) {
-      return "calc(50% - 50vh)";
-    } else {
-      if (props.type === ModalTypes.VIDEO) {
-        return "calc(50% - 275px)";
-      } else {
-        return "calc(50% - 400px)";
-      }
-    }
-  }};
+  top: ${(props: ModalBoxProps) =>
+    getModalBoxTopPosition(props.pdfInFullScreen, props.type, false)};
   left: ${(props: ModalBoxProps) =>
     props.pdfInFullScreen && props.type === ModalTypes.CV
       ? "0"

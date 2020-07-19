@@ -9,7 +9,7 @@ type Props = {
 export const Headline = (props: Props) => {
   return (
     <div>
-      <HeadlineText>{props.text}</HeadlineText>
+      <HeadlineText isBlack={props.isBlack}>{props.text}</HeadlineText>
       <UnderLine />
     </div>
   );
@@ -21,7 +21,12 @@ const UnderLine = styled.div`
   background-color: red;
 `;
 
+type HeadlineTextProps = {
+  isBlack: boolean;
+};
+
 const HeadlineText = styled.h3`
+  color: ${(props: HeadlineTextProps) => (props.isBlack ? "black" : "white")};
   font-size: 3rem;
   margin: 0 0 1.5rem 0;
 `;

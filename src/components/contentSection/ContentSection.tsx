@@ -37,6 +37,9 @@ export const ContentSection = (props: Props) => {
 const Wrapper = styled.section`
   padding: 15rem 20rem 0 20rem;
   width: 100%;
+  @media (max-width: 1100px) {
+    padding: 15rem 10rem 0 10rem;
+  }
   @media (max-width: 800px) {
     padding: 15rem 1rem 0 1rem;
   }
