@@ -8,7 +8,7 @@ type Props = {
   language: lan;
 };
 
-export const LanguageList = (props: Props) => {
+export const ToggleLanguage = (props: Props) => {
   return (
     <List>
       <ListItem>

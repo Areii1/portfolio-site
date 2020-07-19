@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import headerBg from "../../assets/header.jpg";
 import { lan } from "../../pages/index";
-import { LanguageList } from "../toggleLanguage/ToggleLanguage";
+import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 
 type PropTypes = {
   name: string;
@@ -20,7 +20,7 @@ export const Header = (props: PropTypes) => {
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
       </TitlesWrapper>
       <ListWrapper>
-        <LanguageList
+        <ToggleLanguage
           updateLanguage={props.updateLanguage}
           isBlack={false}
           language={props.language}

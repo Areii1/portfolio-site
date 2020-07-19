@@ -1,4 +1,4 @@
-import { PageContent, ExperienceItem, ProfileDetails } from "./Types"
+import { PageContent, ExperienceItem, ProfileDetails } from "./Types";
 
 const profileDetails: ProfileDetails = {
   firstName: "Ari-Pekka",
@@ -9,7 +9,7 @@ const profileDetails: ProfileDetails = {
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
   jobTitle: "front-end developer",
-}
+};
 
 const experience: Array<ExperienceItem> = [
   {
@@ -50,7 +50,7 @@ const experience: Array<ExperienceItem> = [
       "Vestibulum congue sed augue quis tempus. Maecenas sagittis, felis placerat rutrum auctor, leo nisi congue quam, non imperdiet mi justo ac tellus. Donec ipsum est, rhoncus in felis vel, mollis ullamcorper mauris.",
     institute: "Transval oy",
   },
-]
+];
 
 const education: Array<ExperienceItem> = [
   {
@@ -81,7 +81,7 @@ const education: Array<ExperienceItem> = [
       "Suspendisse at nibh in ex commodo suscipit. Maecenas maximus ligula ut erat tempor iaculis. Donec posuere neque eget quam aliquet mollis.",
     institute: "Kerava High school",
   },
-]
+];
 
 export const ContentEn: PageContent = {
   profile: profileDetails,
@@ -91,4 +91,4 @@ export const ContentEn: PageContent = {
   ],
   experience: experience,
   education: education,
-}
+};

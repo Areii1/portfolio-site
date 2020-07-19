@@ -5,6 +5,7 @@ import FullscreenIcon from "../../../images/fullscreen.png";
 import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
 import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, lan } from "../../../pages/index";
+import { downloadFile } from "../../../util";
 
 const modalHeaderContentLabelsEn = {
   closeModal: "close modal",
@@ -19,6 +20,12 @@ const modalHeaderContentLabelsFi = {
   outOfFullscreen: "pois koko ruudun tilasta",
   downloadCv: "lataa cv",
 };
+
+type Cv = {
+  link: string;
+  name: string;
+};
+
 type ModalHeader = {
   pdfInFullScreen: boolean;
   setModalType: (modalTypes: ModalTypes | undefined) => void;
@@ -27,6 +34,7 @@ type ModalHeader = {
   language: lan;
   isVideo: boolean;
   type: ModalTypes;
+  cv: Cv;
 };
 
 export const ModalHeader = (props: ModalHeader) => {
@@ -35,7 +43,7 @@ export const ModalHeader = (props: ModalHeader) => {
       ? modalHeaderContentLabelsEn
       : modalHeaderContentLabelsFi;
   return (
-    <Header pdfInFullScreen={props.pdfInFullScreen}>
+    <Wrapper pdfInFullScreen={props.pdfInFullScreen}>
       <ToggleLanguage
         updateLanguage={props.updateLanguage}
         isBlack
@@ -58,8 +66,8 @@ export const ModalHeader = (props: ModalHeader) => {
           </Button>
           <Button
             type="button"
-            onClick={() => props.setPdfInFullScreen(!props.pdfInFullScreen)}
             title={modalContentLabels.downloadCv}
+            onClick={() => downloadFile(props.cv.name, props.cv.link)}
           >
             <Image src={DownloadIcon} />
           </Button>
@@ -72,16 +80,16 @@ export const ModalHeader = (props: ModalHeader) => {
       >
         <CloseButtonText>X</CloseButtonText>
       </Button>
-    </Header>
+    </Wrapper>
   );
 };
 
-type HeaderProps = {
+type WrapperProps = {
   pdfInFullScreen: boolean;
 };
 
-const Header = styled.div`
-  height: ${(props: HeaderProps) => (props.pdfInFullScreen ? "80px" : "40px")};
+const Wrapper = styled.div`
+  height: ${(props: WrapperProps) => (props.pdfInFullScreen ? "80px" : "40px")};
   display: flex;
   align-items: center;
   justify-content: space-between;

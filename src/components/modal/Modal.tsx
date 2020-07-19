@@ -27,6 +27,7 @@ export const Modal = (props: Props) => {
             language={props.language}
             isVideo={props.isVideo}
             type={props.type}
+            cv={{ link: "", name: "" }}
           />
           {props.isVideo && <VideoSection language={props.language} />}
           {!props.isVideo && <PdfSection language={props.language} />}
