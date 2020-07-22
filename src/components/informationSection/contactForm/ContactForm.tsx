@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { lan } from "../../../pages/index";
+import { lan, SetDialogBoxContent } from "../../../pages/index";
 import { sendEmail } from "../../../apiServices/SendEmail";
 
 const fieldPlaceholdersFi = {
@@ -19,6 +19,7 @@ const fieldPlaceholdersEn = {
 
 type Props = {
   language: lan;
+  setDialogBoxContent: SetDialogBoxContent;
 };
 
 export const ContactForm = (props: Props) => {
@@ -41,8 +42,18 @@ export const ContactForm = (props: Props) => {
           subjectField,
           messageField
         );
+        const dialogBoxContent = {
+          isError: false,
+          message: "message received, thank you",
+        };
+        props.setDialogBoxContent(dialogBoxContent);
         console.log(sendEmailResponse, "sendEmailResponse");
       } catch (sendEmailError) {
+        const dialogBoxContent = {
+          isError: true,
+          message: "could not send message",
+        };
+        props.setDialogBoxContent(dialogBoxContent);
         console.log(sendEmailError, "sendEmailError");
       }
     }

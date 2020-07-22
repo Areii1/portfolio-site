@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { ProfileDetails } from "../../Types";
 import contactBg from "../../assets/contact.jpg";
 import { Headline } from "../headline/Headline";
-import { PageContentLabels } from "../../pages/index";
+import { PageContentLabels, SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { lan } from "../../pages/index";
@@ -12,6 +12,7 @@ type Props = {
   profileDetails: ProfileDetails;
   pageContentLabels: PageContentLabels;
   language: lan;
+  setDialogBoxContent: SetDialogBoxContent;
 };
 
 export const InformationSection = (props: Props) => {
@@ -33,7 +34,7 @@ export const InformationSection = (props: Props) => {
       <Contact>
         <ContentWrapperContact>
           <Headline text={props.pageContentLabels.contactForm} isBlack />
-          <ContactForm language={props.language} />
+          <ContactForm language={props.language} setDialogBoxContent={props.setDialogBoxContent}/>
         </ContentWrapperContact>
       </Contact>
     </Wrapper>

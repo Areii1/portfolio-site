@@ -10,6 +10,7 @@ import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
 import { Button } from "../components/button/Button";
 import { Modal } from "../components/modal/Modal";
+import { DialogBox } from "../components/dialogBox/DialogBox";
 
 export type PageContentLabels = {
   introduction: string;
@@ -51,11 +52,23 @@ export enum ModalTypes {
 
 export type SetModalType = (modalType: ModalTypes | undefined) => void;
 
+export type DialogBoxContent = {
+  isError: boolean;
+  message: string;
+};
+
+export type SetDialogBoxContent = (
+  content: DialogBoxContent | undefined
+) => void;
+
 const IndexPage = () => {
   const [language, setLanguage] = React.useState<lan>(lan.FINNISH);
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
     undefined
   );
+  const [dialogBoxContent, setDialogBoxContent] = React.useState<
+    DialogBoxContent | undefined
+  >({ isError: false, message: "hello hello" });
   const wrapperNode = React.useRef<HTMLDivElement>(null);
   const updateLanguage = (lan: lan) => {
     setLanguage(lan);
@@ -120,6 +133,7 @@ const IndexPage = () => {
         profileDetails={content.profile}
         pageContentLabels={pageContentLabels}
         language={language}
+        setDialogBoxContent={setDialogBoxContent}
       />
       {modalType !== undefined && (
         <Modal
@@ -129,6 +143,12 @@ const IndexPage = () => {
           isVideo={modalType === ModalTypes.VIDEO}
           type={modalType}
           profileDetails={content.profile}
+        />
+      )}
+      {dialogBoxContent && modalType === undefined && (
+        <DialogBox
+          content={dialogBoxContent}
+          setDialogBoxContent={setDialogBoxContent}
         />
       )}
     </Wrapper>
