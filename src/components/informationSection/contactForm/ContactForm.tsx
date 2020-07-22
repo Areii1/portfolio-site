@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { lan } from "../../../pages/index";
+import { sendEmail } from "../../../apiServices/SendEmail";
 
 const fieldPlaceholdersFi = {
   name: "Nimi",
@@ -26,15 +27,25 @@ export const ContactForm = (props: Props) => {
   const [subjectField, setSubjectField] = React.useState<string>("");
   const [messageField, setMessageField] = React.useState<string>("");
 
-  const handleFormSubmit = (event: any) => {
+  const handleFormSubmit = async (event: any) => {
     event.preventDefault();
     setNameField("");
     setEmailField("");
     setSubjectField("");
     setMessageField("");
-    alert(
-      `name ${nameField} email ${emailield} subject ${subjectField} message ${messageField}`
-    );
+    if (messageField && emailield && subjectField && nameField) {
+      try {
+        const sendEmailResponse = await sendEmail(
+          emailield,
+          nameField,
+          subjectField,
+          messageField
+        );
+        console.log(sendEmailResponse, "sendEmailResponse");
+      } catch (sendEmailError) {
+        console.log(sendEmailError, "sendEmailError");
+      }
+    }
   };
 
   const fieldPlaceholders =
