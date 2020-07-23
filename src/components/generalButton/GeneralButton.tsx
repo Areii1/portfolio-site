@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import { ModalTypes, SetModalType } from "../../pages/index";
 
 type Props = {
   text: string;
-  setModalType?: SetModalType;
-  type: ModalTypes;
+  handleClick: any;
+  handleClickArgument?: any;
 };
 
-export const Button = (props: Props) => {
-  const onClick = props.setModalType ? props.setModalType : () => {};
+export const GeneralButton = (props: Props) => {
   return (
     <ButtonElement
       type="button"
       title={props.text.toLowerCase()}
-      onClick={() => onClick(props.type)}
+      onClick={() => props.handleClick(props.handleClickArgument)}
     >
       {props.text}
     </ButtonElement>

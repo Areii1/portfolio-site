@@ -14,10 +14,12 @@ export const sendEmail = async (
     message,
   };
   try {
-    const sendEmailResponse = await axios.post(
-      sendEmailEndpoint,
-      sendEmailParams
-    );
+    const sendEmailResponse = await axios({
+      method: "post",
+      url: sendEmailEndpoint,
+      data: sendEmailParams,
+      headers: { Authorization: "sad" },
+    });
     return { isError: false, response: sendEmailResponse };
   } catch (sendEmailError) {
     console.log(sendEmailError, "sendEmailResponse");

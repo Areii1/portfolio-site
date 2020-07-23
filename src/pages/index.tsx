@@ -8,7 +8,7 @@ import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
-import { Button } from "../components/button/Button";
+import { GeneralButton } from "../components/generalButton/GeneralButton";
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 
@@ -108,10 +108,10 @@ const IndexPage = () => {
         showButton={false}
         language={language}
         button={
-          <Button
+          <GeneralButton
             text={pageContentLabels.videoButton}
-            setModalType={setModalType}
-            type={ModalTypes.VIDEO}
+            handleClick={setModalType}
+            handleClickArgument={ModalTypes.VIDEO}
           />
         }
       />
@@ -122,10 +122,10 @@ const IndexPage = () => {
         showButton
         language={language}
         button={
-          <Button
+          <GeneralButton
             text={pageContentLabels.viewPdf}
-            setModalType={setModalType}
-            type={ModalTypes.CV}
+            handleClick={setModalType}
+            handleClickArgument={ModalTypes.CV}
           />
         }
       />

@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import CVFileEn from "../../assets/resume_ari_jaaskelainen.pdf";
 // import CVFileFi from "../../assets/ansioluettelo_ari-pekka_jaaskelainen.pdf";
 import { lan, ModalTypes, SetModalType } from "../../pages/index";
-import { Button } from "../button/Button";
+import { Button } from "../generalButton/GeneralButton";
 
 type Props = {
   language: lan;
