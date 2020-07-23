@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { lan, SetDialogBoxContent } from "../../../pages/index";
+import { Lan, SetDialogBoxContent } from "../../../pages/index";
 import { sendEmail } from "../../../apiServices/SendEmail";
 
 const fieldPlaceholdersFi = {
@@ -18,7 +18,7 @@ const fieldPlaceholdersEn = {
 };
 
 type Props = {
-  language: lan;
+  language: Lan;
   setDialogBoxContent: SetDialogBoxContent;
 };
 
@@ -60,7 +60,7 @@ export const ContactForm = (props: Props) => {
   };
 
   const fieldPlaceholders =
-    props.language === lan.ENGLISH ? fieldPlaceholdersEn : fieldPlaceholdersFi;
+    props.language === Lan.ENGLISH ? fieldPlaceholdersEn : fieldPlaceholdersFi;
 
   const handleFieldValueChange = (event: any) => {
     switch (event.target.id) {

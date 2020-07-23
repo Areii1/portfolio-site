@@ -5,14 +5,14 @@ import { Description } from "../../Types";
 import { Paragraphs } from "../paragraphs/Paragraphs";
 import { ExperienceItem } from "../../Types";
 import { ExperienceItemDetails } from "../experienceItemDetails/ExperienceItemDetails";
-import { lan } from "../../pages/index";
+import { Lan } from "../../pages/index";
 
 type Props = {
   headline: string;
   description: Description;
   subHeadlineDetails?: ExperienceItem;
   showButton: boolean;
-  language: lan;
+  language: Lan;
   button: any;
 };
 

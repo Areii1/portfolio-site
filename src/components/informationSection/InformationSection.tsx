@@ -6,12 +6,12 @@ import { Headline } from "../headline/Headline";
 import { PageContentLabels, SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
-import { lan } from "../../pages/index";
+import { Lan } from "../../pages/index";
 
 type Props = {
   profileDetails: ProfileDetails;
   pageContentLabels: PageContentLabels;
-  language: lan;
+  language: Lan;
   setDialogBoxContent: SetDialogBoxContent;
 };
 

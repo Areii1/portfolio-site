@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 type Props = {
   text: string;
-  handleClick: any;
-  handleClickArgument?: any;
+  handleClick: () => void;
 };
 
 export const GeneralButton = (props: Props) => {
@@ -12,7 +11,7 @@ export const GeneralButton = (props: Props) => {
     <ButtonElement
       type="button"
       title={props.text.toLowerCase()}
-      onClick={() => props.handleClick(props.handleClickArgument)}
+      onClick={props.handleClick}
     >
       {props.text}
     </ButtonElement>

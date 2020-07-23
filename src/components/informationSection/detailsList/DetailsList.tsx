@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { ProfileDetails } from "../../../Types";
-import { lan } from "../../../pages/index";
+import { Lan } from "../../../pages/index";
 
 type Props = {
   profileDetails: ProfileDetails;
-  language: lan;
+  language: Lan;
 };
 
 export const DetailsList = (props: Props) => {
@@ -13,7 +13,7 @@ export const DetailsList = (props: Props) => {
     <List>
       <ListItem>
         <ListItemLabel>
-          {props.language === lan.ENGLISH ? "email:" : "sähköposti:"}
+          {props.language === Lan.ENGLISH ? "email:" : "sähköposti:"}
         </ListItemLabel>
         <ListItemText>{props.profileDetails.email}</ListItemText>
       </ListItem>

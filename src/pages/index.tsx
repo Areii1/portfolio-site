@@ -8,7 +8,7 @@ import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
-import { GeneralButton } from "../components/generalButton/GeneralButton";
+import { GeneralButton } from "../components/buttons/generalButton/GeneralButton";
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 
@@ -40,7 +40,7 @@ const pageContentLabelsEn = {
   viewPdf: "VIEW CV",
 };
 
-export enum lan {
+export enum Lan {
   FINNISH,
   ENGLISH,
 }
@@ -49,8 +49,6 @@ export enum ModalTypes {
   VIDEO,
   CV,
 }
-
-export type SetModalType = (modalType: ModalTypes | undefined) => void;
 
 export type DialogBoxContent = {
   isError: boolean;
@@ -62,7 +60,7 @@ export type SetDialogBoxContent = (
 ) => void;
 
 const IndexPage = () => {
-  const [language, setLanguage] = React.useState<lan>(lan.FINNISH);
+  const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
     undefined
   );
@@ -70,7 +68,7 @@ const IndexPage = () => {
     DialogBoxContent | undefined
   >({ isError: false, message: "hello hello" });
   const wrapperNode = React.useRef<HTMLDivElement>(null);
-  const updateLanguage = (lan: lan) => {
+  const updateLanguage = (lan: Lan) => {
     setLanguage(lan);
   };
   React.useEffect(() => {
@@ -87,9 +85,9 @@ const IndexPage = () => {
       setModalType(undefined);
     }
   };
-  const content = language === lan.ENGLISH ? ContentEn : ContentFi;
+  const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
   const pageContentLabels =
-    language === lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
+    language === Lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
     <Wrapper ref={wrapperNode}>
       <SEO title="Ari-Pekka Jääskeläinen" />
@@ -110,8 +108,7 @@ const IndexPage = () => {
         button={
           <GeneralButton
             text={pageContentLabels.videoButton}
-            handleClick={setModalType}
-            handleClickArgument={ModalTypes.VIDEO}
+            handleClick={() => setModalType(ModalTypes.VIDEO)}
           />
         }
       />
@@ -124,8 +121,7 @@ const IndexPage = () => {
         button={
           <GeneralButton
             text={pageContentLabels.viewPdf}
-            handleClick={setModalType}
-            handleClickArgument={ModalTypes.CV}
+            handleClick={() => setModalType(ModalTypes.CV)}
           />
         }
       />

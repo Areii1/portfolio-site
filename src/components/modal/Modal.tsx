@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { lan, ModalTypes } from "../../pages/index";
+import { Lan, ModalTypes } from "../../pages/index";
 import { VideoSection } from "./videoSection/VideoSection";
 import { PdfSection } from "./pdfSection/PdfSection";
 import { ModalHeader } from "./modalHeader/ModalHeader";
@@ -8,8 +8,8 @@ import { ProfileDetails } from "../../Types";
 
 type Props = {
   setModalType: (modalTypes: ModalTypes | undefined) => void;
-  updateLanguage: (language: lan) => void;
-  language: lan;
+  updateLanguage: (language: Lan) => void;
+  language: Lan;
   isVideo: boolean;
   type: ModalTypes;
   profileDetails: ProfileDetails;

@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import headerBg from "../../assets/header.jpg";
-import { lan } from "../../pages/index";
+import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 
 type PropTypes = {
   name: string;
   jobTitle: string;
   updateLanguage: any;
-  language: lan;
+  language: Lan;
 };
 
 export const Header = (props: PropTypes) => {

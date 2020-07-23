@@ -4,7 +4,7 @@ import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
 import FullscreenIcon from "../../../images/fullscreen.png";
 import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
 import DownloadIcon from "../../../images/download-icon.png";
-import { ModalTypes, lan } from "../../../pages/index";
+import { ModalTypes, Lan } from "../../../pages/index";
 import { downloadFile } from "../../../util";
 import { FileDetails } from "../../../Types";
 
@@ -25,9 +25,9 @@ const modalHeaderContentLabelsFi = {
 type ModalHeader = {
   pdfInFullScreen: boolean;
   setModalType: (modalTypes: ModalTypes | undefined) => void;
-  updateLanguage: (language: lan) => void;
+  updateLanguage: (language: Lan) => void;
   setPdfInFullScreen: (toggleOn: boolean) => void;
-  language: lan;
+  language: Lan;
   isVideo: boolean;
   type: ModalTypes;
   cv: FileDetails;
@@ -35,7 +35,7 @@ type ModalHeader = {
 
 export const ModalHeader = (props: ModalHeader) => {
   const modalContentLabels =
-    props.language === lan.ENGLISH
+    props.language === Lan.ENGLISH
       ? modalHeaderContentLabelsEn
       : modalHeaderContentLabelsFi;
   return (

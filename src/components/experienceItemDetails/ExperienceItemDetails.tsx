@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { ExperienceItem } from "../../Types";
-import { lan } from "../../pages/index";
+import { Lan } from "../../pages/index";
 
 type Props = {
   subHeadlineDetails: ExperienceItem;
-  language: lan;
+  language: Lan;
 };
 
-const getDateString = (subHeadlineDetails: ExperienceItem, language: lan) => {
-  const currentText = language === lan.ENGLISH ? "current" : "nykypäivä";
+const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
+  const currentText = language === Lan.ENGLISH ? "current" : "nykypäivä";
   const beginDateStr = `${subHeadlineDetails.beginDate.month}/${subHeadlineDetails.beginDate.year}`;
   const endingDateStr = subHeadlineDetails.endingDate
     ? `${subHeadlineDetails.endingDate.month}/${subHeadlineDetails.endingDate.year}`

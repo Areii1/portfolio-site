@@ -1,10 +1,10 @@
 import React from "react";
-import { lan } from "../../../pages/index";
+import { Lan } from "../../../pages/index";
 import styled from "styled-components";
 import { FileDetails } from "../../../Types";
 
 type Props = {
-  language: lan;
+  language: Lan;
   cv: FileDetails;
 };
 
@@ -17,7 +17,7 @@ export const PdfSection = (props: Props) => {
     <>
       {!isLoaded && <Image src={props.cv.filePosterUrl} />}
       <>
-        {props.language == lan.ENGLISH && (
+        {props.language == Lan.ENGLISH && (
           <Iframe
             src={`${props.cv.fileUrl}#toolbar=0`}
             width="100%"
@@ -27,7 +27,7 @@ export const PdfSection = (props: Props) => {
             loaded={isLoaded}
           />
         )}
-        {props.language === lan.FINNISH && (
+        {props.language === Lan.FINNISH && (
           <Iframe
             src={`${props.cv.fileUrl}#toolbar=0`}
             width="100%"

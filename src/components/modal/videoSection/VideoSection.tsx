@@ -1,16 +1,16 @@
 import React from "react";
-import { lan } from "../../../pages/index";
+import { Lan } from "../../../pages/index";
 import { FileDetails } from "../../../Types";
 
 type Props = {
-  language: lan;
+  language: Lan;
   introductionVideo: FileDetails;
 };
 
 export const VideoSection = (props: Props) => {
   return (
     <>
-      {props.language == lan.ENGLISH && (
+      {props.language == Lan.ENGLISH && (
         <video
           preload="auto"
           poster={props.introductionVideo.filePosterUrl}
@@ -20,7 +20,7 @@ export const VideoSection = (props: Props) => {
           <source src={props.introductionVideo.fileUrl} type="video/mp4" />
         </video>
       )}
-      {props.language === lan.FINNISH && (
+      {props.language === Lan.FINNISH && (
         <video
           preload="auto"
           poster={props.introductionVideo.filePosterUrl}

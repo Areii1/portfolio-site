@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { lan } from "../../pages/index";
+import { Lan } from "../../pages/index";
 
 type Props = {
-  updateLanguage: (language: lan) => void;
+  updateLanguage: (language: Lan) => void;
   isBlack: boolean;
-  language: lan;
+  language: Lan;
 };
 
 export const ToggleLanguage = (props: Props) => {
@@ -13,13 +13,13 @@ export const ToggleLanguage = (props: Props) => {
     <List>
       <ListItem>
         <Button
-          onClick={() => props.updateLanguage(lan.ENGLISH)}
-          title={props.language === lan.ENGLISH ? "" : "english"}
-          isActive={props.language === lan.ENGLISH}
+          onClick={() => props.updateLanguage(Lan.ENGLISH)}
+          title={props.language === Lan.ENGLISH ? "" : "english"}
+          isActive={props.language === Lan.ENGLISH}
         >
           <ButtonText
             isBlack={props.isBlack}
-            isActive={props.language === lan.ENGLISH}
+            isActive={props.language === Lan.ENGLISH}
           >
             EN
           </ButtonText>
@@ -27,13 +27,13 @@ export const ToggleLanguage = (props: Props) => {
       </ListItem>
       <ListItem>
         <Button
-          onClick={() => props.updateLanguage(lan.FINNISH)}
-          title={props.language === lan.FINNISH ? "" : "finnish"}
-          isActive={props.language === lan.FINNISH}
+          onClick={() => props.updateLanguage(Lan.FINNISH)}
+          title={props.language === Lan.FINNISH ? "" : "finnish"}
+          isActive={props.language === Lan.FINNISH}
         >
           <ButtonText
             isBlack={props.isBlack}
-            isActive={props.language === lan.FINNISH}
+            isActive={props.language === Lan.FINNISH}
           >
             FI
           </ButtonText>
