@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     console.log(props.width, "width received");
     return `calc(50% - ${props.width / 2}px)`;
   }};
-  max-width: 200px;
+  max-width: 500px;
   padding: 0.5rem 1rem;
   background-color: white;
   border: ${(props: WrapperProps) => {

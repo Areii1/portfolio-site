@@ -64,9 +64,10 @@ const IndexPage = () => {
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
     undefined
   );
+  const [showModal, setShowModal] = React.useState<boolean>(false);
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
-  >({ isError: true, message: 'jee ejejjejejejje'});
+  >(undefined);
   const wrapperNode = React.useRef<HTMLDivElement>(null);
   const updateLanguage = (lan: Lan) => {
     setLanguage(lan);
@@ -79,9 +80,19 @@ const IndexPage = () => {
       );
     }
   }, []);
+
+  React.useEffect(() => {
+    if (dialogBoxContent) {
+      setShowModal(true);
+      setTimeout(() => {
+        setShowModal(false);
+      }, 5000);
+    } else {
+      setShowModal(false);
+    }
+  }, [dialogBoxContent]);
   const handleWrapperClick = (event: MouseEvent) => {
     if (modalType) {
-      console.log("setting modalOpen to false");
       setModalType(undefined);
     }
   };
@@ -141,7 +152,7 @@ const IndexPage = () => {
           profileDetails={content.profile}
         />
       )}
-      {dialogBoxContent && modalType === undefined && (
+      {dialogBoxContent && modalType === undefined && showModal && (
         <DialogBox
           content={dialogBoxContent}
           setDialogBoxContent={setDialogBoxContent}

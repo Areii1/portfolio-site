@@ -17,6 +17,16 @@ const fieldPlaceholdersEn = {
   message: "Message",
 };
 
+const dialogsEn = {
+  success: "Message sent, thank you",
+  error: "Could not send message",
+};
+
+const dialogsFi = {
+  success: "Viesti lähetetty, kiitos",
+  error: "Viestiä ei pystytty lähettämään",
+};
+
 type Props = {
   language: Lan;
   setDialogBoxContent: SetDialogBoxContent;
@@ -30,10 +40,7 @@ export const ContactForm = (props: Props) => {
 
   const handleFormSubmit = async (event: any) => {
     event.preventDefault();
-    setNameField("");
-    setEmailField("");
-    setSubjectField("");
-    setMessageField("");
+    const dialogs = props.language === Lan.ENGLISH ? dialogsEn : dialogsFi;
     if (messageField && emailield && subjectField && nameField) {
       try {
         const sendEmailResponse = await sendEmail(
@@ -44,23 +51,20 @@ export const ContactForm = (props: Props) => {
         );
         const dialogBoxContent = {
           isError: false,
-          message: "message received, thank you",
+          message: dialogs.success,
         };
         props.setDialogBoxContent(dialogBoxContent);
         console.log(sendEmailResponse, "sendEmailResponse");
       } catch (sendEmailError) {
         const dialogBoxContent = {
           isError: true,
-          message: "could not send message",
+          message: dialogs.error,
         };
         props.setDialogBoxContent(dialogBoxContent);
         console.log(sendEmailError, "sendEmailError");
       }
     }
   };
-
-  const fieldPlaceholders =
-    props.language === Lan.ENGLISH ? fieldPlaceholdersEn : fieldPlaceholdersFi;
 
   const handleFieldValueChange = (event: any) => {
     switch (event.target.id) {
@@ -82,6 +86,9 @@ export const ContactForm = (props: Props) => {
       }
     }
   };
+
+  const fieldPlaceholders =
+    props.language === Lan.ENGLISH ? fieldPlaceholdersEn : fieldPlaceholdersFi;
 
   return (
     <Form onSubmit={handleFormSubmit}>
