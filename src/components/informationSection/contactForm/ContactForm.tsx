@@ -39,9 +39,17 @@ export const ContactForm = (props: Props) => {
   const [emailield, setEmailField] = React.useState<string>("");
   const [subjectField, setSubjectField] = React.useState<string>("");
   const [messageField, setMessageField] = React.useState<string>("");
+  const [missingFields, setMissingFields] = React.useState<Array<string>>([
+    "name",
+    "email",
+    "subject",
+    "message",
+  ]);
+  const [submitClicked, setSubmitClicked] = React.useState<boolean>(false);
 
   const handleFormSubmit = async (event: any) => {
     event.preventDefault();
+    setSubmitClicked(false);
     const dialogs = props.language === Lan.ENGLISH ? dialogsEn : dialogsFi;
     if (messageField && emailield && subjectField && nameField) {
       try {
@@ -68,6 +76,23 @@ export const ContactForm = (props: Props) => {
     }
   };
 
+  const updateMissingFields = () => {
+    let updatedMissingFields: Array<string> = [];
+    if (nameField === "") {
+      updatedMissingFields = ["name"];
+    }
+    if (emailield === "") {
+      updatedMissingFields = ["email"];
+    }
+    if (subjectField === "") {
+      updatedMissingFields = ["subject"];
+    }
+    if (messageField === "") {
+      updatedMissingFields = ["message"];
+    }
+    setMissingFields(updatedMissingFields);
+  };
+
   const handleFieldValueChange = (event: any) => {
     switch (event.target.id) {
       case "name": {
@@ -87,6 +112,7 @@ export const ContactForm = (props: Props) => {
         break;
       }
     }
+    updateMissingFields();
   };
 
   const fieldPlaceholders =
@@ -94,31 +120,42 @@ export const ContactForm = (props: Props) => {
 
   return (
     <Form onSubmit={handleFormSubmit}>
-      <InputWrapper>
+      <InputsWrapper>
         <InputField
           type="text"
           placeholder={fieldPlaceholders.name}
           onChange={handleFieldValueChange}
           id="name"
+          showError={
+            submitClicked && missingFields.some(field => field === "name")
+          }
         />
         <InputField
           type="text"
           placeholder={fieldPlaceholders.email}
           onChange={handleFieldValueChange}
           id="email"
+          showError={
+            submitClicked && missingFields.some(field => field === "email")
+          }
         />
-      </InputWrapper>
+      </InputsWrapper>
       <InputField
         type="text"
         placeholder={fieldPlaceholders.subject}
         onChange={handleFieldValueChange}
         id="subject"
+        showError={
+          submitClicked && missingFields.some(field => field === "subject")
+        }
       />
-      <MessageInput
-        type="textarea"
+      <MessageArea
         placeholder={fieldPlaceholders.message}
         onChange={handleFieldValueChange}
         id="message"
+        showError={
+          submitClicked && missingFields.some(field => field === "message")
+        }
       />
       <SubmitButton title="submit form" type="submit">
         <ButtonText>{fieldPlaceholders.submit}</ButtonText>
@@ -131,9 +168,13 @@ const Form = styled.form`
   margin-top: 2.5rem;
 `;
 
-const InputWrapper = styled.div`
+const InputsWrapper = styled.div`
   display: flex;
 `;
+
+type FieldProps = {
+  showError: boolean;
+};
 
 const InputField = styled.input`
   margin: 1rem 1rem 0 0;
@@ -141,16 +182,18 @@ const InputField = styled.input`
   width: 15rem;
   height: 2rem;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: ${(props: FieldProps) =>
+    props.showError ? "1px solid red" : "1px solid black"};
   display: block;
 `;
 
-const MessageInput = styled.textarea`
+const MessageArea = styled.textarea`
   margin-top: 3rem;
   width: 31rem;
   height: 5rem;
   background-color: lightgray;
-  border: 1px solid black;
+  border: ${(props: FieldProps) =>
+    props.showError ? "1px solid red" : "1px solid black"};
 `;
 
 const ButtonText = styled.h3`
