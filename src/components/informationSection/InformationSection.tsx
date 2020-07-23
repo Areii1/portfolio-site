@@ -21,20 +21,27 @@ export const InformationSection = (props: Props) => {
       <ImageWrapper></ImageWrapper>
       <Information>
         <ContentWrapper>
-          <Headline
-            text={props.pageContentLabels.contactDetails}
-            isBlack={false}
-          />
-          <DetailsList
-            profileDetails={props.profileDetails}
-            language={props.language}
-          />
+          <InnerWrapper>
+            <Headline
+              text={props.pageContentLabels.contactDetails}
+              isBlack={false}
+            />
+            <DetailsList
+              profileDetails={props.profileDetails}
+              language={props.language}
+            />
+          </InnerWrapper>
         </ContentWrapper>
       </Information>
       <Contact>
         <ContentWrapperContact>
-          <Headline text={props.pageContentLabels.contactForm} isBlack />
-          <ContactForm language={props.language} setDialogBoxContent={props.setDialogBoxContent}/>
+          <InnerWrapper>
+            <Headline text={props.pageContentLabels.contactForm} isBlack />
+            <ContactForm
+              language={props.language}
+              setDialogBoxContent={props.setDialogBoxContent}
+            />
+          </InnerWrapper>
         </ContentWrapperContact>
       </Contact>
     </Wrapper>
@@ -86,29 +93,21 @@ const Contact = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  width: 60%;
-  margin: 0 0 0 auto;
-  padding-top: 5rem;
-  display: initial;
-  @media (max-width: 1100px) {
-    width: 100%;
-    padding: 5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ContentWrapperContact = styled.div`
-  width: 60%;
-  margin: 0 auto 0 5rem;
-  padding-top: 5rem;
-  display: initial;
-  @media (max-width: 1100px) {
-    width: 100%;
-    padding: 5rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 `;

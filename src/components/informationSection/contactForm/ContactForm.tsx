@@ -8,6 +8,7 @@ const fieldPlaceholdersFi = {
   email: "Sähköposti",
   subject: "Aihe",
   message: "Viesti",
+  submit: "LÄHETÄ",
 };
 
 const fieldPlaceholdersEn = {
@@ -15,6 +16,7 @@ const fieldPlaceholdersEn = {
   email: "Email",
   subject: "Subject",
   message: "Message",
+  submit: "SUBMIT",
 };
 
 const dialogsEn = {
@@ -112,14 +114,14 @@ export const ContactForm = (props: Props) => {
         onChange={handleFieldValueChange}
         id="subject"
       />
-      <InputField
-        type="text"
+      <MessageInput
+        type="textarea"
         placeholder={fieldPlaceholders.message}
         onChange={handleFieldValueChange}
         id="message"
       />
-      <SubmitButton type="submit" title="submit form">
-        Submit
+      <SubmitButton title="submit form" type="submit">
+        <ButtonText>{fieldPlaceholders.submit}</ButtonText>
       </SubmitButton>
     </Form>
   );
@@ -134,14 +136,30 @@ const InputWrapper = styled.div`
 `;
 
 const InputField = styled.input`
+  margin: 1rem 1rem 0 0;
   background-color: transparent;
   width: 15rem;
+  height: 2rem;
   border: none;
   border-bottom: 1px solid black;
   display: block;
 `;
 
+const MessageInput = styled.textarea`
+  margin-top: 3rem;
+  width: 31rem;
+  height: 5rem;
+  background-color: lightgray;
+  border: 1px solid black;
+`;
+
+const ButtonText = styled.h3`
+  margin: 0;
+  color: white;
+`;
+
 const SubmitButton = styled.button`
+  margin-top: 1rem;
   background-color: transparent;
   border: none;
   color: white;
