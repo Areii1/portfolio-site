@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Lan, SetDialogBoxContent } from "../../../pages/index";
 import { sendEmail } from "../../../apiServices/SendEmail";
+import { LoadingRipple } from "../../loadingRipple/LoadingRipple";
 
 const fieldPlaceholdersFi = {
   name: "Nimi",
@@ -9,6 +10,7 @@ const fieldPlaceholdersFi = {
   subject: "Aihe",
   message: "Viesti",
   submit: "LÄHETÄ",
+  submitTitle: "lähetä tiedot",
 };
 
 const fieldPlaceholdersEn = {
@@ -17,22 +19,38 @@ const fieldPlaceholdersEn = {
   subject: "Subject",
   message: "Message",
   submit: "SUBMIT",
+  submitTitle: "submit form",
 };
 
 const dialogsEn = {
   success: "Message sent, thank you",
-  error: "Could not send message",
+  methodError: "Could not send message",
+  missingFieldsError: "Required fields are missing",
 };
 
 const dialogsFi = {
   success: "Viesti lähetetty, kiitos",
-  error: "Viestiä ei pystytty lähettämään",
+  methodError: "Viestiä ei pystytty lähettämään",
+  missingFieldsError: "Pakollisia kenttiä puuttuu",
 };
 
 type Props = {
   language: Lan;
   setDialogBoxContent: SetDialogBoxContent;
 };
+
+enum Status {
+  INITIAL,
+  LOADING,
+  SUCCESS,
+  ERROR,
+}
+
+type SendEmailProcess =
+  | { status: Status.INITIAL }
+  | { status: Status.LOADING }
+  | { status: Status.SUCCESS; data: any }
+  | { status: Status.ERROR; error: any };
 
 export const ContactForm = (props: Props) => {
   const [nameField, setNameField] = React.useState<string>("");
@@ -46,33 +64,50 @@ export const ContactForm = (props: Props) => {
     "message",
   ]);
   const [submitClicked, setSubmitClicked] = React.useState<boolean>(false);
+  const [sendEmailProcess, setSendEmailProcess] = React.useState<
+    SendEmailProcess
+  >({ status: Status.INITIAL });
 
   const handleFormSubmit = async (event: any) => {
     event.preventDefault();
-    setSubmitClicked(false);
+    setSubmitClicked(true);
     const dialogs = props.language === Lan.ENGLISH ? dialogsEn : dialogsFi;
     if (messageField && emailield && subjectField && nameField) {
       try {
+        setSendEmailProcess({ status: Status.LOADING });
         const sendEmailResponse = await sendEmail(
           emailield,
           nameField,
           subjectField,
           messageField
         );
+        setSendEmailProcess({
+          status: Status.SUCCESS,
+          data: sendEmailResponse,
+        });
         const dialogBoxContent = {
           isError: false,
           message: dialogs.success,
         };
         props.setDialogBoxContent(dialogBoxContent);
-        console.log(sendEmailResponse, "sendEmailResponse");
+        resetFieldsState();
       } catch (sendEmailError) {
+        setSendEmailProcess({
+          status: Status.ERROR,
+          error: sendEmailError,
+        });
         const dialogBoxContent = {
           isError: true,
-          message: dialogs.error,
+          message: dialogs.methodError,
         };
         props.setDialogBoxContent(dialogBoxContent);
-        console.log(sendEmailError, "sendEmailError");
       }
+    } else {
+      const dialogBoxContent = {
+        isError: true,
+        message: dialogs.missingFieldsError,
+      };
+      props.setDialogBoxContent(dialogBoxContent);
     }
   };
 
@@ -82,15 +117,24 @@ export const ContactForm = (props: Props) => {
       updatedMissingFields = ["name"];
     }
     if (emailield === "") {
-      updatedMissingFields = ["email"];
+      updatedMissingFields = [...updatedMissingFields, "email"];
     }
     if (subjectField === "") {
-      updatedMissingFields = ["subject"];
+      updatedMissingFields = [...updatedMissingFields, "subject"];
     }
     if (messageField === "") {
-      updatedMissingFields = ["message"];
+      updatedMissingFields = [...updatedMissingFields, "message"];
     }
     setMissingFields(updatedMissingFields);
+  };
+
+  const resetFieldsState = () => {
+    setNameField("");
+    setEmailField("");
+    setSubjectField("");
+    setMessageField("");
+    setMissingFields(["name", "email", "subject", "message"]);
+    setSubmitClicked(false);
   };
 
   const handleFieldValueChange = (event: any) => {
@@ -157,9 +201,14 @@ export const ContactForm = (props: Props) => {
           submitClicked && missingFields.some(field => field === "message")
         }
       />
-      <SubmitButton title="submit form" type="submit">
-        <ButtonText>{fieldPlaceholders.submit}</ButtonText>
-      </SubmitButton>
+      <SubmitWrapper>
+        {sendEmailProcess.status === Status.LOADING && <LoadingRipple />}
+        {sendEmailProcess.status !== Status.LOADING && (
+          <SubmitButton title={fieldPlaceholders.submitTitle} type="submit">
+            <ButtonText>{fieldPlaceholders.submit}</ButtonText>
+          </SubmitButton>
+        )}
+      </SubmitWrapper>
     </Form>
   );
 };
@@ -209,4 +258,8 @@ const SubmitButton = styled.button`
   cursor: pointer;
   display: block;
   padding: 0;
+`;
+
+const SubmitWrapper = styled.div`
+  display: initial;
 `;
