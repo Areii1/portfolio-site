@@ -7,6 +7,7 @@ import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, Lan } from "../../../pages/index";
 import { downloadFile } from "../../../util";
 import { FileDetails } from "../../../Types";
+import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
 
 const modalHeaderContentLabelsEn = {
   closeModal: "close modal",
@@ -47,35 +48,34 @@ export const ModalHeader = (props: ModalHeader) => {
       />
       {props.type === ModalTypes.CV && (
         <>
-          <Button
-            type="button"
-            onClick={() => props.setPdfInFullScreen(!props.pdfInFullScreen)}
+          <TransparentButton
             title={
               props.pdfInFullScreen
                 ? modalContentLabels.outOfFullscreen
                 : modalContentLabels.fullscreen
             }
+            handleClick={() => props.setPdfInFullScreen(!props.pdfInFullScreen)}
           >
             <Image
               src={props.pdfInFullScreen ? OutOfFullscreenIcon : FullscreenIcon}
             />
-          </Button>
-          <Button
-            type="button"
+          </TransparentButton>
+          <TransparentButton
             title={modalContentLabels.downloadCv}
-            onClick={() => downloadFile(props.cv.fileName, props.cv.fileUrl)}
+            handleClick={() =>
+              downloadFile(props.cv.fileName, props.cv.fileUrl)
+            }
           >
             <Image src={DownloadIcon} />
-          </Button>
+          </TransparentButton>
         </>
       )}
-      <Button
-        type="button"
-        onClick={() => props.setModalType(undefined)}
+      <TransparentButton
+        handleClick={() => props.setModalType(undefined)}
         title={modalContentLabels.closeModal}
       >
         <CloseButtonText>X</CloseButtonText>
-      </Button>
+      </TransparentButton>
     </Wrapper>
   );
 };
