@@ -66,7 +66,7 @@ const IndexPage = () => {
   );
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
-  >({ isError: false, message: "hello hello" });
+  >({ isError: true, message: 'jee ejejjejejejje'});
   const wrapperNode = React.useRef<HTMLDivElement>(null);
   const updateLanguage = (lan: Lan) => {
     setLanguage(lan);
@@ -145,6 +145,7 @@ const IndexPage = () => {
         <DialogBox
           content={dialogBoxContent}
           setDialogBoxContent={setDialogBoxContent}
+          language={language}
         />
       )}
     </Wrapper>

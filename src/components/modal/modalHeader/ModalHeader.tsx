@@ -70,12 +70,14 @@ export const ModalHeader = (props: ModalHeader) => {
           </TransparentButton>
         </>
       )}
+      <ButtonWrapper>
       <TransparentButton
         handleClick={() => props.setModalType(undefined)}
         title={modalContentLabels.closeModal}
       >
         <CloseButtonText>X</CloseButtonText>
       </TransparentButton>
+      </ButtonWrapper>
     </Wrapper>
   );
 };
@@ -91,12 +93,8 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Button = styled.button`
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  margin: 0 1rem 0 0;
-  cursor: pointer;
+const ButtonWrapper = styled.div`
+  margin-right: 1rem;
 `;
 
 const CloseButtonText = styled.h6`
