@@ -18,7 +18,7 @@ export const DetailsList = (props: Props) => {
     <List>
       <ListItem>
         <ListItemLabel>
-          <LocationIcon fillColor="white" size={40} />
+          <LocationIcon fillColor="white" size={30} />
         </ListItemLabel>
         <ListItemText>{`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}</ListItemText>
       </ListItem>
@@ -33,9 +33,10 @@ export const DetailsList = (props: Props) => {
           <GitlabIcon fillColor="white" size={30} />
         </ListItemLabel>
         <ListItemLink
-          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+          href={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
         >
-          {`gitlab.com/${props.profileDetails.gitlabUsername}`}
+          {props.profileDetails.gitlabUsername}
         </ListItemLink>
       </ListItem>
       <ListItem>
@@ -43,9 +44,10 @@ export const DetailsList = (props: Props) => {
           <GithubIcon fillColor="white" size={30} />
         </ListItemLabel>
         <ListItemLink
-          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+          href={`https://github.com/${props.profileDetails.githubUsername}`}
+          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
         >
-          {`github.com/${props.profileDetails.githubUsername}`}
+          {props.profileDetails.githubUsername}
         </ListItemLink>
       </ListItem>
       <ListItem>
@@ -53,9 +55,10 @@ export const DetailsList = (props: Props) => {
           <LinkedInIcon fillColor="white" size={30} />
         </ListItemLabel>
         <ListItemLink
-          href={`gitlab.com/${props.profileDetails.gitlabUsername}`}
+          href={`https://www.linkedin.com/in/${props.profileDetails.linkedInPageName}`}
+          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
         >
-          {`linkedin.com/in/${props.profileDetails.linkedInPageName}`}
+          {props.profileDetails.linkedInPageName}
         </ListItemLink>
       </ListItem>
     </List>
@@ -78,7 +81,7 @@ const ListItem = styled.li`
 
 const ListItemLabel = styled.div`
   margin: 0 2rem 0 0;
-  width: 8rem;
+  width: 3rem;
 `;
 
 const ListItemText = styled.h6`

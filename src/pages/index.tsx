@@ -118,9 +118,11 @@ const IndexPage = () => {
         language={language}
         button={
           <GeneralButton
-            text={pageContentLabels.videoButton}
+            title={pageContentLabels.videoButton}
             handleClick={() => setModalType(ModalTypes.VIDEO)}
-          />
+          >
+            <h6>{pageContentLabels.videoButton}</h6>
+          </GeneralButton>
         }
       />
       <ContentSection
@@ -131,9 +133,11 @@ const IndexPage = () => {
         language={language}
         button={
           <GeneralButton
-            text={pageContentLabels.viewPdf}
+            title={pageContentLabels.viewPdf}
             handleClick={() => setModalType(ModalTypes.CV)}
-          />
+          >
+            <h6>{pageContentLabels.viewPdf}</h6>
+          </GeneralButton>
         }
       />
       <InformationSection

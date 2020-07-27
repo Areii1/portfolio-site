@@ -2,18 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  text: string;
+  children: React.ReactNode;
   handleClick: () => void;
+  title: string;
 };
 
 export const GeneralButton = (props: Props) => {
   return (
     <ButtonElement
       type="button"
-      title={props.text.toLowerCase()}
+      title={props.title}
       onClick={props.handleClick}
     >
-      {props.text}
+      {props.children}
     </ButtonElement>
   );
 };
