@@ -4,7 +4,6 @@ import { Lan } from "../../pages/index";
 import { Link } from "gatsby";
 
 type Props = {
-  updateLanguage: (language: Lan) => void;
   isBlack: boolean;
   language: Lan;
 };

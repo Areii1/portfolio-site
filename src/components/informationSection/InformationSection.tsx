@@ -110,4 +110,9 @@ const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
+  /* width: 100px; */
+  @media (max-width: 800px) {
+    margin: auto;
+    /* margin: 0 3rem; */
+  }
 `;

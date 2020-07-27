@@ -14,23 +14,25 @@ type Props = {
 };
 
 export const DetailsList = (props: Props) => {
+  const iconSize = window.innerWidth < 800 ? 20 : 30;
+  console.log(window.innerWidth, "iconSize");
   return (
     <List>
       <ListItem>
         <ListItemLabel>
-          <LocationIcon fillColor="white" size={30} />
+          <LocationIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemText>{`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}</ListItemText>
       </ListItem>
       <ListItem>
         <ListItemLabel>
-          <EmailIcon fillColor="white" size={30} />
+          <EmailIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemText>{props.profileDetails.email}</ListItemText>
       </ListItem>
       <ListItem>
         <ListItemLabel>
-          <GitlabIcon fillColor="white" size={30} />
+          <GitlabIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemLink
           href={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
@@ -41,7 +43,7 @@ export const DetailsList = (props: Props) => {
       </ListItem>
       <ListItem>
         <ListItemLabel>
-          <GithubIcon fillColor="white" size={30} />
+          <GithubIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemLink
           href={`https://github.com/${props.profileDetails.githubUsername}`}
@@ -52,7 +54,7 @@ export const DetailsList = (props: Props) => {
       </ListItem>
       <ListItem>
         <ListItemLabel>
-          <LinkedInIcon fillColor="white" size={30} />
+          <LinkedInIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemLink
           href={`https://www.linkedin.com/in/${props.profileDetails.linkedInPageName}`}
@@ -75,19 +77,24 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   display: flex;
+  flex-direction: initial;
   color: white;
   margin: 0.5rem 0;
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 const ListItemLabel = styled.div`
   margin: 0 2rem 0 0;
-  width: 3rem;
+  max-width: 3rem;
 `;
 
 const ListItemText = styled.h6`
   margin: 0;
   font-size: 1.5rem;
   font-weight: 400;
+  
 `;
 
 const ListItemLink = styled.a`

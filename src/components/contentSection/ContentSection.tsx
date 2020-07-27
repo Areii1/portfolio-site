@@ -21,7 +21,7 @@ export const ContentSection = (props: Props) => {
     <Wrapper>
       <TopSectionWrapper>
         <Headline text={props.headline} isBlack />
-        {props.button}
+        <ButtonWrapper>{props.button}</ButtonWrapper>
       </TopSectionWrapper>
       {props.subHeadlineDetails && (
         <ExperienceItemDetails
@@ -51,5 +51,13 @@ const TopSectionWrapper = styled.div`
   @media (max-width: 800px) {
     display: inherit;
     justify-content: inherit;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: initial;
+  min-height: 5px;
+  @media (max-width: 800px) {
+    margin-top: 5rem;
   }
 `;
