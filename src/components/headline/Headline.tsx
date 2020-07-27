@@ -8,12 +8,19 @@ type Props = {
 
 export const Headline = (props: Props) => {
   return (
-    <div>
+    <Wrapper>
       <HeadlineText isBlack={props.isBlack}>{props.text}</HeadlineText>
       <UnderLine />
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  max-width: initial;
+  @media (max-width: 800px) {
+    max-width: 15rem;
+  }
+`;
 
 const UnderLine = styled.div`
   width: 5rem;

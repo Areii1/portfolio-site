@@ -219,6 +219,9 @@ const Form = styled.form`
 
 const InputsWrapper = styled.div`
   display: flex;
+  @media (max-width: 800px) {
+    display: block;
+  }
 `;
 
 type FieldProps = {
@@ -243,6 +246,9 @@ const MessageArea = styled.textarea`
   background-color: lightgray;
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
+  @media (max-width: 800px) {
+    width: 15rem;
+  }
 `;
 
 const ButtonText = styled.h3`
