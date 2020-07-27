@@ -9,7 +9,7 @@ type Props = {
 
 export const GeneralButton = (props: Props) => {
   return (
-    <ButtonElement type="button" title={props.text} onClick={props.handleClick}>
+    <ButtonElement type="button" title={props.text.toLowerCase()} onClick={props.handleClick}>
       {props.icon}
       <Text>{props.text}</Text>
     </ButtonElement>

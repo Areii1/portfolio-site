@@ -13,6 +13,7 @@ import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import { PlayIcon } from "../components/icons/PlayIcon";
 import { ViewDocument } from "../components/icons/VIewDocument";
+import withLocation from "../components/hocs/withLocation";
 
 export type PageContentLabels = {
   introduction: string;
@@ -61,7 +62,7 @@ export type SetDialogBoxContent = (
   content: DialogBoxContent | undefined
 ) => void;
 
-const IndexPage = () => {
+const IndexPage = (props: any) => {
   const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
     undefined
@@ -71,9 +72,13 @@ const IndexPage = () => {
     DialogBoxContent | undefined
   >(undefined);
   const wrapperNode = React.useRef<HTMLDivElement>(null);
-  const updateLanguage = (lan: Lan) => {
-    setLanguage(lan);
-  };
+  React.useEffect(() => {
+    if (props.search.lan === "en") {
+      setLanguage(Lan.ENGLISH);
+    } else {
+      setLanguage(Lan.FINNISH);
+    }
+  }, [props.search.lan]);
   React.useEffect(() => {
     const reffedWrapperNode = wrapperNode.current;
     if (reffedWrapperNode) {
@@ -82,7 +87,6 @@ const IndexPage = () => {
       );
     }
   }, []);
-
   React.useEffect(() => {
     if (dialogBoxContent) {
       setShowModal(true);
@@ -107,7 +111,6 @@ const IndexPage = () => {
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
-        updateLanguage={updateLanguage}
         language={language}
       />
       <ProfileBallWrapper>
@@ -150,7 +153,6 @@ const IndexPage = () => {
         <Modal
           language={language}
           setModalType={setModalType}
-          updateLanguage={updateLanguage}
           isVideo={modalType === ModalTypes.VIDEO}
           type={modalType}
           profileDetails={content.profile}
@@ -167,7 +169,7 @@ const IndexPage = () => {
   );
 };
 
-export default IndexPage;
+export default withLocation(IndexPage);
 
 const Wrapper = styled.div`
   background-color: #f0f0f0;

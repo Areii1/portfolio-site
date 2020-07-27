@@ -26,7 +26,6 @@ const modalHeaderContentLabelsFi = {
 type ModalHeader = {
   pdfInFullScreen: boolean;
   setModalType: (modalTypes: ModalTypes | undefined) => void;
-  updateLanguage: (language: Lan) => void;
   setPdfInFullScreen: (toggleOn: boolean) => void;
   language: Lan;
   isVideo: boolean;
@@ -42,7 +41,6 @@ export const ModalHeader = (props: ModalHeader) => {
   return (
     <Wrapper pdfInFullScreen={props.pdfInFullScreen}>
       <ToggleLanguage
-        updateLanguage={props.updateLanguage}
         isBlack
         language={props.language}
       />

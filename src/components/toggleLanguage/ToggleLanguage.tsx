@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Lan } from "../../pages/index";
+import { Link } from "gatsby";
 
 type Props = {
   updateLanguage: (language: Lan) => void;
@@ -13,30 +14,32 @@ export const ToggleLanguage = (props: Props) => {
     <List>
       <ListItem>
         <Button
-          onClick={() => props.updateLanguage(Lan.ENGLISH)}
           title={props.language === Lan.ENGLISH ? "" : "english"}
           isActive={props.language === Lan.ENGLISH}
         >
-          <ButtonText
-            isBlack={props.isBlack}
-            isActive={props.language === Lan.ENGLISH}
-          >
-            EN
-          </ButtonText>
+          <Link to="?lan=en">
+            <ButtonText
+              isBlack={props.isBlack}
+              isActive={props.language === Lan.ENGLISH}
+            >
+              EN
+            </ButtonText>
+          </Link>
         </Button>
       </ListItem>
       <ListItem>
         <Button
-          onClick={() => props.updateLanguage(Lan.FINNISH)}
           title={props.language === Lan.FINNISH ? "" : "finnish"}
           isActive={props.language === Lan.FINNISH}
         >
-          <ButtonText
-            isBlack={props.isBlack}
-            isActive={props.language === Lan.FINNISH}
-          >
-            FI
-          </ButtonText>
+          <Link to="?lan=fi">
+            <ButtonText
+              isBlack={props.isBlack}
+              isActive={props.language === Lan.FINNISH}
+            >
+              FI
+            </ButtonText>
+          </Link>
         </Button>
       </ListItem>
     </List>

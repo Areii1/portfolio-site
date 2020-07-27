@@ -7,7 +7,6 @@ import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 type PropTypes = {
   name: string;
   jobTitle: string;
-  updateLanguage: any;
   language: Lan;
 };
 
@@ -21,7 +20,6 @@ export const Header = (props: PropTypes) => {
       </TitlesWrapper>
       <ListWrapper>
         <ToggleLanguage
-          updateLanguage={props.updateLanguage}
           isBlack={false}
           language={props.language}
         />

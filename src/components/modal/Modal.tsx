@@ -8,7 +8,6 @@ import { ProfileDetails } from "../../Types";
 
 type Props = {
   setModalType: (modalTypes: ModalTypes | undefined) => void;
-  updateLanguage: (language: Lan) => void;
   language: Lan;
   isVideo: boolean;
   type: ModalTypes;
@@ -24,7 +23,6 @@ export const Modal = (props: Props) => {
           <ModalHeader
             pdfInFullScreen={pdfInFullScreen}
             setModalType={props.setModalType}
-            updateLanguage={props.updateLanguage}
             setPdfInFullScreen={setPdfInFullScreen}
             language={props.language}
             isVideo={props.isVideo}
