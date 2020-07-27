@@ -4,10 +4,16 @@ export type FileDetails = {
   fileName: string;
 };
 
+export type Location = {
+  city: string;
+  district: string;
+};
+
 export type ProfileDetails = {
   firstName: string;
   lastName: string;
   age?: number;
+  location: Location;
   email: string;
   gitlabUsername: string;
   githubUsername: string;

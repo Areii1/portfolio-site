@@ -4,6 +4,10 @@ const profileDetails: ProfileDetails = {
   firstName: "Ari-Pekka",
   lastName: "Jääskeläinen",
   age: 28,
+  location: {
+    city: "Helsinki",
+    district: "Kallio",
+  },
   email: "ari.jaaskelainen1@gmail.com",
   gitlabUsername: "arpejaa",
   githubUsername: "areii1",
