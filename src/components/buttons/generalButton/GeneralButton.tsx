@@ -2,19 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  children: React.ReactNode;
+  icon: React.ReactNode;
   handleClick: () => void;
-  title: string;
+  text: string;
 };
 
 export const GeneralButton = (props: Props) => {
   return (
-    <ButtonElement
-      type="button"
-      title={props.title}
-      onClick={props.handleClick}
-    >
-      {props.children}
+    <ButtonElement type="button" title={props.text} onClick={props.handleClick}>
+      {props.icon}
+      <Text>{props.text}</Text>
     </ButtonElement>
   );
 };
@@ -26,5 +23,15 @@ const ButtonElement = styled.button`
   border: 1px solid black;
   font-size: 1rem;
   font-weight: 500;
+  padding: 0 3rem 0 1rem;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Text = styled.h6`
+  margin: 0;
+  font-size: 1em;
+  font-weight: 400;
 `;
