@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Headline } from "../headline/Headline";
 import { Description } from "../../Types";
-import { Paragraphs } from "../paragraphs/Paragraphs";
+import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem } from "../../Types";
 import { ExperienceItemDetails } from "../experienceItemDetails/ExperienceItemDetails";
 import { Lan } from "../../pages/index";

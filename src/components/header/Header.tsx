@@ -44,9 +44,6 @@ const ImageWrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${headerBg});
-  @media (max-width: 800px) {
-    margin: 0;
-  }
 `;
 
 const Headline = styled.h1`

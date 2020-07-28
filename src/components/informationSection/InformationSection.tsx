@@ -53,6 +53,9 @@ const Wrapper = styled.section`
   height: 1500px;
   overflow: hidden;
   position: relative;
+  @media (max-width: 1100px) {
+    height: 2000px;
+  }
 `;
 
 const ImageWrapper = styled.div`
@@ -64,6 +67,9 @@ const ImageWrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${contactBg});
+  @media (max-width: 1100px) {
+    height: 2200px;
+  }
 `;
 
 const Information = styled.div`
@@ -74,7 +80,7 @@ const Information = styled.div`
   width: 50vw;
   background-color: #2c4a78;
   @media (max-width: 1100px) {
-    top: 150px;
+    top: calc(50% - 650px);
     width: 100vw;
   }
 `;
@@ -87,7 +93,7 @@ const Contact = styled.div`
   width: 50vw;
   background-color: #b4c3da;
   @media (max-width: 1100px) {
-    top: 800px;
+    top: calc(50%);
     width: 100vw;
   }
 `;

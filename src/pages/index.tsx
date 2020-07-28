@@ -13,7 +13,7 @@ import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import { PlayIcon } from "../components/icons/PlayIcon";
 import { ViewDocument } from "../components/icons/VIewDocument";
-import withLocation from "../components/hocs/withLocation";
+import withLocation from "../hocs/withLocation";
 
 export type PageContentLabels = {
   introduction: string;
@@ -72,6 +72,14 @@ const IndexPage = (props: any) => {
     DialogBoxContent | undefined
   >(undefined);
   const wrapperNode = React.useRef<HTMLDivElement>(null);
+  const addClickHandlerToWrapper = () => {
+    const reffedWrapperNode = wrapperNode.current;
+    if (reffedWrapperNode) {
+      reffedWrapperNode.addEventListener("click", (event: MouseEvent) =>
+        handleWrapperClick(event)
+      );
+    }
+  }
   React.useEffect(() => {
     if (props.search.lan === "en") {
       setLanguage(Lan.ENGLISH);
@@ -80,12 +88,7 @@ const IndexPage = (props: any) => {
     }
   }, [props.search.lan]);
   React.useEffect(() => {
-    const reffedWrapperNode = wrapperNode.current;
-    if (reffedWrapperNode) {
-      reffedWrapperNode.addEventListener("click", (event: MouseEvent) =>
-        handleWrapperClick(event)
-      );
-    }
+    addClickHandlerToWrapper();
   }, []);
   React.useEffect(() => {
     if (dialogBoxContent) {
