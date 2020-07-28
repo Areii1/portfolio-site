@@ -16,7 +16,7 @@ export const ToggleLanguage = (props: Props) => {
           title={props.language === Lan.ENGLISH ? "" : "english"}
           isActive={props.language === Lan.ENGLISH}
         >
-          <Link to="?lan=en">
+          <Link to="?lan=en" style={{ textDecoration: "none" }}>
             <ButtonText
               isBlack={props.isBlack}
               isActive={props.language === Lan.ENGLISH}
@@ -31,7 +31,7 @@ export const ToggleLanguage = (props: Props) => {
           title={props.language === Lan.FINNISH ? "" : "finnish"}
           isActive={props.language === Lan.FINNISH}
         >
-          <Link to="?lan=fi">
+          <Link to="?lan=fi" style={{ textDecoration: "none" }}>
             <ButtonText
               isBlack={props.isBlack}
               isActive={props.language === Lan.FINNISH}

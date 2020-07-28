@@ -246,6 +246,7 @@ const MessageArea = styled.textarea`
   background-color: lightgray;
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
+  resize: none;
   @media (max-width: 800px) {
     width: 15rem;
   }

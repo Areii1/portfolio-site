@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ProfileDetails } from "../../Types";
-import contactBg from "../../assets/contact.jpg";
+import contactBg from "../../images/contact.jpg";
 import { Headline } from "../headline/Headline";
 import { PageContentLabels, SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
@@ -69,6 +69,9 @@ const ImageWrapper = styled.div`
   background-image: url(${contactBg});
   @media (max-width: 1100px) {
     height: 2200px;
+  }
+  @media (max-width: 800px) {
+    width: 140vw;
   }
 `;
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import profile from "../../assets/profile.jpg";
+import profile from "../../images/profile.jpg";
 
 type Props = {
   picture: string;
@@ -25,9 +25,9 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   @media (max-width: 800px) {
-    width: 150px;
-    height: 150px;
-    border-radius: 150px;
+    width: 220px;
+    height: 220px;
+    border-radius: 220px;
   }
 `;
 
@@ -46,8 +46,8 @@ const ProfileImageWrapper = styled.div`
   overflow: hidden;
   border-radius: 50%;
   @media (max-width: 800px) {
-    width: 130px;
-    height: 130px;
-    border-radius: 130px;
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
   }
 `;

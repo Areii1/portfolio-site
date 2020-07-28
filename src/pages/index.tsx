@@ -184,7 +184,7 @@ const ProfileBallWrapper = styled.div`
   top: 425px;
   left: calc(50% - 175px);
   @media (max-width: 800px) {
-    top: 525px;
-    left: calc(50% - 75px);
+    top: 490px;
+    left: calc(50% - 110px);
   }
 `;

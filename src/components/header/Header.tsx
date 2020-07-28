@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import headerBg from "../../assets/header.jpg";
+import headerBg from "../../images/header.jpg";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 
@@ -44,6 +44,9 @@ const ImageWrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-image: url(${headerBg});
+  @media (max-width: 800px) {
+    width: 140vw;
+  }
 `;
 
 const Headline = styled.h1`
