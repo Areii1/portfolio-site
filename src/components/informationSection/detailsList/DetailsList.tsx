@@ -14,8 +14,8 @@ type Props = {
 };
 
 export const DetailsList = (props: Props) => {
-  const iconSize = window.innerWidth < 800 ? 20 : 30;
-  console.log(window.innerWidth, "iconSize");
+  // const iconSize = window.innerWidth < 800 ? 20 : 30;
+  const iconSize = 25;
   return (
     <List>
       <ListItem>
