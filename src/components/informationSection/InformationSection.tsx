@@ -1,12 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { ProfileDetails } from "../../Types";
-import contactBg from "../../images/contact.jpg";
 import { Headline } from "../headline/Headline";
 import { PageContentLabels, SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { Lan } from "../../pages/index";
+import './InformationSection.css';
 
 type Props = {
   profileDetails: ProfileDetails;
@@ -16,9 +18,14 @@ type Props = {
 };
 
 export const InformationSection = (props: Props) => {
+  const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
-      <ImageWrapper></ImageWrapper>
+      <Img
+        fluid={imageQueryData.file.childImageSharp.fluid}
+        className="information-section-queried-image"
+        alt="header"
+      />
       <Information>
         <ContentWrapper>
           <InnerWrapper>
@@ -48,6 +55,18 @@ export const InformationSection = (props: Props) => {
   );
 };
 
+export const imageQuery = graphql`
+  query {
+    file(relativePath: { eq: "contact.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
 const Wrapper = styled.section`
   margin-top: 15rem;
   height: 1500px;
@@ -55,23 +74,6 @@ const Wrapper = styled.section`
   position: relative;
   @media (max-width: 1100px) {
     height: 2000px;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  height: 1600px;
-  width: 110vw;
-  margin: -70px;
-  filter: blur(10px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(${contactBg});
-  @media (max-width: 1100px) {
-    height: 2200px;
-  }
-  @media (max-width: 800px) {
-    width: 140vw;
   }
 `;
 
