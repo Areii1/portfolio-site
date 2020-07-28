@@ -1,20 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import profile from "../../images/profile.jpg";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
+import "./ProfileBall.css";
 
 type Props = {
   picture: string;
 };
 
 export const ProfileBall = (props: Props) => {
+  const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
       <ProfileImageWrapper>
-        <ProfileImage src={profile} alt="profile" />
+        <Img
+          fluid={imageQueryData.file.childImageSharp.fluid}
+          className="profile-ball-queried-image"
+          alt="profile ball"
+        />
       </ProfileImageWrapper>
     </Wrapper>
   );
 };
+
+export const imageQuery = graphql`
+  query {
+    file(relativePath: { eq: "profile.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   width: 350px;
@@ -29,14 +48,6 @@ const Wrapper = styled.div`
     height: 220px;
     border-radius: 220px;
   }
-`;
-
-const ProfileImage = styled.img`
-  display: inline;
-  margin: 0 auto;
-  margin-left: -25%;
-  height: 100%;
-  width: auto;
 `;
 
 const ProfileImageWrapper = styled.div`

@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
-import './Header.css';
+import "./Header.css";
 
 type PropTypes = {
   name: string;
@@ -16,7 +16,11 @@ export const Header = (props: PropTypes) => {
   const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
-      <Img fluid={imageQueryData.file.childImageSharp.fluid} className="queried-image" alt="header"/>
+      <Img
+        fluid={imageQueryData.file.childImageSharp.fluid}
+        className="header-queried-image"
+        alt="header"
+      />
       <TitlesWrapper>
         <Headline>{props.name}</Headline>
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
@@ -46,16 +50,6 @@ const Wrapper = styled.header`
   position: relative;
   padding: 1rem;
 `;
-
-// const ImageWrapper = styled.img`
-//   height: 700px;
-//   width: 110vw;
-//   margin: -70px -70px 0 -70px;
-//   filter: blur(10px);
-//   @media (max-width: 800px) {
-//     width: 140vw;
-//   }
-// `;
 
 const Headline = styled.h1`
   font-size: 5rem;
