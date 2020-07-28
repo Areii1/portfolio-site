@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import headerBg from "../../images/header.jpg";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
+import './Header.css';
 
 type PropTypes = {
   name: string;
@@ -11,22 +13,32 @@ type PropTypes = {
 };
 
 export const Header = (props: PropTypes) => {
+  const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
-      <ImageWrapper></ImageWrapper>
+      <Img fluid={imageQueryData.file.childImageSharp.fluid} className="queried-image" alt="header"/>
       <TitlesWrapper>
         <Headline>{props.name}</Headline>
         <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
       </TitlesWrapper>
       <ListWrapper>
-        <ToggleLanguage
-          isBlack={false}
-          language={props.language}
-        />
+        <ToggleLanguage isBlack={false} language={props.language} />
       </ListWrapper>
     </Wrapper>
   );
 };
+
+export const imageQuery = graphql`
+  query {
+    file(relativePath: { eq: "header.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.header`
   height: 600px;
@@ -35,19 +47,15 @@ const Wrapper = styled.header`
   padding: 1rem;
 `;
 
-const ImageWrapper = styled.div`
-  height: 700px;
-  width: 110vw;
-  margin: -70px -70px 0 -70px;
-  filter: blur(10px);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url(${headerBg});
-  @media (max-width: 800px) {
-    width: 140vw;
-  }
-`;
+// const ImageWrapper = styled.img`
+//   height: 700px;
+//   width: 110vw;
+//   margin: -70px -70px 0 -70px;
+//   filter: blur(10px);
+//   @media (max-width: 800px) {
+//     width: 140vw;
+//   }
+// `;
 
 const Headline = styled.h1`
   font-size: 5rem;
