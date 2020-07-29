@@ -11,8 +11,6 @@ import { InformationSection } from "../components/informationSection/Information
 import { GeneralButton } from "../components/buttons/generalButton/GeneralButton";
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
-import { PlayIcon } from "../components/icons/PlayIcon";
-import { ViewDocument } from "../components/icons/VIewDocument";
 import withLocation from "../hocs/withLocation";
 
 export type PageContentLabels = {
@@ -131,7 +129,7 @@ const IndexPage = (props: any) => {
           <GeneralButton
             text={pageContentLabels.videoButton}
             handleClick={() => setModalType(ModalTypes.VIDEO)}
-            icon={<PlayIcon fillColor="blue" size={30} />}
+            type={ModalTypes.VIDEO}
           />
         }
       />
@@ -145,7 +143,7 @@ const IndexPage = (props: any) => {
           <GeneralButton
             text={pageContentLabels.viewPdf}
             handleClick={() => setModalType(ModalTypes.CV)}
-            icon={<ViewDocument fillColor="#b78a10" size={30} />}
+            type={ModalTypes.CV}
           />
         }
       />

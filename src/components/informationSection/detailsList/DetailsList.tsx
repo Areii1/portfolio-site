@@ -37,6 +37,7 @@ export const DetailsList = (props: Props) => {
           <ListItemLink
             href={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
             title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+            target="_blank"
           >
             {props.profileDetails.gitlabUsername}
           </ListItemLink>
@@ -48,7 +49,8 @@ export const DetailsList = (props: Props) => {
         </ListItemLabel>
         <ListItemLink
           href={`https://github.com/${props.profileDetails.githubUsername}`}
-          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+          title={`https://github.com/${props.profileDetails.githubUsername}`}
+          target="_blank"
         >
           {props.profileDetails.githubUsername}
         </ListItemLink>
@@ -59,7 +61,8 @@ export const DetailsList = (props: Props) => {
         </ListItemLabel>
         <ListItemLink
           href={`https://www.linkedin.com/in/${props.profileDetails.linkedInPageName}`}
-          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+          title={`https://www.linkedin.com/in/${props.profileDetails.linkedInPageName}`}
+          target="_blank"
         >
           {props.profileDetails.linkedInPageName}
         </ListItemLink>

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import "./ProfileBall.css";
@@ -37,7 +37,12 @@ export const ProfileBall = (props: Props) => {
           <>
             <ImageOverlay />
             <IconWrapper>
-              <PlayIcon fillColor="blue" size={50} />
+              <PlayIcon
+                startFillColor="blue"
+                endFillColor="blue"
+                size={50}
+                animation={false}
+              />
             </IconWrapper>
           </>
         )}
@@ -89,6 +94,16 @@ const ProfileImageWrapper = styled.button`
   }
 `;
 
+const changeOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+`;
+
 const ImageOverlay = styled.div`
   position: absolute;
   top: 0;
@@ -97,7 +112,9 @@ const ImageOverlay = styled.div`
   height: 100%;
   border-radius: 100%;
   background-color: white;
-  opacity: 0.5;
+  animation-name: ${changeOpacity};
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 `;
 
 const IconWrapper = styled.div`

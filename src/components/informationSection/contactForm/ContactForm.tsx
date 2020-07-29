@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Lan, SetDialogBoxContent } from "../../../pages/index";
 import { sendEmail } from "../../../apiServices/SendEmail";
 import { LoadingRipple } from "../../loadingRipple/LoadingRipple";
@@ -266,13 +266,25 @@ const MessageArea = styled.textarea`
   }
 `;
 
+const changeColor = keyframes`
+  from {
+    color: white;
+  }
+
+  to {
+    color: var(--secondary-headline-color);
+  }
+`;
+
 const ButtonText = styled.h3`
   margin: 0;
   color: white;
   font-size: var(--font-size-5);
   font-weight: 700;
   :hover {
-    color: var(--secondary-headline-color);
+    animation-name: ${changeColor};
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
   }
 `;
 
