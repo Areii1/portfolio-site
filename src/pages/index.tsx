@@ -29,8 +29,8 @@ const pageContentLabelsFi = {
   education: "Koulutus",
   contactDetails: "Yhteystiedot",
   contactForm: "Ota minuun yhteyttä",
-  videoButton: "KATSO VIDEO",
-  viewPdf: "KATSO CV",
+  videoButton: "katso video",
+  viewPdf: "katso cv",
 };
 
 const pageContentLabelsEn = {
@@ -39,8 +39,8 @@ const pageContentLabelsEn = {
   education: "Education",
   contactDetails: "Information",
   contactForm: "Contact Me",
-  videoButton: "WATCH VIDEO",
-  viewPdf: "VIEW CV",
+  videoButton: "watch video",
+  viewPdf: "view cv",
 };
 
 export enum Lan {
@@ -120,7 +120,7 @@ const IndexPage = (props: any) => {
         <ProfileBall picture="sd" />
       </ProfileBallWrapper>
       <ContentSection
-        headline={pageContentLabels.introduction.toUpperCase()}
+        headline={pageContentLabels.introduction}
         description={content.description}
         showButton={false}
         language={language}
@@ -133,7 +133,7 @@ const IndexPage = (props: any) => {
         }
       />
       <ContentSection
-        headline={pageContentLabels.workExperience.toUpperCase()}
+        headline={pageContentLabels.workExperience}
         subHeadlineDetails={content.experience[0]}
         description={content.experience[0].description}
         showButton

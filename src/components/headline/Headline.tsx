@@ -9,7 +9,7 @@ type Props = {
 export const Headline = (props: Props) => {
   return (
     <Wrapper>
-      <HeadlineText isBlack={props.isBlack}>{props.text}</HeadlineText>
+      <HeadlineText isBlack={props.isBlack}>{props.text.toUpperCase()}</HeadlineText>
       <UnderLine />
     </Wrapper>
   );

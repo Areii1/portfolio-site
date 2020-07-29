@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { ExperienceItem } from "../../Types";
-import { Lan } from "../../pages/index";
+import { ExperienceItem } from "../../../Types";
+import { Lan } from "../../../pages/index";
 
 type Props = {
   subHeadlineDetails: ExperienceItem;
@@ -31,12 +31,14 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h4`
-  font-size: 1.7rem;
+  font-size: 24px;
+  font-weight: 500;
   margin: 0;
 `;
 
 const Date = styled.h5`
-  font-size: 1.5rem;
+  font-size: 24px;
+  font-weight: 500;
   color: #94a3ba;
   margin: 0.5rem 0 0 0;
 `;
