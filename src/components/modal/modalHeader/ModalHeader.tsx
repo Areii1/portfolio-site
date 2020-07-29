@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
 import FullscreenIcon from "../../../images/fullscreen.png";
 import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
@@ -95,11 +95,25 @@ const ButtonWrapper = styled.div`
   margin-right: var(--space-4);
 `;
 
+const changeColor = keyframes`
+  from {
+    color: black;
+  }
+  to {
+    color: var(--secondary-headline-color);
+  }
+`;
+
 const CloseButtonText = styled.h6`
   margin: 0;
   font-size: var(--font-size-7);
   font-weight: lighter;
   color: black;
+  :hover {
+    animation-name: ${changeColor};
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+  }
 `;
 
 const Image = styled.img`

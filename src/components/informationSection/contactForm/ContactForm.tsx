@@ -249,6 +249,11 @@ const InputField = styled.input`
   border-bottom: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   display: block;
+  :hover {
+    ::placeholder {
+      color: var(--secondary-headline-color);
+    }
+  }
 `;
 
 const MessageArea = styled.textarea`
@@ -261,6 +266,11 @@ const MessageArea = styled.textarea`
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   resize: none;
+  :hover {
+    ::placeholder {
+      color: var(--secondary-headline-color);
+    }
+  }
   @media (max-width: 800px) {
     width: var(--space-12);
   }
