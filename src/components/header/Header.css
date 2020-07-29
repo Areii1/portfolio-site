@@ -3,7 +3,10 @@
   width: 110vw;
   margin: -70px -70px 0 -70px;
   filter: blur(10px);
-  @media (max-width: 800px) {
+}
+
+@media (max-width: 800px) {
+  .header-queried-image {
     width: 140vw;
   }
 }

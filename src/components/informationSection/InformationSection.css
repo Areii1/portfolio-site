@@ -3,10 +3,15 @@
   width: 110vw;
   margin: -70px;
   filter: blur(10px);
-  @media (max-width: 1100px) {
+}
+
+@media (max-width: 1100px) {
+  .information-section-queried-image {
     height: 2200px;
   }
-  @media (max-width: 800px) {
+}
+@media (max-width: 800px) {
+  .information-section-queried-image {
     width: 140vw;
   }
 }
