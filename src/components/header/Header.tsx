@@ -23,7 +23,7 @@ export const Header = (props: PropTypes) => {
       />
       <TitlesWrapper>
         <Headline>{props.name}</Headline>
-        <SecondaryHeadline>{props.jobTitle}</SecondaryHeadline>
+        <SecondaryHeadline>{props.jobTitle.toUpperCase()}</SecondaryHeadline>
       </TitlesWrapper>
       <ListWrapper>
         <ToggleLanguage isBlack={false} language={props.language} />
@@ -52,8 +52,8 @@ const Wrapper = styled.header`
 `;
 
 const Headline = styled.h1`
-  font-size: 5rem;
-  font-weight: bold;
+  font-size: 86px;
+  font-weight: 500;
   text-align: center;
   color: white;
   margin: 0;
@@ -63,7 +63,8 @@ const Headline = styled.h1`
 `;
 
 const SecondaryHeadline = styled.h2`
-  font-size: 3rem;
+  font-size: 25px;
+  font-weight: 300;
   text-align: center;
   margin: 0;
   color: #94a3ba;
@@ -74,9 +75,9 @@ const SecondaryHeadline = styled.h2`
 
 const TitlesWrapper = styled.div`
   position: absolute;
-  top: calc(50% - 70px);
-  left: calc(50% - 500px);
-  width: 1000px;
+  top: calc(50% - 100px);
+  left: 0;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
