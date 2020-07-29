@@ -60,10 +60,13 @@ const Headline = styled.h1`
   @media (max-width: 800px) {
     font-size: 3rem;
   }
+  @media (max-width: 1100px) {
+    font-size: 65px;
+  }
 `;
 
 const SecondaryHeadline = styled.h2`
-  font-size: 25px;
+  font-size: 30px;
   font-weight: 300;
   text-align: center;
   margin: 0;

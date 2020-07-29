@@ -33,7 +33,8 @@ const Wrapper = styled.div`
 
 const Paragraph = styled.p`
   width: 45%;
-  font-size: 1.3rem;
+  font-size: 17px;
+  font-weight: 300;
   @media (max-width: 800px) {
     width: 100%;
   }

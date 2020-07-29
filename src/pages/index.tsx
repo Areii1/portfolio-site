@@ -120,7 +120,7 @@ const IndexPage = (props: any) => {
         <ProfileBall picture="sd" />
       </ProfileBallWrapper>
       <ContentSection
-        headline={pageContentLabels.introduction}
+        headline={pageContentLabels.introduction.toUpperCase()}
         description={content.description}
         showButton={false}
         language={language}
@@ -133,7 +133,7 @@ const IndexPage = (props: any) => {
         }
       />
       <ContentSection
-        headline={pageContentLabels.workExperience}
+        headline={pageContentLabels.workExperience.toUpperCase()}
         subHeadlineDetails={content.experience[0]}
         description={content.experience[0].description}
         showButton

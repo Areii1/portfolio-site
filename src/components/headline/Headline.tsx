@@ -23,8 +23,8 @@ const Wrapper = styled.div`
 `;
 
 const UnderLine = styled.div`
-  width: 5rem;
-  height: 0.7rem;
+  width: 70px;
+  height: 10px;
   background-color: red;
 `;
 
@@ -34,6 +34,7 @@ type HeadlineTextProps = {
 
 const HeadlineText = styled.h3`
   color: ${(props: HeadlineTextProps) => (props.isBlack ? "black" : "white")};
-  font-size: 3rem;
-  margin: 0 0 1.5rem 0;
+  font-size: 38px;
+  font-weight: 500;
+  margin: 0 0 15px 0;
 `;
