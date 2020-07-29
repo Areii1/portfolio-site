@@ -14,7 +14,6 @@ type Props = {
 };
 
 export const DetailsList = (props: Props) => {
-  // const iconSize = window.innerWidth < 800 ? 20 : 30;
   const iconSize = 25;
   return (
     <List>
@@ -90,12 +89,20 @@ const ListItemLabel = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (max-width: 800px) {
+    margin: 0;
+  }
 `;
 
 const ListItemText = styled.h6`
   margin: 0;
   font-size: var(--font-size-5);
   font-weight: 400;
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const ListItemLink = styled.a`
@@ -103,4 +110,9 @@ const ListItemLink = styled.a`
   font-size: var(--font-size-5);
   font-weight: 400;
   color: white;
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;

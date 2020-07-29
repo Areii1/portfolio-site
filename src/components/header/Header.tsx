@@ -87,6 +87,9 @@ const SecondaryHeadline = styled.h2`
   @media (max-width: 1300px) {
     font-size: var(--font-size-5);
   }
+  @media (max-width: 800px) {
+    font-size: var(--font-size-4);
+  }
 `;
 
 const LanguageToggleWrapper = styled.div`

@@ -36,19 +36,33 @@ export const ContentSection = (props: Props) => {
 
 const Wrapper = styled.section`
   width: var(--space-19);
-  margin: var(--space-12) auto 0 auto;
+  margin: var(--space-11) auto 0 auto;
+  @media (max-width: 1300px) {
+    width: var(--space-16);
+    margin: var(--space-10) auto 0 auto;
+  }
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--space-14);
+  }
 `;
 
 const TopSectionWrapper = styled.div`
   display: flex;
+  flex-direction: initial;
   justify-content: space-between;
   @media (max-width: 800px) {
-    display: inherit;
-    justify-content: inherit;
+    flex-direction: column;
+    justify-content: initial;
+    align-items: center;
   }
 `;
 
 const ButtonWrapper = styled.div`
   display: initial;
-  min-height: 5px;
+  @media (max-width: 800px) {
+    margin-top: var(--space-6);
+  }
 `;
