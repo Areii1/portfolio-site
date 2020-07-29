@@ -49,8 +49,10 @@ const Wrapper = styled.header`
   overflow: hidden;
   position: relative;
   padding: var(--space-4);
+  margin-bottom: var(--space-11);
   @media (max-width: 1300px) {
     height: var(--space-13);
+    margin-bottom: var(--space-11);
   }
 `;
 
@@ -76,6 +78,9 @@ const Headline = styled.h1`
   @media (max-width: 800px) {
     font-size: var(--font-size-9);
   }
+  @media (max-width: 400px) {
+    font-size: var(--font-size-8);
+  }
 `;
 
 const SecondaryHeadline = styled.h2`
@@ -89,6 +94,9 @@ const SecondaryHeadline = styled.h2`
   }
   @media (max-width: 800px) {
     font-size: var(--font-size-4);
+  }
+  @media (max-width: 400px) {
+    font-size: var(--font-size-3);
   }
 `;
 

@@ -36,16 +36,21 @@ export const ContentSection = (props: Props) => {
 
 const Wrapper = styled.section`
   width: var(--space-19);
-  margin: var(--space-11) auto 0 auto;
+  margin: 0 auto var(--space-11) auto;
   @media (max-width: 1300px) {
     width: var(--space-16);
-    margin: var(--space-10) auto 0 auto;
+    margin: 0 auto var(--space-10) auto;
   }
   @media (max-width: 800px) {
+    width: var(--space-14);
+    margin: 0 auto var(--space-8) auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: var(--space-14);
+  }
+  @media (max-width: 400px) {
+    width: var(--space-12);
+    margin: 0 auto var(--space-6) auto;
   }
 `;
 

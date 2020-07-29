@@ -23,11 +23,13 @@ export const Paragraphs = (props: Props) => {
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: initial;
   justify-content: space-between;
-  width: 100%;
   margin-top: var(--space-7);
   @media (max-width: 800px) {
-    display: inherit; 
+    flex-direction: column;
+    justify-content: initial;
+    text-align: center;
   }
 `;
 
