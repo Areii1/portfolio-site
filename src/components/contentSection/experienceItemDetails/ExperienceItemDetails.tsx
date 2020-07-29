@@ -31,14 +31,14 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h4`
-  font-size: 24px;
+  font-size: var(--font-size-6);
   font-weight: 500;
   margin: 0;
 `;
 
 const Date = styled.h5`
-  font-size: 24px;
+  font-size: var(--font-size-6);
   font-weight: 500;
-  color: #94a3ba;
+  color: var(--secondary-headline-color);
   margin: var(--space-2) 0 0 0;
 `;

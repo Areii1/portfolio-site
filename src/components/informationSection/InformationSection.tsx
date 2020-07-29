@@ -41,7 +41,7 @@ export const InformationSection = (props: Props) => {
         </ContentWrapper>
       </Information>
       <Contact>
-        <ContentWrapperContact>
+        <ContentWrapper>
           <InnerWrapper>
             <Headline text={props.pageContentLabels.contactForm} isBlack />
             <ContactForm
@@ -49,7 +49,7 @@ export const InformationSection = (props: Props) => {
               setDialogBoxContent={props.setDialogBoxContent}
             />
           </InnerWrapper>
-        </ContentWrapperContact>
+        </ContentWrapper>
       </Contact>
     </Wrapper>
   );
@@ -110,19 +110,12 @@ const ContentWrapper = styled.div`
   align-items: center;
 `;
 
-const ContentWrapperContact = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const InnerWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
   max-width: initial;
   @media (max-width: 800px) {
-    /* max-width: 20rem; */
+    max-width: 20rem;
   }
 `;

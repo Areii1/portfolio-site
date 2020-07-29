@@ -57,11 +57,11 @@ const Headline = styled.h1`
   text-align: center;
   color: white;
   margin: 0;
+  @media (max-width: 1100px) {
+    font-size: var(--font-size-10);
+  }
   @media (max-width: 800px) {
     font-size: var(--font-size-9);
-  }
-  @media (max-width: 1100px) {
-    font-size: 65px;
   }
 `;
 
