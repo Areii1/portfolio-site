@@ -9,7 +9,9 @@ type Props = {
 export const Headline = (props: Props) => {
   return (
     <Wrapper>
-      <HeadlineText isBlack={props.isBlack}>{props.text.toUpperCase()}</HeadlineText>
+      <HeadlineText isBlack={props.isBlack}>
+        {props.text.toUpperCase()}
+      </HeadlineText>
       <UnderLine />
     </Wrapper>
   );
@@ -17,8 +19,10 @@ export const Headline = (props: Props) => {
 
 const Wrapper = styled.div`
   max-width: initial;
-  @media (max-width: 800px) {
-    max-width: 15rem;
+  @media (max-width: 400px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 

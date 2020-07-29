@@ -117,7 +117,10 @@ const IndexPage = (props: any) => {
         language={language}
       />
       <ProfileBallWrapper>
-        <ProfileBall />
+        <ProfileBall
+          language={language}
+          handleClick={() => setModalType(ModalTypes.VIDEO)}
+        />
       </ProfileBallWrapper>
       <ContentSection
         headline={pageContentLabels.introduction}
