@@ -173,6 +173,7 @@ export const ContactForm = (props: Props) => {
           showError={
             submitClicked && missingFields.some(field => field === "name")
           }
+          isSubject={false}
         />
         <InputField
           type="text"
@@ -182,6 +183,7 @@ export const ContactForm = (props: Props) => {
           showError={
             submitClicked && missingFields.some(field => field === "email")
           }
+          isSubject={false}
         />
       </InputsWrapper>
       <InputField
@@ -192,6 +194,7 @@ export const ContactForm = (props: Props) => {
         showError={
           submitClicked && missingFields.some(field => field === "subject")
         }
+        isSubject
       />
       <MessageArea
         placeholder={fieldPlaceholders.message}
@@ -228,10 +231,19 @@ type FieldProps = {
   showError: boolean;
 };
 
+type InputFieldProps = {
+  showError: boolean;
+  isSubject: boolean;
+};
+
 const InputField = styled.input`
+  font-family: "Poppins";
   margin: var(--space-4) var(--space-4) 0 0;
   background-color: transparent;
-  width: var(--space-12);
+  width: ${(props: InputFieldProps) =>
+    props.isSubject
+      ? "calc(var(--space-14) + var(--space-4))"
+      : "var(--space-12)"};
   height: var(--space-6);
   border: none;
   border-bottom: ${(props: FieldProps) =>
@@ -240,8 +252,10 @@ const InputField = styled.input`
 `;
 
 const MessageArea = styled.textarea`
+  font-family: "Poppins";
+  padding: var(--space-4);
   margin-top: var(--space-7);
-  width: var(--space-14);
+  width: calc(var(--space-14) + var(--space-4));
   height: var(--space-9);
   background-color: lightgray;
   border: ${(props: FieldProps) =>
@@ -255,6 +269,11 @@ const MessageArea = styled.textarea`
 const ButtonText = styled.h3`
   margin: 0;
   color: white;
+  font-size: var(--font-size-5);
+  font-weight: 700;
+  :hover {
+    color: var(--secondary-headline-color);
+  }
 `;
 
 const SubmitButton = styled.button`
@@ -268,5 +287,6 @@ const SubmitButton = styled.button`
 `;
 
 const SubmitWrapper = styled.div`
-  display: initial;
+  display: flex;
+  justify-content: center;
 `;

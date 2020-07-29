@@ -111,6 +111,7 @@ const ContentWrapper = styled.div`
 `;
 
 const InnerWrapper = styled.div`
+  height: var(--space-14);
   display: flex;
   flex-direction: column;
   align-items: start;

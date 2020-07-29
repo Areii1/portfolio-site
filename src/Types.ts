@@ -15,7 +15,7 @@ export type ProfileDetails = {
   age?: number;
   location: Location;
   email: string;
-  gitlabUsername: string;
+  gitlabUsername?: string;
   githubUsername: string;
   linkedInPageName: string;
   phoneNumber?: string;

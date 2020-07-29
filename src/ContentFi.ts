@@ -9,7 +9,6 @@ const profileDetails: ProfileDetails = {
     district: "Kallio",
   },
   email: "ari.jaaskelainen1@gmail.com",
-  gitlabUsername: "arpejaa",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
   jobTitle: "front-end kehittäjä",

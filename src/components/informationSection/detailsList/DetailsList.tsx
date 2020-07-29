@@ -29,17 +29,19 @@ export const DetailsList = (props: Props) => {
         </ListItemLabel>
         <ListItemText>{props.profileDetails.email}</ListItemText>
       </ListItem>
-      <ListItem>
-        <ListItemLabel>
-          <GitlabIcon fillColor="white" size={iconSize} />
-        </ListItemLabel>
-        <ListItemLink
-          href={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
-          title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
-        >
-          {props.profileDetails.gitlabUsername}
-        </ListItemLink>
-      </ListItem>
+      {props.profileDetails.gitlabUsername && (
+        <ListItem>
+          <ListItemLabel>
+            <GitlabIcon fillColor="white" size={iconSize} />
+          </ListItemLabel>
+          <ListItemLink
+            href={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+            title={`https://gitlab.com/${props.profileDetails.gitlabUsername}`}
+          >
+            {props.profileDetails.gitlabUsername}
+          </ListItemLink>
+        </ListItem>
+      )}
       <ListItem>
         <ListItemLabel>
           <GithubIcon fillColor="white" size={iconSize} />
@@ -96,8 +98,8 @@ const ListItemLabel = styled.div`
 
 const ListItemText = styled.h6`
   margin: 0;
-  font-size: var(--font-size-5);
-  font-weight: 400;
+  font-size: var(--font-size-4);
+  font-weight: 300;
   @media (max-width: 800px) {
     display: flex;
     justify-content: center;
@@ -107,8 +109,8 @@ const ListItemText = styled.h6`
 
 const ListItemLink = styled.a`
   margin: 0;
-  font-size: var(--font-size-5);
-  font-weight: 400;
+  font-size: var(--font-size-4);
+  font-weight: 300;
   color: white;
   @media (max-width: 800px) {
     display: flex;
