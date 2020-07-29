@@ -79,7 +79,7 @@ const IndexPage = (props: any) => {
         handleWrapperClick(event)
       );
     }
-  }
+  };
   React.useEffect(() => {
     if (props.search.lan === "en") {
       setLanguage(Lan.ENGLISH);
@@ -117,7 +117,7 @@ const IndexPage = (props: any) => {
         language={language}
       />
       <ProfileBallWrapper>
-        <ProfileBall picture="sd" />
+        <ProfileBall />
       </ProfileBallWrapper>
       <ContentSection
         headline={pageContentLabels.introduction}
@@ -181,10 +181,14 @@ const Wrapper = styled.div`
 
 const ProfileBallWrapper = styled.div`
   position: absolute;
-  top: 425px;
-  left: calc(50% - 175px);
-  @media (max-width: 800px) {
-    top: 490px;
-    left: calc(50% - 110px);
+  /*
+  --space-15 is the height of the header
+  --space-13 is the width of the profileball
+  */
+  top: calc(var(--space-15) - var(--space-13) / 2);
+  left: calc(50% - var(--space-13) / 2);
+  @media (max-width: 1300px) {
+    top: calc(var(--space-13) - var(--space-11) / 2);
+    left: calc(50% - var(--space-11) / 2);
   }
 `;

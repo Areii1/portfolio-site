@@ -45,10 +45,23 @@ export const imageQuery = graphql`
 `;
 
 const Wrapper = styled.header`
-  height: 600px;
+  height: var(--space-15);
   overflow: hidden;
   position: relative;
   padding: var(--space-4);
+  @media (max-width: 1300px) {
+    height: var(--space-13);
+  }
+`;
+
+const TitlesWrapper = styled.div`
+  position: absolute;
+  top: calc(50% - var(--space-9));
+  left: 0;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Headline = styled.h1`
@@ -57,7 +70,7 @@ const Headline = styled.h1`
   text-align: center;
   color: white;
   margin: 0;
-  @media (max-width: 1100px) {
+  @media (max-width: 1300px) {
     font-size: var(--font-size-10);
   }
   @media (max-width: 800px) {
@@ -71,22 +84,8 @@ const SecondaryHeadline = styled.h2`
   text-align: center;
   margin: 0;
   color: #94a3ba;
-  @media (max-width: 800px) {
+  @media (max-width: 1300px) {
     font-size: var(--font-size-5);
-  }
-`;
-
-const TitlesWrapper = styled.div`
-  position: absolute;
-  top: calc(50% - var(--space-9));
-  left: 0;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  @media (max-width: 800px) {
-    width: 300px;
-    left: calc(50% - 150px);
   }
 `;
 

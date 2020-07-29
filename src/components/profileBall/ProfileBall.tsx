@@ -4,11 +4,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import "./ProfileBall.css";
 
-type Props = {
-  picture: string;
-};
-
-export const ProfileBall = (props: Props) => {
+export const ProfileBall = () => {
   const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
@@ -36,29 +32,29 @@ export const imageQuery = graphql`
 `;
 
 const Wrapper = styled.div`
-  width: 350px;
-  height: 350px;
-  border-radius: 350px;
-  background-color: #e7e7e7;
+  width: var(--space-13);
+  height: var(--space-13);
+  border-radius: var(--space-13);
+  background-color: var(--profile-ball-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (max-width: 800px) {
-    width: 220px;
-    height: 220px;
-    border-radius: 220px;
+  @media (max-width: 1300px) {
+    width: var(--space-11);
+    height: var(--space-11);
+    border-radius: var(--space-11);
   }
 `;
 
 const ProfileImageWrapper = styled.div`
-  width: 315px;
-  height: 315px;
+  width: calc(var(--space-13) - 35px);
+  height: calc(var(--space-13) - 35px);
+  border-radius: calc(var(--space-13) - 35px);;
   position: relative;
   overflow: hidden;
-  border-radius: 50%;
-  @media (max-width: 800px) {
-    width: 200px;
-    height: 200px;
-    border-radius: 200px;
+  @media (max-width: 1300px) {
+    width: calc(var(--space-11) - 20px);
+    height: calc(var(--space-11) - 20px);
+    border-radius: calc(var(--space-11) - 20px);
   }
 `;

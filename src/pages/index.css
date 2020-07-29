@@ -52,13 +52,14 @@ body {
   --space-minus-10: -128px;
 
   --background-color: #f0f0f0;
+  --profile-ball-bg-color: #e7e7e7;
   --video-icon-color: blue;
   --document-icon-color: #b78a10;
   --secondary-headline-color: #94a3ba;
   --information-section-bg-color: #2c4a78;
   --contact-section-bg-color: #b4c3da;
 
-  --breakpoint-mobile: 480px;
-  --breakpoint-tablet: 768px;
-  --breakpoint-laptop: 1024px;
+  --breakpoint-mobile: 450px;
+  --breakpoint-tablet: 800px;
+  --breakpoint-laptop: 1300px;
 }
