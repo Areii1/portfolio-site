@@ -214,7 +214,7 @@ export const ContactForm = (props: Props) => {
 };
 
 const Form = styled.form`
-  margin-top: 2.5rem;
+  margin-top: var(--space-6);
 `;
 
 const InputsWrapper = styled.div`
@@ -229,10 +229,10 @@ type FieldProps = {
 };
 
 const InputField = styled.input`
-  margin: 1rem 1rem 0 0;
+  margin: var(--space-4) var(--space-4) 0 0;
   background-color: transparent;
-  width: 15rem;
-  height: 2rem;
+  width: var(--space-12);
+  height: var(--space-6);
   border: none;
   border-bottom: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
@@ -240,15 +240,15 @@ const InputField = styled.input`
 `;
 
 const MessageArea = styled.textarea`
-  margin-top: 3rem;
-  width: 31rem;
-  height: 5rem;
+  margin-top: var(--space-7);
+  width: var(--space-14);
+  height: var(--space-9);
   background-color: lightgray;
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   resize: none;
   @media (max-width: 800px) {
-    width: 15rem;
+    width: var(--space-12);
   }
 `;
 
@@ -258,7 +258,7 @@ const ButtonText = styled.h3`
 `;
 
 const SubmitButton = styled.button`
-  margin-top: 1rem;
+  margin-top: var(--space-4);
   background-color: transparent;
   border: none;
   color: white;

@@ -34,7 +34,7 @@ type HeadlineTextProps = {
 
 const HeadlineText = styled.h3`
   color: ${(props: HeadlineTextProps) => (props.isBlack ? "black" : "white")};
-  font-size: 38px;
+  font-size: var(--font-size-8);
   font-weight: 500;
-  margin: 0 0 15px 0;
+  margin: 0 0 var(--space-4) 0;
 `;

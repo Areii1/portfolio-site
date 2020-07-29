@@ -11,10 +11,14 @@ type Props = {
 
 export const DialogBox = (props: Props) => {
   const [wrapperWidth, setWrapperWidth] = React.useState<number>(0);
-  const wrapperNode = React.useRef(null);
+  const wrapperNode = React.useRef<any>(null);
   React.useEffect(() => {
-    if (wrapperNode!.current) {
-      setWrapperWidth(wrapperNode.current.offsetWidth);
+    if (wrapperNode) {
+      if (wrapperNode.current) {
+        if (wrapperNode.current.offsetWidth) {
+          setWrapperWidth(wrapperNode.current.offsetWidth);
+        }
+      }
     }
   }, []);
   return (
@@ -46,28 +50,23 @@ type WrapperProps = {
 const Wrapper = styled.div`
   position: fixed;
   top: 100px;
-  left: ${(props: WrapperProps) => {
-    console.log(props.width, "width received");
-    return `calc(50% - ${props.width / 2}px)`;
-  }};
+  left: ${(props: WrapperProps) => `calc(50% - ${props.width / 2}px)`};
   max-width: 500px;
-  padding: 0.5rem 1rem;
+  padding: var(--space-2) var(--space-4);
   background-color: white;
-  border: ${(props: WrapperProps) => {
-    console.log(props, "wrapper props");
-    return props.isError ? "1px solid red" : "1px solid green";
-  }};
+  border: ${(props: WrapperProps) =>
+    props.isError ? "1px solid red" : "1px solid green"};
   display: flex;
   justify-content: space-between;
 `;
 
 const CloseButtonText = styled.h6`
   margin: 0;
-  font-size: 1.5em;
+  font-size: var(--space-font-size-5);
   font-weight: lighter;
   color: black;
 `;
 
 const Headline = styled.h3`
-  margin: 0 1.5rem 0 0;
+  margin: 0 var(--space-4) 0 0;
 `;

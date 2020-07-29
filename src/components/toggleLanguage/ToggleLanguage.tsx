@@ -53,7 +53,7 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
-  margin-left: 1rem;
+  margin-left: var(--space-4);
 `;
 
 type ButtonProps = {
@@ -85,5 +85,5 @@ const ButtonText = styled.h6`
       return "gray";
     }
   }};
-  font-size: 1.5rem;
+  font-size: var(--font-size-6);
 `;

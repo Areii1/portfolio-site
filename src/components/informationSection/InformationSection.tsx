@@ -68,7 +68,7 @@ export const imageQuery = graphql`
 `;
 
 const Wrapper = styled.section`
-  margin-top: 15rem;
+  margin-top: var(--space-11);
   height: 1500px;
   overflow: hidden;
   position: relative;
@@ -79,24 +79,24 @@ const Wrapper = styled.section`
 
 const Information = styled.div`
   position: absolute;
-  top: calc(50% - 325px);
+  top: calc(50% - 320px);
   left: 0;
-  height: 650px;
+  height: var(--space-15);
   width: 50vw;
-  background-color: #2c4a78;
+  background-color: var(--information-section-bg-color);
   @media (max-width: 1100px) {
-    top: calc(50% - 650px);
+    top: calc(50% - var(--space-15));
     width: 100vw;
   }
 `;
 
 const Contact = styled.div`
   position: absolute;
-  top: calc(50% - 325px);
+  top: calc(50% - 320px);
   right: 0;
-  height: 650px;
+  height: var(--space-15);
   width: 50vw;
-  background-color: #b4c3da;
+  background-color: var(--contact-section-bg-color);
   @media (max-width: 1100px) {
     top: calc(50%);
     width: 100vw;
@@ -123,6 +123,6 @@ const InnerWrapper = styled.div`
   align-items: start;
   max-width: initial;
   @media (max-width: 800px) {
-    max-width: 20rem;
+    /* max-width: 20rem; */
   }
 `;

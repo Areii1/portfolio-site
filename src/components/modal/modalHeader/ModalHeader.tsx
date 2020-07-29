@@ -92,12 +92,12 @@ const Wrapper = styled.div`
 `;
 
 const ButtonWrapper = styled.div`
-  margin-right: 1rem;
+  margin-right: var(--space-4);
 `;
 
 const CloseButtonText = styled.h6`
   margin: 0;
-  font-size: 2.5em;
+  font-size: var(--font-size-7);
   font-weight: lighter;
   color: black;
 `;

@@ -35,14 +35,8 @@ export const ContentSection = (props: Props) => {
 };
 
 const Wrapper = styled.section`
-  padding: 15rem 20rem 0 20rem;
-  width: 100%;
-  @media (max-width: 1100px) {
-    padding: 15rem 10rem 0 10rem;
-  }
-  @media (max-width: 800px) {
-    padding: 15rem 1rem 0 1rem;
-  }
+  width: var(--space-19);
+  margin: var(--space-12) auto 0 auto;
 `;
 
 const TopSectionWrapper = styled.div`
@@ -57,7 +51,4 @@ const TopSectionWrapper = styled.div`
 const ButtonWrapper = styled.div`
   display: initial;
   min-height: 5px;
-  @media (max-width: 800px) {
-    margin-top: 5rem;
-  }
 `;

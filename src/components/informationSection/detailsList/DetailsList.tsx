@@ -72,34 +72,35 @@ const List = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: column;
-  margin-top: 2.5rem;
+  margin-top: var(--space-6);
 `;
 
 const ListItem = styled.li`
   display: flex;
   flex-direction: initial;
   color: white;
-  margin: 0.5rem 0;
+  margin: var(--space-2) 0;
   @media (max-width: 800px) {
     flex-direction: column;
   }
 `;
 
 const ListItemLabel = styled.div`
-  margin: 0 2rem 0 0;
-  max-width: 3rem;
+  margin: 0 var(--space-6) 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ListItemText = styled.h6`
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--font-size-5);
   font-weight: 400;
-  
 `;
 
 const ListItemLink = styled.a`
   margin: 0;
-  font-size: 1.5rem;
+  font-size: var(--font-size-5);
   font-weight: 400;
   color: white;
 `;

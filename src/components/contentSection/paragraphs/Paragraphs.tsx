@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: var(--space-7);
   @media (max-width: 800px) {
     display: inherit; 
   }
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 
 const Paragraph = styled.p`
   width: 45%;
-  font-size: 17px;
+  font-size: var(--font-size-4);
   font-weight: 300;
   @media (max-width: 800px) {
     width: 100%;

@@ -25,9 +25,9 @@ export const Header = (props: PropTypes) => {
         <Headline>{props.name}</Headline>
         <SecondaryHeadline>{props.jobTitle.toUpperCase()}</SecondaryHeadline>
       </TitlesWrapper>
-      <ListWrapper>
+      <LanguageToggleWrapper>
         <ToggleLanguage isBlack={false} language={props.language} />
-      </ListWrapper>
+      </LanguageToggleWrapper>
     </Wrapper>
   );
 };
@@ -48,17 +48,17 @@ const Wrapper = styled.header`
   height: 600px;
   overflow: hidden;
   position: relative;
-  padding: 1rem;
+  padding: var(--space-4);
 `;
 
 const Headline = styled.h1`
-  font-size: 86px;
+  font-size: var(--font-size-12);
   font-weight: 500;
   text-align: center;
   color: white;
   margin: 0;
   @media (max-width: 800px) {
-    font-size: 3rem;
+    font-size: var(--font-size-9);
   }
   @media (max-width: 1100px) {
     font-size: 65px;
@@ -66,19 +66,19 @@ const Headline = styled.h1`
 `;
 
 const SecondaryHeadline = styled.h2`
-  font-size: 30px;
+  font-size: var(--font-size-7);
   font-weight: 300;
   text-align: center;
   margin: 0;
   color: #94a3ba;
   @media (max-width: 800px) {
-    font-size: 1.5rem;
+    font-size: var(--font-size-5);
   }
 `;
 
 const TitlesWrapper = styled.div`
   position: absolute;
-  top: calc(50% - 100px);
+  top: calc(50% - var(--space-9));
   left: 0;
   width: 100vw;
   display: flex;
@@ -90,9 +90,9 @@ const TitlesWrapper = styled.div`
   }
 `;
 
-const ListWrapper = styled.div`
+const LanguageToggleWrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1rem;
+  padding: var(--space-4);
 `;

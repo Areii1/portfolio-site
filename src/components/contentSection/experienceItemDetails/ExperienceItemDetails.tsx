@@ -27,7 +27,7 @@ export const ExperienceItemDetails = (props: Props) => {
 };
 
 const Wrapper = styled.div`
-  margin: 3rem 0 -1.5rem 0;
+  margin: var(--space-7) 0 var(--space-minus-4) 0;
 `;
 
 const Title = styled.h4`
@@ -40,5 +40,5 @@ const Date = styled.h5`
   font-size: 24px;
   font-weight: 500;
   color: #94a3ba;
-  margin: 0.5rem 0 0 0;
+  margin: var(--space-2) 0 0 0;
 `;

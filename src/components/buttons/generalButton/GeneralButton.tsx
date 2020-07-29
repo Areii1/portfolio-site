@@ -18,20 +18,17 @@ export const GeneralButton = (props: Props) => {
 
 const ButtonElement = styled.button`
   background-color: transparent;
-  width: 15rem;
-  height: 3rem;
+  width: var(--space-12);
+  height: var(--space-7);
   border: 1px solid black;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0 3rem 0 1rem;
+  padding: 0 var(--space-4);
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 `;
 
 const Text = styled.h6`
-  margin: 0;
-  font-size: 1em;
+  margin: 0 0 0 var(--space-4);
+  font-size: var(--font-size-4);
   font-weight: 400;
 `;
