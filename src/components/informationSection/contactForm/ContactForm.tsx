@@ -5,7 +5,7 @@ import { sendEmail } from "../../../apiServices/SendEmail";
 import { LoadingRipple } from "../../loadingRipple/LoadingRipple";
 
 const fieldPlaceholdersFi = {
-  name: "Nimi",
+  name: "Koko nimi",
   email: "Sähköposti",
   subject: "Aihe",
   message: "Viesti",
@@ -14,7 +14,7 @@ const fieldPlaceholdersFi = {
 };
 
 const fieldPlaceholdersEn = {
-  name: "Name",
+  name: "Full name",
   email: "Email",
   subject: "Subject",
   message: "Message",
@@ -24,13 +24,13 @@ const fieldPlaceholdersEn = {
 
 const dialogsEn = {
   success: "Message sent, thank you",
-  methodError: "Could not send message",
+  methodError: "Something went wrong sending the message",
   missingFieldsError: "Required fields are missing",
 };
 
 const dialogsFi = {
   success: "Viesti lähetetty, kiitos",
-  methodError: "Viestiä ei pystytty lähettämään",
+  methodError: "Jotain meni pieleen viestiä lähettäessä",
   missingFieldsError: "Pakollisia kenttiä puuttuu",
 };
 
@@ -54,7 +54,7 @@ type SendEmailProcess =
 
 export const ContactForm = (props: Props) => {
   const [nameField, setNameField] = React.useState<string>("");
-  const [emailield, setEmailField] = React.useState<string>("");
+  const [emailField, setEmailField] = React.useState<string>("");
   const [subjectField, setSubjectField] = React.useState<string>("");
   const [messageField, setMessageField] = React.useState<string>("");
   const [missingFields, setMissingFields] = React.useState<Array<string>>([
@@ -72,11 +72,11 @@ export const ContactForm = (props: Props) => {
     event.preventDefault();
     setSubmitClicked(true);
     const dialogs = props.language === Lan.ENGLISH ? dialogsEn : dialogsFi;
-    if (messageField && emailield && subjectField && nameField) {
+    if (messageField && emailField && subjectField && nameField) {
       try {
         setSendEmailProcess({ status: Status.LOADING });
         const sendEmailResponse = await sendEmail(
-          emailield,
+          emailField,
           nameField,
           subjectField,
           messageField
@@ -101,6 +101,7 @@ export const ContactForm = (props: Props) => {
           message: dialogs.methodError,
         };
         props.setDialogBoxContent(dialogBoxContent);
+        resetFieldsState();
       }
     } else {
       const dialogBoxContent = {
@@ -116,7 +117,7 @@ export const ContactForm = (props: Props) => {
     if (nameField === "") {
       updatedMissingFields = ["name"];
     }
-    if (emailield === "") {
+    if (emailField === "") {
       updatedMissingFields = [...updatedMissingFields, "email"];
     }
     if (subjectField === "") {
@@ -174,6 +175,7 @@ export const ContactForm = (props: Props) => {
             submitClicked && missingFields.some(field => field === "name")
           }
           isSubject={false}
+          value={nameField}
         />
         <InputField
           type="text"
@@ -184,6 +186,7 @@ export const ContactForm = (props: Props) => {
             submitClicked && missingFields.some(field => field === "email")
           }
           isSubject={false}
+          value={emailField}
         />
       </InputsWrapper>
       <InputField
@@ -195,6 +198,7 @@ export const ContactForm = (props: Props) => {
           submitClicked && missingFields.some(field => field === "subject")
         }
         isSubject
+        value={subjectField}
       />
       <MessageArea
         placeholder={fieldPlaceholders.message}
@@ -203,6 +207,7 @@ export const ContactForm = (props: Props) => {
         showError={
           submitClicked && missingFields.some(field => field === "message")
         }
+        value={messageField}
       />
       <SubmitWrapper>
         {sendEmailProcess.status === Status.LOADING && <LoadingRipple />}

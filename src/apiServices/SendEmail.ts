@@ -13,16 +13,13 @@ export const sendEmail = async (
     subject,
     message,
   };
-  try {
-    const sendEmailResponse = await axios({
+  return new Promise((resolve, reject) => {
+    axios({
       method: "post",
       url: sendEmailEndpoint,
       data: sendEmailParams,
-      headers: { Authorization: "sad" },
-    });
-    return { isError: false, response: sendEmailResponse };
-  } catch (sendEmailError) {
-    console.log(sendEmailError, "sendEmailResponse");
-    return { isError: true, response: sendEmailError };
-  }
+    })
+      .then(result => resolve(result))
+      .catch(error => reject(error));
+  });
 };
