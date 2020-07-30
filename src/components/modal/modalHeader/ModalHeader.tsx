@@ -1,11 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
-import FullscreenIcon from "../../../images/fullscreen.png";
+import { FullscreenIcon } from "../../icons/FullscreenIcon";
 import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
 import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, Lan } from "../../../pages/index";
-import { downloadFile } from "../../../util";
+import { downloadFile } from "../../../utility/utilityFunctions";
 import { FileDetails } from "../../../Types";
 import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
 
@@ -40,10 +40,7 @@ export const ModalHeader = (props: ModalHeader) => {
       : modalHeaderContentLabelsFi;
   return (
     <Wrapper pdfInFullScreen={props.pdfInFullScreen}>
-      <ToggleLanguage
-        isBlack
-        language={props.language}
-      />
+      <ToggleLanguage isBlack language={props.language} />
       {props.type === ModalTypes.CV && (
         <>
           <TransparentButton
@@ -54,9 +51,10 @@ export const ModalHeader = (props: ModalHeader) => {
             }
             handleClick={() => props.setPdfInFullScreen(!props.pdfInFullScreen)}
           >
-            <Image
-              src={props.pdfInFullScreen ? OutOfFullscreenIcon : FullscreenIcon}
-            />
+            {!props.pdfInFullScreen && (
+              <FullscreenIcon size={30} fillColor="black" />
+            )}
+            {props.pdfInFullScreen && <Image src={OutOfFullscreenIcon} />}
           </TransparentButton>
           <TransparentButton
             title={modalContentLabels.downloadCv}
@@ -69,12 +67,12 @@ export const ModalHeader = (props: ModalHeader) => {
         </>
       )}
       <ButtonWrapper>
-      <TransparentButton
-        handleClick={() => props.setModalType(undefined)}
-        title={modalContentLabels.closeModal}
-      >
-        <CloseButtonText>X</CloseButtonText>
-      </TransparentButton>
+        <TransparentButton
+          handleClick={() => props.setModalType(undefined)}
+          title={modalContentLabels.closeModal}
+        >
+          <CloseButtonText>X</CloseButtonText>
+        </TransparentButton>
       </ButtonWrapper>
     </Wrapper>
   );

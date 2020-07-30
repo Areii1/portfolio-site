@@ -145,7 +145,7 @@ const IndexPage = (props: any) => {
             text={pageContentLabels.viewPdf}
             handleClick={() => setModalType(ModalTypes.CV)}
             type={ModalTypes.CV}
-            cvFile={content.profile.cv.fileUrl}
+            cv={content.profile.cv}
             language={language}
           />
         }
