@@ -2,10 +2,9 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
 import { FullscreenIcon } from "../../icons/FullscreenIcon";
-import OutOfFullscreenIcon from "../../../images/out-of-fullscreen.png";
+import { OutOfFullscreenIcon } from "../../icons/OutOfFullscreenIcon";
 import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, Lan } from "../../../pages/index";
-import { downloadFile } from "../../../utility/utilityFunctions";
 import { FileDetails } from "../../../Types";
 import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
 
@@ -54,16 +53,18 @@ export const ModalHeader = (props: ModalHeader) => {
             {!props.pdfInFullScreen && (
               <FullscreenIcon size={30} fillColor="black" />
             )}
-            {props.pdfInFullScreen && <Image src={OutOfFullscreenIcon} />}
+            {props.pdfInFullScreen && (
+              <OutOfFullscreenIcon size={30} fillColor="black" />
+            )}
           </TransparentButton>
-          <TransparentButton
-            title={modalContentLabels.downloadCv}
-            handleClick={() =>
-              downloadFile(props.cv.fileName, props.cv.fileUrl)
-            }
-          >
-            <Image src={DownloadIcon} />
-          </TransparentButton>
+          <a href={props.cv.fileUrl} download target="_blank">
+            <TransparentButton
+              title={modalContentLabels.downloadCv}
+              handleClick={() => {}}
+            >
+              <Image src={DownloadIcon} />
+            </TransparentButton>
+          </a>
         </>
       )}
       <ButtonWrapper>

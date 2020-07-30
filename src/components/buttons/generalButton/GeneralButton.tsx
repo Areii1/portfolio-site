@@ -4,7 +4,6 @@ import { ModalTypes } from "../../../pages/index";
 import { PlayIcon } from "../../icons/PlayIcon";
 import { ViewDocumentIcon } from "../../icons/ViewDocument";
 import { Lan } from "../../../pages/index";
-import { downloadFile } from "../../../utility/utilityFunctions";
 import { FileDetails } from "../../../Types";
 
 type Props = {
@@ -24,22 +23,21 @@ export const GeneralButton = (props: Props) => {
   return (
     <>
       {props.type === ModalTypes.CV && props.cv && (
-        // <CVButtonMobileLink href={props.cvFile} download>
-        <CVButtonMobile
-          type="button"
-          title={cvButtonLabel}
-          useCase={props.type}
-          onClick={() => downloadFile(props.cv!.fileName, props.cv!.fileUrl)}
-        >
-          <ViewDocumentIcon
-            startFillColor="#b78a10"
-            endFillColor="blue"
-            size={30}
-            animation={false}
-          />
-          <Text>{props.text.toUpperCase()}</Text>
-        </CVButtonMobile>
-        // </CVButtonMobileLink>
+        <CVButtonMobileLink href={props.cv.fileUrl} download target="_blank">
+          <CVButtonMobile
+            type="button"
+            title={cvButtonLabel}
+            useCase={props.type}
+          >
+            <ViewDocumentIcon
+              startFillColor="#b78a10"
+              endFillColor="blue"
+              size={30}
+              animation={false}
+            />
+            <Text>{props.text.toUpperCase()}</Text>
+          </CVButtonMobile>
+        </CVButtonMobileLink>
       )}
       <Button
         type="button"
@@ -98,7 +96,7 @@ const Button = styled.button`
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 400px) {
     display: ${(props: ButtonProps) =>
       props.useCase === ModalTypes.CV ? "none" : "initial"};
     width: initial;
@@ -107,22 +105,22 @@ const Button = styled.button`
 
 const CVButtonMobile = styled(Button)`
   display: none;
-  @media (max-width: 700px) {
+  @media (max-width: 400px) {
     display: ${(props: ButtonProps) =>
       props.useCase === ModalTypes.CV ? "initial" : "none"};
     width: initial;
   }
 `;
 
-// const CVButtonMobileLink = styled.a`
-//   display: block;
-// `;
+const CVButtonMobileLink = styled.a`
+  display: block;
+`;
 
 const Text = styled.h6`
   margin: 0 0 0 var(--space-4);
   font-size: var(--font-size-4);
   font-weight: 400;
-  @media (max-width: 700px) {
+  @media (max-width: 400px) {
     display: none;
   }
 `;
