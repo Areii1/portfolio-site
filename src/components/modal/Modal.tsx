@@ -63,24 +63,24 @@ type ModalBoxProps = {
 
 const ModalBox = styled.div`
   position: fixed;
+  background-color: white;
   top: ${(props: ModalBoxProps) =>
     getModalBoxTopPosition(props.pdfInFullScreen, props.type, false)};
-  @media (max-width: 800px) {
-    top: ${(props: ModalBoxProps) =>
-      getModalBoxTopPosition(props.pdfInFullScreen, props.type, true)};
-  }
   left: ${(props: ModalBoxProps) =>
-    props.pdfInFullScreen && props.type === ModalTypes.CV
-      ? "0"
-      : "calc(50% - 150px);"};
-  background-color: white;
+    getModalBoxLeftPosition(props.pdfInFullScreen, props.type, false)};
   width: ${(props: ModalBoxProps) =>
-    props.pdfInFullScreen && props.type === ModalTypes.CV ? "100vw" : "auto"};
+    getModalBoxWidth(props.pdfInFullScreen, props.type, false)};
   height: ${(props: ModalBoxProps) =>
     getModalBoxHeight(props.pdfInFullScreen, props.type, false)};
   @media (max-width: 800px) {
+    top: ${(props: ModalBoxProps) =>
+      getModalBoxTopPosition(props.pdfInFullScreen, props.type, true)};
+    left: ${(props: ModalBoxProps) =>
+      getModalBoxLeftPosition(props.pdfInFullScreen, props.type, true)};
     height: ${(props: ModalBoxProps) =>
       getModalBoxHeight(props.pdfInFullScreen, props.type, true)};
+    width: ${(props: ModalBoxProps) =>
+      getModalBoxWidth(props.pdfInFullScreen, props.type, true)};
   }
 `;
 
@@ -93,13 +93,49 @@ const getModalBoxTopPosition = (
     return "calc(50% - 50vh)";
   } else {
     if (modalContentType === ModalTypes.VIDEO) {
-      return "calc(50% - 275px)";
-    } else {
       if (!isMobile) {
-        return "calc(50% - 400px)";
+        return "calc(50% - 275px)";
       } else {
         return "calc(50% - 200px)";
       }
+    } else {
+      return "calc(50% - 400px)";
+    }
+  }
+};
+
+const getModalBoxLeftPosition = (
+  pdfInFullScreen: boolean,
+  modalContentType: ModalTypes,
+  isMobile: boolean
+) => {
+  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    return "0";
+  } else {
+    if (modalContentType === ModalTypes.VIDEO) {
+      if (!isMobile) {
+        return "calc(50% - 150px)";
+      } else {
+        return "calc(50% - 100px)";
+      }
+    } else {
+      return "calc(50% - 150px)";
+    }
+  }
+};
+
+const getModalBoxWidth = (
+  pdfInFullScreen: boolean,
+  modalContentType: ModalTypes,
+  isMobile: boolean
+) => {
+  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    return "100vw";
+  } else {
+    if (modalContentType === ModalTypes.VIDEO && isMobile) {
+      return "200px";
+    } else {
+      return "300px";
     }
   }
 };
@@ -112,13 +148,13 @@ const getModalBoxHeight = (
   if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
     return "100vh";
   } else if (!pdfInFullScreen && modalContentType === ModalTypes.CV) {
+    return "800px";
+  } else {
     if (!isMobile) {
-      return "800px";
+      return "auto";
     } else {
       return "400px";
     }
-  } else {
-    return "auto";
   }
 };
 

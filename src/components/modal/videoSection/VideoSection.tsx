@@ -15,7 +15,7 @@ export const VideoSection = (props: Props) => {
           preload="auto"
           poster={props.introductionVideo.filePosterUrl}
           controls
-          width="300px"
+          width="100%"
         >
           <source src={props.introductionVideo.fileUrl} type="video/mp4" />
         </video>
@@ -25,7 +25,7 @@ export const VideoSection = (props: Props) => {
           preload="auto"
           poster={props.introductionVideo.filePosterUrl}
           controls
-          width="300px"
+          width="100%"
         >
           <source src={props.introductionVideo.fileUrl} type="video/mp4" />
         </video>
