@@ -218,12 +218,18 @@ export const ContactForm = (props: Props) => {
 
 const Form = styled.form`
   margin-top: var(--space-6);
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const InputsWrapper = styled.div`
   display: flex;
   @media (max-width: 800px) {
-    display: block;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -254,6 +260,10 @@ const InputField = styled.input`
       color: var(--secondary-headline-color);
     }
   }
+  @media (max-width: 800px) {
+    width: var(--space-11);
+    margin: var(--space-4) 0 0 0;
+  }
 `;
 
 const MessageArea = styled.textarea`
@@ -272,7 +282,7 @@ const MessageArea = styled.textarea`
     }
   }
   @media (max-width: 800px) {
-    width: var(--space-12);
+    width: var(--space-11);
   }
 `;
 
@@ -280,7 +290,6 @@ const changeColor = keyframes`
   from {
     color: white;
   }
-
   to {
     color: var(--secondary-headline-color);
   }

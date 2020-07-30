@@ -26,7 +26,7 @@ const pageContentLabelsFi = {
   workExperience: "Työkokemus",
   education: "Koulutus",
   contactDetails: "Yhteystiedot",
-  contactForm: "Ota minuun yhteyttä",
+  contactForm: "Ota yhteyttä",
   videoButton: "katso video",
   viewPdf: "katso cv",
 };
@@ -130,6 +130,7 @@ const IndexPage = (props: any) => {
             text={pageContentLabels.videoButton}
             handleClick={() => setModalType(ModalTypes.VIDEO)}
             type={ModalTypes.VIDEO}
+            language={language}
           />
         }
       />
@@ -144,6 +145,8 @@ const IndexPage = (props: any) => {
             text={pageContentLabels.viewPdf}
             handleClick={() => setModalType(ModalTypes.CV)}
             type={ModalTypes.CV}
+            cvFile={content.profile.cv.fileUrl}
+            language={language}
           />
         }
       />

@@ -2,7 +2,7 @@ import React from "react";
 import { AnimatableIconProps } from "./IconPropTypes";
 import styled from "styled-components";
 
-export const ViewDocument = (props: AnimatableIconProps) => {
+export const ViewDocumentIcon = (props: AnimatableIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

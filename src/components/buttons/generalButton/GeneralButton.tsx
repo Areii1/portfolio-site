@@ -2,48 +2,67 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ModalTypes } from "../../../pages/index";
 import { PlayIcon } from "../../icons/PlayIcon";
-import { ViewDocument } from "../../icons/VIewDocument";
+import { ViewDocumentIcon } from "../../icons/ViewDocument";
+import { Lan } from "../../../pages/index";
 
 type Props = {
   type: ModalTypes;
   handleClick: () => void;
   text: string;
+  language: Lan;
+  cvFile?: string;
 };
 
+const cvButtonLabelEn = "Download cv";
+const cvButtonLabelFi = "Lataa cv";
+
 export const GeneralButton = (props: Props) => {
-  // const [isHovering, setIsHovering] = React.useState<boolean>(false);
-  // const handleMouseEnter = () => {
-  //   setIsHovering(true);
-  // };
-  // const handleMouseLeave = () => {
-  //   setIsHovering(false);
-  // };
+  const cvButtonLabel =
+    props.language === Lan.ENGLISH ? cvButtonLabelEn : cvButtonLabelFi;
   return (
-    <ButtonElement
-      type="button"
-      title={props.text}
-      onClick={props.handleClick}
-      // onMouseEnter={handleMouseEnter}
-      // onMouseLeave={handleMouseLeave}
-    >
-      {props.type === ModalTypes.VIDEO && (
-        <PlayIcon
-          startFillColor="blue"
-          endFillColor="blue"
-          size={30}
-          animation={false}
-        />
-      )}
+    <>
       {props.type === ModalTypes.CV && (
-        <ViewDocument
-          startFillColor="#b78a10"
-          endFillColor="blue"
-          size={30}
-          animation={false}
-        />
+        <CVButtonMobileLink href={props.cvFile} download>
+          <CVButtonMobile
+            type="button"
+            title={cvButtonLabel}
+            useCase={props.type}
+          >
+            <ViewDocumentIcon
+              startFillColor="#b78a10"
+              endFillColor="blue"
+              size={30}
+              animation={false}
+            />
+            <Text>{props.text.toUpperCase()}</Text>
+          </CVButtonMobile>
+        </CVButtonMobileLink>
       )}
-      <Text>{props.text.toUpperCase()}</Text>
-    </ButtonElement>
+      <Button
+        type="button"
+        title={props.text}
+        onClick={props.handleClick}
+        useCase={props.type}
+      >
+        {props.type === ModalTypes.VIDEO && (
+          <PlayIcon
+            startFillColor="blue"
+            endFillColor="blue"
+            size={30}
+            animation={false}
+          />
+        )}
+        {props.type === ModalTypes.CV && (
+          <ViewDocumentIcon
+            startFillColor="#b78a10"
+            endFillColor="blue"
+            size={30}
+            animation={false}
+          />
+        )}
+        <Text>{props.text.toUpperCase()}</Text>
+      </Button>
+    </>
   );
 };
 
@@ -55,11 +74,14 @@ const changeColor = keyframes`
   to {
     color: var(--secondary-headline-color);
     border: 1px solid var(--secondary-headline-color);
-
   }
 `;
 
-const ButtonElement = styled.button`
+type ButtonProps = {
+  useCase: ModalTypes;
+};
+
+const Button = styled.button`
   background-color: transparent;
   width: var(--space-12);
   height: var(--space-7);
@@ -74,8 +96,23 @@ const ButtonElement = styled.button`
     animation-fill-mode: forwards;
   }
   @media (max-width: 400px) {
+    display: ${(props: ButtonProps) =>
+      props.useCase === ModalTypes.CV ? "none" : "initial"};
     width: initial;
   }
+`;
+
+const CVButtonMobile = styled(Button)`
+  display: none;
+  @media (max-width: 400px) {
+    display: ${(props: ButtonProps) =>
+      props.useCase === ModalTypes.CV ? "initial" : "none"};
+    width: initial;
+  }
+`;
+
+const CVButtonMobileLink = styled.a`
+  display: block;
 `;
 
 const Text = styled.h6`

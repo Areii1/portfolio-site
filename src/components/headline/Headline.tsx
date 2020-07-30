@@ -19,7 +19,7 @@ export const Headline = (props: Props) => {
 
 const Wrapper = styled.div`
   max-width: initial;
-  @media (max-width: 400px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,8 +27,8 @@ const Wrapper = styled.div`
 `;
 
 const UnderLine = styled.div`
-  width: 70px;
-  height: 10px;
+  width: var(--space-8);
+  height: var(--space-3);
   background-color: red;
 `;
 
