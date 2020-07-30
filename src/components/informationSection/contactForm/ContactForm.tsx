@@ -25,13 +25,15 @@ const fieldPlaceholdersEn = {
 const dialogsEn = {
   success: "Message sent, thank you",
   methodError: "Something went wrong sending the message",
-  missingFieldsError: "Required fields are missing",
+  erroredFieldsError: "Required fields are missing",
+  emailFormatError: "The given email is not valid",
 };
 
 const dialogsFi = {
   success: "Viesti lähetetty, kiitos",
   methodError: "Jotain meni pieleen viestiä lähettäessä",
-  missingFieldsError: "Pakollisia kenttiä puuttuu",
+  erroredFieldsError: "Pakollisia kenttiä puuttuu",
+  emailFormatError: "Annettu sähköposti ei ole validi",
 };
 
 type Props = {
@@ -57,7 +59,7 @@ export const ContactForm = (props: Props) => {
   const [emailField, setEmailField] = React.useState<string>("");
   const [subjectField, setSubjectField] = React.useState<string>("");
   const [messageField, setMessageField] = React.useState<string>("");
-  const [missingFields, setMissingFields] = React.useState<Array<string>>([
+  const [erroredFields, setErroredFields] = React.useState<Array<string>>([
     "name",
     "email",
     "subject",
@@ -73,60 +75,74 @@ export const ContactForm = (props: Props) => {
     setSubmitClicked(true);
     const dialogs = props.language === Lan.ENGLISH ? dialogsEn : dialogsFi;
     if (messageField && emailField && subjectField && nameField) {
-      try {
-        setSendEmailProcess({ status: Status.LOADING });
-        const sendEmailResponse = await sendEmail(
-          emailField,
-          nameField,
-          subjectField,
-          messageField
-        );
-        setSendEmailProcess({
-          status: Status.SUCCESS,
-          data: sendEmailResponse,
-        });
-        const dialogBoxContent = {
-          isError: false,
-          message: dialogs.success,
-        };
-        props.setDialogBoxContent(dialogBoxContent);
-        resetFieldsState();
-      } catch (sendEmailError) {
-        setSendEmailProcess({
-          status: Status.ERROR,
-          error: sendEmailError,
-        });
+      if (validateEmail(emailField)) {
+        try {
+          setSendEmailProcess({ status: Status.LOADING });
+          const sendEmailResponse = await sendEmail(
+            emailField,
+            nameField,
+            subjectField,
+            messageField
+          );
+          setSendEmailProcess({
+            status: Status.SUCCESS,
+            data: sendEmailResponse,
+          });
+          const dialogBoxContent = {
+            isError: false,
+            message: dialogs.success,
+          };
+          props.setDialogBoxContent(dialogBoxContent);
+          resetFieldsState();
+        } catch (sendEmailError) {
+          setSendEmailProcess({
+            status: Status.ERROR,
+            error: sendEmailError,
+          });
+          const dialogBoxContent = {
+            isError: true,
+            message: dialogs.methodError,
+          };
+          props.setDialogBoxContent(dialogBoxContent);
+          resetFieldsState();
+        }
+      } else {
         const dialogBoxContent = {
           isError: true,
-          message: dialogs.methodError,
+          message: dialogs.emailFormatError,
         };
         props.setDialogBoxContent(dialogBoxContent);
-        resetFieldsState();
+        updateErroredFields(true);
       }
     } else {
       const dialogBoxContent = {
         isError: true,
-        message: dialogs.missingFieldsError,
+        message: dialogs.erroredFieldsError,
       };
       props.setDialogBoxContent(dialogBoxContent);
     }
   };
 
-  const updateMissingFields = () => {
-    let updatedMissingFields: Array<string> = [];
+  const validateEmail = (email: string) => {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+
+  const updateErroredFields = (emailErrored?: boolean) => {
+    let updatederroredFields: Array<string> = [];
     if (nameField === "") {
-      updatedMissingFields = ["name"];
+      updatederroredFields = ["name"];
     }
-    if (emailField === "") {
-      updatedMissingFields = [...updatedMissingFields, "email"];
+    if (emailField === "" || emailErrored) {
+      updatederroredFields = [...updatederroredFields, "email"];
     }
     if (subjectField === "") {
-      updatedMissingFields = [...updatedMissingFields, "subject"];
+      updatederroredFields = [...updatederroredFields, "subject"];
     }
     if (messageField === "") {
-      updatedMissingFields = [...updatedMissingFields, "message"];
+      updatederroredFields = [...updatederroredFields, "message"];
     }
-    setMissingFields(updatedMissingFields);
+    setErroredFields(updatederroredFields);
   };
 
   const resetFieldsState = () => {
@@ -134,7 +150,7 @@ export const ContactForm = (props: Props) => {
     setEmailField("");
     setSubjectField("");
     setMessageField("");
-    setMissingFields(["name", "email", "subject", "message"]);
+    setErroredFields(["name", "email", "subject", "message"]);
     setSubmitClicked(false);
   };
 
@@ -157,7 +173,7 @@ export const ContactForm = (props: Props) => {
         break;
       }
     }
-    updateMissingFields();
+    updateErroredFields();
   };
 
   const fieldPlaceholders =
@@ -172,7 +188,7 @@ export const ContactForm = (props: Props) => {
           onChange={handleFieldValueChange}
           id="name"
           showError={
-            submitClicked && missingFields.some(field => field === "name")
+            submitClicked && erroredFields.some(field => field === "name")
           }
           isSubject={false}
           value={nameField}
@@ -183,7 +199,7 @@ export const ContactForm = (props: Props) => {
           onChange={handleFieldValueChange}
           id="email"
           showError={
-            submitClicked && missingFields.some(field => field === "email")
+            submitClicked && erroredFields.some(field => field === "email")
           }
           isSubject={false}
           value={emailField}
@@ -195,7 +211,7 @@ export const ContactForm = (props: Props) => {
         onChange={handleFieldValueChange}
         id="subject"
         showError={
-          submitClicked && missingFields.some(field => field === "subject")
+          submitClicked && erroredFields.some(field => field === "subject")
         }
         isSubject
         value={subjectField}
@@ -205,7 +221,7 @@ export const ContactForm = (props: Props) => {
         onChange={handleFieldValueChange}
         id="message"
         showError={
-          submitClicked && missingFields.some(field => field === "message")
+          submitClicked && erroredFields.some(field => field === "message")
         }
         value={messageField}
       />
