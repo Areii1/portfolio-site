@@ -64,17 +64,17 @@ export const imageQuery = graphql`
 `;
 
 const Wrapper = styled.div`
-  width: var(--space-13);
-  height: var(--space-13);
-  border-radius: var(--space-13);
+  width: var(--space-12);
+  height: var(--space-12);
+  border-radius: var(--space-12);
   background-color: var(--profile-ball-bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   @media (max-width: 1300px) {
-    width: var(--space-11);
-    height: var(--space-11);
-    border-radius: var(--space-11);
+    width: var(--space-10);
+    height: var(--space-10);
+    border-radius: var(--space-10);
   }
 `;
 
@@ -82,15 +82,15 @@ const ProfileImageWrapper = styled.button`
   border: none;
   padding: 0;
   cursor: pointer;
-  width: calc(var(--space-13) - 35px);
-  height: calc(var(--space-13) - 35px);
-  border-radius: calc(var(--space-13) - 35px);
+  width: calc(var(--space-12) - 20px);
+  height: calc(var(--space-12) - 20px);
+  border-radius: calc(var(--space-12) - 20px);
   position: relative;
   overflow: hidden;
   @media (max-width: 1300px) {
-    width: calc(var(--space-11) - 20px);
-    height: calc(var(--space-11) - 20px);
-    border-radius: calc(var(--space-11) - 20px);
+    width: calc(var(--space-10) - 15px);
+    height: calc(var(--space-10) - 15px);
+    border-radius: calc(var(--space-10) - 15px);
   }
 `;
 
@@ -100,7 +100,7 @@ const changeOpacity = keyframes`
   }
 
   to {
-    opacity: 0.5;
+    opacity: 0.3;
   }
 `;
 
@@ -111,7 +111,7 @@ const ImageOverlay = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 100%;
-  background-color: white;
+  background-color: var(--secondary-headline-color);
   animation-name: ${changeOpacity};
   animation-duration: 0.4s;
   animation-fill-mode: forwards;

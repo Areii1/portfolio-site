@@ -7,6 +7,7 @@ const profileDetails: ProfileDetails = {
   location: {
     city: "Helsinki",
     district: "Kallio",
+    mapsLink: "https://www.google.fi/maps/@60.1851122,24.9418612,16.83z"
   },
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",

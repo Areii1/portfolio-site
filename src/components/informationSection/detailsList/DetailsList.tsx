@@ -21,7 +21,13 @@ export const DetailsList = (props: Props) => {
         <ListItemLabel>
           <LocationIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
-        <ListItemText>{`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}</ListItemText>
+        <ListItemLink
+            href={props.profileDetails.location.mapsLink}
+            title={props.profileDetails.location.mapsLink}
+            target="_blank"
+          >
+            {`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}
+          </ListItemLink>
       </ListItem>
       <ListItem>
         <ListItemLabel>

@@ -7,6 +7,7 @@ export type FileDetails = {
 export type Location = {
   city: string;
   district: string;
+  mapsLink: string;
 };
 
 export type ProfileDetails = {

@@ -186,10 +186,10 @@ const ProfileBallWrapper = styled.div`
   --space-15 is the height of the header
   --space-13 is the width of the profileball
   */
-  top: calc(var(--space-15) - var(--space-13) / 2);
-  left: calc(50% - var(--space-13) / 2);
+  top: calc(var(--space-15) - var(--space-12) / 2);
+  left: calc(50% - var(--space-12) / 2);
   @media (max-width: 1300px) {
-    top: calc(var(--space-13) - var(--space-11) / 2);
-    left: calc(50% - var(--space-11) / 2);
+    top: calc(var(--space-13) - var(--space-10) / 2);
+    left: calc(50% - var(--space-10) / 2);
   }
 `;
