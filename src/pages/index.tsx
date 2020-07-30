@@ -60,6 +60,11 @@ export type SetDialogBoxContent = (
   content: DialogBoxContent | undefined
 ) => void;
 
+const mockDialogBoxContent = {
+  isError: false,
+  message: "this is a test message to show on the box",
+};
+
 const IndexPage = (props: any) => {
   const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
@@ -68,7 +73,7 @@ const IndexPage = (props: any) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
-  >(undefined);
+  >(mockDialogBoxContent);
   const wrapperNode = React.useRef<HTMLDivElement>(null);
   const addClickHandlerToWrapper = () => {
     const reffedWrapperNode = wrapperNode.current;
@@ -93,7 +98,7 @@ const IndexPage = (props: any) => {
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-      }, 5000);
+      }, 30000);
     } else {
       setShowModal(false);
     }
