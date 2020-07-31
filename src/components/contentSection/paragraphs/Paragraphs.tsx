@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Description, ExperienceItemDescription } from "../../../Types";
+import { Paragraph } from "./paragraph/Paragraph";
 
 type Props = {
   content: Description | ExperienceItemDescription;
@@ -16,43 +17,15 @@ export const Paragraphs = (props: Props) => {
     : undefined;
   return (
     <Wrapper>
-      {!props.isExperienceInstace && (
-        <>
-          <Paragraph>{firstItem}</Paragraph>
-          {secondItem && <Paragraph>{secondItem}</Paragraph>}
-        </>
-      )}
-      {props.isExperienceInstace && (
-        <>
-          <Paragraph>
-            <p>{props.content[0].text}</p>
-            {props.content[0].list && (
-              <>
-                <p>{props.content[0].list.listDescription}</p>
-                <ul>
-                  {props.content[0].list.items.map(listItem => (
-                    <li>{listItem}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-          </Paragraph>
-          {props.content[1] && (
-            <Paragraph>
-              <p>{props.content[1].text}</p>
-              {props.content[1].list && (
-                <>
-                  <p>{props.content[1].list.listDescription}</p>
-                  <ul>
-                    {props.content[1].list.items.map(listItem => (
-                      <li>{listItem}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </Paragraph>
-          )}
-        </>
+      <Paragraph
+        content={firstItem}
+        isExperienceInstace={props.isExperienceInstace}
+      />
+      {secondItem && (
+        <Paragraph
+          content={secondItem}
+          isExperienceInstace={props.isExperienceInstace}
+        />
       )}
     </Wrapper>
   );
@@ -67,14 +40,5 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: initial;
     text-align: center;
-  }
-`;
-
-const Paragraph = styled.p`
-  width: 45%;
-  font-size: var(--font-size-4);
-  font-weight: 300;
-  @media (max-width: 800px) {
-    width: 100%;
   }
 `;

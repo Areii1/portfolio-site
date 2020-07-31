@@ -64,7 +64,6 @@ const IndexPage = (props: any) => {
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
     undefined
   );
-  const [showModal, setShowModal] = React.useState<boolean>(false);
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
   >(undefined);
@@ -77,12 +76,9 @@ const IndexPage = (props: any) => {
   }, [props.search.lan]);
   React.useEffect(() => {
     if (dialogBoxContent) {
-      setShowModal(true);
       setTimeout(() => {
-        setShowModal(false);
+        setDialogBoxContent(undefined);
       }, 7000);
-    } else {
-      setShowModal(false);
     }
   }, [dialogBoxContent]);
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
@@ -148,7 +144,7 @@ const IndexPage = (props: any) => {
           profileDetails={content.profile}
         />
       )}
-      {dialogBoxContent && modalType === undefined && showModal && (
+      {dialogBoxContent && modalType === undefined && (
         <DialogBox
           content={dialogBoxContent}
           setDialogBoxContent={setDialogBoxContent}

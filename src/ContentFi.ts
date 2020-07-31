@@ -72,6 +72,9 @@ const experience: Array<ExperienceItem> = [
         text:
           "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten perus ohjelmoinnin teoria, algoritmiikka, tietokanta rakenteet, matematiikka. Lopetin kahden vuoden jälkeen opetellakseni web-kehitystä yksityiskohtaisemmin.",
       },
+      {
+        text: "---",
+      },
     ],
     institute: "Turku university",
   },

@@ -33,12 +33,12 @@ type ExperienceItemDate = {
 type ExperienceItemDescriptionList = {
   listDescription: string;
   items: Array<string>;
-}
+};
 
 export type ExperienceItemDescriptionContent = {
   text: string;
   list?: ExperienceItemDescriptionList;
-}
+};
 
 export type ExperienceItemDescription = [ExperienceItemDescriptionContent, ExperienceItemDescriptionContent] | ExperienceItemDescriptionContent;
 
