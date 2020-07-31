@@ -8,7 +8,6 @@ import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
-import { GeneralButton } from "../components/buttons/generalButton/GeneralButton";
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
