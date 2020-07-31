@@ -6,14 +6,14 @@ import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem, ExperienceItemDescription } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan, ModalTypes } from "../../pages/index";
+import { GeneralButton } from "../buttons/generalButton/GeneralButton";
 
 type Props = {
   headline: string;
   content: Description | Array<ExperienceItem>;
-  showButton: boolean;
   language: Lan;
-  button: any;
   type: ModalTypes;
+  updateModalType: (type: ModalTypes) => void;
 };
 
 export const ContentSection = (props: Props) => {
@@ -38,7 +38,13 @@ export const ContentSection = (props: Props) => {
     <Wrapper>
       <TopSectionWrapper>
         <Headline text={props.headline} isBlack />
-        <ButtonWrapper>{props.button}</ButtonWrapper>
+        <ButtonWrapper>
+          <GeneralButton
+            handleClick={() => props.updateModalType(props.type)}
+            type={props.type}
+            language={props.language}
+          />
+        </ButtonWrapper>
       </TopSectionWrapper>
       <>
         {props.type === ModalTypes.VIDEO && (

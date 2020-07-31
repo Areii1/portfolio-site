@@ -81,6 +81,9 @@ const IndexPage = (props: any) => {
       }, 7000);
     }
   }, [dialogBoxContent]);
+  const updateModalType = (type: ModalTypes) => {
+    setModalType(type);
+  };
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
   const pageContentLabels =
     language === Lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
@@ -101,33 +104,16 @@ const IndexPage = (props: any) => {
       <ContentSection
         headline={pageContentLabels.introduction}
         content={content.description}
-        showButton={false}
         language={language}
         type={ModalTypes.VIDEO}
-        button={
-          <GeneralButton
-            text={pageContentLabels.videoButton}
-            handleClick={() => setModalType(ModalTypes.VIDEO)}
-            type={ModalTypes.VIDEO}
-            language={language}
-          />
-        }
+        updateModalType={updateModalType}
       />
       <ContentSection
         headline={pageContentLabels.experience}
         content={content.experience}
-        showButton
         language={language}
         type={ModalTypes.CV}
-        button={
-          <GeneralButton
-            text={pageContentLabels.viewPdf}
-            handleClick={() => setModalType(ModalTypes.CV)}
-            type={ModalTypes.CV}
-            cv={content.profile.cv}
-            language={language}
-          />
-        }
+        updateModalType={updateModalType}
       />
       <InformationSection
         profileDetails={content.profile}

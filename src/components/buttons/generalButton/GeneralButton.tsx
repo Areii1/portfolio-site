@@ -9,24 +9,32 @@ import { FileDetails } from "../../../Types";
 type Props = {
   type: ModalTypes;
   handleClick: () => void;
-  text: string;
   language: Lan;
   cv?: FileDetails;
 };
 
-const cvButtonLabelEn = "Download cv";
-const cvButtonLabelFi = "Lataa cv";
+const buttonLabelsFi = {
+  videoButton: "katso video",
+  viewPdf: "katso cv",
+  cvButtonMobile: "lataa cv",
+};
+
+const buttonLabelsEn = {
+  videoButton: "watch video",
+  viewPdf: "view cv",
+  cvButtonMobile: "download cv",
+};
 
 export const GeneralButton = (props: Props) => {
-  const cvButtonLabel =
-    props.language === Lan.ENGLISH ? cvButtonLabelEn : cvButtonLabelFi;
+  const buttonLabels =
+    props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   return (
     <>
       {props.type === ModalTypes.CV && props.cv && (
         <CVButtonMobileLink href={props.cv.fileUrl} download target="_blank">
           <CVButtonMobile
             type="button"
-            title={cvButtonLabel}
+            title={buttonLabels.cvButtonMobile}
             useCase={props.type}
           >
             <ViewDocumentIcon
@@ -35,13 +43,17 @@ export const GeneralButton = (props: Props) => {
               size={30}
               animation={false}
             />
-            <Text>{props.text.toUpperCase()}</Text>
+            <Text>{buttonLabels.cvButtonMobile.toUpperCase()}</Text>
           </CVButtonMobile>
         </CVButtonMobileLink>
       )}
       <Button
         type="button"
-        title={props.text}
+        title={
+          props.type === ModalTypes.VIDEO
+            ? buttonLabels.videoButton
+            : buttonLabels.viewPdf
+        }
         onClick={props.handleClick}
         useCase={props.type}
       >
@@ -61,7 +73,11 @@ export const GeneralButton = (props: Props) => {
             animation={false}
           />
         )}
-        <Text>{props.text.toUpperCase()}</Text>
+        <Text>
+          {props.type === ModalTypes.VIDEO
+            ? buttonLabels.videoButton.toUpperCase()
+            : buttonLabels.viewPdf.toUpperCase()}
+        </Text>
       </Button>
     </>
   );
