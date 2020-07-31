@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import './GatsbyImageWrapperStyles.css';
+import "./GatsbyImageWrapperStyles.css";
 
 type Props = {
   type: string;
@@ -15,6 +15,32 @@ const getQuery = (type: string) => {
       return graphql`
         query {
           file(relativePath: { eq: "header.jpg" }) {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `;
+    }
+    case "profile": {
+      return graphql`
+        query {
+          file(relativePath: { eq: "profile.jpg" }) {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      `;
+    }
+    case "contact": {
+      return graphql`
+        query {
+          file(relativePath: { eq: "contact.jpg" }) {
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid

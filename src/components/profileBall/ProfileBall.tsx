@@ -1,10 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import "./ProfileBall.css";
 import { PlayIcon } from "../icons/PlayIcon";
 import { Lan } from "../../pages/index";
+import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
 
 const labelEn = "watch video";
 const labelFi = "katso video";
@@ -16,7 +14,6 @@ type Props = {
 
 export const ProfileBall = (props: Props) => {
   const [isHovering, setIsHovering] = React.useState<boolean>(false);
-  const imageQueryData = useStaticQuery(imageQuery);
   const label = props.language === Lan.ENGLISH ? labelEn : labelFi;
 
   const handleMouseEnter = () => {
@@ -28,10 +25,10 @@ export const ProfileBall = (props: Props) => {
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <ProfileImageWrapper title={label} onClick={props.handleClick}>
-        <Img
-          fluid={imageQueryData.file.childImageSharp.fluid}
-          className="profile-ball-queried-image"
+        <GatsbyImageWrapper
           alt="profile ball"
+          type="profile"
+          className="profile-ball-queried-image"
         />
         {isHovering && (
           <>
@@ -50,18 +47,6 @@ export const ProfileBall = (props: Props) => {
     </Wrapper>
   );
 };
-
-export const imageQuery = graphql`
-  query {
-    file(relativePath: { eq: "profile.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const Wrapper = styled.div`
   width: var(--space-12);

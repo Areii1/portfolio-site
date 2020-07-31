@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
 import { ProfileDetails } from "../../Types";
 import { Headline } from "../headline/Headline";
 import { PageContentLabels, SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { Lan } from "../../pages/index";
-import './InformationSection.css';
+import "./InformationSection.css";
+import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
 
 type Props = {
   profileDetails: ProfileDetails;
@@ -18,13 +17,12 @@ type Props = {
 };
 
 export const InformationSection = (props: Props) => {
-  const imageQueryData = useStaticQuery(imageQuery);
   return (
     <Wrapper>
-      <Img
-        fluid={imageQueryData.file.childImageSharp.fluid}
+      <GatsbyImageWrapper
+        type="contact"
         className="information-section-queried-image"
-        alt="header"
+        alt="contact"
       />
       <Information>
         <ContentWrapper>
@@ -54,18 +52,6 @@ export const InformationSection = (props: Props) => {
     </Wrapper>
   );
 };
-
-export const imageQuery = graphql`
-  query {
-    file(relativePath: { eq: "contact.jpg" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
 
 const Wrapper = styled.section`
   margin-top: var(--space-11);
