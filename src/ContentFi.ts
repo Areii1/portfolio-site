@@ -56,48 +56,6 @@ const experience: Array<ExperienceItem> = [
       "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
     institute: "Turku university",
   },
-  {
-    beginDate: {
-      month: 1,
-      year: 2018,
-    },
-    endingDate: {
-      month: 6,
-      year: 2018,
-    },
-    jobTitle: "kokoaja",
-    description:
-      "--",
-    institute: "opteam turku oy",
-  },
-  {
-    beginDate: {
-      month: 1,
-      year: 2015,
-    },
-    endingDate: {
-      month: 8,
-      year: 2015,
-    },
-    jobTitle: "varastomies",
-    description:
-      "Vestibulum congue sed augue quis tempus. Maecenas sagittis, felis placerat rutrum auctor, leo nisi congue quam, non imperdiet mi justo ac tellus. Donec ipsum est, rhoncus in felis vel, mollis ullamcorper mauris.",
-    institute: "Transval oy",
-  },
-  {
-    beginDate: {
-      month: 8,
-      year: 2007,
-    },
-    endingDate: {
-      month: 12,
-      year: 2010,
-    },
-    jobTitle: "Ylioppilas",
-    description:
-      "Suspendisse at nibh in ex commodo suscipit. Maecenas maximus ligula ut erat tempor iaculis. Donec posuere neque eget quam aliquet mollis.",
-    institute: "Keravan lukio",
-  },
 ];
 
 export const ContentFi: PageContent = {

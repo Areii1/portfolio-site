@@ -10,6 +10,7 @@ type Props = {
 
 const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
   const currentText = language === Lan.ENGLISH ? "current" : "nykypäivä";
+  console.log(subHeadlineDetails.beginDate, 'begindate');
   const beginDateStr = `${subHeadlineDetails.beginDate.month}/${subHeadlineDetails.beginDate.year}`;
   const endingDateStr = subHeadlineDetails.endingDate
     ? `${subHeadlineDetails.endingDate.month}/${subHeadlineDetails.endingDate.year}`

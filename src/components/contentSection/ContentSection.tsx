@@ -5,31 +5,46 @@ import { Description } from "../../Types";
 import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
-import { Lan } from "../../pages/index";
+import { Lan, ModalTypes } from "../../pages/index";
 
 type Props = {
   headline: string;
-  description: Description;
-  subHeadlineDetails?: ExperienceItem;
+  content: Description | Array<ExperienceItem>;
   showButton: boolean;
   language: Lan;
   button: any;
+  type: ModalTypes;
 };
 
 export const ContentSection = (props: Props) => {
+  const getExperienceListItems = () => {
+    const rendableContent = props.content as Array<ExperienceItem>;
+    return rendableContent.map((experienceItem: ExperienceItem) => {
+      return (
+        <ExperienceListItem>
+          <ExperienceItemDetails
+            subHeadlineDetails={experienceItem}
+            language={props.language}
+          />
+          <Paragraphs content={experienceItem.description} />
+        </ExperienceListItem>
+      );
+    });
+  };
   return (
     <Wrapper>
       <TopSectionWrapper>
         <Headline text={props.headline} isBlack />
         <ButtonWrapper>{props.button}</ButtonWrapper>
       </TopSectionWrapper>
-      {props.subHeadlineDetails && (
-        <ExperienceItemDetails
-          subHeadlineDetails={props.subHeadlineDetails}
-          language={props.language}
-        />
-      )}
-      <Paragraphs content={props.description} />
+      <>
+        {props.type === ModalTypes.VIDEO && (
+          <Paragraphs content={props.content as Description} />
+        )}
+        {props.type === ModalTypes.CV && (
+          <ExperienceList>{getExperienceListItems()}</ExperienceList>
+        )}
+      </>
     </Wrapper>
   );
 };
@@ -58,6 +73,7 @@ const TopSectionWrapper = styled.div`
   display: flex;
   flex-direction: initial;
   justify-content: space-between;
+  margin-bottom: var(--space-minus-7);
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: initial;
@@ -70,4 +86,13 @@ const ButtonWrapper = styled.div`
   @media (max-width: 800px) {
     margin-top: var(--space-6);
   }
+`;
+
+const ExperienceList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
+const ExperienceListItem = styled.li`
+  margin-top: var(--space-10);
 `;

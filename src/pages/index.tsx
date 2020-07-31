@@ -105,9 +105,10 @@ const IndexPage = (props: any) => {
       </ProfileBallWrapper>
       <ContentSection
         headline={pageContentLabels.introduction}
-        description={content.description}
+        content={content.description}
         showButton={false}
         language={language}
+        type={ModalTypes.VIDEO}
         button={
           <GeneralButton
             text={pageContentLabels.videoButton}
@@ -119,10 +120,10 @@ const IndexPage = (props: any) => {
       />
       <ContentSection
         headline={pageContentLabels.workExperience}
-        subHeadlineDetails={content.experience[0]}
-        description={content.experience[0].description}
+        content={content.experience}
         showButton
         language={language}
+        type={ModalTypes.CV}
         button={
           <GeneralButton
             text={pageContentLabels.viewPdf}
