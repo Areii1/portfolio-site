@@ -13,7 +13,7 @@ export const PlayIcon = (props: AnimatableIconProps) => {
       width={`${props.size}px`}
       height={`${props.size}px`}
       viewBox="0 0 64 64"
-      enable-background="new 0 0 64 64"
+      enableBackground="new 0 0 64 64"
       xmlSpace="preserve"
     >
       <path

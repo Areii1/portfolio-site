@@ -4,7 +4,7 @@ import { IconProps } from "./IconPropTypes";
 export const LocationIcon = (props: IconProps) => {
   return (
     <svg
-      enable-background="new 0 0 141.732 141.732"
+      enableBackground="new 0 0 141.732 141.732"
       height={`${props.size}px`}
       width={`${props.size}px`}
       version="1.1"

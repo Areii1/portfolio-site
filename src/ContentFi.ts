@@ -7,7 +7,7 @@ const profileDetails: ProfileDetails = {
   location: {
     city: "Helsinki",
     district: "Kallio",
-    mapsLink: "https://www.google.fi/maps/@60.1851122,24.9418612,16.83z"
+    mapsLink: "https://www.google.fi/maps/@60.1851122,24.9418612,16.83z",
   },
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
@@ -36,9 +36,25 @@ const experience: Array<ExperienceItem> = [
       year: 2018,
     },
     jobTitle: "front-end kehittäjä",
-    description:
-      "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet",
+    description: [
+      "Olin tekemässä käyttöliittymää webissä toimivalle projektin hallinta työkalulle.",
+      "Palvelu sisälsi ominaisuuksia, kuten: kansio systeemi, (tiedostojen lataus, poisto, katselu, jako yms, kansio hierarkia), projekti näkymässä kuvien videoiden tiedostojen kommentointi, chatti projektin osallistujille, käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms.",
+    ],
     institute: "Digital factory stream oy",
+  },
+  {
+    beginDate: {
+      month: 8,
+      year: 2015,
+    },
+    endingDate: {
+      month: 12,
+      year: 2017,
+    },
+    jobTitle: "bachelor of computer science",
+    description:
+      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+    institute: "Turku university",
   },
   {
     beginDate: {
@@ -51,7 +67,7 @@ const experience: Array<ExperienceItem> = [
     },
     jobTitle: "kokoaja",
     description:
-      "Proin ut mattis felis, in aliquet nibh. Duis finibus lorem et arcu interdum tempus. Quisque pellentesque tortor vel gravida mattis. Donec quis sagittis dolor, id pulvinar erat.",
+      "--",
     institute: "opteam turku oy",
   },
   {
@@ -67,23 +83,6 @@ const experience: Array<ExperienceItem> = [
     description:
       "Vestibulum congue sed augue quis tempus. Maecenas sagittis, felis placerat rutrum auctor, leo nisi congue quam, non imperdiet mi justo ac tellus. Donec ipsum est, rhoncus in felis vel, mollis ullamcorper mauris.",
     institute: "Transval oy",
-  },
-];
-
-const education: Array<ExperienceItem> = [
-  {
-    beginDate: {
-      month: 8,
-      year: 2015,
-    },
-    endingDate: {
-      month: 12,
-      year: 2017,
-    },
-    jobTitle: "bachelor of computer science",
-    description:
-      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
-    institute: "Turku university",
   },
   {
     beginDate: {
@@ -104,9 +103,8 @@ const education: Array<ExperienceItem> = [
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
-    "Nam at porttitor sem, vel consectetur libero. Donec pulvinar lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet et augue. Nullam tincidunt sem non consequat tristique. Ut sit amet elit sed arcu feugiat consequat vel eu nunc.",
-    "Sed varius tempus turpis, nec dictum turpis varius sed. Cras cursus finibus lacinia. Pellentesque sit amet metus non diam blandit aliquet. In non sem magna. Nam et pharetra sem, eget convallis nisi.",
+    "Olen Frontend kehittäjä kahden vuoden työkokemuksella React.js kirjaston parissa",
+    ".",
   ],
   experience: experience,
-  education: education,
 };

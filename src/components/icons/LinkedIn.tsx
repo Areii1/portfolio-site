@@ -4,7 +4,7 @@ import { IconProps } from "./IconPropTypes";
 export const LinkedInIcon = (props: IconProps) => {
   return (
     <svg
-      enable-background="new 0 0 56.693 56.693"
+      enableBackground="new 0 0 56.693 56.693"
       height={`${props.size}px`}
       width={`${props.size}px`}
       id="Layer_1"

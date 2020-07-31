@@ -12,7 +12,6 @@ type Props = {
 export const DialogBox = (props: Props) => {
   const [wrapperWidth, setWrapperWidth] = React.useState<number>(0);
   const wrapperNode = React.useRef<any>(null);
-  console.log(wrapperWidth, "wrapperWidth");
   React.useEffect(() => {
     if (wrapperNode) {
       if (wrapperNode.current) {

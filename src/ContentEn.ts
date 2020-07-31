@@ -42,6 +42,20 @@ const experience: Array<ExperienceItem> = [
   },
   {
     beginDate: {
+      month: 8,
+      year: 2015,
+    },
+    endingDate: {
+      month: 12,
+      year: 2017,
+    },
+    jobTitle: "bachelor of computer science",
+    description:
+      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+    institute: "Turku university",
+  },
+  {
+    beginDate: {
       month: 1,
       year: 2018,
     },
@@ -68,23 +82,6 @@ const experience: Array<ExperienceItem> = [
       "Vestibulum congue sed augue quis tempus. Maecenas sagittis, felis placerat rutrum auctor, leo nisi congue quam, non imperdiet mi justo ac tellus. Donec ipsum est, rhoncus in felis vel, mollis ullamcorper mauris.",
     institute: "Transval oy",
   },
-];
-
-const education: Array<ExperienceItem> = [
-  {
-    beginDate: {
-      month: 8,
-      year: 2015,
-    },
-    endingDate: {
-      month: 12,
-      year: 2017,
-    },
-    jobTitle: "bachelor of computer science",
-    description:
-      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
-    institute: "Turku university",
-  },
   {
     beginDate: {
       month: 8,
@@ -108,5 +105,4 @@ export const ContentEn: PageContent = {
     "Sed varius tempus turpis, nec dictum turpis varius sed. Cras cursus finibus lacinia. Pellentesque sit amet metus non diam blandit aliquet. In non sem magna. Nam et pharetra sem, eget convallis nisi.",
   ],
   experience: experience,
-  education: education,
 };

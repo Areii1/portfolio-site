@@ -42,7 +42,6 @@ export type PageContent = {
   profile: ProfileDetails;
   description: Description;
   experience: Array<ExperienceItem>;
-  education: Array<ExperienceItem>;
 };
 
 export type Description = [string, string] | string;
