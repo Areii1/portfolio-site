@@ -60,11 +60,6 @@ export type SetDialogBoxContent = (
   content: DialogBoxContent | undefined
 ) => void;
 
-const mockDialogBoxContent = {
-  isError: false,
-  message: "this is a test message to show on the box",
-};
-
 const IndexPage = (props: any) => {
   const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
   const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
@@ -73,16 +68,7 @@ const IndexPage = (props: any) => {
   const [showModal, setShowModal] = React.useState<boolean>(false);
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
-  >(mockDialogBoxContent);
-  const wrapperNode = React.useRef<HTMLDivElement>(null);
-  const addClickHandlerToWrapper = () => {
-    const reffedWrapperNode = wrapperNode.current;
-    if (reffedWrapperNode) {
-      reffedWrapperNode.addEventListener("click", (event: MouseEvent) =>
-        handleWrapperClick(event)
-      );
-    }
-  };
+  >(undefined);
   React.useEffect(() => {
     if (props.search.lan === "en") {
       setLanguage(Lan.ENGLISH);
@@ -91,28 +77,20 @@ const IndexPage = (props: any) => {
     }
   }, [props.search.lan]);
   React.useEffect(() => {
-    addClickHandlerToWrapper();
-  }, []);
-  React.useEffect(() => {
     if (dialogBoxContent) {
       setShowModal(true);
       setTimeout(() => {
         setShowModal(false);
-      }, 30000);
+      }, 7000);
     } else {
       setShowModal(false);
     }
   }, [dialogBoxContent]);
-  const handleWrapperClick = (event: MouseEvent) => {
-    if (modalType) {
-      setModalType(undefined);
-    }
-  };
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
   const pageContentLabels =
     language === Lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
-    <Wrapper ref={wrapperNode}>
+    <Wrapper>
       <SEO title="Ari-Pekka Jääskeläinen" />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}

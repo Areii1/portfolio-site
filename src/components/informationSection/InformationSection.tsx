@@ -116,7 +116,11 @@ const InnerWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   max-width: initial;
+  @media (max-width: 1300px) {
+    width: var(--space-16);
+  }
   @media (max-width: 800px) {
+    width: initial;
     align-items: center;
   }
 `;
