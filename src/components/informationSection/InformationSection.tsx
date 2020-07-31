@@ -3,21 +3,27 @@ import styled from "styled-components";
 import { ProfileDetails } from "../../Types";
 import { Headline } from "../headline/Headline";
 import { SetDialogBoxContent } from "../../pages/index";
-import { PageContentLabels } from "../../pages/IndexContentLabels";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { Lan } from "../../pages/index";
 import "./InformationSection.css";
 import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
+import {
+  informationSectionLabelsFi,
+  informationSectionLabelsEn,
+} from "./InformationSectionLabels";
 
 type Props = {
   profileDetails: ProfileDetails;
-  pageContentLabels: PageContentLabels;
   language: Lan;
   setDialogBoxContent: SetDialogBoxContent;
 };
 
 export const InformationSection = (props: Props) => {
+  const informationSectionLabels =
+    props.language === Lan.ENGLISH
+      ? informationSectionLabelsEn
+      : informationSectionLabelsFi;
   return (
     <Wrapper>
       <GatsbyImageWrapper
@@ -29,7 +35,7 @@ export const InformationSection = (props: Props) => {
         <ContentWrapper>
           <InnerWrapper>
             <Headline
-              text={props.pageContentLabels.contactDetails}
+              text={informationSectionLabels.contactDetails}
               isBlack={false}
             />
             <DetailsList
@@ -42,7 +48,7 @@ export const InformationSection = (props: Props) => {
       <Contact>
         <ContentWrapper>
           <InnerWrapper>
-            <Headline text={props.pageContentLabels.contactForm} isBlack />
+            <Headline text={informationSectionLabels.contactForm} isBlack />
             <ContactForm
               language={props.language}
               setDialogBoxContent={props.setDialogBoxContent}

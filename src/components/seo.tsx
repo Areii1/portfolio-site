@@ -1,62 +1,44 @@
-import React from "react"
-import { Helmet } from "react-helmet"
+import React from "react";
+import { Helmet } from "react-helmet";
 
 type Props = {
-  description: string
-  lang: string
-  meta: Array<any>
-  title: string
-}
+  description: string;
+  lang: string;
+  meta: Array<any>;
+  title: string;
+};
 
-function SEO({ description, lang, meta, title }: Props) {
+function SEO(props: Props) {
   return (
     <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
+      htmlAttributes={{ lang: props.lang }}
+      title={props.title}
       meta={[
         {
           name: `description`,
-          content: description,
+          content: props.description,
         },
         {
           property: `og:title`,
-          content: title,
+          content: props.title,
         },
         {
           property: `og:description`,
-          content: description,
+          content: props.description,
         },
         {
           property: `og:type`,
           content: `website`,
         },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: '',
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: description,
-        },
-      ].concat(meta)}
+      ].concat(props.meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-}
+};
 
-export default SEO
+export default SEO;

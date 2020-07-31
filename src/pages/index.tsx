@@ -10,10 +10,6 @@ import { InformationSection } from "../components/informationSection/Information
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
-import {
-  pageContentLabelsFi,
-  pageContentLabelsEn,
-} from "./IndexContentLabels";
 import "./index.css";
 
 export enum Lan {
@@ -61,11 +57,13 @@ const IndexPage = (props: any) => {
     setModalType(type);
   };
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
-  const pageContentLabels =
-    language === Lan.ENGLISH ? pageContentLabelsEn : pageContentLabelsFi;
   return (
     <Wrapper>
-      <SEO title="Ari-Pekka Jääskeläinen" />
+      <SEO
+        title="Ari-Pekka Jääskeläinen"
+        lang={"fi"}
+        description="personal cv page"
+      />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
@@ -78,14 +76,12 @@ const IndexPage = (props: any) => {
         />
       </ProfileBallWrapper>
       <ContentSection
-        headline={pageContentLabels.introduction}
         content={content.description}
         language={language}
         type={ModalTypes.VIDEO}
         updateModalType={updateModalType}
       />
       <ContentSection
-        headline={pageContentLabels.experience}
         content={content.experience}
         language={language}
         type={ModalTypes.CV}
@@ -93,7 +89,6 @@ const IndexPage = (props: any) => {
       />
       <InformationSection
         profileDetails={content.profile}
-        pageContentLabels={pageContentLabels}
         language={language}
         setDialogBoxContent={setDialogBoxContent}
       />

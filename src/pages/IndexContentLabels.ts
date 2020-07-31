@@ -15,13 +15,3 @@ export const pageContentLabelsEn = {
   videoButton: "watch video",
   viewPdf: "view cv",
 };
-
-
-export type PageContentLabels = {
-  introduction: string;
-  experience: string;
-  contactDetails: string;
-  contactForm: string;
-  videoButton: string;
-  viewPdf: string;
-};

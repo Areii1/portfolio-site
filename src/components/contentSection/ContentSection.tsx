@@ -7,9 +7,12 @@ import { ExperienceItem, ExperienceItemDescription } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan, ModalTypes } from "../../pages/index";
 import { GeneralButton } from "../buttons/generalButton/GeneralButton";
+import {
+  contentSectionLabelsEn,
+  contentSectionLabelsFi,
+} from "./ContentSectionLabels";
 
 type Props = {
-  headline: string;
   content: Description | Array<ExperienceItem>;
   language: Lan;
   type: ModalTypes;
@@ -17,6 +20,10 @@ type Props = {
 };
 
 export const ContentSection = (props: Props) => {
+  const contentSectionLabels =
+    props.language === Lan.ENGLISH
+      ? contentSectionLabelsEn
+      : contentSectionLabelsFi;
   const getExperienceListItems = () => {
     const rendableContent = props.content as Array<ExperienceItem>;
     return rendableContent.map((experienceItem: ExperienceItem) => {
@@ -37,7 +44,14 @@ export const ContentSection = (props: Props) => {
   return (
     <Wrapper>
       <TopSectionWrapper>
-        <Headline text={props.headline} isBlack />
+        <Headline
+          text={
+            props.type === ModalTypes.VIDEO
+              ? contentSectionLabels.introduction
+              : contentSectionLabels.experience
+          }
+          isBlack
+        />
         <ButtonWrapper>
           <GeneralButton
             handleClick={() => props.updateModalType(props.type)}
