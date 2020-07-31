@@ -4,40 +4,17 @@ import styled from "styled-components";
 import { Header } from "../components/header/Header";
 import { ContentEn } from "../ContentEn";
 import { ContentFi } from "../ContentFi";
-import "./index.css";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
 import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
-
-export type PageContentLabels = {
-  introduction: string;
-  experience: string;
-  contactDetails: string;
-  contactForm: string;
-  videoButton: string;
-  viewPdf: string;
-};
-
-const pageContentLabelsFi = {
-  introduction: "Tietoa minusta",
-  experience: "Kokemus",
-  contactDetails: "Yhteystiedot",
-  contactForm: "Ota yhteyttä",
-  videoButton: "katso video",
-  viewPdf: "katso cv",
-};
-
-const pageContentLabelsEn = {
-  introduction: "About me",
-  experience: "Experience",
-  contactDetails: "Information",
-  contactForm: "Contact Me",
-  videoButton: "watch video",
-  viewPdf: "view cv",
-};
+import {
+  pageContentLabelsFi,
+  pageContentLabelsEn,
+} from "./IndexContentLabels";
+import "./index.css";
 
 export enum Lan {
   FINNISH,

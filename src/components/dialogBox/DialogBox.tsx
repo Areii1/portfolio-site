@@ -2,6 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { DialogBoxContent, SetDialogBoxContent, Lan } from "../../pages/index";
 import { TransparentButton } from "../buttons/transparentButton/TransparentButton";
+import { dialogBoxLabelEn, dialogBoxLabelFi } from "./DialogBoxLabels";
 
 type Props = {
   content: DialogBoxContent;
@@ -12,6 +13,8 @@ type Props = {
 export const DialogBox = (props: Props) => {
   const [wrapperWidth, setWrapperWidth] = React.useState<number>(0);
   const wrapperNode = React.useRef<any>(null);
+  const dialogBoxCloseLabel =
+    props.language === Lan.ENGLISH ? dialogBoxLabelEn : dialogBoxLabelFi;
   React.useEffect(() => {
     if (wrapperNode) {
       if (wrapperNode.current) {
@@ -31,11 +34,7 @@ export const DialogBox = (props: Props) => {
       <ButtonWrapper>
         <TransparentButton
           handleClick={() => props.setDialogBoxContent(undefined)}
-          title={
-            props.language === Lan.ENGLISH
-              ? "hide notification"
-              : "piilota notifikaatio"
-          }
+          title={dialogBoxCloseLabel}
         >
           <CloseButtonText>X</CloseButtonText>
         </TransparentButton>
@@ -100,7 +99,6 @@ const CloseButtonText = styled.h6`
   }
   @media (max-width: 400px) {
     font-size: var(--font-size-5);
-
   }
 `;
 

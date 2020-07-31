@@ -2,39 +2,13 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import { Lan, SetDialogBoxContent } from "../../../pages/index";
 import { sendEmail } from "../../../apiServices/SendEmail";
-import { LoadingRipple } from "../../loadingRipple/LoadingRipple";
-
-const fieldPlaceholdersFi = {
-  name: "Koko nimi",
-  email: "Sähköposti",
-  subject: "Aihe",
-  message: "Viesti",
-  submit: "LÄHETÄ",
-  submitTitle: "lähetä tiedot",
-};
-
-const fieldPlaceholdersEn = {
-  name: "Full name",
-  email: "Email",
-  subject: "Subject",
-  message: "Message",
-  submit: "SUBMIT",
-  submitTitle: "submit form",
-};
-
-const dialogsEn = {
-  success: "Message sent, thank you",
-  methodError: "Something went wrong sending the message",
-  erroredFieldsError: "Required fields are missing",
-  emailFormatError: "The given email is not valid",
-};
-
-const dialogsFi = {
-  success: "Viesti lähetetty, kiitos",
-  methodError: "Jotain meni pieleen viestiä lähettäessä",
-  erroredFieldsError: "Pakollisia kenttiä puuttuu",
-  emailFormatError: "Annettu sähköposti ei ole validi",
-};
+import { LoadingRipple } from "../../icons/loadingRipple/LoadingRipple";
+import {
+  fieldPlaceholdersFi,
+  fieldPlaceholdersEn,
+  dialogsEn,
+  dialogsFi,
+} from "./ContactFormLabels";
 
 type Props = {
   language: Lan;

@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { Lan, ModalTypes } from "../../pages/index";
-import { VideoSection } from "./videoSection/VideoSection";
 import { PdfSection } from "./pdfSection/PdfSection";
 import { ModalHeader } from "./modalHeader/ModalHeader";
 import { ProfileDetails } from "../../Types";
+import {
+  getModalBoxTopPosition,
+  getModalBoxLeftPosition,
+  getModalBoxWidth,
+  getModalBoxHeight,
+} from "./ModalUtilityFunctions";
 
 type Props = {
   setModalType: (modalTypes: ModalTypes | undefined) => void;
@@ -30,10 +35,14 @@ export const Modal = (props: Props) => {
             cv={props.profileDetails.cv}
           />
           {props.isVideo && (
-            <VideoSection
-              language={props.language}
-              introductionVideo={props.profileDetails.introductionVideo}
-            />
+            <video
+              preload="auto"
+              poster={props.profileDetails.introductionVideo.filePosterUrl}
+              controls
+              width="100%"
+            >
+              <source src={props.profileDetails.introductionVideo.fileUrl} type="video/mp4" />
+            </video>
           )}
           {!props.isVideo && (
             <PdfSection
@@ -83,80 +92,6 @@ const ModalBox = styled.div`
       getModalBoxWidth(props.pdfInFullScreen, props.type, true)};
   }
 `;
-
-const getModalBoxTopPosition = (
-  pdfInFullScreen: boolean,
-  modalContentType: ModalTypes,
-  isMobile: boolean
-) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "calc(50% - 50vh)";
-  } else {
-    if (modalContentType === ModalTypes.VIDEO) {
-      if (!isMobile) {
-        return "calc(50% - 275px)";
-      } else {
-        return "calc(50% - 200px)";
-      }
-    } else {
-      return "calc(50% - 400px)";
-    }
-  }
-};
-
-const getModalBoxLeftPosition = (
-  pdfInFullScreen: boolean,
-  modalContentType: ModalTypes,
-  isMobile: boolean
-) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "0";
-  } else {
-    if (modalContentType === ModalTypes.VIDEO) {
-      if (!isMobile) {
-        return "calc(50% - 150px)";
-      } else {
-        return "calc(50% - 100px)";
-      }
-    } else {
-      return "calc(50% - 150px)";
-    }
-  }
-};
-
-const getModalBoxWidth = (
-  pdfInFullScreen: boolean,
-  modalContentType: ModalTypes,
-  isMobile: boolean
-) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "100vw";
-  } else {
-    if (modalContentType === ModalTypes.VIDEO && isMobile) {
-      return "200px";
-    } else {
-      return "300px";
-    }
-  }
-};
-
-const getModalBoxHeight = (
-  pdfInFullScreen: boolean,
-  modalContentType: ModalTypes,
-  isMobile: boolean
-) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "100vh";
-  } else if (!pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "800px";
-  } else {
-    if (!isMobile) {
-      return "auto";
-    } else {
-      return "400px";
-    }
-  }
-};
 
 const ContentWrapper = styled.div`
   width: 100%;

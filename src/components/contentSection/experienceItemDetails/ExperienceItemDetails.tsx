@@ -2,14 +2,15 @@ import React from "react";
 import styled from "styled-components";
 import { ExperienceItem } from "../../../Types";
 import { Lan } from "../../../pages/index";
+import {
+  educationProgramWasAbandonedLabelEn,
+  educationProgramWasAbandonedLabelFi,
+} from "./ExperienceItemDetailLabels";
 
 type Props = {
   subHeadlineDetails: ExperienceItem;
   language: Lan;
 };
-
-const educationProgramWasAbandonedLabelEn = "dropped";
-const educationProgramWasAbandonedLabelFi = "keskeytetty";
 
 const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
   const currentText = language === Lan.ENGLISH ? "current" : "nykypäivä";

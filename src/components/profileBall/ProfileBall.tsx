@@ -3,9 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { PlayIcon } from "../icons/PlayIcon";
 import { Lan } from "../../pages/index";
 import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
-
-const labelEn = "watch video";
-const labelFi = "katso video";
+import { ProfileBalLabelEn, ProfileBalLabelFi } from "./ProfileBallLabels";
 
 type Props = {
   language: Lan;
@@ -14,7 +12,8 @@ type Props = {
 
 export const ProfileBall = (props: Props) => {
   const [isHovering, setIsHovering] = React.useState<boolean>(false);
-  const label = props.language === Lan.ENGLISH ? labelEn : labelFi;
+  const label =
+    props.language === Lan.ENGLISH ? ProfileBalLabelEn : ProfileBalLabelFi;
 
   const handleMouseEnter = () => {
     setIsHovering(true);

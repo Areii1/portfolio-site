@@ -5,24 +5,13 @@ import { PlayIcon } from "../../icons/PlayIcon";
 import { ViewDocumentIcon } from "../../icons/ViewDocument";
 import { Lan } from "../../../pages/index";
 import { FileDetails } from "../../../Types";
+import { buttonLabelsFi, buttonLabelsEn } from "./GeneralButtonLabels";
 
 type Props = {
   type: ModalTypes;
   handleClick: () => void;
   language: Lan;
   cv?: FileDetails;
-};
-
-const buttonLabelsFi = {
-  videoButton: "katso video",
-  viewPdf: "katso cv",
-  cvButtonMobile: "lataa cv",
-};
-
-const buttonLabelsEn = {
-  videoButton: "watch video",
-  viewPdf: "view cv",
-  cvButtonMobile: "download cv",
 };
 
 export const GeneralButton = (props: Props) => {

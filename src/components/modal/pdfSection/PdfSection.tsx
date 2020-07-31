@@ -10,34 +10,17 @@ type Props = {
 
 export const PdfSection = (props: Props) => {
   const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
-  const handleLoaded = () => {
-    setIsLoaded(true);
-  };
   return (
     <>
       {!isLoaded && <Image src={props.cv.filePosterUrl} />}
-      <>
-        {props.language == Lan.ENGLISH && (
-          <Iframe
-            src={`${props.cv.fileUrl}#toolbar=0`}
-            width="100%"
-            height="100%"
-            allow="allowfullscreen"
-            onLoad={handleLoaded}
-            loaded={isLoaded}
-          />
-        )}
-        {props.language === Lan.FINNISH && (
-          <Iframe
-            src={`${props.cv.fileUrl}#toolbar=0`}
-            width="100%"
-            height="100%"
-            allow="allowfullscreen"
-            onLoad={handleLoaded}
-            loaded={isLoaded}
-          />
-        )}
-      </>
+      <Iframe
+        src={`${props.cv.fileUrl}#toolbar=0`}
+        width="100%"
+        height="100%"
+        allow="allowfullscreen"
+        onLoad={() => setIsLoaded(true)}
+        loaded={isLoaded}
+      />
     </>
   );
 };

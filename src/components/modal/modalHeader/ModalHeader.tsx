@@ -7,20 +7,10 @@ import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, Lan } from "../../../pages/index";
 import { FileDetails } from "../../../Types";
 import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
-
-const modalHeaderContentLabelsEn = {
-  closeModal: "close modal",
-  fullscreen: "fullscreen",
-  outOfFullscreen: "minimize",
-  downloadCv: "download cv",
-};
-
-const modalHeaderContentLabelsFi = {
-  closeModal: "sulje modaali",
-  fullscreen: "koko ruudun tila",
-  outOfFullscreen: "pois koko ruudun tilasta",
-  downloadCv: "lataa cv",
-};
+import {
+  modalHeaderContentLabelsEn,
+  modalHeaderContentLabelsFi,
+} from "./ModalHeaderLabels";
 
 type ModalHeader = {
   pdfInFullScreen: boolean;
