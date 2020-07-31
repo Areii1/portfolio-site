@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Headline } from "../headline/Headline";
 import { Description } from "../../Types";
 import { Paragraphs } from "./paragraphs/Paragraphs";
-import { ExperienceItem } from "../../Types";
+import { ExperienceItem, ExperienceItemDescription } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan, ModalTypes } from "../../pages/index";
 
@@ -26,7 +26,10 @@ export const ContentSection = (props: Props) => {
             subHeadlineDetails={experienceItem}
             language={props.language}
           />
-          <Paragraphs content={experienceItem.description} />
+          <Paragraphs
+            content={experienceItem.description as ExperienceItemDescription}
+            isExperienceInstace
+          />
         </ExperienceListItem>
       );
     });
@@ -39,7 +42,10 @@ export const ContentSection = (props: Props) => {
       </TopSectionWrapper>
       <>
         {props.type === ModalTypes.VIDEO && (
-          <Paragraphs content={props.content as Description} />
+          <Paragraphs
+            content={props.content as Description}
+            isExperienceInstace={false}
+          />
         )}
         {props.type === ModalTypes.CV && (
           <ExperienceList>{getExperienceListItems()}</ExperienceList>
@@ -73,7 +79,6 @@ const TopSectionWrapper = styled.div`
   display: flex;
   flex-direction: initial;
   justify-content: space-between;
-  margin-bottom: var(--space-minus-7);
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: initial;

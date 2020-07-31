@@ -7,7 +7,7 @@ const profileDetails: ProfileDetails = {
   location: {
     city: "Helsinki",
     district: "Kallio",
-    mapsLink: "https://www.google.fi/maps/@60.1851122,24.9418612,16.83z"
+    mapsLink: "https://www.google.fi/maps/@60.1851122,24.9418612,16.83z",
   },
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
@@ -36,8 +36,10 @@ const experience: Array<ExperienceItem> = [
       year: 2018,
     },
     jobTitle: "front-end developer",
-    description:
-      "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet",
+    description: [
+      { text: "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet" },
+      { text: "" }
+    ],
     institute: "Digital factory stream oy",
   },
   {
@@ -50,51 +52,12 @@ const experience: Array<ExperienceItem> = [
       year: 2017,
     },
     jobTitle: "bachelor of computer science",
-    description:
-      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+    educationProgramWasAbandoned: true,
+    description: [
+      { text: "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem." },
+      { text: "" }
+    ],
     institute: "Turku university",
-  },
-  {
-    beginDate: {
-      month: 1,
-      year: 2018,
-    },
-    endingDate: {
-      month: 6,
-      year: 2018,
-    },
-    jobTitle: "assembler",
-    description:
-      "Proin ut mattis felis, in aliquet nibh. Duis finibus lorem et arcu interdum tempus. Quisque pellentesque tortor vel gravida mattis. Donec quis sagittis dolor, id pulvinar erat.",
-    institute: "",
-  },
-  {
-    beginDate: {
-      month: 1,
-      year: 2015,
-    },
-    endingDate: {
-      month: 8,
-      year: 2015,
-    },
-    jobTitle: "storage worker",
-    description:
-      "Vestibulum congue sed augue quis tempus. Maecenas sagittis, felis placerat rutrum auctor, leo nisi congue quam, non imperdiet mi justo ac tellus. Donec ipsum est, rhoncus in felis vel, mollis ullamcorper mauris.",
-    institute: "Transval oy",
-  },
-  {
-    beginDate: {
-      month: 8,
-      year: 2007,
-    },
-    endingDate: {
-      month: 12,
-      year: 2010,
-    },
-    jobTitle: "High school graduate",
-    description:
-      "Suspendisse at nibh in ex commodo suscipit. Maecenas maximus ligula ut erat tempor iaculis. Donec posuere neque eget quam aliquet mollis.",
-    institute: "Kerava High school",
   },
 ];
 

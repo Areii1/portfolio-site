@@ -30,11 +30,24 @@ type ExperienceItemDate = {
   year: number;
 };
 
+type ExperienceItemDescriptionList = {
+  listDescription: string;
+  items: Array<string>;
+}
+
+export type ExperienceItemDescriptionContent = {
+  text: string;
+  list?: ExperienceItemDescriptionList;
+}
+
+export type ExperienceItemDescription = [ExperienceItemDescriptionContent, ExperienceItemDescriptionContent] | ExperienceItemDescriptionContent;
+
 export type ExperienceItem = {
   beginDate: ExperienceItemDate;
   endingDate?: ExperienceItemDate;
+  educationProgramWasAbandoned?: boolean;
   jobTitle: string;
-  description: Description;
+  description: ExperienceItemDescription;
   institute: string;
 };
 

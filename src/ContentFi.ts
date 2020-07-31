@@ -37,8 +37,22 @@ const experience: Array<ExperienceItem> = [
     },
     jobTitle: "front-end kehittäjä",
     description: [
-      "Olin tekemässä käyttöliittymää webissä toimivalle projektin hallinta työkalulle.",
-      "Palvelu sisälsi ominaisuuksia, kuten: kansio systeemi, (tiedostojen lataus, poisto, katselu, jako yms, kansio hierarkia), projekti näkymässä kuvien videoiden tiedostojen kommentointi, chatti projektin osallistujille, käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms.",
+      {
+        text:
+          "Olin tekemässä käyttöliittymää webissä toimivalle projektin hallinta työkalulle",
+        list: {
+          listDescription: "Palvelu sisälsi ominaisuuksia, kuten:",
+          items: [
+            "kansio systeemi, (tiedostojen lataus, poisto, katselu, jako yms, kansio hierarkia)",
+            "projekti näkymässä kuvien videoiden tiedostojen kommentointi",
+            "chatti projektin osallistujille",
+            "käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
+          ],
+        },
+      },
+      {
+        text: "---",
+      },
     ],
     institute: "Digital factory stream oy",
   },
@@ -51,9 +65,14 @@ const experience: Array<ExperienceItem> = [
       month: 12,
       year: 2017,
     },
-    jobTitle: "bachelor of computer science",
-    description:
-      "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+    jobTitle: "Luonnontieteiden kandidaatti",
+    educationProgramWasAbandoned: true,
+    description: [
+      {
+        text:
+          "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten perus ohjelmoinnin teoria, algoritmiikka, tietokanta rakenteet, matematiikka. Lopetin kahden vuoden jälkeen opetellakseni web-kehitystä yksityiskohtaisemmin.",
+      },
+    ],
     institute: "Turku university",
   },
 ];

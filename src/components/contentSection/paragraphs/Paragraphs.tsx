@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Description } from "../../../Types";
+import { Description, ExperienceItemDescription } from "../../../Types";
 
 type Props = {
-  content: Description;
+  content: Description | ExperienceItemDescription;
+  isExperienceInstace: boolean;
 };
 
 export const Paragraphs = (props: Props) => {
@@ -15,8 +16,44 @@ export const Paragraphs = (props: Props) => {
     : undefined;
   return (
     <Wrapper>
-      <Paragraph>{firstItem}</Paragraph>
-      {secondItem && <Paragraph>{secondItem}</Paragraph>}
+      {!props.isExperienceInstace && (
+        <>
+          <Paragraph>{firstItem}</Paragraph>
+          {secondItem && <Paragraph>{secondItem}</Paragraph>}
+        </>
+      )}
+      {props.isExperienceInstace && (
+        <>
+          <Paragraph>
+            <p>{props.content[0].text}</p>
+            {props.content[0].list && (
+              <>
+                <p>{props.content[0].list.listDescription}</p>
+                <ul>
+                  {props.content[0].list.items.map(listItem => (
+                    <li>{listItem}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </Paragraph>
+          {props.content[1] && (
+            <Paragraph>
+              <p>{props.content[1].text}</p>
+              {props.content[1].list && (
+                <>
+                  <p>{props.content[1].list.listDescription}</p>
+                  <ul>
+                    {props.content[1].list.items.map(listItem => (
+                      <li>{listItem}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </Paragraph>
+          )}
+        </>
+      )}
     </Wrapper>
   );
 };

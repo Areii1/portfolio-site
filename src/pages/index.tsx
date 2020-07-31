@@ -15,16 +15,16 @@ import withLocation from "../hocs/withLocation";
 
 export type PageContentLabels = {
   introduction: string;
-  workExperience: string;
-  education: string;
+  experience: string;
   contactDetails: string;
   contactForm: string;
+  videoButton: string;
+  viewPdf: string;
 };
 
 const pageContentLabelsFi = {
   introduction: "Tietoa minusta",
-  workExperience: "Työkokemus",
-  education: "Koulutus",
+  experience: "Kokemus",
   contactDetails: "Yhteystiedot",
   contactForm: "Ota yhteyttä",
   videoButton: "katso video",
@@ -33,8 +33,7 @@ const pageContentLabelsFi = {
 
 const pageContentLabelsEn = {
   introduction: "About me",
-  workExperience: "Experience",
-  education: "Education",
+  experience: "Experience",
   contactDetails: "Information",
   contactForm: "Contact Me",
   videoButton: "watch video",
@@ -119,7 +118,7 @@ const IndexPage = (props: any) => {
         }
       />
       <ContentSection
-        headline={pageContentLabels.workExperience}
+        headline={pageContentLabels.experience}
         content={content.experience}
         showButton
         language={language}
