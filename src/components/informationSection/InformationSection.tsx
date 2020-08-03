@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { ProfileDetails } from "../../Types";
 import { Headline } from "../headline/Headline";
 import { SetDialogBoxContent } from "../../pages/index";
@@ -7,7 +9,6 @@ import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { Lan } from "../../pages/index";
 import "./InformationSection.css";
-import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
 import {
   informationSectionLabelsFi,
   informationSectionLabelsEn,
@@ -24,10 +25,11 @@ export const InformationSection = (props: Props) => {
     props.language === Lan.ENGLISH
       ? informationSectionLabelsEn
       : informationSectionLabelsFi;
+  const imageQueryData = useStaticQuery(contactQraphQl);
   return (
     <Wrapper>
-      <GatsbyImageWrapper
-        type="contact"
+      <Img
+        fluid={imageQueryData.file.childImageSharp.fluid}
         className="information-section-queried-image"
         alt="contact"
       />
@@ -59,6 +61,18 @@ export const InformationSection = (props: Props) => {
     </Wrapper>
   );
 };
+
+const contactQraphQl = graphql`
+  query {
+    file(relativePath: { eq: "contact.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.section`
   margin-top: var(--space-11);

@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
-import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
+import "./Header.css";
 
 type PropTypes = {
   name: string;
@@ -11,10 +13,11 @@ type PropTypes = {
 };
 
 export const Header = (props: PropTypes) => {
+  const imageQueryData = useStaticQuery(headerImageQuery);
   return (
     <Wrapper>
-      <GatsbyImageWrapper
-        type="header"
+      <Img
+        fluid={imageQueryData.file.childImageSharp.fluid}
         className="header-queried-image"
         alt="header"
       />
@@ -28,6 +31,18 @@ export const Header = (props: PropTypes) => {
     </Wrapper>
   );
 };
+
+const headerImageQuery = graphql`
+  query {
+    file(relativePath: { eq: "header.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.header`
   height: var(--space-15);

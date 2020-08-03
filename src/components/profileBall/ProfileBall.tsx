@@ -1,9 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 import { PlayIcon } from "../icons/PlayIcon";
 import { Lan } from "../../pages/index";
-import { GatsbyImageWrapper } from "../gatsbyImageWrapper/GatsbyImageWrapper";
 import { ProfileBalLabelEn, ProfileBalLabelFi } from "./ProfileBallLabels";
+import "./ProfileBall.css";
 
 type Props = {
   language: Lan;
@@ -21,13 +23,14 @@ export const ProfileBall = (props: Props) => {
   const handleMouseLeave = () => {
     setIsHovering(false);
   };
+  const imageQueryData = useStaticQuery(profileImageQuery);
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <ProfileImageWrapper title={label} onClick={props.handleClick}>
-        <GatsbyImageWrapper
-          alt="profile ball"
-          type="profile"
+        <Img
+          fluid={imageQueryData.file.childImageSharp.fluid}
           className="profile-ball-queried-image"
+          alt="profile"
         />
         {isHovering && (
           <>
@@ -46,6 +49,18 @@ export const ProfileBall = (props: Props) => {
     </Wrapper>
   );
 };
+
+const profileImageQuery = graphql`
+  query {
+    file(relativePath: { eq: "profile.jpg" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   width: var(--space-12);

@@ -1,0 +1,13 @@
+.header-queried-image {
+  height: var(--space-16);
+  width: 110vw;
+  margin: var(--space-minus-8) var(--space-minus-8) 0 var(--space-minus-8);
+  filter: blur(10px);
+}
+
+@media (max-width: 1300px) {
+  .header-queried-image {
+    height: var(--space-14);
+    width: 140vw;
+  }
+}
