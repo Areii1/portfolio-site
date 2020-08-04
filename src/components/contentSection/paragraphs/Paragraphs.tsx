@@ -54,6 +54,5 @@ const Wrapper = styled.div`
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: initial;
-    text-align: center;
   }
 `;

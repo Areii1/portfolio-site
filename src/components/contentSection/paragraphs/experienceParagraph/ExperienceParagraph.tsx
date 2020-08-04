@@ -8,23 +8,23 @@ type Props = {
 
 export const ExperienceParagrah = (props: Props) => {
   return (
-    <ParagraphElement>
+    <Wrapper>
       <p>{props.content.text}</p>
       {props.content.list && (
         <>
           <p>{props.content.list.listDescription}</p>
           <List>
             {props.content.list.items.map(listItem => (
-              <li>{listItem}</li>
+              <li key={listItem}>{listItem}</li>
             ))}
           </List>
         </>
       )}
-    </ParagraphElement>
+    </Wrapper>
   );
 };
 
-const ParagraphElement = styled.p`
+const Wrapper = styled.div`
   width: 45%;
   font-size: var(--font-size-4);
   font-weight: 300;
@@ -35,4 +35,5 @@ const ParagraphElement = styled.p`
 
 const List = styled.ul`
   text-align: start;
+  padding-left: var(--space-5);
 `;

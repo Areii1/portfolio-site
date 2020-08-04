@@ -87,10 +87,10 @@ const Wrapper = styled.section`
     margin: 0 auto var(--space-8) auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
   @media (max-width: 400px) {
-    width: var(--space-12);
+    padding: 0 var(--space-4);
+    width: 100%;
     margin: 0 auto var(--space-6) auto;
   }
 `;
