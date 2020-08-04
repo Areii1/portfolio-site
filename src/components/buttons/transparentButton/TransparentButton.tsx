@@ -12,7 +12,7 @@ export const TransparentButton = (props: Props) => {
   return (
     <>
       {props.link && (
-        <TransparentLink href={props.link} target="_blank">
+        <TransparentLink href={props.link} target="_blank" title={props.title}>
           {props.children}
         </TransparentLink>
       )}

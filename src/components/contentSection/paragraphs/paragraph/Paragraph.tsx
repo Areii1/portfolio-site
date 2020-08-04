@@ -22,11 +22,11 @@ export const Paragraph = (props: Props) => {
           {props.content.list && (
             <>
               <p>{props.content.list.listDescription}</p>
-              <ul>
+              <List>
                 {props.content.list.items.map(listItem => (
                   <li>{listItem}</li>
                 ))}
-              </ul>
+              </List>
             </>
           )}
         </ParagraphElement>
@@ -42,4 +42,8 @@ const ParagraphElement = styled.p`
   @media (max-width: 800px) {
     width: 100%;
   }
+`;
+
+const List = styled.ul`
+  text-align: start;
 `;
