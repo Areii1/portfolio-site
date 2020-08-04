@@ -5,15 +5,27 @@ import Img from "gatsby-image";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 import "./Header.css";
+import { TransparentButton } from "../buttons/transparentButton/TransparentButton";
+import { PlayIcon } from "../icons/PlayIcon";
+import { ViewDocumentIcon } from "../icons/ViewDocument";
+import { CodeIcon } from "../icons/CodeIcon";
+import {
+  buttonLabelsFi,
+  buttonLabelsEn,
+} from "../buttons/generalButton/GeneralButtonLabels";
+import { ModalTypes } from "../../pages/index";
 
 type PropTypes = {
   name: string;
   jobTitle: string;
   language: Lan;
+  updateModalType: (modalType: ModalTypes) => void;
 };
 
 export const Header = (props: PropTypes) => {
   const imageQueryData = useStaticQuery(headerImageQuery);
+  const buttonLabels =
+    props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   return (
     <Wrapper>
       <Img
@@ -28,6 +40,42 @@ export const Header = (props: PropTypes) => {
       <LanguageToggleWrapper>
         <ToggleLanguage isBlack={false} language={props.language} />
       </LanguageToggleWrapper>
+      <TopButtonsList>
+        <TopButtonsListItem>
+          <TransparentButton
+            handleClick={() => props.updateModalType(ModalTypes.VIDEO)}
+            title={buttonLabels.videoButton}
+          >
+            <PlayIcon
+              startFillColor="white"
+              endFillColor="white"
+              size={25}
+              animation={false}
+            />
+          </TransparentButton>
+        </TopButtonsListItem>
+        <TopButtonsListItem>
+          <TransparentButton
+            handleClick={() => props.updateModalType(ModalTypes.CV)}
+            title={buttonLabels.viewPdf}
+          >
+            <ViewDocumentIcon
+              startFillColor="white"
+              endFillColor="white"
+              size={25}
+              animation={false}
+            />
+          </TransparentButton>
+        </TopButtonsListItem>
+        <TopButtonsListItem>
+          <TransparentButton
+            handleClick={() => {}}
+            title={buttonLabels.viewRepository}
+          >
+            <CodeIcon fillColor="white" size={25} />
+          </TransparentButton>
+        </TopButtonsListItem>
+      </TopButtonsList>
     </Wrapper>
   );
 };
@@ -98,6 +146,21 @@ const SecondaryHeadline = styled.h2`
   @media (max-width: 400px) {
     font-size: var(--font-size-3);
   }
+`;
+
+const TopButtonsList = styled.ul`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--space-4);
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+`;
+
+const TopButtonsListItem = styled.li`
+  margin: 0 var(--space-3) 0 0;
 `;
 
 const LanguageToggleWrapper = styled.div`

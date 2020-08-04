@@ -41,4 +41,7 @@ const HeadlineText = styled.h3`
   font-size: var(--font-size-8);
   font-weight: 500;
   margin: 0 0 var(--space-4) 0;
+  @media (max-width: 800px) {
+    text-align: center;
+  }
 `;
