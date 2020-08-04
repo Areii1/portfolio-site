@@ -12,7 +12,7 @@ import {
   contentSectionLabelsFi,
 } from "./ContentSectionLabels";
 
-type Content =
+export type Content =
   | {
       type: ModalTypes.VIDEO;
       sectionContent: Description;
@@ -39,8 +39,10 @@ export const ContentSection = (props: Props) => {
             language={props.language}
           />
           <Paragraphs
-            content={experienceItem.description}
-            isExperienceInstace
+            content={{
+              type: ModalTypes.CV,
+              sectionContent: experienceItem,
+            }}
           />
         </ExperienceListItem>
       );
@@ -68,8 +70,10 @@ export const ContentSection = (props: Props) => {
       <>
         {props.content.type === ModalTypes.VIDEO && (
           <Paragraphs
-            content={props.content.sectionContent}
-            isExperienceInstace={false}
+            content={{
+              type: ModalTypes.VIDEO,
+              sectionContent: props.content.sectionContent,
+            }}
           />
         )}
         {props.content.type === ModalTypes.CV && (

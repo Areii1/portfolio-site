@@ -7,6 +7,7 @@ type Props = {
 };
 
 export const ExperienceParagrah = (props: Props) => {
+  console.log(props, 'ExperienceParagrah props');
   return (
     <Wrapper>
       <p>{props.content.text}</p>

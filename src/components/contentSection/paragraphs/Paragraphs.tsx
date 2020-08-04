@@ -1,50 +1,52 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Description,
-  ExperienceItemDescription,
-  ExperienceItemDescriptionContent,
-} from "../../../Types";
+import { Description, ExperienceItem } from "../../../Types";
 import { ExperienceParagrah } from "./experienceParagraph/ExperienceParagraph";
 import { IntroductionParagraph } from "./introductionParagraph/IntroductionParagraph";
+import { ModalTypes } from "../../../pages/index";
+
+type Content =
+  | {
+      type: ModalTypes.VIDEO;
+      sectionContent: Description;
+    }
+  | { type: ModalTypes.CV; sectionContent: ExperienceItem };
 
 type Props = {
-  content: Description | ExperienceItemDescription;
-  isExperienceInstace: boolean;
+  content: Content;
 };
 
-export const Paragraphs = (props: Props) => {
-  const firstItem = Array.isArray(props.content)
-    ? props.content[0]
-    : props.content;
-  const secondItem = Array.isArray(props.content)
-    ? props.content[1]
-    : undefined;
-  return (
-    <Wrapper>
-      {!props.isExperienceInstace && (
-        <>
-          <IntroductionParagraph content={firstItem as Description} />
-          {secondItem && (
-            <IntroductionParagraph content={secondItem as Description} />
-          )}
-        </>
-      )}
-      {props.isExperienceInstace && (
-        <>
-          <ExperienceParagrah
-            content={firstItem as ExperienceItemDescriptionContent}
-          />
-          {secondItem && (
+export const Paragraphs = (props: Props) => (
+  <Wrapper>
+    {props.content.type === ModalTypes.VIDEO && (
+      <>
+        <IntroductionParagraph content={props.content.sectionContent[0]} />
+        {props.content.sectionContent[1] && (
+          <IntroductionParagraph content={props.content.sectionContent[1]} />
+        )}
+      </>
+    )}
+    {props.content.type === ModalTypes.CV && (
+      <>
+        {Array.isArray(props.content.sectionContent.description) && (
+          <>
             <ExperienceParagrah
-              content={secondItem as ExperienceItemDescriptionContent}
+              content={props.content.sectionContent.description[0]}
             />
-          )}
-        </>
-      )}
-    </Wrapper>
-  );
-};
+            <ExperienceParagrah
+              content={props.content.sectionContent.description[1]}
+            />
+          </>
+        )}
+        {!Array.isArray(props.content.sectionContent.description) && (
+          <ExperienceParagrah
+            content={props.content.sectionContent.description}
+          />
+        )}
+      </>
+    )}
+  </Wrapper>
+);
 
 const Wrapper = styled.div`
   display: flex;
