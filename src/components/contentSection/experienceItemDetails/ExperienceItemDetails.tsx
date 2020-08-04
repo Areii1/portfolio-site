@@ -28,16 +28,19 @@ export const ExperienceItemDetails = (props: Props) => {
       : educationProgramWasAbandonedLabelFi;
   return (
     <Wrapper>
-      {!props.subHeadlineDetails.educationProgramWasAbandoned && (
-        <Title>{props.subHeadlineDetails.jobTitle}</Title>
-      )}
-      {props.subHeadlineDetails.educationProgramWasAbandoned && (
-        <Title>
-          {props.subHeadlineDetails.jobTitle}
+      <Title>
+        {props.subHeadlineDetails.jobTitle}
+        {props.subHeadlineDetails.educationProgramWasAbandoned && (
           <TitleDetailSpan>{` (${educationProgramWasAbandonedLabel})`}</TitleDetailSpan>
-        </Title>
-      )}
-      <Date>{getDateString(props.subHeadlineDetails, props.language)}</Date>
+        )}
+      </Title>
+      <ExtraItemsWrapper>
+        <Institute>{`${props.subHeadlineDetails.institute.toUpperCase()},`}</Institute>
+        <Date>{`(${getDateString(
+          props.subHeadlineDetails,
+          props.language
+        )})`}</Date>
+      </ExtraItemsWrapper>
     </Wrapper>
   );
 };
@@ -58,11 +61,29 @@ const Title = styled.h4`
   margin: 0;
   display: flex;
   align-items: center;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
+`;
+
+const ExtraItemsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin: var(--space-2) 0 0 0;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 const Date = styled.h5`
-  font-size: var(--font-size-5);
-  font-weight: 400;
+  font-size: var(--font-size-4);
+  font-weight: 300;
   color: var(--secondary-headline-color);
-  margin: var(--space-2) 0 0 0;
+  margin: 0;
+`;
+
+const Institute = styled(Date)`
+  font-size: var(--font-size-5);
+  margin: 0 var(--space-2) 0 0;
+  font-weight: 400;
 `;

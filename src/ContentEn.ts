@@ -37,8 +37,11 @@ const experience: Array<ExperienceItem> = [
     },
     jobTitle: "front-end developer",
     description: [
-      { text: "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet" },
-      { text: "" }
+      {
+        text:
+          "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet",
+      },
+      { text: "" },
     ],
     institute: "Digital factory stream oy",
   },
@@ -54,18 +57,24 @@ const experience: Array<ExperienceItem> = [
     jobTitle: "bachelor of computer science",
     educationProgramWasAbandoned: true,
     description: [
-      { text: "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem." },
-      { text: "" }
+      {
+        text:
+          "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+      },
+      { text: "" },
     ],
     institute: "Turku university",
   },
 ];
 
+// 'Olen ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opintotaustalla. Työssäni web-kehittäjänä olen pääosin tähän mennessä keskittynyt käyttöliittymien kehitykseen "single page application” metodologialla. Työkaluna minulla on tässä ollut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
+// "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu & funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassaolevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla. Haluaisin löytääkin nyt uusia web-ohjelmointi haasteita.",
+
 export const ContentEn: PageContent = {
   profile: profileDetails,
   description: [
-    "Nam at porttitor sem, vel consectetur libero. Donec pulvinar lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet et augue. Nullam tincidunt sem non consequat tristique. Ut sit amet elit sed arcu feugiat consequat vel eu nunc.",
-    "Sed varius tempus turpis, nec dictum turpis varius sed. Cras cursus finibus lacinia. Pellentesque sit amet metus non diam blandit aliquet. In non sem magna. Nam et pharetra sem, eget convallis nisi.",
+    'I am a web-developer with work experience of two years and some studies. In my current job I have focused mainly on building user interfaces, with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and created all kinds of user interface solutions.  ',
+    "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. So every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development",
   ],
   experience: experience,
 };

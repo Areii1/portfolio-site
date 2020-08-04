@@ -76,15 +76,15 @@ const experience: Array<ExperienceItem> = [
         text: "---",
       },
     ],
-    institute: "Turku university",
+    institute: "Turun yliopisto",
   },
 ];
 
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
-    "Olen Frontend kehittäjä kahden vuoden työkokemuksella React.js kirjaston parissa",
-    ".",
+    'Olen ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opintotaustalla. Työssäni web-kehittäjänä olen pääosin tähän mennessä keskittynyt käyttöliittymien kehitykseen "single page application” metodologialla. Työkaluna minulla on tässä ollut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
+    "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu & funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassaolevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla. Haluaisin löytääkin nyt uusia web-ohjelmointi haasteita.",
   ],
   experience: experience,
 };
