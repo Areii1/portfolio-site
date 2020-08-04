@@ -20,7 +20,7 @@ export const Header = (props: PropTypes) => {
   const imageQueryData = useStaticQuery(headerImageQuery);
   return (
     <Wrapper>
-      <Img
+      <Image
         fluid={imageQueryData.file.childImageSharp.fluid}
         className="header-queried-image"
         alt="header"
@@ -53,6 +53,20 @@ const headerImageQuery = graphql`
   }
 `;
 
+const Image = styled(Img)`
+  height: var(--space-16);
+  width: 110vw;
+  margin: var(--space-minus-8) var(--space-minus-8) 0 var(--space-minus-8);
+  filter: blur(10px);
+  @media (max-width: 1300px) {
+    height: var(--space-14);
+    width: 140vw;
+  }
+  @media (max-width: 800px) {
+    filter: blur(4px);
+  }
+`;
+
 const Wrapper = styled.header`
   height: var(--space-15);
   overflow: hidden;
@@ -62,6 +76,9 @@ const Wrapper = styled.header`
   @media (max-width: 1300px) {
     height: var(--space-13);
     margin-bottom: var(--space-11);
+  }
+  @media (max-width: 800px) {
+    margin-bottom: var(--space-10);
   }
 `;
 
@@ -73,6 +90,9 @@ const TitlesWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 800px) {
+    top: calc(50% - var(--space-8));
+  }
 `;
 
 const Headline = styled.h1`
