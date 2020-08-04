@@ -69,6 +69,7 @@ const IndexPage = (props: any) => {
         jobTitle={content.profile.jobTitle}
         language={language}
         updateModalType={updateModalType}
+        codeRepositoryLink={content.profile.codeRepository}
       />
       <ProfileBallWrapper>
         <ProfileBall

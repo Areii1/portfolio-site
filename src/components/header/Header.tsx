@@ -20,6 +20,7 @@ type PropTypes = {
   jobTitle: string;
   language: Lan;
   updateModalType: (modalType: ModalTypes) => void;
+  codeRepositoryLink?: string;
 };
 
 export const Header = (props: PropTypes) => {
@@ -67,14 +68,16 @@ export const Header = (props: PropTypes) => {
             />
           </TransparentButton>
         </TopButtonsListItem>
-        <TopButtonsListItem>
-          <TransparentButton
-            handleClick={() => {}}
-            title={buttonLabels.viewRepository}
-          >
-            <CodeIcon fillColor="white" size={25} />
-          </TransparentButton>
-        </TopButtonsListItem>
+        {props.codeRepositoryLink && (
+          <TopButtonsListItem>
+            <TransparentButton
+              link={props.codeRepositoryLink}
+              title={buttonLabels.viewRepository}
+            >
+              <CodeIcon fillColor="white" size={25} />
+            </TransparentButton>
+          </TopButtonsListItem>
+        )}
       </TopButtonsList>
     </Wrapper>
   );

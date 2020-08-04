@@ -23,6 +23,7 @@ export type ProfileDetails = {
   jobTitle: string;
   cv: FileDetails;
   introductionVideo: FileDetails;
+  codeRepository?: string;
 };
 
 type ExperienceItemDate = {
@@ -40,7 +41,9 @@ export type ExperienceItemDescriptionContent = {
   list?: ExperienceItemDescriptionList;
 };
 
-export type ExperienceItemDescription = [ExperienceItemDescriptionContent, ExperienceItemDescriptionContent] | ExperienceItemDescriptionContent;
+export type ExperienceItemDescription =
+  | [ExperienceItemDescriptionContent, ExperienceItemDescriptionContent]
+  | ExperienceItemDescriptionContent;
 
 export type ExperienceItem = {
   beginDate: ExperienceItemDate;

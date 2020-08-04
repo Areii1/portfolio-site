@@ -27,6 +27,7 @@ const profileDetails: ProfileDetails = {
       "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
     fileName: "video-finnish.mp4",
   },
+  codeRepository: "https://github.com/Areii1/portfolio-site"
 };
 
 const experience: Array<ExperienceItem> = [
