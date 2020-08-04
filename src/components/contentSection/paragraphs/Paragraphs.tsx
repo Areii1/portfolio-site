@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import { Description, ExperienceItemDescription } from "../../../Types";
-import { Paragraph } from "./paragraph/Paragraph";
+import {
+  Description,
+  ExperienceItemDescription,
+  ExperienceItemDescriptionContent,
+} from "../../../Types";
+import { ExperienceParagrah } from "./experienceParagraph/ExperienceParagraph";
+import { IntroductionParagraph } from "./introductionParagraph/IntroductionParagraph";
 
 type Props = {
   content: Description | ExperienceItemDescription;
@@ -17,15 +22,25 @@ export const Paragraphs = (props: Props) => {
     : undefined;
   return (
     <Wrapper>
-      <Paragraph
-        content={firstItem}
-        isExperienceInstace={props.isExperienceInstace}
-      />
-      {secondItem && (
-        <Paragraph
-          content={secondItem}
-          isExperienceInstace={props.isExperienceInstace}
-        />
+      {!props.isExperienceInstace && (
+        <>
+          <IntroductionParagraph content={firstItem as Description} />
+          {secondItem && (
+            <IntroductionParagraph content={secondItem as Description} />
+          )}
+        </>
+      )}
+      {props.isExperienceInstace && (
+        <>
+          <ExperienceParagrah
+            content={firstItem as ExperienceItemDescriptionContent}
+          />
+          {secondItem && (
+            <ExperienceParagrah
+              content={secondItem as ExperienceItemDescriptionContent}
+            />
+          )}
+        </>
       )}
     </Wrapper>
   );
