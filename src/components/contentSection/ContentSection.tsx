@@ -12,10 +12,16 @@ import {
   contentSectionLabelsFi,
 } from "./ContentSectionLabels";
 
+type Content =
+  | {
+      type: ModalTypes.VIDEO;
+      sectionContent: Description;
+    }
+  | { type: ModalTypes.CV; sectionContent: Array<ExperienceItem> };
+
 type Props = {
-  content: Description | Array<ExperienceItem>;
+  content: Content;
   language: Lan;
-  type: ModalTypes;
   updateModalType: (type: ModalTypes) => void;
 };
 
@@ -24,9 +30,8 @@ export const ContentSection = (props: Props) => {
     props.language === Lan.ENGLISH
       ? contentSectionLabelsEn
       : contentSectionLabelsFi;
-  const getExperienceListItems = () => {
-    const rendableContent = props.content as Array<ExperienceItem>;
-    return rendableContent.map((experienceItem: ExperienceItem) => {
+  const getExperienceListItems = (sectionContent: Array<ExperienceItem>) => {
+    return sectionContent.map(experienceItem => {
       return (
         <ExperienceListItem>
           <ExperienceItemDetails
@@ -34,7 +39,7 @@ export const ContentSection = (props: Props) => {
             language={props.language}
           />
           <Paragraphs
-            content={experienceItem.description as ExperienceItemDescription}
+            content={experienceItem.description}
             isExperienceInstace
           />
         </ExperienceListItem>
@@ -46,7 +51,7 @@ export const ContentSection = (props: Props) => {
       <TopSectionWrapper>
         <Headline
           text={
-            props.type === ModalTypes.VIDEO
+            props.content.type === ModalTypes.VIDEO
               ? contentSectionLabels.introduction
               : contentSectionLabels.experience
           }
@@ -54,21 +59,23 @@ export const ContentSection = (props: Props) => {
         />
         <ButtonWrapper>
           <GeneralButton
-            handleClick={() => props.updateModalType(props.type)}
-            type={props.type}
+            handleClick={() => props.updateModalType(props.content.type)}
+            type={props.content.type}
             language={props.language}
           />
         </ButtonWrapper>
       </TopSectionWrapper>
       <>
-        {props.type === ModalTypes.VIDEO && (
+        {props.content.type === ModalTypes.VIDEO && (
           <Paragraphs
-            content={props.content as Description}
+            content={props.content.sectionContent}
             isExperienceInstace={false}
           />
         )}
-        {props.type === ModalTypes.CV && (
-          <ExperienceList>{getExperienceListItems()}</ExperienceList>
+        {props.content.type === ModalTypes.CV && (
+          <ExperienceList>
+            {getExperienceListItems(props.content.sectionContent)}
+          </ExperienceList>
         )}
       </>
     </Wrapper>

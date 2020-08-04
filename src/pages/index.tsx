@@ -78,15 +78,19 @@ const IndexPage = (props: any) => {
         />
       </ProfileBallWrapper>
       <ContentSection
-        content={content.description}
+        content={{
+          type: ModalTypes.VIDEO,
+          sectionContent: content.description,
+        }}
         language={language}
-        type={ModalTypes.VIDEO}
         updateModalType={updateModalType}
       />
       <ContentSection
-        content={content.experience}
+        content={{
+          type: ModalTypes.CV,
+          sectionContent: content.experience,
+        }}
         language={language}
-        type={ModalTypes.CV}
         updateModalType={updateModalType}
       />
       <InformationSection
