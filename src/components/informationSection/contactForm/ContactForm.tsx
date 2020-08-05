@@ -284,9 +284,11 @@ const MessageArea = styled.textarea`
 const changeColor = keyframes`
   from {
     color: white;
+    text-shadow: 1px 1px 3px black;
   }
   to {
     color: var(--secondary-headline-color);
+    text-shadow: none;
   }
 `;
 
@@ -295,6 +297,7 @@ const ButtonText = styled.h3`
   color: white;
   font-size: var(--font-size-5);
   font-weight: 700;
+  text-shadow: 1px 1px 3px black;
   :hover {
     animation-name: ${changeColor};
     animation-duration: 0.4s;

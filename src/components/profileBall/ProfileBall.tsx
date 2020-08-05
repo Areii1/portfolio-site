@@ -5,7 +5,6 @@ import Img from "gatsby-image";
 import { PlayIcon } from "../icons/PlayIcon";
 import { Lan } from "../../pages/index";
 import { ProfileBalLabelEn, ProfileBalLabelFi } from "./ProfileBallLabels";
-import "./ProfileBall.css";
 
 type Props = {
   language: Lan;
@@ -27,7 +26,7 @@ export const ProfileBall = (props: Props) => {
   return (
     <Wrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <ProfileImageWrapper title={label} onClick={props.handleClick}>
-        <Img
+        <Image
           fluid={imageQueryData.file.childImageSharp.fluid}
           className="profile-ball-queried-image"
           alt="profile"
@@ -60,6 +59,11 @@ const profileImageQuery = graphql`
       }
     }
   }
+`;
+
+const Image = styled(Img)`
+  height: 100%;
+  width: auto;
 `;
 
 const Wrapper = styled.div`

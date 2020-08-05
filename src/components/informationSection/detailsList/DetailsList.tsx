@@ -22,18 +22,24 @@ export const DetailsList = (props: Props) => {
           <LocationIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
         <ListItemLink
-            href={props.profileDetails.location.mapsLink}
-            title={props.profileDetails.location.mapsLink}
-            target="_blank"
-          >
-            {`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}
-          </ListItemLink>
+          href={props.profileDetails.location.mapsLink}
+          title={props.profileDetails.location.mapsLink}
+          target="_blank"
+        >
+          {`${props.profileDetails.location.city} / ${props.profileDetails.location.district}`}
+        </ListItemLink>
       </ListItem>
       <ListItem>
         <ListItemLabel>
           <EmailIcon fillColor="white" size={iconSize} />
         </ListItemLabel>
-        <ListItemText>{props.profileDetails.email}</ListItemText>
+        <ListItemLink
+          href={`mailto:${props.profileDetails.email}`}
+          title={props.profileDetails.email}
+          target="_blank"
+        >
+          {props.profileDetails.email}
+        </ListItemLink>
       </ListItem>
       {props.profileDetails.gitlabUsername && (
         <ListItem>

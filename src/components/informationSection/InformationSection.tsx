@@ -8,7 +8,6 @@ import { SetDialogBoxContent } from "../../pages/index";
 import { DetailsList } from "./detailsList/DetailsList";
 import { ContactForm } from "./contactForm/ContactForm";
 import { Lan } from "../../pages/index";
-import "./InformationSection.css";
 import {
   informationSectionLabelsFi,
   informationSectionLabelsEn,
@@ -28,7 +27,7 @@ export const InformationSection = (props: Props) => {
   const imageQueryData = useStaticQuery(contactQraphQl);
   return (
     <Wrapper>
-      <Img
+      <Image
         fluid={imageQueryData.file.childImageSharp.fluid}
         className="information-section-queried-image"
         alt="contact"
@@ -74,13 +73,25 @@ const contactQraphQl = graphql`
   }
 `;
 
+const Image = styled(Img)`
+  height: 1600px;
+  width: 110vw;
+  margin: -70px;
+  filter: blur(10px);
+
+  @media (max-width: 1300px) {
+    display: none;
+  }
+`;
+
 const Wrapper = styled.section`
   margin-top: var(--space-11);
   height: 1500px;
   overflow: hidden;
   position: relative;
   @media (max-width: 1300px) {
-    height: 2000px;
+    height: calc(var(--space-15) + var(--space-15));
+    margin-top: var(--space-8);
   }
 `;
 
