@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import { Project } from "../../Types";
@@ -29,11 +29,18 @@ export const ProjectsContentSection = (props: Props) => {
       <ListItem key={project.title}>
         <SecondaryTitle>{project.title}</SecondaryTitle>
         <ContentWrapper>
-          <Image
-            fluid={imageQueryData.file.childImageSharp.fluid}
-            className="projects-content-queried-image"
-            alt="project poster"
-          />
+          <LinkButton
+            href={project.repositoryLink} target="_blank" title={project.repositoryLink}
+          >
+            <ImageWrapper>
+              <Image
+                fluid={imageQueryData.file.childImageSharp.fluid}
+                className="projects-content-queried-image"
+                alt="project poster"
+              />
+              <ImageOverlay />
+            </ImageWrapper>
+          </LinkButton>
           <IntroductionParagraph content={project.description} />
         </ContentWrapper>
       </ListItem>
@@ -59,6 +66,45 @@ const profileImageQuery = graphql`
   }
 `;
 
+const changeOpacity = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.3;
+  }
+`;
+
+const LinkButton = styled.a`
+  text-decoration: none;
+  width: 45%;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  height: var(--space-12);
+  overflow: hidden;
+`;
+
+const ImageOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--space-12);
+  width: 100%;
+  background-color: white;
+  opacity: 0;
+  :hover {
+    animation-name: ${changeOpacity};
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+  }
+`;
+
 const List = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -69,11 +115,15 @@ const ListItem = styled.li`
 `;
 
 const Image = styled(Img)`
-  width: 45%;
+  width: 110%;
 `;
 
 const ContentWrapper = styled.div`
   margin-top: var(--space-6);
   display: flex;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    flex-direction: column;
+    justify-content: initial;
+  }
 `;

@@ -47,9 +47,6 @@ export const ExperienceItemDetails = (props: Props) => {
 
 const Wrapper = styled.div`
   margin: var(--space-7) 0 var(--space-minus-4) 0;
-  @media (max-width: 800px) {
-    text-align: center;
-  }
 `;
 
 const TitleDetailSpan = styled.span`

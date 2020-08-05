@@ -98,6 +98,7 @@ const ListItem = styled.li`
   margin: var(--space-2) 0;
   @media (max-width: 800px) {
     flex-direction: column;
+    margin: var(--space-5) 0;
   }
 `;
 
@@ -108,17 +109,6 @@ const ListItemLabel = styled.div`
   align-items: center;
   @media (max-width: 800px) {
     margin: 0;
-  }
-`;
-
-const ListItemText = styled.h6`
-  margin: 0;
-  font-size: var(--font-size-4);
-  font-weight: 300;
-  @media (max-width: 800px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 `;
 

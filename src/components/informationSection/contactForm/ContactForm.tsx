@@ -240,38 +240,38 @@ type InputFieldProps = {
 const InputField = styled.input`
   font-family: "Poppins";
   margin: var(--space-4) var(--space-4) 0 0;
-  background-color: transparent;
+  background-color: lightgray;
   width: ${(props: InputFieldProps) =>
     props.isSubject
       ? "calc(var(--space-14) + var(--space-4))"
       : "var(--space-12)"};
   height: var(--space-6);
-  border: none;
-  border-bottom: ${(props: FieldProps) =>
+  border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   display: block;
-  :hover {
-    ::placeholder {
-      color: var(--secondary-headline-color);
-    }
-  }
+  padding: var(--space-2);
   @media (max-width: 800px) {
     width: var(--space-11);
     margin: var(--space-4) 0 0 0;
+  }
+  :focus {
+    ::placeholder {
+      color: var(--secondary-headline-color);
+    }
   }
 `;
 
 const MessageArea = styled.textarea`
   font-family: "Poppins";
-  padding: var(--space-4);
-  margin-top: var(--space-7);
+  padding: var(--space-2);
+  margin-top: var(--space-4);
   width: calc(var(--space-14) + var(--space-4));
   height: var(--space-9);
   background-color: lightgray;
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   resize: none;
-  :hover {
+  :focus {
     ::placeholder {
       color: var(--secondary-headline-color);
     }
@@ -297,7 +297,6 @@ const ButtonText = styled.h3`
   color: white;
   font-size: var(--font-size-5);
   font-weight: 700;
-  text-shadow: 1px 1px 3px black;
   :hover {
     animation-name: ${changeColor};
     animation-duration: 0.4s;
@@ -307,12 +306,12 @@ const ButtonText = styled.h3`
 
 const SubmitButton = styled.button`
   margin-top: var(--space-4);
-  background-color: transparent;
+  background-color: var(--information-section-bg-color);
+  padding: var(--space-2) var(--space-4);
   border: none;
   color: white;
   cursor: pointer;
   display: block;
-  padding: 0;
 `;
 
 const SubmitWrapper = styled.div`

@@ -92,7 +92,7 @@ const projects = [
     title: "movie finder",
     description:
       "Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat.",
-    repositoryLink: "sadsdsad",
+    repositoryLink: "https://github.com/Areii1/movie-finder",
     poster: "sadasdsadasd",
   },
 ];

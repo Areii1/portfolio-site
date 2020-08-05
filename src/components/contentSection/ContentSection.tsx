@@ -100,6 +100,7 @@ export const Wrapper = styled.section`
     margin: 0 auto var(--space-8) auto;
     display: flex;
     flex-direction: column;
+    text-align: center;
   }
   @media (max-width: 400px) {
     padding: 0 var(--space-4);
