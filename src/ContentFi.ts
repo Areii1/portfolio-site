@@ -52,7 +52,8 @@ const experience: Array<ExperienceItem> = [
         },
       },
       {
-        text: "---",
+        text:
+          "Pellentesque vulputate elit bibendum felis ultrices lacinia. Maecenas aliquam, massa vel elementum sollicitudin, leo orci aliquet velit, nec aliquet enim mauris ac tellus. Nunc at commodo metus. Quisque mattis diam pharetra interdum venenatis. Etiam dui mauris, suscipit feugiat velit a, semper posuere augue.",
       },
     ],
     institute: "Digital factory stream oy",
@@ -74,7 +75,8 @@ const experience: Array<ExperienceItem> = [
           "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten perus ohjelmoinnin teoria, algoritmiikka, tietokanta rakenteet, matematiikka. Lopetin kahden vuoden jälkeen opetellakseni web-kehitystä yksityiskohtaisemmin.",
       },
       {
-        text: "---",
+        text:
+          "Suspendisse sit amet elit non tellus vulputate elementum. Phasellus fermentum egestas mi vitae placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras egestas urna a elit efficitur suscipit. Integer dignissim non quam placerat euismod.",
       },
     ],
     institute: "Turun yliopisto",
@@ -88,7 +90,8 @@ const projects = [
       year: 2018,
     },
     title: "movie finder",
-    description: "jeee jeee movie finder oli kiva projekti",
+    description:
+      "Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat.",
     repositoryLink: "sadsdsad",
     poster: "sadasdsadasd",
   },

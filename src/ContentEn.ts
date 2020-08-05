@@ -42,7 +42,7 @@ const experience: Array<ExperienceItem> = [
         text:
           "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet",
       },
-      { text: "" },
+      { text: "Suspendisse sit amet elit non tellus vulputate elementum. Phasellus fermentum egestas mi vitae placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras egestas urna a elit efficitur suscipit. Integer dignissim non quam placerat euismod." },
     ],
     institute: "Digital factory stream oy",
   },
@@ -62,7 +62,7 @@ const experience: Array<ExperienceItem> = [
         text:
           "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
       },
-      { text: "" },
+      { text: "Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat." },
     ],
     institute: "Turku university",
   },
@@ -75,7 +75,7 @@ const projects = [
       year: 2018,
     },
     title: "movie finder",
-    description: "jeee jeee movie finder oli kiva projekti",
+    description: "jPellentesque vulputate elit bibendum felis ultrices lacinia. Maecenas aliquam, massa vel elementum sollicitudin, leo orci aliquet velit, nec aliquet enim mauris ac tellus. Nunc at commodo metus. Quisque mattis diam pharetra interdum venenatis. Etiam dui mauris, suscipit feugiat velit a, semper posuere augue.",
     repositoryLink: "sadsdsad",
     poster: "sadasdsadasd",
   },

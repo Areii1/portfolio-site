@@ -134,9 +134,3 @@ const ExperienceList = styled.ul`
 const ExperienceListItem = styled.li`
   margin-top: var(--space-8);
 `;
-
-const ButtonText = styled.h6`
-  margin: 0 0 0 var(--space-4);
-  font-size: var(--font-size-4);
-  font-weight: 400;
-`;
