@@ -27,7 +27,7 @@ const profileDetails: ProfileDetails = {
       "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
     fileName: "video-finnish.mp4",
   },
-  codeRepository: "https://github.com/Areii1/portfolio-site"
+  codeRepository: "https://github.com/Areii1/portfolio-site",
 };
 
 const experience: Array<ExperienceItem> = [
@@ -81,6 +81,19 @@ const experience: Array<ExperienceItem> = [
   },
 ];
 
+const projects = [
+  {
+    endingDate: {
+      month: 5,
+      year: 2018,
+    },
+    title: "movie finder",
+    description: "jeee jeee movie finder oli kiva projekti",
+    repositoryLink: "sadsdsad",
+    poster: "sadasdsadasd",
+  },
+];
+
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
@@ -88,4 +101,5 @@ export const ContentFi: PageContent = {
     "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu & funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassaolevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla. Haluaisin löytääkin nyt uusia web-ohjelmointi haasteita.",
   ],
   experience: experience,
+  projects,
 };

@@ -11,6 +11,7 @@ import { Modal } from "../components/modal/Modal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
 import "./index.css";
+import { ProjectsContentSection } from "../components/projectsContentSection/ProjectsContentSection";
 
 export enum Lan {
   FINNISH,
@@ -94,6 +95,7 @@ const IndexPage = (props: any) => {
         updateModalType={updateModalType}
         cv={content.profile.cv}
       />
+      <ProjectsContentSection projects={content.projects} language={language} />
       <InformationSection
         profileDetails={content.profile}
         language={language}

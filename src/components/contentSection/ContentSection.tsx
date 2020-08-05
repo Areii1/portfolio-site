@@ -88,7 +88,7 @@ export const ContentSection = (props: Props) => {
   );
 };
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   width: var(--space-19);
   margin: 0 auto var(--space-11) auto;
   @media (max-width: 1300px) {
@@ -108,7 +108,7 @@ const Wrapper = styled.section`
   }
 `;
 
-const TopSectionWrapper = styled.div`
+export const TopSectionWrapper = styled.div`
   display: flex;
   flex-direction: initial;
   justify-content: space-between;

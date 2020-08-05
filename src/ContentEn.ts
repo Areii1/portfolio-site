@@ -27,7 +27,7 @@ const profileDetails: ProfileDetails = {
       "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
     fileName: "video-english.mp4",
   },
-  codeRepository: "https://github.com/Areii1/portfolio-site"
+  codeRepository: "https://github.com/Areii1/portfolio-site",
 };
 
 const experience: Array<ExperienceItem> = [
@@ -68,8 +68,18 @@ const experience: Array<ExperienceItem> = [
   },
 ];
 
-// 'Olen ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opintotaustalla. Työssäni web-kehittäjänä olen pääosin tähän mennessä keskittynyt käyttöliittymien kehitykseen "single page application” metodologialla. Työkaluna minulla on tässä ollut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
-// "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu & funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassaolevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla. Haluaisin löytääkin nyt uusia web-ohjelmointi haasteita.",
+const projects = [
+  {
+    endingDate: {
+      month: 5,
+      year: 2018,
+    },
+    title: "movie finder",
+    description: "jeee jeee movie finder oli kiva projekti",
+    repositoryLink: "sadsdsad",
+    poster: "sadasdsadasd",
+  },
+];
 
 export const ContentEn: PageContent = {
   profile: profileDetails,
@@ -78,4 +88,5 @@ export const ContentEn: PageContent = {
     "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. So every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development",
   ],
   experience: experience,
+  projects,
 };

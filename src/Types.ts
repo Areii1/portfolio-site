@@ -58,6 +58,15 @@ export type PageContent = {
   profile: ProfileDetails;
   description: Description;
   experience: Array<ExperienceItem>;
+  projects: Array<Project>;
 };
 
 export type Description = [string, string] | string;
+
+export type Project = {
+  endingDate: ExperienceItemDate;
+  title: string;
+  description: string;
+  repositoryLink: string;
+  poster: string;
+};
