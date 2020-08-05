@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Headline } from "../headline/Headline";
 import { Description } from "../../Types";
 import { Paragraphs } from "./paragraphs/Paragraphs";
-import { ExperienceItem, ExperienceItemDescription } from "../../Types";
+import { ExperienceItem, FileDetails } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan, ModalTypes } from "../../pages/index";
 import { GeneralButton } from "../buttons/generalButton/GeneralButton";
@@ -23,6 +23,7 @@ type Props = {
   content: Content;
   language: Lan;
   updateModalType: (type: ModalTypes) => void;
+  cv?: FileDetails;
 };
 
 export const ContentSection = (props: Props) => {
@@ -64,6 +65,7 @@ export const ContentSection = (props: Props) => {
             handleClick={() => props.updateModalType(props.content.type)}
             type={props.content.type}
             language={props.language}
+            cv={props.cv}
           />
         </ButtonWrapper>
       </TopSectionWrapper>
@@ -131,4 +133,10 @@ const ExperienceList = styled.ul`
 
 const ExperienceListItem = styled.li`
   margin-top: var(--space-8);
+`;
+
+const ButtonText = styled.h6`
+  margin: 0 0 0 var(--space-4);
+  font-size: var(--font-size-4);
+  font-weight: 400;
 `;

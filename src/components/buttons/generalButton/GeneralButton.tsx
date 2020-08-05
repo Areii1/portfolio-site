@@ -19,23 +19,6 @@ export const GeneralButton = (props: Props) => {
     props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   return (
     <>
-      {props.type === ModalTypes.CV && props.cv && (
-        <CVButtonMobileLink href={props.cv.fileUrl} download target="_blank">
-          <CVButtonMobile
-            type="button"
-            title={buttonLabels.cvButtonMobile}
-            useCase={props.type}
-          >
-            <ViewDocumentIcon
-              startFillColor="#b78a10"
-              endFillColor="blue"
-              size={30}
-              animation={false}
-            />
-            <Text>{buttonLabels.cvButtonMobile.toUpperCase()}</Text>
-          </CVButtonMobile>
-        </CVButtonMobileLink>
-      )}
       <Button
         type="button"
         title={
@@ -57,7 +40,7 @@ export const GeneralButton = (props: Props) => {
         {props.type === ModalTypes.CV && (
           <ViewDocumentIcon
             startFillColor="#b78a10"
-            endFillColor="blue"
+            endFillColor="#b78a10"
             size={30}
             animation={false}
           />
@@ -68,6 +51,21 @@ export const GeneralButton = (props: Props) => {
             : buttonLabels.viewPdf.toUpperCase()}
         </Text>
       </Button>
+      {props.type === ModalTypes.CV && (
+        <LinkButton
+          href={props.cv?.fileUrl}
+          target="_blank"
+          title={buttonLabels.viewPdf}
+        >
+          <ViewDocumentIcon
+            startFillColor="#b78a10"
+            endFillColor="#b78a10"
+            size={30}
+            animation={false}
+          />
+          <Text>{buttonLabels.viewPdf.toUpperCase()}</Text>
+        </LinkButton>
+      )}
     </>
   );
 };
@@ -96,6 +94,7 @@ const Button = styled.button`
   cursor: pointer;
   display: flex;
   align-items: center;
+  text-decoration: none;
   :hover {
     animation-name: ${changeColor};
     animation-duration: 0.4s;
@@ -103,29 +102,34 @@ const Button = styled.button`
   }
   @media (max-width: 400px) {
     display: ${(props: ButtonProps) =>
-      props.useCase === ModalTypes.CV ? "none" : "initial"};
+      props.useCase === ModalTypes.CV ? "none" : "flex"};
     width: initial;
   }
 `;
 
-const CVButtonMobile = styled(Button)`
+const LinkButton = styled.a`
   display: none;
   @media (max-width: 400px) {
-    display: ${(props: ButtonProps) =>
-      props.useCase === ModalTypes.CV ? "initial" : "none"};
+    background-color: transparent;
+    height: var(--space-7);
+    border: 1px solid black;
+    padding: 0 var(--space-4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    :hover {
+      animation-name: ${changeColor};
+      animation-duration: 0.4s;
+      animation-fill-mode: forwards;
+    }
     width: initial;
   }
-`;
-
-const CVButtonMobileLink = styled.a`
-  display: block;
 `;
 
 const Text = styled.h6`
   margin: 0 0 0 var(--space-4);
   font-size: var(--font-size-4);
   font-weight: 400;
-  @media (max-width: 400px) {
-    display: none;
-  }
+  color: black;
 `;

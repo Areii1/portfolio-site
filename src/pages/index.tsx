@@ -92,6 +92,7 @@ const IndexPage = (props: any) => {
         }}
         language={language}
         updateModalType={updateModalType}
+        cv={content.profile.cv}
       />
       <InformationSection
         profileDetails={content.profile}
