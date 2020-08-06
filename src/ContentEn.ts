@@ -74,9 +74,10 @@ const projects = [
       month: 5,
       year: 2018,
     },
-    title: "movie finder",
+    title: "Movie finder",
     description: "jPellentesque vulputate elit bibendum felis ultrices lacinia. Maecenas aliquam, massa vel elementum sollicitudin, leo orci aliquet velit, nec aliquet enim mauris ac tellus. Nunc at commodo metus. Quisque mattis diam pharetra interdum venenatis. Etiam dui mauris, suscipit feugiat velit a, semper posuere augue.",
     repositoryLink: "https://github.com/Areii1/movie-finder",
+    displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
   },
 ];
