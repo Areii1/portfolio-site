@@ -40,11 +40,25 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "lacus ut orci dignissim porttitor. Proin tristique lectus orci, a dapibus justo fermentum id. Donec quis augue eu odio semper porttitor sit amet",
+          "I was developing the user interface of a project management web application",
+        list: {
+          listDescription: "I contributed to development of features such as:",
+          items: [
+            "file system, (folder hierarchy, viewing files, deleting, downloading, sharing etc)",
+            "commenting on media files",
+            "chat messaging",
+            "account settings handling, (profile picture uploading, changing name etc)",
+          ],
+        },
+        listFirst: false,
       },
-      { text: "Suspendisse sit amet elit non tellus vulputate elementum. Phasellus fermentum egestas mi vitae placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras egestas urna a elit efficitur suscipit. Integer dignissim non quam placerat euismod." },
+      {
+        text:
+          "The main tool I used in my work was React.js, which the UI was made with. Global state management was done with redux. I also became familiar with the AWS environment on backend, with which the UI communicated via the aws-amplify library",
+        listFirst: false,
+      },
     ],
-    institute: "Digital factory stream oy",
+    institute: "Digital factory oy",
   },
   {
     beginDate: {
@@ -55,14 +69,29 @@ const experience: Array<ExperienceItem> = [
       month: 12,
       year: 2017,
     },
-    jobTitle: "Bachelor of computer science",
-    educationProgramWasAbandoned: true,
+    jobTitle: "Computer science",
     description: [
       {
         text:
-          "Curabitur vel tincidunt lacus. Curabitur dui elit, vulputate ac sollicitudin vel, vestibulum nec neque. Morbi vehicula in tortor non lobortis. Suspendisse porta ligula tellus, et bibendum nibh sollicitudin ut. Proin vel accumsan sem.",
+          "Theoretical understanding of these subjects has created a solid foundational background and a broad viewpoint to software development for me",
+        list: {
+          listDescription:
+            "I studied computer science, which included courses on subjects such as:",
+          items: [
+            "programming basics",
+            "algorithmics",
+            "computer networks",
+            "data bases",
+            "mathematics",
+          ],
+        },
+        listFirst: true,
       },
-      { text: "Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat." },
+      {
+        text:
+          "During my studies I got introduced to many intresting technologies, however web development struck out as the most favouriable to me. I transitioned to focusing on that full time, since I started working as a web-developer university courses were left out",
+        listFirst: false,
+      },
     ],
     institute: "Turku university",
   },
@@ -75,7 +104,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description: "jPellentesque vulputate elit bibendum felis ultrices lacinia. Maecenas aliquam, massa vel elementum sollicitudin, leo orci aliquet velit, nec aliquet enim mauris ac tellus. Nunc at commodo metus. Quisque mattis diam pharetra interdum venenatis. Etiam dui mauris, suscipit feugiat velit a, semper posuere augue.",
+    description: "Two years ago, intrested in React.js I developed a movie finder application with React.js. The app uses a movie database api, with which the user can browse and search for movies. Developing the application, I became familiar with the fundamental aspects of React.js",
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
@@ -85,7 +114,7 @@ const projects = [
 export const ContentEn: PageContent = {
   profile: profileDetails,
   description: [
-    'I am a web-developer with work experience of two years and some studies. In my current job I have focused mainly on building user interfaces, with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and created all kinds of user interface solutions.  ',
+    'I am a web-developer with work experience of two years and some studies. In my current job I have focused mainly on building user interfaces, with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and created all kinds of user interface solutions.',
     "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. So every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development",
   ],
   experience: experience,

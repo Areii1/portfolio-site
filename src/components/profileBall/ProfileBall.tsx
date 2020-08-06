@@ -107,6 +107,16 @@ const changeOpacity = keyframes`
   }
 `;
 
+const changeOpacityThick = keyframes`
+    from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+`;
+
 const ImageOverlay = styled.div`
   position: absolute;
   top: 0;
@@ -130,4 +140,7 @@ const IconWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  animation-name: ${changeOpacityThick};
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
 `;

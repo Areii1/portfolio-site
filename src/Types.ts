@@ -39,6 +39,7 @@ type ExperienceItemDescriptionList = {
 export type ExperienceItemDescriptionContent = {
   text: string;
   list?: ExperienceItemDescriptionList;
+  listFirst: boolean;
 };
 
 export type ExperienceItemDescription =
@@ -48,7 +49,6 @@ export type ExperienceItemDescription =
 export type ExperienceItem = {
   beginDate: ExperienceItemDate;
   endingDate?: ExperienceItemDate;
-  educationProgramWasAbandoned?: boolean;
   jobTitle: string;
   description: ExperienceItemDescription;
   institute: string;

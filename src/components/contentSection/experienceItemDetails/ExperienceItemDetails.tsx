@@ -28,12 +28,7 @@ export const ExperienceItemDetails = (props: Props) => {
       : educationProgramWasAbandonedLabelFi;
   return (
     <Wrapper>
-      <SecondaryTitle>
-        {props.subHeadlineDetails.jobTitle}
-        {props.subHeadlineDetails.educationProgramWasAbandoned && (
-          <TitleDetailSpan>{` (${educationProgramWasAbandonedLabel})`}</TitleDetailSpan>
-        )}
-      </SecondaryTitle>
+      <SecondaryTitle>{props.subHeadlineDetails.jobTitle}</SecondaryTitle>
       <ExtraItemsWrapper>
         <TertiaryTitle>{`${props.subHeadlineDetails.institute.toUpperCase()},`}</TertiaryTitle>
         <Date>{`(${getDateString(
@@ -47,15 +42,6 @@ export const ExperienceItemDetails = (props: Props) => {
 
 const Wrapper = styled.div`
   margin: var(--space-7) 0 var(--space-minus-4) 0;
-`;
-
-const TitleDetailSpan = styled.span`
-  font-size: var(--font-size-4);
-  font-weight: 400;
-  margin: auto 0 auto var(--space-4);
-  @media (max-width: 800px) {
-    display: block;
-  }
 `;
 
 export const SecondaryTitle = styled.h4`

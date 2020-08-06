@@ -71,6 +71,9 @@ const LinkButton = styled.a`
   width: 45%;
   max-height: var(--space-12);
   box-shadow: 3px 3px 9px black;
+  @media (max-width: 1300px) {
+    max-height: calc(var(--space-11) - var(--space-5));
+  }
   @media (max-width: 800px) {
     width: 100%;
     margin-bottom: var(--space-6);
@@ -82,6 +85,9 @@ const ImageWrapper = styled.div`
   position: relative;
   max-height: var(--space-12);
   overflow: hidden;
+  @media (max-width: 1300px) {
+    max-height: calc(var(--space-11) - var(--space-5));
+  }
 `;
 
 const Image = styled(Img)`

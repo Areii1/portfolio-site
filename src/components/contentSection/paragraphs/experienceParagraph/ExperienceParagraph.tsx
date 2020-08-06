@@ -9,15 +9,34 @@ type Props = {
 export const ExperienceParagrah = (props: Props) => {
   return (
     <Wrapper>
-      <p>{props.content.text}</p>
-      {props.content.list && (
+      {!props.content.listFirst && (
         <>
-          <p>{props.content.list.listDescription}</p>
-          <List>
-            {props.content.list.items.map(listItem => (
-              <li key={listItem}>{listItem}</li>
-            ))}
-          </List>
+          <p>{props.content.text}</p>
+          {props.content.list && (
+            <>
+              <p>{props.content.list.listDescription}</p>
+              <List>
+                {props.content.list.items.map(listItem => (
+                  <li key={listItem}>{listItem}</li>
+                ))}
+              </List>
+            </>
+          )}
+        </>
+      )}
+      {props.content.listFirst && (
+        <>
+          {props.content.list && (
+            <>
+              <p>{props.content.list.listDescription}</p>
+              <List>
+                {props.content.list.items.map(listItem => (
+                  <li key={listItem}>{listItem}</li>
+                ))}
+              </List>
+            </>
+          )}
+          <p>{props.content.text}</p>
         </>
       )}
     </Wrapper>

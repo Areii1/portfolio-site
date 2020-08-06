@@ -40,23 +40,25 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Olin tekemässä käyttöliittymää webissä toimivalle projektin hallinta työkalulle",
+          "Olin tekemässä käyttöliittymää web sovellukselle, jonka ideana oli projektien hallinnoimisen avustus",
         list: {
-          listDescription: "Palvelu sisälsi ominaisuuksia, kuten:",
+          listDescription: "Tuotin perustavanlaatuisia ominaisuuksia palveluun, kuten:",
           items: [
-            "kansio systeemi, (tiedostojen lataus, poisto, katselu, jako yms, kansio hierarkia)",
-            "projekti näkymässä kuvien videoiden tiedostojen kommentointi",
-            "chatti projektin osallistujille",
+            "kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
+            "media entiteettien kommentointi",
+            "chatti viestittely",
             "käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
           ],
         },
+        listFirst: false,
       },
       {
         text:
-          "Pellentesque vulputate elit bibendum felis ultrices lacinia. Maecenas aliquam, massa vel elementum sollicitudin, leo orci aliquet velit, nec aliquet enim mauris ac tellus. Nunc at commodo metus. Quisque mattis diam pharetra interdum venenatis. Etiam dui mauris, suscipit feugiat velit a, semper posuere augue.",
+          "Työssäni suurimpana työkaluna oli React.js, jota palvelun UI käytti, globaalin tilan hallinnointiin käytettiin redux kirjastoa. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi aws-amplify kirjaston avulla.",
+        listFirst: false,
       },
     ],
-    institute: "Digital factory stream oy",
+    institute: "Digital factory oy",
   },
   {
     beginDate: {
@@ -67,16 +69,28 @@ const experience: Array<ExperienceItem> = [
       month: 12,
       year: 2017,
     },
-    jobTitle: "Luonnontieteiden kandidaatti",
-    educationProgramWasAbandoned: true,
+    jobTitle: "Tietojenkäsittelytiede",
     description: [
       {
         text:
-          "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten perus ohjelmoinnin teoria, algoritmiikka, tietokanta rakenteet, matematiikka. Lopetin kahden vuoden jälkeen opetellakseni web-kehitystä yksityiskohtaisemmin.",
+          "Teoreettinen ymmärrys yllämainituista aihe-alueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
+        list: {
+          listDescription:
+            "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten:",
+          items: [
+            "ohjelmoinnin käytännön perusteet",
+            "algoritmitiikka",
+            "tietoliikenteet",
+            "tietokannat",
+            "matematiikka",
+          ],
+        },
+        listFirst: true,
       },
       {
         text:
-          "Suspendisse sit amet elit non tellus vulputate elementum. Phasellus fermentum egestas mi vitae placerat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras egestas urna a elit efficitur suscipit. Integer dignissim non quam placerat euismod.",
+          "Opintojen aikana tutustuin moniin kiinnostaviin teknologiohin, web puolen kehitys kuitenkin vaikutti mielestäni kaikkein mielekkäimmältä ja näinollen siirryin sen pariin koko-aikaisesti. Töihin siirryttyä kurssit yliopistolla jäivät pois.",
+        listFirst: false,
       },
     ],
     institute: "Turun yliopisto",
@@ -90,8 +104,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description:
-      `React.js harjotusprojektina tein elokuvan selaus sovelluksen, Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat. repository`,
+    description: `Vuoden 2018 keväällä React.js kirjastosta kiinnostuneena tein harjotusprojektina elokuvan selaus sovelluksen. Sovellus on yhteydessä elokuva tietokanta rajapinnan kanssa jonka avulla elokuvien selaus ja haku toiminnot onnistuvat. Projektia tehdessä tuli tutuksi React.js :n fundamentaaliset aspektit: komponentti ajattelu, state, props.`,
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
