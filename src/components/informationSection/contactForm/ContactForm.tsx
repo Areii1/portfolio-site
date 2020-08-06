@@ -296,7 +296,7 @@ const ButtonText = styled.h3`
   margin: 0;
   color: white;
   font-size: var(--font-size-5);
-  font-weight: 700;
+  font-weight: 500;
   :hover {
     animation-name: ${changeColor};
     animation-duration: 0.4s;

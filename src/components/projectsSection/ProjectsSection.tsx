@@ -31,7 +31,7 @@ export const ProjectsSection = (props: Props) => {
     return (
       <ListItem key={project.title}>
         <SecondaryTitle>{project.title}</SecondaryTitle>
-        <ContentWrapper>
+        <MainContentWrapper>
           <LinkButton
             href={project.displayLink}
             target="_blank"
@@ -53,7 +53,27 @@ export const ProjectsSection = (props: Props) => {
             </ImageWrapper>
           </LinkButton>
           <IntroductionParagraph content={project.description} />
-        </ContentWrapper>
+        </MainContentWrapper>
+        <LinkItemWrapper>
+          <LinkItemText>{`${projectsSectionsLabels.repositoryText}:`}</LinkItemText>
+          <a
+            href={project.repositoryLink}
+            target="_blank"
+            title={project.repositoryLink}
+          >
+            {project.repositoryLink}
+          </a>
+        </LinkItemWrapper>
+        <LinkItemWrapper>
+          <LinkItemText>{`${projectsSectionsLabels.displayText}:`}</LinkItemText>
+          <a
+            href={project.displayLink}
+            target="_blank"
+            title={project.displayLink}
+          >
+            {project.displayLink}
+          </a>
+        </LinkItemWrapper>
       </ListItem>
     );
   });
@@ -98,6 +118,7 @@ const changeOpacityStricter = keyframes`
 const LinkButton = styled.a`
   text-decoration: none;
   width: 45%;
+  max-height: var(--space-12);
   @media (max-width: 800px) {
     width: 100%;
   }
@@ -133,8 +154,8 @@ const ImageOverlay = styled.div`
 const ImageOverlayButton = styled.button`
   position: absolute;
   top: calc(50% - var(--space-7) / 2);
-  left: calc(50% - var(--space-10) / 2);
-  width: var(--space-10);
+  left: calc(50% - var(--space-11) / 2);
+  width: var(--space-11);
   height: var(--space-7);
   background-color: var(--information-section-bg-color);
   border: none;
@@ -151,6 +172,8 @@ const ImageOverlayButton = styled.button`
 
 const ImageOverlayButtonText = styled.h5`
   font-weight: 500;
+  font-size: var(--font-size-5);
+  margin: 0;
 `;
 
 const List = styled.ul`
@@ -166,12 +189,22 @@ const Image = styled(Img)`
   object-fit: cover;
 `;
 
-const ContentWrapper = styled.div`
-  margin-top: var(--space-6);
+const MainContentWrapper = styled.div`
+  margin: var(--space-6) 0 var(--space-5) 0;
   display: flex;
   justify-content: space-between;
   @media (max-width: 800px) {
     flex-direction: column;
     justify-content: initial;
   }
+`;
+
+const LinkItemWrapper = styled.div`
+  display: flex;
+`;
+
+const LinkItemText = styled.h6`
+  margin: 0 var(--space-2) 0 0;
+  font-size: var(--space-4);
+  width: var(--space-11);
 `;

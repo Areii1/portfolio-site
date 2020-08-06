@@ -3,7 +3,7 @@ export const fieldPlaceholdersFi = {
   email: "Sähköposti",
   subject: "Aihe",
   message: "Viesti",
-  submit: "LÄHETÄ",
+  submit: "Lähetä",
   submitTitle: "lähetä tiedot",
 };
 
@@ -12,7 +12,7 @@ export const fieldPlaceholdersEn = {
   email: "Email",
   subject: "Subject",
   message: "Message",
-  submit: "SUBMIT",
+  submit: "Submit",
   submitTitle: "submit form",
 };
 
