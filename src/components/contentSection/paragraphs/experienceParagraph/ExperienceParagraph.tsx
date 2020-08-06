@@ -30,6 +30,7 @@ const Wrapper = styled.div`
   font-weight: 300;
   @media (max-width: 800px) {
     width: 100%;
+    text-align: left;
   }
 `;
 

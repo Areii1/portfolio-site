@@ -36,7 +36,7 @@ const experience: Array<ExperienceItem> = [
       month: 6,
       year: 2018,
     },
-    jobTitle: "front-end kehittäjä",
+    jobTitle: "Front-end kehittäjä",
     description: [
       {
         text:

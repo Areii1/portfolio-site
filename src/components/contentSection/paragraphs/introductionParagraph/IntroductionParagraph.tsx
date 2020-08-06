@@ -16,6 +16,7 @@ const ParagraphElement = styled.p`
   font-weight: 300;
   @media (max-width: 800px) {
     width: 100%;
+    text-align: left;
   }
   margin: 0;
 `;

@@ -66,11 +66,13 @@ const changeOpacityStricter = keyframes`
 `;
 
 const LinkButton = styled.a`
+  display: block;
   text-decoration: none;
   width: 45%;
   max-height: var(--space-12);
   @media (max-width: 800px) {
     width: 100%;
+    margin-bottom: var(--space-6);
   }
 `;
 

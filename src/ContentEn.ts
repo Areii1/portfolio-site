@@ -36,7 +36,7 @@ const experience: Array<ExperienceItem> = [
       month: 6,
       year: 2018,
     },
-    jobTitle: "front-end developer",
+    jobTitle: "Front-end developer",
     description: [
       {
         text:
@@ -55,7 +55,7 @@ const experience: Array<ExperienceItem> = [
       month: 12,
       year: 2017,
     },
-    jobTitle: "bachelor of computer science",
+    jobTitle: "Bachelor of computer science",
     educationProgramWasAbandoned: true,
     description: [
       {

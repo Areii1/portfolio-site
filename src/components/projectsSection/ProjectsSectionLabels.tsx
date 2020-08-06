@@ -11,3 +11,10 @@ export const projectsSectionsLabelsFi = {
   repositoryText: "Koodi repositorio",
   displayText: "Katsele sivua",
 };
+
+export type ProjectsSectionsLabels = {
+  headline: string;
+  viewProjectDisplay: string;
+  repositoryText: string;
+  displayText: string;
+};
