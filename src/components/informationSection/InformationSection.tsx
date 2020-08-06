@@ -78,7 +78,6 @@ const Image = styled(Img)`
   width: 110vw;
   margin: -70px;
   filter: blur(10px);
-
   @media (max-width: 1300px) {
     display: none;
   }
@@ -105,6 +104,7 @@ const Information = styled.div`
   @media (max-width: 1300px) {
     top: calc(50% - var(--space-15));
     width: 100vw;
+    height: var(--space-15);
   }
 `;
 

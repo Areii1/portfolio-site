@@ -35,14 +35,35 @@ export const Modal = (props: Props) => {
             cv={props.profileDetails.cv}
           />
           {props.isVideo && (
-            <video
-              preload="auto"
-              poster={props.profileDetails.introductionVideo.filePosterUrl}
-              controls
-              width="100%"
-            >
-              <source src={props.profileDetails.introductionVideo.fileUrl} type="video/mp4" />
-            </video>
+            // video needs to be re rendered if language is changed
+            <>
+              {props.language === Lan.ENGLISH && (
+                <video
+                  preload="auto"
+                  poster={props.profileDetails.introductionVideo.filePosterUrl}
+                  controls
+                  width="100%"
+                >
+                  <source
+                    src={props.profileDetails.introductionVideo.fileUrl}
+                    type="video/mp4"
+                  />
+                </video>
+              )}
+              {props.language === Lan.FINNISH && (
+                <video
+                  preload="auto"
+                  poster={props.profileDetails.introductionVideo.filePosterUrl}
+                  controls
+                  width="100%"
+                >
+                  <source
+                    src={props.profileDetails.introductionVideo.fileUrl}
+                    type="video/mp4"
+                  />
+                </video>
+              )}
+            </>
           )}
           {!props.isVideo && (
             <PdfSection

@@ -134,4 +134,5 @@ const ExperienceList = styled.ul`
 
 const ExperienceListItem = styled.li`
   margin-top: var(--space-8);
+  margin-bottom: var(--space-10);
 `;

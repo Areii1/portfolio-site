@@ -1,12 +1,12 @@
 export const projectsSectionsLabelsEn = {
   headline: "Side projects",
-  viewProjectDisplay: "View project",
+  viewProjectDisplay: "Other projects",
   repositoryText: "Repository",
   displayText: "View page",
 };
 
 export const projectsSectionsLabelsFi = {
-  headline: "Sivu projektit",
+  headline: "Muut projektit",
   viewProjectDisplay: "Katsele projektia",
   repositoryText: "Koodi repositorio",
   displayText: "Katsele sivua",

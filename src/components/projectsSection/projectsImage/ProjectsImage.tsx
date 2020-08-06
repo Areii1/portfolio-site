@@ -70,6 +70,7 @@ const LinkButton = styled.a`
   text-decoration: none;
   width: 45%;
   max-height: var(--space-12);
+  box-shadow: 3px 3px 9px black;
   @media (max-width: 800px) {
     width: 100%;
     margin-bottom: var(--space-6);

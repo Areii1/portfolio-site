@@ -91,7 +91,7 @@ const projects = [
     },
     title: "Movie finder",
     description:
-      `Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat. repository`,
+      `React.js harjotusprojektina tein elokuvan selaus sovelluksen, Maecenas aliquet vel quam id aliquet. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed nec felis vel neque dapibus sagittis quis non massa. Vivamus tincidunt, nisl consectetur maximus porta, eros metus tincidunt tortor, ac sollicitudin sem neque eget erat. repository`,
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",

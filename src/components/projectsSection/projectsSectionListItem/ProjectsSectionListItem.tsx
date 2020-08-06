@@ -51,7 +51,7 @@ const ListItem = styled.li`
 `;
 
 const MainContentWrapper = styled.div`
-  margin: var(--space-6) 0 var(--space-5) 0;
+  margin: var(--space-7) 0 var(--space-5) 0;
   display: flex;
   justify-content: space-between;
   @media (max-width: 800px) {
