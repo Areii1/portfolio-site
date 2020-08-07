@@ -1,5 +1,5 @@
 export const projectsSectionsLabelsEn = {
-  headline: "Side projects",
+  headline: "Other projects",
   viewProjectDisplay: "Other projects",
   repositoryText: "Repository",
   displayText: "View page",

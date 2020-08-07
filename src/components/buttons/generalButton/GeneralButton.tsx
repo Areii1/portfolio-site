@@ -17,6 +17,9 @@ type Props = {
 export const GeneralButton = (props: Props) => {
   const buttonLabels =
     props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
+  const [hoveringOverButton, setHoveringOverButton] = React.useState<boolean>(
+    false
+  );
   return (
     <>
       <Button
@@ -28,13 +31,15 @@ export const GeneralButton = (props: Props) => {
         }
         onClick={props.handleClick}
         useCase={props.type}
+        onMouseEnter={() => setHoveringOverButton(true)}
+        onMouseLeave={() => setHoveringOverButton(false)}
       >
         {props.type === ModalTypes.VIDEO && (
           <PlayIcon
             startFillColor="blue"
             endFillColor="blue"
             size={30}
-            animation={false}
+            animation={hoveringOverButton}
           />
         )}
         {props.type === ModalTypes.CV && (
@@ -42,7 +47,7 @@ export const GeneralButton = (props: Props) => {
             startFillColor="#b78a10"
             endFillColor="#b78a10"
             size={30}
-            animation={false}
+            animation={hoveringOverButton}
           />
         )}
         <Text>
@@ -56,12 +61,14 @@ export const GeneralButton = (props: Props) => {
           href={props.cv?.fileUrl}
           target="_blank"
           title={buttonLabels.viewPdf}
+          onMouseEnter={() => setHoveringOverButton(true)}
+          onMouseLeave={() => setHoveringOverButton(false)}
         >
           <ViewDocumentIcon
             startFillColor="#b78a10"
             endFillColor="#b78a10"
             size={30}
-            animation={false}
+            animation={hoveringOverButton}
           />
           <Text>{buttonLabels.viewPdf.toUpperCase()}</Text>
         </LinkButton>
