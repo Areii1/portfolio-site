@@ -105,7 +105,6 @@ const IndexPage = (props: any) => {
         <Modal
           language={language}
           setModalType={setModalType}
-          isVideo={modalType === ModalTypes.VIDEO}
           type={modalType}
           profileDetails={content.profile}
         />

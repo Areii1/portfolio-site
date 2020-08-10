@@ -1,75 +1,46 @@
 import { ModalTypes } from "../../pages/index";
 
 export const getModalBoxTopPosition = (
-  pdfInFullScreen: boolean,
   modalContentType: ModalTypes,
   isMobile: boolean
 ) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "calc(50% - 50vh)";
-  } else {
-    if (modalContentType === ModalTypes.VIDEO) {
-      if (!isMobile) {
-        return "calc(50% - 275px)";
-      } else {
-        return "calc(50% - 200px)";
-      }
+  if (modalContentType === ModalTypes.VIDEO) {
+    if (!isMobile) {
+      return "calc(50% - 275px)";
     } else {
-      return "calc(50% - 400px)";
+      return "calc(50% - 200px)";
     }
   }
 };
 
 export const getModalBoxLeftPosition = (
-  pdfInFullScreen: boolean,
   modalContentType: ModalTypes,
   isMobile: boolean
 ) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "0";
-  } else {
-    if (modalContentType === ModalTypes.VIDEO) {
-      if (!isMobile) {
-        return "calc(50% - 150px)";
-      } else {
-        return "calc(50% - 100px)";
-      }
-    } else {
+  if (modalContentType === ModalTypes.VIDEO) {
+    if (!isMobile) {
       return "calc(50% - 150px)";
+    } else {
+      return "calc(50% - 100px)";
     }
   }
 };
 
 export const getModalBoxWidth = (
-  pdfInFullScreen: boolean,
   modalContentType: ModalTypes,
   isMobile: boolean
 ) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "100vw";
+  if (modalContentType === ModalTypes.VIDEO && isMobile) {
+    return "200px";
   } else {
-    if (modalContentType === ModalTypes.VIDEO && isMobile) {
-      return "200px";
-    } else {
-      return "300px";
-    }
+    return "300px";
   }
 };
 
-export const getModalBoxHeight = (
-  pdfInFullScreen: boolean,
-  modalContentType: ModalTypes,
-  isMobile: boolean
-) => {
-  if (pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "100vh";
-  } else if (!pdfInFullScreen && modalContentType === ModalTypes.CV) {
-    return "800px";
+export const getModalBoxHeight = (isMobile: boolean) => {
+  if (!isMobile) {
+    return "auto";
   } else {
-    if (!isMobile) {
-      return "auto";
-    } else {
-      return "400px";
-    }
+    return "400px";
   }
 };

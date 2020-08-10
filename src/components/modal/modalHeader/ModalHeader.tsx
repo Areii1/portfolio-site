@@ -1,11 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
-import { FullscreenIcon } from "../../icons/FullscreenIcon";
-import { OutOfFullscreenIcon } from "../../icons/OutOfFullscreenIcon";
-import DownloadIcon from "../../../images/download-icon.png";
 import { ModalTypes, Lan } from "../../../pages/index";
-import { FileDetails } from "../../../Types";
 import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
 import {
   modalHeaderContentLabelsEn,
@@ -13,13 +9,9 @@ import {
 } from "./ModalHeaderLabels";
 
 type ModalHeader = {
-  pdfInFullScreen: boolean;
   setModalType: (modalTypes: ModalTypes | undefined) => void;
-  setPdfInFullScreen: (toggleOn: boolean) => void;
   language: Lan;
-  isVideo: boolean;
   type: ModalTypes;
-  cv: FileDetails;
 };
 
 export const ModalHeader = (props: ModalHeader) => {
@@ -28,35 +20,8 @@ export const ModalHeader = (props: ModalHeader) => {
       ? modalHeaderContentLabelsEn
       : modalHeaderContentLabelsFi;
   return (
-    <Wrapper pdfInFullScreen={props.pdfInFullScreen}>
+    <Wrapper>
       <ToggleLanguage isBlack language={props.language} />
-      {props.type === ModalTypes.CV && (
-        <>
-          <TransparentButton
-            title={
-              props.pdfInFullScreen
-                ? modalContentLabels.outOfFullscreen
-                : modalContentLabels.fullscreen
-            }
-            handleClick={() => props.setPdfInFullScreen(!props.pdfInFullScreen)}
-          >
-            {!props.pdfInFullScreen && (
-              <FullscreenIcon size={30} fillColor="black" />
-            )}
-            {props.pdfInFullScreen && (
-              <OutOfFullscreenIcon size={30} fillColor="black" />
-            )}
-          </TransparentButton>
-          <a href={props.cv.fileUrl} download target="_blank">
-            <TransparentButton
-              title={modalContentLabels.downloadCv}
-              handleClick={() => {}}
-            >
-              <Image src={DownloadIcon} />
-            </TransparentButton>
-          </a>
-        </>
-      )}
       <ButtonWrapper>
         <TransparentButton
           handleClick={() => props.setModalType(undefined)}
@@ -69,12 +34,9 @@ export const ModalHeader = (props: ModalHeader) => {
   );
 };
 
-type WrapperProps = {
-  pdfInFullScreen: boolean;
-};
 
 const Wrapper = styled.div`
-  height: ${(props: WrapperProps) => (props.pdfInFullScreen ? "80px" : "40px")};
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -103,9 +65,4 @@ const CloseButtonText = styled.h6`
     animation-duration: 0.4s;
     animation-fill-mode: forwards;
   }
-`;
-
-const Image = styled.img`
-  width: 40px;
-  max-height: 40px;
 `;

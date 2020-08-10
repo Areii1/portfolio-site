@@ -69,7 +69,7 @@ export const ContentSection = (props: Props) => {
                 : UseCase.CV
             }
             language={props.language}
-            cv={props.cv}
+            link={props.cv?.filePosterUrl}
           />
         </ButtonWrapper>
       </TopSectionWrapper>
