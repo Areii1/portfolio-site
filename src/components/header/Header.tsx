@@ -33,7 +33,6 @@ export const Header = (props: PropTypes) => {
         <ToggleLanguage isBlack={false} language={props.language} />
       </LanguageToggleWrapper>
       <TopButtonsList
-        codeRepositoryLink={props.codeRepositoryLink}
         updateModalType={props.updateModalType}
         language={props.language}
       />

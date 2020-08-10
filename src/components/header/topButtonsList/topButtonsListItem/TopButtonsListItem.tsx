@@ -17,11 +17,14 @@ type Props = {
 };
 
 export const TopButtonsListItem = (props: Props) => {
-  const [ isHoveringOver, setIsHoveringOver ] = React.useState<boolean>(false);
+  const [isHoveringOver, setIsHoveringOver] = React.useState<boolean>(false);
   const buttonLabels =
     props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   return (
-    <ListItem onMouseEnter={() => setIsHoveringOver(true)} onMouseLeave={() => setIsHoveringOver(false)}>
+    <ListItem
+      onMouseEnter={() => setIsHoveringOver(true)}
+      onMouseLeave={() => setIsHoveringOver(false)}
+    >
       <TransparentButton
         handleClick={() =>
           props.updateModalType(
@@ -37,7 +40,7 @@ export const TopButtonsListItem = (props: Props) => {
         {props.useCase === UseCase.VIDEO && (
           <PlayIcon
             startFillColor="white"
-            endFillColor="white"
+            endFillColor="salmon"
             size={25}
             animation={isHoveringOver}
           />

@@ -31,9 +31,18 @@ export const PlayIcon = (props: AnimatableIconProps) => {
   );
 };
 
-const changeColor = keyframes`
+const changeColorBlueToSalmon = keyframes`
   from {
     fill: var(--video-icon-color);
+  }
+  to {
+    fill: salmon;
+  }
+`;
+
+const changeColorWhiteToSalmon = keyframes`
+  from {
+    fill: white;
   }
   to {
     fill: salmon;
@@ -49,7 +58,7 @@ const Path = styled.path`
   fill: ${(props: PathProps) =>
     props.animation ? "var(--video-icon-color)" : props.fill};
   animation-name: ${(props: PathProps) =>
-    props.animation ? changeColor : "none"};
+    props.animation ? (props.fill === 'white' ? changeColorWhiteToSalmon : changeColorBlueToSalmon) : "none"};
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
 `;
