@@ -51,7 +51,7 @@ const changeColor = keyframes`
     color: black;
   }
   to {
-    color: var(--secondary-headline-color);
+    color: salmon;
   }
 `;
 

@@ -240,7 +240,7 @@ type InputFieldProps = {
 const InputField = styled.input`
   font-family: "Poppins";
   margin: var(--space-4) var(--space-4) 0 0;
-  background-color: lightgray;
+  background-color: white;
   width: ${(props: InputFieldProps) =>
     props.isSubject
       ? "calc(var(--space-14) + var(--space-4))"
@@ -250,14 +250,15 @@ const InputField = styled.input`
     props.showError ? "1px solid red" : "1px solid black"};
   display: block;
   padding: var(--space-2);
-  @media (max-width: 800px) {
-    width: var(--space-11);
-    margin: var(--space-4) 0 0 0;
+  ::placeholder {
+    color: rgb(70, 70, 70);
   }
-  :focus {
-    ::placeholder {
-      color: var(--secondary-headline-color);
-    }
+  :focus, :hover {
+    border: 1px solid transparent;
+  }
+  @media (max-width: 800px) {
+    width: var(--space-12);
+    margin: var(--space-4) 0 0 0;
   }
 `;
 
@@ -267,17 +268,18 @@ const MessageArea = styled.textarea`
   margin-top: var(--space-4);
   width: calc(var(--space-14) + var(--space-4));
   height: var(--space-9);
-  background-color: lightgray;
+  background-color: white;
   border: ${(props: FieldProps) =>
     props.showError ? "1px solid red" : "1px solid black"};
   resize: none;
-  :focus {
-    ::placeholder {
-      color: var(--secondary-headline-color);
-    }
+  ::placeholder {
+    color: rgb(70, 70, 70);
+  }
+  :focus, :hover {
+    border: 1px solid transparent;
   }
   @media (max-width: 800px) {
-    width: var(--space-11);
+    width: var(--space-12);
   }
 `;
 
