@@ -107,16 +107,16 @@ export const GeneralButton = (props: Props) => {
           )}
           {props.useCase === UseCase.REPOSITORY && (
             <CodeIcon
-              startFillColor="#b78a10"
-              endFillColor="#b78a10"
+              startFillColor="#94a3ba"
+              endFillColor="#94a3ba"
               size={30}
               animation={hoveringOverButton}
             />
           )}
           {props.useCase === UseCase.VIEWDEMOPAGE && (
             <EyeIcon
-              startFillColor="#b78a10"
-              endFillColor="#b78a10"
+              startFillColor="#94a3ba"
+              endFillColor="#94a3ba"
               size={30}
               animation={hoveringOverButton}
             />

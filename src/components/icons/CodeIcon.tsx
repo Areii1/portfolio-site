@@ -37,7 +37,7 @@ export const CodeIcon = (props: AnimatableIconProps) => {
 
 const changeColor = keyframes`
   from {
-    fill: #b78a10;
+    fill: var(--secondary-headline-color);
   }
   to {
     fill: salmon;
@@ -50,7 +50,8 @@ type PathProps = {
 };
 
 const Path = styled.path`
-  fill: ${(props: PathProps) => (props.animation ? "#b78a10" : props.fill)};
+  fill: ${(props: PathProps) =>
+    props.animation ? "var(--secondary-headline-color)" : props.fill};
   animation-name: ${(props: PathProps) =>
     props.animation ? changeColor : "none"};
   animation-duration: 0.4s;
