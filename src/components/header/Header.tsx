@@ -5,14 +5,13 @@ import Img from "gatsby-image";
 import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 import "./Header.css";
-import { ModalTypes } from "../../pages/index";
 import { TopButtonsList } from "./topButtonsList/TopButtonsList";
 
 type PropTypes = {
   name: string;
   jobTitle: string;
   language: Lan;
-  updateModalType: (modalType: ModalTypes) => void;
+  toggleModalOpen: () => void;
   codeRepositoryLink?: string;
 };
 
@@ -33,7 +32,7 @@ export const Header = (props: PropTypes) => {
         <ToggleLanguage isBlack={false} language={props.language} />
       </LanguageToggleWrapper>
       <TopButtonsList
-        updateModalType={props.updateModalType}
+        updateModalType={props.toggleModalOpen}
         language={props.language}
       />
     </Wrapper>

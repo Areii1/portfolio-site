@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TransparentButton } from "../../../buttons/transparentButton/TransparentButton";
 import { PlayIcon } from "../../../icons/PlayIcon";
 import { ViewDocumentIcon } from "../../../icons/ViewDocument";
-import { ModalTypes, Lan } from "../../../../pages/index";
+import { Lan } from "../../../../pages/index";
 import {
   buttonLabelsFi,
   buttonLabelsEn,
@@ -11,7 +11,7 @@ import {
 import { UseCase } from "../../../buttons/generalButton/GeneralButton";
 
 type Props = {
-  updateModalType: (modalType: ModalTypes) => void;
+  toggleModalOpen: () => void;
   language: Lan;
   useCase: UseCase;
 };
@@ -26,11 +26,7 @@ export const TopButtonsListItem = (props: Props) => {
       onMouseLeave={() => setIsHoveringOver(false)}
     >
       <TransparentButton
-        handleClick={() =>
-          props.updateModalType(
-            props.useCase === UseCase.VIDEO ? ModalTypes.VIDEO : ModalTypes.CV
-          )
-        }
+        handleClick={() => props.toggleModalOpen()}
         title={
           props.useCase === UseCase.VIDEO
             ? buttonLabels.videoButton

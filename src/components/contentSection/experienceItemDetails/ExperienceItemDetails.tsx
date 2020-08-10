@@ -2,10 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { ExperienceItem } from "../../../Types";
 import { Lan } from "../../../pages/index";
-import {
-  educationProgramWasAbandonedLabelEn,
-  educationProgramWasAbandonedLabelFi,
-} from "./ExperienceItemDetailLabels";
 
 type Props = {
   subHeadlineDetails: ExperienceItem;
@@ -22,10 +18,6 @@ const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
 };
 
 export const ExperienceItemDetails = (props: Props) => {
-  const educationProgramWasAbandonedLabel =
-    props.language === Lan.ENGLISH
-      ? educationProgramWasAbandonedLabelEn
-      : educationProgramWasAbandonedLabelFi;
   return (
     <Wrapper>
       <SecondaryTitle>{props.subHeadlineDetails.jobTitle}</SecondaryTitle>

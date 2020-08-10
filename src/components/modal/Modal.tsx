@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Lan, ModalTypes } from "../../pages/index";
+import { Lan } from "../../pages/index";
 import { ModalHeader } from "./modalHeader/ModalHeader";
 import { ProfileDetails } from "../../Types";
 import {
@@ -11,21 +11,19 @@ import {
 } from "./ModalUtilityFunctions";
 
 type Props = {
-  setModalType: (modalTypes: ModalTypes | undefined) => void;
+  toggleModalOpen: () => void;
   language: Lan;
-  type: ModalTypes;
   profileDetails: ProfileDetails;
 };
 
 export const Modal = (props: Props) => {
   return (
     <ModalWrapper>
-      <ModalBox type={props.type}>
+      <ModalBox>
         <ContentWrapper>
           <ModalHeader
-            setModalType={props.setModalType}
+            toggleModalOpen={props.toggleModalOpen}
             language={props.language}
-            type={props.type}
           />
           {/* video needs to be re rendered if language is changed */}
           <>
@@ -71,23 +69,18 @@ const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 15, 0.7);
 `;
 
-type ModalBoxProps = {
-  type: ModalTypes;
-};
-
 const ModalBox = styled.div`
   position: fixed;
   background-color: white;
-  top: ${(props: ModalBoxProps) => getModalBoxTopPosition(props.type, false)};
-  left: ${(props: ModalBoxProps) => getModalBoxLeftPosition(props.type, false)};
-  width: ${(props: ModalBoxProps) => getModalBoxWidth(props.type, false)};
-  height: ${(props: ModalBoxProps) => getModalBoxHeight(false)};
+  top: ${getModalBoxTopPosition(false)};
+  left: ${getModalBoxLeftPosition(false)};
+  width: ${getModalBoxWidth(false)};
+  height: ${getModalBoxHeight(false)};
   @media (max-width: 800px) {
-    top: ${(props: ModalBoxProps) => getModalBoxTopPosition(props.type, true)};
-    left: ${(props: ModalBoxProps) =>
-      getModalBoxLeftPosition(props.type, true)};
-    height: ${(props: ModalBoxProps) => getModalBoxHeight(true)};
-    width: ${(props: ModalBoxProps) => getModalBoxWidth(props.type, true)};
+    top: ${getModalBoxTopPosition(true)};
+    left: ${getModalBoxLeftPosition(true)};
+    height: ${getModalBoxHeight(true)};
+    width: ${getModalBoxWidth(true)};
   }
 `;
 

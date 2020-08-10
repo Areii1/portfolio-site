@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { ModalTypes } from "../../../pages/index";
 import { Lan } from "../../../pages/index";
 import { UseCase } from "../../buttons/generalButton/GeneralButton";
 import { TopButtonsListItem } from "./topButtonsListItem/TopButtonsListItem";
 
 type Props = {
-  updateModalType: (modalType: ModalTypes) => void;
+  toggleModalOpen: () => void;
   language: Lan;
 };
 
@@ -17,7 +16,7 @@ export const TopButtonsList = (props: Props) => {
         {UseCase.CV && (
           <TopButtonsListItem
             key={item}
-            updateModalType={props.updateModalType}
+            toggleModalOpen={props.toggleModalOpen}
             language={props.language}
             useCase={item}
           />
@@ -25,7 +24,7 @@ export const TopButtonsList = (props: Props) => {
         {UseCase.VIDEO && (
           <TopButtonsListItem
             key={item}
-            updateModalType={props.updateModalType}
+            toggleModalOpen={props.toggleModalOpen}
             language={props.language}
             useCase={item}
           />

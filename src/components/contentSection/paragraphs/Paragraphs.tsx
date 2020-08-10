@@ -3,14 +3,17 @@ import styled from "styled-components";
 import { Description, ExperienceItem } from "../../../Types";
 import { ExperienceParagrah } from "./experienceParagraph/ExperienceParagraph";
 import { IntroductionParagraph } from "./introductionParagraph/IntroductionParagraph";
-import { ModalTypes } from "../../../pages/index";
+import { ContentSectionUseCase } from "../ContentSection";
 
 type Content =
   | {
-      type: ModalTypes.VIDEO;
+      type: ContentSectionUseCase.INTRODUCTION;
       sectionContent: Description;
     }
-  | { type: ModalTypes.CV; sectionContent: ExperienceItem };
+  | {
+      type: ContentSectionUseCase.CONTENTSECTION;
+      sectionContent: ExperienceItem;
+    };
 
 type Props = {
   content: Content;
@@ -18,7 +21,7 @@ type Props = {
 
 export const Paragraphs = (props: Props) => (
   <Wrapper>
-    {props.content.type === ModalTypes.VIDEO && (
+    {props.content.type === ContentSectionUseCase.INTRODUCTION && (
       <>
         <IntroductionParagraph content={props.content.sectionContent[0]} />
         {props.content.sectionContent[1] && (
@@ -26,7 +29,7 @@ export const Paragraphs = (props: Props) => (
         )}
       </>
     )}
-    {props.content.type === ModalTypes.CV && (
+    {props.content.type === ContentSectionUseCase.CONTENTSECTION && (
       <>
         {Array.isArray(props.content.sectionContent.description) && (
           <>

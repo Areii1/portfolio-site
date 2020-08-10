@@ -12,15 +12,11 @@ import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
 import "./index.css";
 import { ProjectsSection } from "../components/projectsSection/ProjectsSection";
+import { ContentSectionUseCase } from '../components/contentSection/ContentSection';
 
 export enum Lan {
   FINNISH,
   ENGLISH,
-}
-
-export enum ModalTypes {
-  VIDEO,
-  CV,
 }
 
 export type DialogBoxContent = {
@@ -34,9 +30,7 @@ export type SetDialogBoxContent = (
 
 const IndexPage = (props: any) => {
   const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
-  const [modalType, setModalType] = React.useState<ModalTypes | undefined>(
-    undefined
-  );
+  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
   >(undefined);
@@ -54,8 +48,8 @@ const IndexPage = (props: any) => {
       }, 7000);
     }
   }, [dialogBoxContent]);
-  const updateModalType = (type: ModalTypes) => {
-    setModalType(type);
+  const toggleModalOpen = () => {
+    setModalOpen(!modalOpen);
   };
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
   return (
@@ -69,30 +63,30 @@ const IndexPage = (props: any) => {
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
         language={language}
-        updateModalType={updateModalType}
+        toggleModalOpen={toggleModalOpen}
         codeRepositoryLink={content.profile.codeRepository}
       />
       <ProfileBallWrapper>
         <ProfileBall
           language={language}
-          handleClick={() => setModalType(ModalTypes.VIDEO)}
+          handleClick={() => toggleModalOpen()}
         />
       </ProfileBallWrapper>
       <ContentSection
         content={{
-          type: ModalTypes.VIDEO,
+          type: ContentSectionUseCase.INTRODUCTION,
           sectionContent: content.description,
         }}
         language={language}
-        updateModalType={updateModalType}
+        toggleModalOpen={toggleModalOpen}
       />
       <ContentSection
         content={{
-          type: ModalTypes.CV,
+          type: ContentSectionUseCase.CONTENTSECTION,
           sectionContent: content.experience,
         }}
         language={language}
-        updateModalType={updateModalType}
+        toggleModalOpen={toggleModalOpen}
         cv={content.profile.cv}
       />
       <ProjectsSection projects={content.projects} language={language} />
@@ -101,15 +95,14 @@ const IndexPage = (props: any) => {
         language={language}
         setDialogBoxContent={setDialogBoxContent}
       />
-      {modalType !== undefined && (
+      {modalOpen && (
         <Modal
           language={language}
-          setModalType={setModalType}
-          type={modalType}
+          toggleModalOpen={toggleModalOpen}
           profileDetails={content.profile}
         />
       )}
-      {dialogBoxContent && modalType === undefined && (
+      {dialogBoxContent && !modalOpen && (
         <DialogBox
           content={dialogBoxContent}
           setDialogBoxContent={setDialogBoxContent}

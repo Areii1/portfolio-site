@@ -5,24 +5,29 @@ import { Description } from "../../Types";
 import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem, FileDetails } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
-import { Lan, ModalTypes } from "../../pages/index";
+import { Lan } from "../../pages/index";
 import { GeneralButton, UseCase } from "../buttons/generalButton/GeneralButton";
 import {
   contentSectionLabelsEn,
   contentSectionLabelsFi,
 } from "./ContentSectionLabels";
 
+export enum ContentSectionUseCase {
+  INTRODUCTION,
+  CONTENTSECTION
+}
+
 export type Content =
   | {
-      type: ModalTypes.VIDEO;
+      type: ContentSectionUseCase.INTRODUCTION;
       sectionContent: Description;
     }
-  | { type: ModalTypes.CV; sectionContent: Array<ExperienceItem> };
+  | { type: ContentSectionUseCase.CONTENTSECTION; sectionContent: Array<ExperienceItem> };
 
 type Props = {
   content: Content;
   language: Lan;
-  updateModalType: (type: ModalTypes) => void;
+  toggleModalOpen: () => void;
   cv?: FileDetails;
 };
 
@@ -41,7 +46,7 @@ export const ContentSection = (props: Props) => {
           />
           <Paragraphs
             content={{
-              type: ModalTypes.CV,
+              type: ContentSectionUseCase.CONTENTSECTION,
               sectionContent: experienceItem,
             }}
           />
@@ -54,7 +59,7 @@ export const ContentSection = (props: Props) => {
       <TopSectionWrapper>
         <Headline
           text={
-            props.content.type === ModalTypes.VIDEO
+            props.content.type === ContentSectionUseCase.INTRODUCTION
               ? contentSectionLabels.introduction
               : contentSectionLabels.experience
           }
@@ -62,9 +67,9 @@ export const ContentSection = (props: Props) => {
         />
         <ButtonWrapper>
           <GeneralButton
-            handleClick={() => props.updateModalType(props.content.type)}
+            handleClick={() => props.toggleModalOpen()}
             useCase={
-              props.content.type === ModalTypes.VIDEO
+              props.content.type === ContentSectionUseCase.INTRODUCTION
                 ? UseCase.VIDEO
                 : UseCase.CV
             }
@@ -74,15 +79,15 @@ export const ContentSection = (props: Props) => {
         </ButtonWrapper>
       </TopSectionWrapper>
       <>
-        {props.content.type === ModalTypes.VIDEO && (
+        {props.content.type === ContentSectionUseCase.INTRODUCTION && (
           <Paragraphs
             content={{
-              type: ModalTypes.VIDEO,
+              type: ContentSectionUseCase.INTRODUCTION,
               sectionContent: props.content.sectionContent,
             }}
           />
         )}
-        {props.content.type === ModalTypes.CV && (
+        {props.content.type === ContentSectionUseCase.CONTENTSECTION && (
           <ExperienceList>
             {getExperienceListItems(props.content.sectionContent)}
           </ExperienceList>
