@@ -5,6 +5,10 @@ import { IntroductionParagraph } from "../../contentSection/paragraphs/introduct
 import { SecondaryTitle } from "../../contentSection/experienceItemDetails/ExperienceItemDetails";
 import { ProjectsImage } from "../projectsImage/ProjectsImage";
 import { ProjectsSectionsLabels } from "../ProjectsSectionLabels";
+import {
+  GeneralButton,
+  UseCase,
+} from "../../buttons/generalButton/GeneralButton";
 
 type Props = {
   project: Project;
@@ -22,7 +26,7 @@ export const ProjectsSectionListItem = (props: Props) => {
         />
         <IntroductionParagraph content={props.project.description} />
       </MainContentWrapper>
-      <LinkItemWrapper>
+      {/* <LinkItemWrapper>
         <LinkItemText>{`${props.projectsSectionsLabels.repositoryText}:`}</LinkItemText>
         <a
           href={props.project.repositoryLink}
@@ -41,7 +45,12 @@ export const ProjectsSectionListItem = (props: Props) => {
         >
           {props.project.displayLink}
         </a>
-      </LinkItemWrapper>
+      </LinkItemWrapper> */}
+      <GeneralButton
+        link={props.project.repositoryLink}
+        useCase={UseCase.REPOSITORY}
+        language={props.language}
+      />
     </ListItem>
   );
 };

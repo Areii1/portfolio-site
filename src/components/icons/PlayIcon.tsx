@@ -39,7 +39,7 @@ const changeColor = keyframes`
     fill: var(--video-icon-color);
   }
   to {
-    fill: var(--secondary-headline-color);
+    fill: salmon;
   }
 `;
 

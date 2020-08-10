@@ -2,12 +2,14 @@ export const buttonLabelsFi = {
   videoButton: "katso video",
   viewPdf: "katso cv",
   cvButtonMobile: "lataa cv",
-  viewRepository: "katso sivun repositorio",
+  viewRepository: "katso lähdekodi",
+  viewDemoPage: "katso sivua",
 };
 
 export const buttonLabelsEn = {
   videoButton: "watch video",
   viewPdf: "view cv",
   cvButtonMobile: "download cv",
-  viewRepository: "view site repository",
+  viewRepository: "view source code",
+  viewDemoPage: "view page",
 };

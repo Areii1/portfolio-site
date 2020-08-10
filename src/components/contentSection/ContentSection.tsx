@@ -6,7 +6,7 @@ import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem, FileDetails } from "../../Types";
 import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan, ModalTypes } from "../../pages/index";
-import { GeneralButton } from "../buttons/generalButton/GeneralButton";
+import { GeneralButton, UseCase } from "../buttons/generalButton/GeneralButton";
 import {
   contentSectionLabelsEn,
   contentSectionLabelsFi,
@@ -63,7 +63,11 @@ export const ContentSection = (props: Props) => {
         <ButtonWrapper>
           <GeneralButton
             handleClick={() => props.updateModalType(props.content.type)}
-            type={props.content.type}
+            useCase={
+              props.content.type === ModalTypes.VIDEO
+                ? UseCase.VIDEO
+                : UseCase.CV
+            }
             language={props.language}
             cv={props.cv}
           />
