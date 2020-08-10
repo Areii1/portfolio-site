@@ -5,6 +5,7 @@ import { ViewDocumentIcon } from "../../icons/ViewDocument";
 import { Lan } from "../../../pages/index";
 import { buttonLabelsFi, buttonLabelsEn } from "./GeneralButtonLabels";
 import { CodeIcon } from "../../icons/CodeIcon";
+import { EyeIcon } from "../../icons/EyeIcon";
 
 export enum UseCase {
   VIDEO,
@@ -92,6 +93,7 @@ export const GeneralButton = (props: Props) => {
           target="_blank"
           title={buttonLabel}
           hoveringOverButton={hoveringOverButton}
+          useCase={props.useCase}
           onMouseEnter={() => setHoveringOverButton(true)}
           onMouseLeave={() => setHoveringOverButton(false)}
         >
@@ -105,6 +107,14 @@ export const GeneralButton = (props: Props) => {
           )}
           {props.useCase === UseCase.REPOSITORY && (
             <CodeIcon
+              startFillColor="#b78a10"
+              endFillColor="#b78a10"
+              size={30}
+              animation={hoveringOverButton}
+            />
+          )}
+          {props.useCase === UseCase.VIEWDEMOPAGE && (
+            <EyeIcon
               startFillColor="#b78a10"
               endFillColor="#b78a10"
               size={30}

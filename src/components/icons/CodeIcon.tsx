@@ -5,7 +5,6 @@ import { AnimatableIconProps } from "./IconPropTypes";
 export const CodeIcon = (props: AnimatableIconProps) => {
   return (
     <svg
-      id="_x31__x2C_5"
       enableBackground="new 0 0 24 24"
       height={`${props.size}px`}
       viewBox="0 0 24 24"
@@ -51,8 +50,7 @@ type PathProps = {
 };
 
 const Path = styled.path`
-  fill: ${(props: PathProps) =>
-    props.animation ? "var(--video-icon-color)" : props.fill};
+  fill: ${(props: PathProps) => (props.animation ? "#b78a10" : props.fill)};
   animation-name: ${(props: PathProps) =>
     props.animation ? changeColor : "none"};
   animation-duration: 0.4s;

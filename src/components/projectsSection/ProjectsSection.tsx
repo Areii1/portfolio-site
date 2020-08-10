@@ -25,6 +25,7 @@ export const ProjectsSection = (props: Props) => {
       key={project.title}
       project={project}
       projectsSectionsLabels={projectsSectionsLabels}
+      language={props.language}
     />
   ));
   return (

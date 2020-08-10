@@ -9,10 +9,12 @@ import {
   GeneralButton,
   UseCase,
 } from "../../buttons/generalButton/GeneralButton";
+import { Lan } from "../../../pages/index";
 
 type Props = {
   project: Project;
   projectsSectionsLabels: ProjectsSectionsLabels;
+  language: Lan;
 };
 
 export const ProjectsSectionListItem = (props: Props) => {
@@ -26,31 +28,22 @@ export const ProjectsSectionListItem = (props: Props) => {
         />
         <IntroductionParagraph content={props.project.description} />
       </MainContentWrapper>
-      {/* <LinkItemWrapper>
-        <LinkItemText>{`${props.projectsSectionsLabels.repositoryText}:`}</LinkItemText>
-        <a
-          href={props.project.repositoryLink}
-          target="_blank"
-          title={props.project.repositoryLink}
-        >
-          {props.project.repositoryLink}
-        </a>
-      </LinkItemWrapper>
       <LinkItemWrapper>
-        <LinkItemText>{`${props.projectsSectionsLabels.displayText}:`}</LinkItemText>
-        <a
-          href={props.project.displayLink}
-          target="_blank"
-          title={props.project.displayLink}
-        >
-          {props.project.displayLink}
-        </a>
-      </LinkItemWrapper> */}
-      <GeneralButton
-        link={props.project.repositoryLink}
-        useCase={UseCase.REPOSITORY}
-        language={props.language}
-      />
+        <ButtonWrapper>
+          <GeneralButton
+            link={props.project.displayLink}
+            useCase={UseCase.REPOSITORY}
+            language={props.language}
+          />
+        </ButtonWrapper>
+        <ButtonWrapper>
+          <GeneralButton
+            link={props.project.repositoryLink}
+            useCase={UseCase.VIEWDEMOPAGE}
+            language={props.language}
+          />
+        </ButtonWrapper>
+      </LinkItemWrapper>
     </ListItem>
   );
 };
@@ -78,12 +71,6 @@ const LinkItemWrapper = styled.div`
   }
 `;
 
-const LinkItemText = styled.h6`
-  margin: 0 var(--space-2) 0 0;
-  font-size: var(--space-4);
-  width: var(--space-11);
-  @media (max-width: 800px) {
-    width: 100%;
-    margin: 0;
-  }
+const ButtonWrapper = styled.div`
+  margin-bottom: var(--space-5);
 `;
