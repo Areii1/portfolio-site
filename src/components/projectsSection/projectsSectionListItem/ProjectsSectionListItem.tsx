@@ -31,15 +31,15 @@ export const ProjectsSectionListItem = (props: Props) => {
       <LinkItemWrapper>
         <ButtonWrapper>
           <GeneralButton
-            link={props.project.displayLink}
-            useCase={UseCase.REPOSITORY}
+            link={props.project.repositoryLink}
+            useCase={UseCase.VIEWDEMOPAGE}
             language={props.language}
           />
         </ButtonWrapper>
         <ButtonWrapper>
           <GeneralButton
-            link={props.project.repositoryLink}
-            useCase={UseCase.VIEWDEMOPAGE}
+            link={props.project.displayLink}
+            useCase={UseCase.REPOSITORY}
             language={props.language}
           />
         </ButtonWrapper>

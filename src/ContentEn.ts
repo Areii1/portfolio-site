@@ -12,7 +12,7 @@ const profileDetails: ProfileDetails = {
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
-  jobTitle: "front-end developer",
+  jobTitle: "Front-end developer",
   cv: {
     fileUrl:
       "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/resume_ari_jaaskelainen.pdf",
@@ -40,7 +40,7 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "I was developing the user interface of a project management web application",
+          "I was developing the user interface of a web application aimed to assist project management for groups.",
         list: {
           listDescription: "I contributed to development of features such as:",
           items: [
@@ -54,7 +54,7 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "The main tool I used in my work was React.js, which the UI was made with. Global state management was done with redux. I also became familiar with the AWS environment on backend, with which the UI communicated via the aws-amplify library",
+          "The main tool I used in my work was React.js, which the UI was created with. Global state management was done with redux, programmatic testing with Jest and react-testing-library. I also became familiar with the AWS environment on the backend, with which the UI communicated via the aws-amplify library.",
         listFirst: false,
       },
     ],
@@ -73,7 +73,7 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Theoretical understanding of these subjects has created a solid foundational background and a broad viewpoint to software development for me",
+          "Theoretical understanding of these subjects has created a solid foundational background and a broad viewpoint on software development for me.",
         list: {
           listDescription:
             "I studied computer science, which included courses on subjects such as:",
@@ -81,7 +81,7 @@ const experience: Array<ExperienceItem> = [
             "programming basics",
             "algorithmics",
             "computer networks",
-            "data bases",
+            "databases",
             "mathematics",
           ],
         },
@@ -89,7 +89,7 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "During my studies I got introduced to many intresting technologies, however web development struck out as the most favouriable to me. I transitioned to focusing on that full time, since I started working as a web-developer university courses were left out",
+          "During my studies I got introduced to many interesting technologies and methodologies, however web development struck out as the most favourable to me. I transitioned to focusing on front-end development full time, since I started working as a front-end developer university courses were left out.",
         listFirst: false,
       },
     ],
@@ -104,7 +104,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description: "Two years ago, intrested in React.js I developed a movie finder application with React.js. The app uses a movie database api, with which the user can browse and search for movies. Developing the application, I became familiar with the fundamental aspects of React.js",
+    description: "Two years ago, interested in React.js I developed a movie finder application with React.js. The app uses a movie database api, with which the app is able to provide browsing and searching functionality for the user. Developing the application, I became familiar with the fundamental aspects of React.js.",
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
@@ -114,8 +114,8 @@ const projects = [
 export const ContentEn: PageContent = {
   profile: profileDetails,
   description: [
-    'I am a web-developer with work experience of two years and some studies. In my current job I have focused mainly on building user interfaces, with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and created all kinds of user interface solutions.',
-    "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. So every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development",
+    'I am a web-developer, with work experience of two years and some studies residing in Helsinki, Finland. In my current job I have focused mainly on building user interfaces with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and have created all kinds of user interface solutions.',
+    "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. Every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development.",
   ],
   experience: experience,
   projects,

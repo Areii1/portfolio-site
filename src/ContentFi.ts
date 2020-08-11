@@ -12,7 +12,7 @@ const profileDetails: ProfileDetails = {
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
-  jobTitle: "front-end kehittäjä",
+  jobTitle: "Front-end kehittäjä",
   cv: {
     fileUrl:
       "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/ansioluettelo_ari-pekka_jaaskelainen.pdf",
@@ -40,9 +40,9 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Olin tekemässä käyttöliittymää web sovellukselle, jonka ideana oli projektien hallinnoimisen avustus",
+          "",
         list: {
-          listDescription: "Tuotin perustavanlaatuisia ominaisuuksia palveluun, kuten:",
+          listDescription: "Olin tekemässä käyttöliittymää web sovellukselle, jonka ideana oli projektien hallinnoimisen avustus, Tuotin perustavanlaatuisia ominaisuuksia palveluun, kuten:",
           items: [
             "kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
             "media entiteettien kommentointi",
@@ -50,11 +50,11 @@ const experience: Array<ExperienceItem> = [
             "käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
           ],
         },
-        listFirst: false,
+        listFirst: true,
       },
       {
         text:
-          "Työssäni suurimpana työkaluna oli React.js, jota palvelun UI käytti, globaalin tilan hallinnointiin käytettiin redux kirjastoa. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi aws-amplify kirjaston avulla.",
+          "Työssäni suurimpana työkaluna oli React.js, jota palvelun käyttöliittymä tehtiin. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, ohjelmalliseen testailuun Jest sekä react-testing-library. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi aws-amplify kirjaston avulla.",
         listFirst: false,
       },
     ],
@@ -73,13 +73,13 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Teoreettinen ymmärrys yllämainituista aihe-alueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
+          "Teoreettinen ymmärrys yllämainituista aihealueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
         list: {
           listDescription:
-            "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihe-alueilta kuten:",
+            "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihealueilta kuten:",
           items: [
             "ohjelmoinnin käytännön perusteet",
-            "algoritmitiikka",
+            "algoritmiikka",
             "tietoliikenteet",
             "tietokannat",
             "matematiikka",
@@ -89,7 +89,7 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "Opintojen aikana tutustuin moniin kiinnostaviin teknologiohin, web puolen kehitys kuitenkin vaikutti mielestäni kaikkein mielekkäimmältä ja näinollen siirryin sen pariin koko-aikaisesti. Töihin siirryttyä kurssit yliopistolla jäivät pois.",
+          "Opintojen aikana tutustuin moniin kiinnostaviin teknologioihin ja metodologioihin, web puolen kehitys kuitenkin vaikutti mielestäni kaikkein mielekkäämmältä ja näin ollen siirryin sen pariin kokoaikaisesti. Töihin siirryttyä kurssit yliopistolla jäivät pois.",
         listFirst: false,
       },
     ],
@@ -104,7 +104,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description: `Vuoden 2018 keväällä React.js kirjastosta kiinnostuneena tein harjotusprojektina elokuvan selaus sovelluksen. Sovellus on yhteydessä elokuva tietokanta rajapinnan kanssa jonka avulla elokuvien selaus ja haku toiminnot onnistuvat. Projektia tehdessä tuli tutuksi React.js :n fundamentaaliset aspektit: komponentti ajattelu, state, props.`,
+    description: `Vuoden 2018 keväällä React.js kirjastosta kiinnostuneena tein harjoitus projektina elokuvan selaus sovelluksen. Sovellus on yhteydessä elokuva tietokanta rajapinnan kanssa, jonka avulla elokuvien selaus ja haku toiminnot onnistuvat. Projektia tehdessä tuli tutuksi React.js :n fundamentaaliset aspektit: komponentti ajattelu, state, props.`,
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
@@ -114,8 +114,8 @@ const projects = [
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
-    'Olen ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opintotaustalla. Työssäni web-kehittäjänä olen pääosin tähän mennessä keskittynyt käyttöliittymien kehitykseen "single page application” metodologialla. Työkaluna minulla on tässä ollut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
-    "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu & funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassaolevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla. Haluaisin löytääkin nyt uusia web-ohjelmointi haasteita.",
+    'Olen Helsingissä toimiva ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opinto taustalla, työssäni web-kehittäjänä olen keskittynyt pääosin tähän mennessä käyttöliittymien kehitykseen. SPA (single page application) metodologisiin käyttöliittymä ratkaisuihin, suurimpana työkaluna minulla on tässä toiminut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
+    "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu sekä funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassa olevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla.",
   ],
   experience: experience,
   projects,
