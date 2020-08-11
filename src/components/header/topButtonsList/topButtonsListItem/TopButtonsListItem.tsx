@@ -9,11 +9,13 @@ import {
   buttonLabelsEn,
 } from "../../../buttons/generalButton/GeneralButtonLabels";
 import { UseCase } from "../../../buttons/generalButton/GeneralButton";
+import { FileDetails } from "../../../../Types";
 
 type Props = {
   toggleModalOpen: () => void;
   language: Lan;
   useCase: UseCase;
+  cv: FileDetails;
 };
 
 export const TopButtonsListItem = (props: Props) => {
@@ -25,31 +27,29 @@ export const TopButtonsListItem = (props: Props) => {
       onMouseEnter={() => setIsHoveringOver(true)}
       onMouseLeave={() => setIsHoveringOver(false)}
     >
-      <TransparentButton
-        handleClick={() => props.toggleModalOpen()}
-        title={
-          props.useCase === UseCase.VIDEO
-            ? buttonLabels.videoButton
-            : buttonLabels.viewPdf
-        }
-      >
-        {props.useCase === UseCase.VIDEO && (
+      {props.useCase === UseCase.VIDEO && (
+        <TransparentButton
+          handleClick={() => props.toggleModalOpen()}
+          title={buttonLabels.videoButton}
+        >
           <PlayIcon
             startFillColor="white"
             endFillColor="salmon"
             size={25}
             animation={isHoveringOver}
           />
-        )}
-        {props.useCase === UseCase.CV && (
+        </TransparentButton>
+      )}
+      {props.useCase === UseCase.CV && (
+        <TransparentButton link={props.cv.fileUrl} title={buttonLabels.viewPdf}>
           <ViewDocumentIcon
             startFillColor="white"
             endFillColor="white"
             size={25}
             animation={isHoveringOver}
           />
-        )}
-      </TransparentButton>
+        </TransparentButton>
+      )}
     </ListItem>
   );
 };

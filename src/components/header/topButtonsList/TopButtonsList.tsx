@@ -3,35 +3,24 @@ import styled from "styled-components";
 import { Lan } from "../../../pages/index";
 import { UseCase } from "../../buttons/generalButton/GeneralButton";
 import { TopButtonsListItem } from "./topButtonsListItem/TopButtonsListItem";
+import { FileDetails } from "../../../Types";
 
 type Props = {
   toggleModalOpen: () => void;
   language: Lan;
+  cv: FileDetails;
 };
 
 export const TopButtonsList = (props: Props) => {
-  const listItems = [UseCase.VIDEO, UseCase.CV].map(item => {
-    return (
-      <>
-        {UseCase.CV && (
-          <TopButtonsListItem
-            key={item}
-            toggleModalOpen={props.toggleModalOpen}
-            language={props.language}
-            useCase={item}
-          />
-        )}
-        {UseCase.VIDEO && (
-          <TopButtonsListItem
-            key={item}
-            toggleModalOpen={props.toggleModalOpen}
-            language={props.language}
-            useCase={item}
-          />
-        )}
-      </>
-    );
-  });
+  const listItems = [UseCase.VIDEO, UseCase.CV].map(item => (
+    <TopButtonsListItem
+      key={item}
+      toggleModalOpen={props.toggleModalOpen}
+      language={props.language}
+      useCase={item}
+      cv={props.cv}
+    />
+  ));
   return <List>{listItems}</List>;
 };
 

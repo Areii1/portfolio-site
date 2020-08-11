@@ -6,13 +6,14 @@ import { Lan } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 import "./Header.css";
 import { TopButtonsList } from "./topButtonsList/TopButtonsList";
+import { FileDetails } from '../../Types';
 
 type PropTypes = {
   name: string;
   jobTitle: string;
   language: Lan;
   toggleModalOpen: () => void;
-  codeRepositoryLink?: string;
+  cv: FileDetails;
 };
 
 export const Header = (props: PropTypes) => {
@@ -32,8 +33,9 @@ export const Header = (props: PropTypes) => {
         <ToggleLanguage isBlack={false} language={props.language} />
       </LanguageToggleWrapper>
       <TopButtonsList
-        updateModalType={props.toggleModalOpen}
+        toggleModalOpen={props.toggleModalOpen}
         language={props.language}
+        cv={props.cv}
       />
     </Wrapper>
   );

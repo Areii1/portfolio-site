@@ -64,7 +64,7 @@ const IndexPage = (props: any) => {
         jobTitle={content.profile.jobTitle}
         language={language}
         toggleModalOpen={toggleModalOpen}
-        codeRepositoryLink={content.profile.codeRepository}
+        cv={content.profile.cv}
       />
       <ProfileBallWrapper>
         <ProfileBall
