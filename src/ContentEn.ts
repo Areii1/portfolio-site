@@ -15,16 +15,16 @@ const profileDetails: ProfileDetails = {
   jobTitle: "Front-end developer",
   cv: {
     fileUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/resume_ari_jaaskelainen.pdf",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/resume_ari_jaaskelainen.pdf",
     filePosterUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/cv-cover.png",
+      "",
     fileName: "resume_ari_jaaskelainen.pdf",
   },
   introductionVideo: {
     fileUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/video-english.mp4",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/video-english.mp4",
     filePosterUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/video-poster.png",
     fileName: "video-english.mp4",
   },
   codeRepository: "https://github.com/Areii1/portfolio-site",
@@ -114,7 +114,7 @@ const projects = [
 export const ContentEn: PageContent = {
   profile: profileDetails,
   description: [
-    'I am a web-developer, with work experience of two years and some studies residing in Helsinki, Finland. In my current job I have focused mainly on building user interfaces with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and have created all kinds of user interface solutions.',
+    'I am a web-developer, with work experience of two years and some studies. Residing in Helsinki, Finland. In my current job I have focused mainly on building user interfaces with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and have created all kinds of user interface solutions.',
     "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. Every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development.",
   ],
   experience: experience,

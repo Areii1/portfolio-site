@@ -15,16 +15,16 @@ const profileDetails: ProfileDetails = {
   jobTitle: "Front-end kehittäjä",
   cv: {
     fileUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/ansioluettelo_ari-pekka_jaaskelainen.pdf",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/ansioluettelo_ari_pekka_jaaskelainen.pdf",
     filePosterUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/cv-cover.png",
+      "",
     fileName: "ansioluettelo_ari-pekka_jaaskelainen.pdf",
   },
   introductionVideo: {
     fileUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/video-finnish.mp4",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/video-finnish.mp4",
     filePosterUrl:
-      "https://portfolio-page-2-cv-videos.s3.eu-north-1.amazonaws.com/poster.png",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/video-poster.png",
     fileName: "video-finnish.mp4",
   },
   codeRepository: "https://github.com/Areii1/portfolio-site",
@@ -42,12 +42,12 @@ const experience: Array<ExperienceItem> = [
         text:
           "",
         list: {
-          listDescription: "Olin tekemässä käyttöliittymää web sovellukselle, jonka ideana oli projektien hallinnoimisen avustus, Tuotin perustavanlaatuisia ominaisuuksia palveluun, kuten:",
+          listDescription: "Olin tekemässä käyttöliittymää web-sovellukselle, jonka ideana oli projektien hallinnoimisen avustus. Tuotin perustavan laatuisia ominaisuuksia palveluun, kuten:",
           items: [
-            "kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
-            "media entiteettien kommentointi",
-            "chatti viestittely",
-            "käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
+            "Kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
+            "Media entiteettien kommentointi",
+            "Chatti viestittely",
+            "Käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
           ],
         },
         listFirst: true,
@@ -73,16 +73,16 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Teoreettinen ymmärrys yllämainituista aihealueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
+          "Teoreettinen ymmärrys yllä mainituista aihealueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
         list: {
           listDescription:
-            "Opiskelin tietojenkäsittelytiedettä joka sisälsi kursseja aihealueilta kuten:",
+            "Opiskelin tietojenkäsittelytiedettä, joka sisälsi kursseja aihealueilta kuten:",
           items: [
-            "ohjelmoinnin käytännön perusteet",
-            "algoritmiikka",
-            "tietoliikenteet",
-            "tietokannat",
-            "matematiikka",
+            "Ohjelmoinnin käytännön perusteet",
+            "Algoritmiikka",
+            "Tietoliikenteet",
+            "Tietokannat",
+            "Matematiikka",
           ],
         },
         listFirst: true,
@@ -114,8 +114,8 @@ const projects = [
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
-    'Olen Helsingissä toimiva ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opinto taustalla, työssäni web-kehittäjänä olen keskittynyt pääosin tähän mennessä käyttöliittymien kehitykseen. SPA (single page application) metodologisiin käyttöliittymä ratkaisuihin, suurimpana työkaluna minulla on tässä toiminut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja ollaan saatu valmiiksi.',
-    "Minua kiinnostaa web-ohjelmointi päästä päätyyn kokonaisuutena ja asennoidun ratkaisu sekä funktionaalisuus keskeisesti työhöni. Eli kaikkiin ongelmiin kyllä löytyy vastaus jos ei olemassa olevan tietotaidon kautta niin sitten selvittämällä ja uutta opiskelemalla.",
+    'Olen Helsingissä toimiva ohjelmistokehittäjä kahden vuoden työkokemuksella sekä opintotaustalla. Työssäni web-kehittäjänä olen keskittynyt pääosin tähän mennessä käyttöliittymien kehitykseen SPA (single page application) metodologialla. Suurimpana työkaluna minulla on tässä toiminut React.js, johon olen hyvin kerinnyt perehtymään ja jonka avulla monimuotoisia käyttöliittymä ratkaisuja on saatu tuotettua.',
+    "Minua kiinnostaa web-kehitys päästä päätyyn kokonaisuutena ja asennoidun ratkaisu keskeisesti työhöni. Kaikkiin ongelmiin kyllä löytyy vastaus, jos ei olemassa olevan tietotaidon kautta, niin sitten selvittämällä ja uutta opiskelemalla.",
   ],
   experience: experience,
   projects,
