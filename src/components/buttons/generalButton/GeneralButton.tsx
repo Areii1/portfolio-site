@@ -22,6 +22,7 @@ type Props = {
 };
 
 export const GeneralButton = (props: Props) => {
+  console.log(props, 'props');
   const buttonLabels =
     props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   const getButtonLabel = () => {
@@ -62,22 +63,6 @@ export const GeneralButton = (props: Props) => {
             <PlayIcon
               startFillColor="blue"
               endFillColor="blue"
-              size={30}
-              animation={hoveringOverButton}
-            />
-          )}
-          {props.useCase === UseCase.CV && (
-            <ViewDocumentIcon
-              startFillColor="#b78a10"
-              endFillColor="#b78a10"
-              size={30}
-              animation={hoveringOverButton}
-            />
-          )}
-          {props.useCase === UseCase.REPOSITORY && (
-            <CodeIcon
-              startFillColor="#b78a10"
-              endFillColor="#b78a10"
               size={30}
               animation={hoveringOverButton}
             />

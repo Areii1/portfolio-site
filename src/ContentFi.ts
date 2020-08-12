@@ -15,7 +15,7 @@ const profileDetails: ProfileDetails = {
   jobTitle: "Front-end kehittäjä",
   cv: {
     fileUrl:
-      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/ansioluettelo_ari_pekka_jaaskelainen.pdf",
+      "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/ansioluettelo_ari-pekka_jaaskelainen.pdf",
     filePosterUrl:
       "",
     fileName: "ansioluettelo_ari-pekka_jaaskelainen.pdf",

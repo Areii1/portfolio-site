@@ -30,11 +30,20 @@ export const ProjectsSection = (props: Props) => {
   ));
   return (
     <Wrapper>
-      <Headline text={projectsSectionsLabels.headline} isBlack />
-      <List>{projectsListItems}</List>
+      <ContentWrapper>
+        <Headline text={projectsSectionsLabels.headline} isBlack />
+        <List>{projectsListItems}</List>
+      </ContentWrapper>
     </Wrapper>
   );
 };
+
+const ContentWrapper = styled.div`
+  margin-top: var(--space-minus-10);
+  @media (max-width: 800px) {
+    margin-top: var(--space-minus-6);
+  }
+`;
 
 const List = styled.ul`
   list-style-type: none;

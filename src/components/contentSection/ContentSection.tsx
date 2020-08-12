@@ -74,7 +74,7 @@ export const ContentSection = (props: Props) => {
                 : UseCase.CV
             }
             language={props.language}
-            link={props.cv?.filePosterUrl}
+            link={props.cv?.fileUrl}
           />
         </ButtonWrapper>
       </TopSectionWrapper>
@@ -106,7 +106,7 @@ export const Wrapper = styled.section`
   }
   @media (max-width: 800px) {
     width: var(--space-14);
-    margin: 0 auto var(--space-8) auto;
+    margin: 0 auto var(--space-10) auto;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -114,7 +114,6 @@ export const Wrapper = styled.section`
   @media (max-width: 400px) {
     padding: 0 var(--space-4);
     width: 100%;
-    margin: 0 auto var(--space-6) auto;
   }
 `;
 
@@ -144,4 +143,8 @@ const ExperienceList = styled.ul`
 const ExperienceListItem = styled.li`
   margin-top: var(--space-8);
   margin-bottom: var(--space-10);
+  @media (max-width: 800px) {
+    margin-bottom: var(--space-6);
+    margin-top: var(--space-4);
+  }
 `;
