@@ -33,19 +33,19 @@ export const PlayIcon = (props: AnimatableIconProps) => {
 
 const changeColorBlueToSalmon = keyframes`
   from {
-    fill: var(--video-icon-color);
+    fill: #94a3ba;
   }
   to {
-    fill: salmon;
+    fill: #0048a1;
   }
 `;
 
 const changeColorWhiteToSalmon = keyframes`
   from {
-    fill: white;
+    fill: #0048a1;
   }
   to {
-    fill: salmon;
+    fill: #94a3ba;
   }
 `;
 

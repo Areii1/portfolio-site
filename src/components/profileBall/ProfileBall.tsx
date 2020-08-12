@@ -36,8 +36,8 @@ export const ProfileBall = (props: Props) => {
             <ImageOverlay />
             <IconWrapper>
               <PlayIcon
-                startFillColor="blue"
-                endFillColor="blue"
+                startFillColor="#0048a1"
+                endFillColor="#0048a1"
                 size={50}
                 animation={false}
               />

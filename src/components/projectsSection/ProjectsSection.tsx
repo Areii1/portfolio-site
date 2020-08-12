@@ -39,7 +39,7 @@ export const ProjectsSection = (props: Props) => {
 };
 
 const ContentWrapper = styled.div`
-  margin-top: var(--space-minus-10);
+  /* margin-top: var(--space-minus-10); */
   @media (max-width: 800px) {
     margin-top: var(--space-minus-6);
   }

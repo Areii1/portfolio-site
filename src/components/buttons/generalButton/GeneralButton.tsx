@@ -61,8 +61,8 @@ export const GeneralButton = (props: Props) => {
         >
           {props.useCase === UseCase.VIDEO && (
             <PlayIcon
-              startFillColor="blue"
-              endFillColor="blue"
+              startFillColor="#94a3ba"
+              endFillColor="#94a3ba"
               size={30}
               animation={hoveringOverButton}
             />
@@ -84,8 +84,8 @@ export const GeneralButton = (props: Props) => {
         >
           {props.useCase === UseCase.CV && (
             <ViewDocumentIcon
-              startFillColor="#b78a10"
-              endFillColor="#b78a10"
+              startFillColor="#94a3ba"
+              endFillColor="#94a3ba"
               size={30}
               animation={hoveringOverButton}
             />
@@ -121,7 +121,7 @@ const changeColor = keyframes`
     background-color: transparent;
   }
   to {
-    border: 1px solid salmon;
+    border: 1px solid #0048a1;
     background-color: white;
   }
 `;
@@ -131,7 +131,7 @@ const changeTextColor = keyframes`
     color: initial;
   }
   to {
-    color: salmon;
+    color: #0048a1;
   }
 `;
 

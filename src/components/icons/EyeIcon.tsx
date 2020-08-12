@@ -36,10 +36,10 @@ export const EyeIcon = (props: AnimatableIconProps) => {
 
 const changeColor = keyframes`
   from {
-    fill: #b78a10;
+    fill: #94a3ba;
   }
   to {
-    fill: salmon;
+    fill: #0048a1;
   }
 `;
 

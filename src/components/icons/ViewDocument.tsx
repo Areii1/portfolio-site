@@ -22,12 +22,12 @@ export const ViewDocumentIcon = (props: AnimatableIconProps) => {
   );
 };
 
-const changeColorGoldToSalmon = keyframes`
+const changeColorLightBlueToBlue = keyframes`
   from {
-    fill: #b78a10;
+    fill: #94a3ba;
   }
   to {
-    fill: salmon;
+    fill: #0048a1;
   }
 `;
 
@@ -40,12 +40,12 @@ const changeColorGoldToSalmon = keyframes`
 //   }
 // `;
 
-const changeColorWhiteToSalmon = keyframes`
+const changeColorBlueToLightBlue = keyframes`
   from {
-    fill: white;
+    fill: #0048a1;
   }
   to {
-    fill: salmon;
+    fill: #94a3ba;
   }
 `;
 
@@ -69,8 +69,8 @@ const CustomPath = styled.path`
   animation-name: ${(props: PathProps) =>
     props.animation
       ? props.fill === "white"
-        ? changeColorWhiteToSalmon
-        : changeColorGoldToSalmon
+        ? changeColorBlueToLightBlue
+        : changeColorLightBlueToBlue
       : "none"};
   animation-duration: 0.4s;
   animation-fill-mode: forwards;
