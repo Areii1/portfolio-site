@@ -253,8 +253,10 @@ const InputField = styled.input`
   ::placeholder {
     color: rgb(70, 70, 70);
   }
-  :focus, :hover {
-    border: 1px solid transparent;
+  :focus,
+  :hover {
+    border: ${(props: FieldProps) =>
+      props.showError ? "1px solid red" : "1px solid transparent"};
   }
   @media (max-width: 800px) {
     width: var(--space-12);
@@ -275,8 +277,10 @@ const MessageArea = styled.textarea`
   ::placeholder {
     color: rgb(70, 70, 70);
   }
-  :focus, :hover {
-    border: 1px solid transparent;
+  :focus,
+  :hover {
+    border: ${(props: FieldProps) =>
+      props.showError ? "1px solid red" : "1px solid transparent"};
   }
   @media (max-width: 800px) {
     width: var(--space-12);

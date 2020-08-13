@@ -50,7 +50,7 @@ const changeColor = keyframes`
     color: black;
   }
   to {
-    color: salmon;
+    color: var(--secondary-headline-color);
   }
 `;
 

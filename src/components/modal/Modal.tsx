@@ -33,6 +33,7 @@ export const Modal = (props: Props) => {
                 poster={props.profileDetails.introductionVideo.filePosterUrl}
                 controls
                 width="100%"
+                autoPlay
               >
                 <source
                   src={props.profileDetails.introductionVideo.fileUrl}
@@ -46,6 +47,7 @@ export const Modal = (props: Props) => {
                 poster={props.profileDetails.introductionVideo.filePosterUrl}
                 controls
                 width="100%"
+                autoPlay
               >
                 <source
                   src={props.profileDetails.introductionVideo.fileUrl}

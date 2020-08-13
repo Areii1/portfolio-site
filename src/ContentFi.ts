@@ -46,14 +46,14 @@ const experience: Array<ExperienceItem> = [
             "Kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
             "Media entiteettien kommentointi",
             "Chatti viestittely",
-            "Käyttäjätietojen hallinta kuten profiilikuva, sähköpostin vaihto, nimen vaihto yms",
+            "Käyttäjätietojen hallinta, (profiilikuva, sähköpostin vaihto, nimen vaihto, yms)",
           ],
         },
         listFirst: true,
       },
       {
         text:
-          "Työssäni suurimpana työkaluna oli React.js, jota palvelun käyttöliittymä tehtiin. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, ohjelmalliseen testailuun Jest sekä react-testing-library. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi.",
+          "Teknologisesti palvelun käyttöliittymä toteutettiin React.js kirjaston avulla. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, ohjelmalliseen testailuun jest sekä react-testing-library. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi.",
         listFirst: false,
       },
     ],
@@ -72,7 +72,7 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "Teoreettinen ymmärrys yllä mainituista aihealueista on luonut minulle kunnollisen alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
+          "Teoreettinen ymmärrys yllä mainituista aihealueista on luonut minulle selkeän alustan ja laaja-alaisen näkökulman ohjelmistokehitykseen.",
         list: {
           listDescription:
             "Opiskelin tietojenkäsittelytiedettä, joka sisälsi kursseja aihealueilta kuten:",
@@ -88,7 +88,7 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "Opintojen aikana tutustuin moniin kiinnostaviin teknologioihin ja metodologioihin, web puolen kehitys kuitenkin vaikutti mielestäni kaikkein mielekkäämmältä ja näin ollen siirryin sen pariin kokoaikaisesti. Töihin siirryttyä kurssit yliopistolla jäivät pois.",
+          "Opintojen aikana tutustuin moniin kiinnostaviin teknologioihin ja suuntauksiin, web puolen kehitys vaikutti kuitenkin mielestäni kaikkein mielekkäämmältä ja näin ollen siirryin sen pariin kokoaikaisesti. Töihin siirryttyä kurssit yliopistolla jäivät pois.",
         listFirst: false,
       },
     ],
@@ -103,7 +103,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description: `Vuoden 2018 keväällä React.js kirjastosta kiinnostuneena tein harjoitus projektina elokuvien selaus sovelluksen. Sovellus on yhteydessä elokuva tietokanta rajapinnan kanssa, jonka avulla elokuvien selaus ja haku toiminnot onnistuvat. Projektia tehdessä tuli tutuksi React.js :n fundamentaaliset aspektit: komponentti ajattelu, state, props.`,
+    description: `Vuoden 2018 keväällä, React.js kirjastosta kiinnostuneena tein harjoitus projektina elokuvien selaus sovelluksen. Sovellus on tMBDI elokuva tietokannan kanssa yhteydessä heidän tarjoaman rajapinnan kautta. Elokuva informaation avulla niiden selaus ja hakeminen onnistuvat. Projektia tehdessä tuli tutuksi React.js :n fundamentaaliset aspektit.`,
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
@@ -113,8 +113,8 @@ const projects = [
 export const ContentFi: PageContent = {
   profile: profileDetails,
   description: [
-    "Olen Helsingissä asuva ohjelmistokehittäjä. Minulla on kahden vuoden työkokemus alalta ja olen opiskellut myös kaksi vuotta tietojenkäsittelytiedettä Turun yliopistossa. Tähän mennessä työssäni web-kehittäjänä olen keskittynyt pääosin käyttöliittymien kehitykseen SPA (single page application) metodologialla. Suurimpana työkaluna minulla on tässä toiminut React.js, johon olen hyvin perehtynyt ja jonka avulla olen saanut tuotettua monimuotoisia käyttöliittymäratkaisuja.",
-    "Minua kiinnostaa web-kehitys päästä päätyyn kokonaisuutena ja asennoidun ratkaisu keskeisesti työhöni. Kaikkiin ongelmiin kyllä löytyy vastaus, jos ei olemassa olevan tietotaidon kautta, niin selvittämällä ja uutta opiskelemalla.",
+    "Olen Helsingissä asuva ohjelmistokehittäjä. Minulla on kahden vuoden työkokemus alalta ja olen opiskellut myös kaksi vuotta tietojenkäsittelytiedettä Turun yliopistossa. Tähän mennessä työssäni web-kehittäjänä olen keskittynyt pääosin käyttöliittymien kehitykseen SPA (single page application) metodologialla. Suurimpana työkaluna minulla on tässä toiminut React.js, johon olen hyvin perehtynyt ja jonka avulla olen saanut tuotettua monimuotoisia käyttöliittymä ratkaisuja.",
+    "Minua kiinnostaa web-kehitys päästä päätyyn kokonaisuutena ja asennoidun ratkaisukeskeisesti työhöni. Kaikkiin ongelmiin löytyy vastaus, jos ei olemassa olevan tietotaidon kautta, niin selvittämällä ja uutta opiskelemalla.",
   ],
   experience: experience,
   projects,
