@@ -79,6 +79,7 @@ const IndexPage = (props: any) => {
         }}
         language={language}
         toggleModalOpen={toggleModalOpen}
+        backgroundIsWhite={false}
       />
       <ContentSection
         content={{
@@ -88,6 +89,7 @@ const IndexPage = (props: any) => {
         language={language}
         toggleModalOpen={toggleModalOpen}
         cv={content.profile.cv}
+        backgroundIsWhite
       />
       <ProjectsSection projects={content.projects} language={language} />
       <InformationSection

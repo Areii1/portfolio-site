@@ -14,7 +14,7 @@ import {
 
 export enum ContentSectionUseCase {
   INTRODUCTION,
-  CONTENTSECTION
+  CONTENTSECTION,
 }
 
 export type Content =
@@ -22,13 +22,17 @@ export type Content =
       type: ContentSectionUseCase.INTRODUCTION;
       sectionContent: Description;
     }
-  | { type: ContentSectionUseCase.CONTENTSECTION; sectionContent: Array<ExperienceItem> };
+  | {
+      type: ContentSectionUseCase.CONTENTSECTION;
+      sectionContent: Array<ExperienceItem>;
+    };
 
 type Props = {
   content: Content;
   language: Lan;
   toggleModalOpen: () => void;
   cv?: FileDetails;
+  backgroundIsWhite: boolean;
 };
 
 export const ContentSection = (props: Props) => {
@@ -55,51 +59,66 @@ export const ContentSection = (props: Props) => {
     });
   };
   return (
-    <Wrapper>
-      <TopSectionWrapper>
-        <Headline
-          text={
-            props.content.type === ContentSectionUseCase.INTRODUCTION
-              ? contentSectionLabels.introduction
-              : contentSectionLabels.experience
-          }
-          isBlack
-        />
-        <ButtonWrapper>
-          <GeneralButton
-            handleClick={() => props.toggleModalOpen()}
-            useCase={
+    <Wrapper backgroundIsWhite={props.backgroundIsWhite}>
+      <ContentWrapper backgroundIsWhite={props.backgroundIsWhite}>
+        <TopSectionWrapper>
+          <Headline
+            text={
               props.content.type === ContentSectionUseCase.INTRODUCTION
-                ? UseCase.VIDEO
-                : UseCase.CV
+                ? contentSectionLabels.introduction
+                : contentSectionLabels.experience
             }
-            language={props.language}
-            link={props.cv?.fileUrl}
+            isBlack
           />
-        </ButtonWrapper>
-      </TopSectionWrapper>
-      <>
-        {props.content.type === ContentSectionUseCase.INTRODUCTION && (
-          <Paragraphs
-            content={{
-              type: ContentSectionUseCase.INTRODUCTION,
-              sectionContent: props.content.sectionContent,
-            }}
-          />
-        )}
-        {props.content.type === ContentSectionUseCase.CONTENTSECTION && (
-          <ExperienceList>
-            {getExperienceListItems(props.content.sectionContent)}
-          </ExperienceList>
-        )}
-      </>
+          <ButtonWrapper>
+            <GeneralButton
+              handleClick={() => props.toggleModalOpen()}
+              useCase={
+                props.content.type === ContentSectionUseCase.INTRODUCTION
+                  ? UseCase.VIDEO
+                  : UseCase.CV
+              }
+              language={props.language}
+              link={props.cv?.fileUrl}
+            />
+          </ButtonWrapper>
+        </TopSectionWrapper>
+        <>
+          {props.content.type === ContentSectionUseCase.INTRODUCTION && (
+            <Paragraphs
+              content={{
+                type: ContentSectionUseCase.INTRODUCTION,
+                sectionContent: props.content.sectionContent,
+              }}
+            />
+          )}
+          {props.content.type === ContentSectionUseCase.CONTENTSECTION && (
+            <ExperienceList>
+              {getExperienceListItems(props.content.sectionContent)}
+            </ExperienceList>
+          )}
+        </>
+      </ContentWrapper>
     </Wrapper>
   );
 };
 
-export const Wrapper = styled.section`
+type WrappeProps = {
+  backgroundIsWhite?: boolean;
+};
+
+const ContentWrapper = styled.div`
   width: var(--space-19);
-  margin: 0 auto var(--space-11) auto;
+  padding: ${(props: WrappeProps) =>
+    props.backgroundIsWhite ? "var(--space-9) 0" : "0 0 var(--space-9) 0"};
+  margin: auto;
+`;
+
+export const Wrapper = styled.section`
+  width: auto;
+  margin: 0 auto var(--space-7) 0;
+  background-color: ${(props: WrappeProps) =>
+    props.backgroundIsWhite ? "white" : "var(--background-color)"};
   @media (max-width: 1300px) {
     width: var(--space-16);
     margin: 0 auto var(--space-10) auto;

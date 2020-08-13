@@ -39,9 +39,11 @@ export const ProjectsSection = (props: Props) => {
 };
 
 const ContentWrapper = styled.div`
-  /* margin-top: var(--space-minus-10); */
+  margin: auto;
+  width: var(--space-19);
+  padding: var(--space-9) 0;
   @media (max-width: 800px) {
-    margin-top: var(--space-minus-6);
+    margin: var(--space-minus-6) auto auto auto;
   }
 `;
 
