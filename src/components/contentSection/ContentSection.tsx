@@ -110,22 +110,13 @@ type WrappeProps = {
 const ContentWrapper = styled.div`
   width: var(--space-19);
   padding: ${(props: WrappeProps) =>
-    props.backgroundIsWhite ? "var(--space-9) 0" : "0 0 var(--space-9) 0"};
+    props.backgroundIsWhite ? "var(--space-9) var(--space-4)" : "0 var(--space-4) var(--space-9) var(--space-4)"};
   margin: auto;
-`;
-
-export const Wrapper = styled.section`
-  width: auto;
-  margin: 0 auto var(--space-7) 0;
-  background-color: ${(props: WrappeProps) =>
-    props.backgroundIsWhite ? "white" : "var(--background-color)"};
   @media (max-width: 1300px) {
-    width: var(--space-16);
-    margin: 0 auto var(--space-10) auto;
+    width: var(--space-15);
   }
   @media (max-width: 800px) {
-    width: var(--space-14);
-    margin: 0 auto var(--space-10) auto;
+    width: var(--space-13);
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -134,6 +125,13 @@ export const Wrapper = styled.section`
     padding: 0 var(--space-4);
     width: 100%;
   }
+`;
+
+export const Wrapper = styled.section`
+  width: auto;
+  margin: 0 auto var(--space-7) 0;
+  background-color: ${(props: WrappeProps) =>
+    props.backgroundIsWhite ? "white" : "var(--background-color)"};
 `;
 
 export const TopSectionWrapper = styled.div`

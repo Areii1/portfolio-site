@@ -41,9 +41,19 @@ export const ProjectsSection = (props: Props) => {
 const ContentWrapper = styled.div`
   margin: auto;
   width: var(--space-19);
-  padding: var(--space-9) 0;
+  padding: var(--space-9) var(--space-4);
+  @media (max-width: 1300px) {
+    width: var(--space-15);
+  }
   @media (max-width: 800px) {
-    margin: var(--space-minus-6) auto auto auto;
+    width: var(--space-13);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  @media (max-width: 400px) {
+    padding: 0 var(--space-4);
+    width: 100%;
   }
 `;
 
