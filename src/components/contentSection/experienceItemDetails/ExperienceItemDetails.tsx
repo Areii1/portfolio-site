@@ -18,23 +18,39 @@ const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
 };
 
 export const ExperienceItemDetails = (props: Props) => {
+  let techStackListItems;
+  if (props.subHeadlineDetails.techKeywords) {
+    techStackListItems = props.subHeadlineDetails.techKeywords.map(keyword => (
+      <TechStackListItem>
+        &#8226;
+        <TechStackListItemText>{keyword}</TechStackListItemText>
+      </TechStackListItem>
+    ));
+  }
   return (
     <Wrapper>
-      <SecondaryTitle>{props.subHeadlineDetails.jobTitle}</SecondaryTitle>
-      <ExtraItemsWrapper>
-        <TertiaryTitle>{`${props.subHeadlineDetails.institute.toUpperCase()},`}</TertiaryTitle>
-        <Date>{`(${getDateString(
-          props.subHeadlineDetails,
-          props.language
-        )})`}</Date>
-      </ExtraItemsWrapper>
+      <TitlesWrapper>
+        <SecondaryTitle>{props.subHeadlineDetails.jobTitle}</SecondaryTitle>
+        <ExtraItemsWrapper>
+          <TertiaryTitle>{`${props.subHeadlineDetails.institute.toUpperCase()},`}</TertiaryTitle>
+          <Date>{`(${getDateString(
+            props.subHeadlineDetails,
+            props.language
+          )})`}</Date>
+        </ExtraItemsWrapper>
+      </TitlesWrapper>
+      <TechStackList>{techStackListItems}</TechStackList>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   margin: var(--space-7) 0 var(--space-minus-4) 0;
+  display: flex;
+  justify-content: space-between;
 `;
+
+const TitlesWrapper = styled.div``;
 
 export const SecondaryTitle = styled.h4`
   font-size: var(--font-size-6);
@@ -46,6 +62,30 @@ export const SecondaryTitle = styled.h4`
     display: initial;
     text-align: center;
   }
+`;
+
+const TechStackList = styled.ul`
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+  margin-left: var(--space-minus-5);
+  max-width: 45%;
+`;
+
+const TechStackListItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--space-11);
+  margin: 0 var(--space-3);
+  color: var(--information-section-bg-color);
+`;
+
+const TechStackListItemText = styled.h5`
+  margin: 0 0 0 var(--space-2);
+  font-size: var(--font-size-5);
+  font-weight: 400;
+  color: var(--secondary-headline-color);
 `;
 
 const ExtraItemsWrapper = styled.div`

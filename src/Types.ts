@@ -52,6 +52,7 @@ export type ExperienceItem = {
   jobTitle: string;
   description: ExperienceItemDescription;
   institute: string;
+  techKeywords?: Array<string>;
 };
 
 export type PageContent = {

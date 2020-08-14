@@ -53,11 +53,12 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "Teknologisesti palvelun käyttöliittymä toteutettiin React.js kirjaston avulla. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, ohjelmalliseen testailuun jest sekä react-testing-library. Tutuksi tuli myös AWS ympäristöinen backend, jonka kanssa käyttöliittymä kommunikoi.",
+          "Teknologisesti palvelun käyttöliittymä toteutettiin React.js kirjaston avulla. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, testailuun jest sekä react-testing-library. Tutuksi tuli myös serverless ympäristöinen AWS backend, jonka kanssa käyttöliittymä kommunikoi.",
         listFirst: false,
       },
     ],
     institute: "Digital factory oy",
+    techKeywords: ["react.js", "redux", "jest", "aws-amplify"],
   },
   {
     beginDate: {
@@ -107,6 +108,7 @@ const projects = [
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
+    techKeywords: ["React"],
   },
 ];
 

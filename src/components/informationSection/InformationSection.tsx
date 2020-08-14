@@ -85,10 +85,10 @@ const Image = styled(Img)`
 
 const Wrapper = styled.section`
   margin-top: var(--space-11);
-  height: 1500px;
+  height: 1300px;
   overflow: hidden;
   position: relative;
-  @media (max-width: 1300px) {
+  @media (max-width: 1500px) {
     height: calc(var(--space-15) + var(--space-15));
     margin-top: var(--space-8);
   }
@@ -96,7 +96,7 @@ const Wrapper = styled.section`
 
 const Information = styled.div`
   position: absolute;
-  top: calc(50% - 320px);
+  top: calc(60% - 320px);
   left: 0;
   height: var(--space-15);
   width: 50vw;
@@ -110,7 +110,7 @@ const Information = styled.div`
 
 const Contact = styled.div`
   position: absolute;
-  top: calc(50% - 320px);
+  top: calc(60% - 320px);
   right: 0;
   height: var(--space-15);
   width: 50vw;

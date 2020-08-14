@@ -110,7 +110,9 @@ type WrappeProps = {
 const ContentWrapper = styled.div`
   width: var(--space-19);
   padding: ${(props: WrappeProps) =>
-    props.backgroundIsWhite ? "var(--space-9) var(--space-4)" : "0 var(--space-4) var(--space-9) var(--space-4)"};
+    props.backgroundIsWhite
+      ? "var(--space-9) var(--space-4)"
+      : "0 var(--space-4) var(--space-9) var(--space-4)"};
   margin: auto;
   @media (max-width: 1300px) {
     width: var(--space-15);
