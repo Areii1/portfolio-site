@@ -10,6 +10,7 @@ import {
   UseCase,
 } from "../../buttons/generalButton/GeneralButton";
 import { Lan } from "../../../pages/index";
+import { TechStackList } from "../../techStackList/TechStackList";
 
 type Props = {
   project: Project;
@@ -20,7 +21,10 @@ type Props = {
 export const ProjectsSectionListItem = (props: Props) => {
   return (
     <ListItem>
-      <SecondaryTitle>{props.project.title}</SecondaryTitle>
+      <TopSectionWrapper>
+        <SecondaryTitle>{props.project.title}</SecondaryTitle>
+        <TechStackList list={props.project.techKeywords} />
+      </TopSectionWrapper>
       <MainContentWrapper>
         <ProjectsImage
           text={props.projectsSectionsLabels.displayText}
@@ -50,6 +54,11 @@ export const ProjectsSectionListItem = (props: Props) => {
 
 const ListItem = styled.li`
   margin-top: var(--space-8);
+`;
+
+const TopSectionWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 const MainContentWrapper = styled.div`

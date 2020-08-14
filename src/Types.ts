@@ -70,5 +70,6 @@ export type Project = {
   description: string;
   repositoryLink: string;
   displayLink: string;
+  techKeywords?: Array<string>;
   poster: string;
 };
