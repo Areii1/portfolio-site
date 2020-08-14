@@ -22,8 +22,14 @@ const List = styled.ul`
   display: flex;
   align-items: flex-end;
   padding: 0;
-  margin-left: var(--space-minus-5);
   max-width: 45%;
+  list-style-position: inside;
+  @media (max-width: 1300px) {
+    margin-top: var(--space-2);
+    max-width: unset;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const ListItem = styled.li`
@@ -33,6 +39,9 @@ const ListItem = styled.li`
   max-width: var(--space-11);
   margin: 0 var(--space-3);
   color: var(--information-section-bg-color);
+  @media (max-width: 1300px) {
+    justify-content: flex-start;
+  }
 `;
 
 const ListItemText = styled.h5`
@@ -40,4 +49,9 @@ const ListItemText = styled.h5`
   font-size: var(--font-size-5);
   font-weight: 400;
   color: var(--secondary-headline-color);
+
+  @media (max-width: 1300px) {
+    font-size: var(--font-size-4);
+    font-weight: 300;
+  }
 `;

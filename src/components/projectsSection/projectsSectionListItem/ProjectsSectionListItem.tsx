@@ -59,6 +59,9 @@ const ListItem = styled.li`
 const TopSectionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1300px) {
+    display: initial;
+  }
 `;
 
 const MainContentWrapper = styled.div`

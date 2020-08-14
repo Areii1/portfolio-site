@@ -21,7 +21,7 @@ const getDateString = (subHeadlineDetails: ExperienceItem, language: Lan) => {
 export const ExperienceItemDetails = (props: Props) => {
   return (
     <Wrapper>
-      <TitlesWrapper>
+      <div>
         <SecondaryTitle>{props.subHeadlineDetails.jobTitle}</SecondaryTitle>
         <ExtraItemsWrapper>
           <TertiaryTitle>{`${props.subHeadlineDetails.institute.toUpperCase()},`}</TertiaryTitle>
@@ -30,7 +30,7 @@ export const ExperienceItemDetails = (props: Props) => {
             props.language
           )})`}</Date>
         </ExtraItemsWrapper>
-      </TitlesWrapper>
+      </div>
       <TechStackList list={props.subHeadlineDetails.techKeywords} />
     </Wrapper>
   );
@@ -40,9 +40,10 @@ const Wrapper = styled.div`
   margin: var(--space-7) 0 var(--space-minus-4) 0;
   display: flex;
   justify-content: space-between;
+  @media (max-width: 1300px) {
+    display: initial;
+  }
 `;
-
-const TitlesWrapper = styled.div``;
 
 export const SecondaryTitle = styled.h4`
   font-size: var(--font-size-6);

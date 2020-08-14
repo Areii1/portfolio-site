@@ -115,7 +115,7 @@ const ContentWrapper = styled.div`
       : "0 var(--space-4) var(--space-9) var(--space-4)"};
   margin: auto;
   @media (max-width: 1300px) {
-    width: var(--space-15);
+    width: var(--space-16);
   }
   @media (max-width: 800px) {
     width: var(--space-13);
