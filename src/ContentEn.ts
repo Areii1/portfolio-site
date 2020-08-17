@@ -54,7 +54,7 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "The main tool I used in my work was React.js, which the UI was created with. Global state management was done with redux, programmatic testing with Jest and react-testing-library. I also became familiar with the AWS environment on the backend, with which the UI communicated via the aws-amplify library.",
+          "The main tool I used in my work was React.js, which the UI was created with. Global state management was done with redux, programmatic testing with Jest and react-testing-library. I also became familiar with the serverless AWS environment on the backend, which the UI communicated with.",
         listFirst: false,
       },
     ],
@@ -104,7 +104,7 @@ const projects = [
       year: 2018,
     },
     title: "Movie finder",
-    description: "Two years ago, interested in React.js I developed a movie finder application with React.js. The app uses a movie database api, with which the app is able to provide browsing and searching functionality for the user. Developing the application, I became familiar with the fundamental aspects of React.js.",
+    description: "Two years ago, interested in React.js I developed a movie finder application with React.js. The app is connected with the tMBDI database by their given api. With the movie information, the user is able to browse and search for movies in the application. Developing the application, I became familiar with the fundamental aspects of React.js.",
     repositoryLink: "https://github.com/Areii1/movie-finder",
     displayLink: "https://areii1.github.io/movie-finder/#/",
     poster: "sadasdsadasd",
@@ -114,8 +114,8 @@ const projects = [
 export const ContentEn: PageContent = {
   profile: profileDetails,
   description: [
-    'I am a web-developer, with work experience of two years and some studies. Residing in Helsinki, Finland. In my current job I have focused mainly on building user interfaces with the "single page application" methodology. The tool of choice for this has been React.js, which I have become familiar with and have created all kinds of user interface solutions.',
-    "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. Every problem has a solution, if not with existing knowhow then through investigation and learning new things. I'm looking for new challenges in web-development.",
+    'I am a web-developer from Helsinki, Finland. My experience in the field includes two years of work experience and studies on computer science. In my current job as a web-developer, I have mainly focused on building user interfaces with the "single page application" methodology. The tool for this has been React.js, which I have become familiar with and have created many kinds of user interface solutions with.',
+    "I'm interested in web-development as a whole and I have a solutions oriented attitude towards my work. Every problem has a solution, if not via existing knowhow, then through further investigation and learning new things.",
   ],
   experience: experience,
   projects,

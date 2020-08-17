@@ -58,6 +58,7 @@ const IndexPage = (props: any) => {
         title="Ari-Pekka Jääskeläinen"
         lang={"fi"}
         description="personal cv page"
+        keywords={['front-end developer', 'react.js', 'react', 'computer science']}
       />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}

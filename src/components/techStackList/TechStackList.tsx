@@ -41,6 +41,7 @@ const ListItem = styled.li`
   color: var(--information-section-bg-color);
   @media (max-width: 1300px) {
     justify-content: flex-start;
+    margin: 0;
   }
 `;
 
@@ -53,5 +54,6 @@ const ListItemText = styled.h5`
   @media (max-width: 1300px) {
     font-size: var(--font-size-4);
     font-weight: 300;
+    color: var(--information-section-bg-color);
   }
 `;

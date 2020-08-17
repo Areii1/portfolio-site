@@ -22,7 +22,6 @@ type Props = {
 };
 
 export const GeneralButton = (props: Props) => {
-  console.log(props, 'props');
   const buttonLabels =
     props.language === Lan.ENGLISH ? buttonLabelsEn : buttonLabelsFi;
   const getButtonLabel = () => {

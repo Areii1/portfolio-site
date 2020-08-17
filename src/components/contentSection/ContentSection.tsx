@@ -134,6 +134,10 @@ export const Wrapper = styled.section`
   margin: 0 auto var(--space-7) 0;
   background-color: ${(props: WrappeProps) =>
     props.backgroundIsWhite ? "white" : "var(--background-color)"};
+  @media (max-width: 800px) {
+    padding-top: ${(props: WrapperProps) =>
+      props.backgroundIsWhite ? "var(--space-7)" : "none"};
+  }
 `;
 
 export const TopSectionWrapper = styled.div`

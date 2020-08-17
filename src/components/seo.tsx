@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 type Props = {
   description: string;
   lang: string;
-  meta: Array<any>;
+  keywords: Array<string>;
   title: string;
 };
 
@@ -30,7 +30,11 @@ function SEO(props: Props) {
           property: `og:type`,
           content: `website`,
         },
-      ].concat(props.meta)}
+        {
+          name: 'keywords',
+          content: props.keywords.join(', '),
+        }
+      ]}
     />
   );
 }
