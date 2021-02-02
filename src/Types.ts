@@ -53,6 +53,7 @@ export type ExperienceItem = {
   description: ExperienceItemDescription;
   institute: string;
   techKeywords?: Array<string>;
+  image?: string;
 };
 
 export type PageContent = {

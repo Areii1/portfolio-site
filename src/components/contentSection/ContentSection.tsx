@@ -48,6 +48,11 @@ export const ContentSection = (props: Props) => {
             subHeadlineDetails={experienceItem}
             language={props.language}
           />
+          {experienceItem.image && (
+            <ImageWrapper>
+              <CustomImage src={experienceItem.image} alt="experience item logo" />
+            </ImageWrapper>
+          )}
           <Paragraphs
             content={{
               type: ContentSectionUseCase.CONTENTSECTION,
@@ -170,4 +175,12 @@ const ExperienceListItem = styled.li`
     margin-bottom: var(--space-6);
     margin-top: var(--space-4);
   }
+`;
+
+const CustomImage = styled.img`
+  max-width: 45%;
+`;
+
+const ImageWrapper = styled.div`
+  margin-top: var(--space-8);
 `;

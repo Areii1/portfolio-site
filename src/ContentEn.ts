@@ -59,6 +59,7 @@ const experience: Array<ExperienceItem> = [
       },
     ],
     institute: "Digital factory oy",
+    image: "https://www.theyemma.com/assets/img/yemma-green.svg",
   },
   {
     beginDate: {
