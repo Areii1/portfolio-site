@@ -6,13 +6,23 @@ import Img from "gatsby-image";
 type Props = {
   text: string;
   link: string;
+  index: number;
 };
 
-export const ProjectsImage = (props: Props) => {
+const getImageFile = (index: number) => {
   const imageQueryData = useStaticQuery(profileImageQuery);
+  if (index === 0) {
+    return imageQueryData.image1.childImageSharp.fluid;
+  } else {
+    return imageQueryData.image2.childImageSharp.fluid;
+  }
+}
+
+export const ProjectsImage = (props: Props) => {
   const [hoveringOverImage, setHoveringOverImage] = React.useState<boolean>(
     false
   );
+  const imageFile = getImageFile(props.index);
   return (
     <LinkButton
       href={props.link}
@@ -22,7 +32,7 @@ export const ProjectsImage = (props: Props) => {
     >
       <ImageWrapper>
         <Image
-          fluid={imageQueryData.file.childImageSharp.fluid}
+          fluid={imageFile}
           className="projects-content-queried-image"
           alt="project poster"
         />
@@ -37,7 +47,14 @@ export const ProjectsImage = (props: Props) => {
 
 const profileImageQuery = graphql`
   query {
-    file(relativePath: { eq: "project-poster.png" }) {
+    image1: file(relativePath: { eq: "project-poster-2.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    image2: file(relativePath: { eq: "project-poster.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -46,6 +63,12 @@ const profileImageQuery = graphql`
     }
   }
 `;
+
+// const profileImageQuery2 = graphql`
+//   query {
+
+//   }
+// `;
 
 const changeOpacity = keyframes`
   from {

@@ -16,6 +16,7 @@ type Props = {
   project: Project;
   projectsSectionsLabels: ProjectsSectionsLabels;
   language: Lan;
+  index: number;
 };
 
 export const ProjectsSectionListItem = (props: Props) => {
@@ -29,6 +30,7 @@ export const ProjectsSectionListItem = (props: Props) => {
         <ProjectsImage
           text={props.projectsSectionsLabels.displayText}
           link={props.project.displayLink}
+          index={props.index}
         />
         <IntroductionParagraph content={props.project.description} />
       </MainContentWrapper>

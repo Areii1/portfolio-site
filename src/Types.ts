@@ -69,6 +69,7 @@ export type Project = {
   title: string;
   description: string;
   repositoryLink: string;
+  secondaryRepositoryLink?: string;
   displayLink: string;
   techKeywords?: Array<string>;
   poster: string;

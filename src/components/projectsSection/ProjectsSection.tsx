@@ -20,12 +20,13 @@ export const ProjectsSection = (props: Props) => {
     props.language === Lan.ENGLISH
       ? projectsSectionsLabelsEn
       : projectsSectionsLabelsFi;
-  const projectsListItems = props.projects.map(project => (
+  const projectsListItems = props.projects.map((project, index) => (
     <ProjectsSectionListItem
       key={project.title}
       project={project}
       projectsSectionsLabels={projectsSectionsLabels}
       language={props.language}
+      index={index}
     />
   ));
   return (

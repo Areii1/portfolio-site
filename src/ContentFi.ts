@@ -100,6 +100,27 @@ const experience: Array<ExperienceItem> = [
 const projects = [
   {
     endingDate: {
+      month: 1,
+      year: 2021,
+    },
+    title: "Movie tinder (työn alla)",
+    description: `Halusin tutustua paremmin aws cloud development kitin (aws-cdk) toimintaan. Kehitän sovellusta parhaillaan, ideana on tuottaa hauska palvelu pariskunnille, joilla on ongelmia leffan valitsemissa. Sovelluksen avulla kaksi henkilöä voi "pariutua" ja tämän jälkeen swaippailla elokuvia, näinollen löytäen yhteisiä kiinnostuksen kohteita. Tällä hetkellä (02.02.2021) featureita on toteutettuna rekisteröityminen, parinmuodostus, elokuvien swaippaus, yhteisten elokuvien katselu`,
+    repositoryLink: "https://github.com/Areii1/couples-movie-picker-frontend",
+    secondaryRepositoryLink: "https://github.com/Areii1/couples-movie-picker-backend",
+    displayLink:
+      "http://couples-movie-picker-deployment-bucket-prod.s3-website.eu-central-1.amazonaws.com/movie/553604",
+    poster: "sadasdsadasd",
+    techKeywords: [
+      "aws cdk",
+      "aws sdk",
+      "typescript",
+      "react",
+      "aws-amplify",
+      "styled-components",
+    ],
+  },
+  {
+    endingDate: {
       month: 5,
       year: 2018,
     },
