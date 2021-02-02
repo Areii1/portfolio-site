@@ -11,6 +11,7 @@ export enum UseCase {
   VIDEO,
   CV,
   REPOSITORY,
+  SECONDARYREPOSITORY,
   VIEWDEMOPAGE,
 }
 
@@ -32,6 +33,8 @@ export const GeneralButton = (props: Props) => {
         return buttonLabels.videoButton;
       case UseCase.REPOSITORY:
         return buttonLabels.viewRepository;
+      case UseCase.SECONDARYREPOSITORY:
+        return buttonLabels.viewSecondaryRepository;
       case UseCase.VIEWDEMOPAGE:
         return buttonLabels.viewDemoPage;
       default:
@@ -89,7 +92,8 @@ export const GeneralButton = (props: Props) => {
               animation={hoveringOverButton}
             />
           )}
-          {props.useCase === UseCase.REPOSITORY && (
+          {(props.useCase === UseCase.REPOSITORY ||
+            props.useCase === UseCase.SECONDARYREPOSITORY) && (
             <CodeIcon
               startFillColor="#94a3ba"
               endFillColor="#94a3ba"

@@ -3,6 +3,7 @@ export const buttonLabelsFi = {
   viewPdf: "katso cv",
   cvButtonMobile: "lataa cv",
   viewRepository: "lähdekoodi",
+  viewSecondaryRepository: "backend koodi",
   viewDemoPage: "katso sivua",
 };
 
@@ -11,5 +12,6 @@ export const buttonLabelsEn = {
   viewPdf: "view cv",
   cvButtonMobile: "download cv",
   viewRepository: "view source code",
+  viewSecondaryRepository: "backend code",
   viewDemoPage: "view page",
 };

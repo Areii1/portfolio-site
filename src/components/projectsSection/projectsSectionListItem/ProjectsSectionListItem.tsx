@@ -49,6 +49,15 @@ export const ProjectsSectionListItem = (props: Props) => {
             language={props.language}
           />
         </ButtonWrapper>
+        {props.project.secondaryRepositoryLink && (
+          <ButtonWrapper>
+            <GeneralButton
+              link={props.project.secondaryRepositoryLink}
+              useCase={UseCase.SECONDARYREPOSITORY}
+              language={props.language}
+            />
+          </ButtonWrapper>
+        )}
       </LinkItemWrapper>
     </ListItem>
   );
