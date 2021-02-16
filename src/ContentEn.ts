@@ -12,7 +12,7 @@ const profileDetails: ProfileDetails = {
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
-  jobTitle: "Front-end developer",
+  jobTitle: "web developer",
   cv: {
     fileUrl:
       "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/resume_ari_jaaskelainen.pdf",
@@ -40,7 +40,7 @@ const experience: Array<ExperienceItem> = [
     description: [
       {
         text:
-          "I was developing the user interface of a web application aimed to assist project management for groups.",
+          "I was developing the user interface of a web application, called Yemma. The application is a platform for working on media content heavy projects in a team.",
         list: {
           listDescription: "I contributed to development of features such as:",
           items: [
@@ -58,6 +58,7 @@ const experience: Array<ExperienceItem> = [
         listFirst: false,
       },
     ],
+    techKeywords: ["react.js", "redux", "react-testing-library", "aws-amplify"],
     institute: "Digital factory oy",
     image: "https://www.theyemma.com/assets/img/yemma-green.svg",
   },
@@ -105,7 +106,7 @@ const projects = [
       year: 2021,
     },
     title: "Movie tinder (currently developing)",
-    description: "I wanted to gain a better grasp of the aws cloud development kit (aws-cdk). The idea of the application is to aid undecided couples to find common interests on movies they would like to watch. The app allows two people pairing with each other, swiping on a list of movies and then reviewing common likes. Currently completed features include user registering, pairing up, swiping on movies, reviewing matched movies",
+    description: "I am currently developing a fun application which is aimed to assist undecided couples to find common interests on movies they would like to watch. Main motivation for this application was to gain a better grasp of the aws cloud development kit (aws-cdk). The app allows two people pairing with each other, swiping on a list of movies and then reviewing common likes. Currently completed features include user registering, pairing up, swiping on movies, reviewing matched movies",
     repositoryLink: "https://github.com/Areii1/couples-movie-picker-frontend",
     secondaryRepositoryLink: "https://github.com/Areii1/couples-movie-picker-backend",
     displayLink:

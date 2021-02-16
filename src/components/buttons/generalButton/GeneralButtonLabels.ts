@@ -1,6 +1,6 @@
 export const buttonLabelsFi = {
   videoButton: "katso video",
-  viewPdf: "katso cv",
+  viewPdf: "kysy cv",
   cvButtonMobile: "lataa cv",
   viewRepository: "lähdekoodi",
   viewSecondaryRepository: "backend koodi",

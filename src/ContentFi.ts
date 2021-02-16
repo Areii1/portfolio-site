@@ -12,7 +12,7 @@ const profileDetails: ProfileDetails = {
   email: "ari.jaaskelainen1@gmail.com",
   githubUsername: "areii1",
   linkedInPageName: "ari-pekka-jaaskelainen",
-  jobTitle: "Front-end kehittäjä",
+  jobTitle: "web kehittäjä",
   cv: {
     fileUrl:
       "https://s3.eu-north-1.amazonaws.com/jaaskelainen.io-media-content/ansioluettelo_ari-pekka_jaaskelainen.pdf",
@@ -41,7 +41,7 @@ const experience: Array<ExperienceItem> = [
         text: "",
         list: {
           listDescription:
-            "Olin tekemässä käyttöliittymää web-sovellukselle, jonka ideana oli projektien hallinnoimisen avustus. Tuotin perustavan laatuisia ominaisuuksia palveluun, kuten:",
+            "Olin tekemässä käyttöliittymää web-sovellukselle https://www.theyemma.com. Sovelluksen ideana on erilaisten media sisällöllisten projektien hallinnoimisen avustus. Tuotin perustavan laatuisia ominaisuuksia palveluun, kuten:",
           items: [
             "Kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
             "Media entiteettien kommentointi",
@@ -53,12 +53,12 @@ const experience: Array<ExperienceItem> = [
       },
       {
         text:
-          "Teknologisesti palvelun käyttöliittymä toteutettiin React.js kirjaston avulla. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, testailuun jest sekä react-testing-library. Tutuksi tuli myös serverless ympäristöinen AWS backend, jonka kanssa käyttöliittymä kommunikoi.",
+          "Teknologisesti palvelun käyttöliittymä toteutettiin React.js kirjaston avulla. Globaalin tilan hallinnointiin käytettiin redux kirjastoa, testailuun react-testing-library. Tutuksi tuli myös serverless ympäristöinen AWS backend, jonka kanssa käyttöliittymä kommunikoi.",
         listFirst: false,
       },
     ],
     institute: "Digital factory oy",
-    techKeywords: ["react.js", "redux", "jest", "aws-amplify"],
+    techKeywords: ["react.js", "redux", "react-testing-library", "aws-amplify"],
     image: "https://www.theyemma.com/assets/img/yemma-green.svg",
   },
   {
@@ -105,7 +105,7 @@ const projects = [
       year: 2021,
     },
     title: "Movie tinder (työn alla)",
-    description: `Halusin tutustua paremmin aws cloud development kitin (aws-cdk) toimintaan. Kehitän sovellusta parhaillaan, ideana on tuottaa hauska palvelu pariskunnille, joilla on ongelmia leffan valitsemissa. Sovelluksen avulla kaksi henkilöä voi "pariutua" ja tämän jälkeen swaippailla elokuvia, näinollen löytäen yhteisiä kiinnostuksen kohteita. Tällä hetkellä (02.02.2021) featureita on toteutettuna rekisteröityminen, parinmuodostus, elokuvien swaippaus, yhteisten elokuvien katselu`,
+    description: `Kehitän sovellusta parhaillaan, jonka ideana on tuottaa hauska palvelu pariskunnille, joilla on ongelmia leffan valitsemissa. Motivaationa projektiin oli tutustua paremmin aws cloud development kitin (aws-cdk) toimintaan. Sovelluksen avulla kaksi henkilöä voi "pariutua" ja tämän jälkeen swaippailla elokuvia, näinollen löytäen yhteisiä kiinnostuksen kohteita. Tällä hetkellä (02.02.2021) featureita on toteutettuna rekisteröityminen, parinmuodostus, elokuvien swaippaus, yhteisten elokuvien katselu`,
     repositoryLink: "https://github.com/Areii1/couples-movie-picker-frontend",
     secondaryRepositoryLink: "https://github.com/Areii1/couples-movie-picker-backend",
     displayLink:
