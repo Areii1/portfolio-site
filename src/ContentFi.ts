@@ -41,7 +41,7 @@ const experience: Array<ExperienceItem> = [
         text: "",
         list: {
           listDescription:
-            "Olin tekemässä käyttöliittymää web-sovellukselle https://www.theyemma.com. Sovelluksen ideana on erilaisten media sisällöllisten projektien hallinnoimisen avustus. Tuotin perustavan laatuisia ominaisuuksia palveluun, kuten:",
+            "Olin tekemässä käyttöliittymää web-sovellukselle Yemma. Sovelluksen ideana on erilaisten media sisällöllisten projektien hallinnoimisen avustus. Tuotin perustavan laatuisia ominaisuuksia palveluun, kuten:",
           items: [
             "Kansio systeemi, (tiedostojen lataus, poisto, katselu, jako, yms)",
             "Media entiteettien kommentointi",
@@ -60,6 +60,7 @@ const experience: Array<ExperienceItem> = [
     institute: "Digital factory oy",
     techKeywords: ["react.js", "redux", "react-testing-library", "aws-amplify"],
     image: "https://www.theyemma.com/assets/img/yemma-green.svg",
+    link: "https://www.theyemma.com",
   },
   {
     beginDate: {

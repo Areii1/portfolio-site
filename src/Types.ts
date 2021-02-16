@@ -54,6 +54,7 @@ export type ExperienceItem = {
   institute: string;
   techKeywords?: Array<string>;
   image?: string;
+  link?: string;
 };
 
 export type PageContent = {

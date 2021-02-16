@@ -4,7 +4,10 @@ import { Headline } from "../headline/Headline";
 import { Description } from "../../Types";
 import { Paragraphs } from "./paragraphs/Paragraphs";
 import { ExperienceItem, FileDetails } from "../../Types";
-import { ExperienceItemDetails } from "./experienceItemDetails/ExperienceItemDetails";
+import {
+  ExperienceItemDetails,
+  TertiaryTitle,
+} from "./experienceItemDetails/ExperienceItemDetails";
 import { Lan } from "../../pages/index";
 import { GeneralButton, UseCase } from "../buttons/generalButton/GeneralButton";
 import {
@@ -48,10 +51,20 @@ export const ContentSection = (props: Props) => {
             subHeadlineDetails={experienceItem}
             language={props.language}
           />
-          {experienceItem.image && (
-            <ImageWrapper>
-              <CustomImage src={experienceItem.image} alt="experience item logo" />
-            </ImageWrapper>
+          {experienceItem.image && experienceItem.link && (
+            <a
+              href={experienceItem.link}
+              target="_blank"
+              title={experienceItem.link}
+            >
+              <ImageWrapper>
+                <CustomImage
+                  src={experienceItem.image}
+                  alt="experience item logo"
+                />
+                <h5>{experienceItem.link}</h5>
+              </ImageWrapper>
+            </a>
           )}
           <Paragraphs
             content={{
@@ -140,7 +153,7 @@ export const Wrapper = styled.section`
   background-color: ${(props: WrappeProps) =>
     props.backgroundIsWhite ? "white" : "var(--background-color)"};
   @media (max-width: 800px) {
-    padding-top: ${(props: WrapperProps) =>
+    padding-top: ${(props: any) =>
       props.backgroundIsWhite ? "var(--space-7)" : "none"};
   }
 `;
@@ -183,4 +196,10 @@ const CustomImage = styled.img`
 
 const ImageWrapper = styled.div`
   margin-top: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    display: block;
+  }
 `;

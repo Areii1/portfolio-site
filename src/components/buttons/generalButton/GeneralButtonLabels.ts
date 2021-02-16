@@ -9,7 +9,7 @@ export const buttonLabelsFi = {
 
 export const buttonLabelsEn = {
   videoButton: "watch video",
-  viewPdf: "view cv",
+  viewPdf: "ask for cv",
   cvButtonMobile: "download cv",
   viewRepository: "view source code",
   viewSecondaryRepository: "backend code",

@@ -61,6 +61,7 @@ const experience: Array<ExperienceItem> = [
     techKeywords: ["react.js", "redux", "react-testing-library", "aws-amplify"],
     institute: "Digital factory oy",
     image: "https://www.theyemma.com/assets/img/yemma-green.svg",
+    link: "https://www.theyemma.com",
   },
   {
     beginDate: {
