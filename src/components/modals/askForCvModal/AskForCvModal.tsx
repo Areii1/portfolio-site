@@ -1,6 +1,6 @@
 import React from "react";
 // import styled from "styled-components";
-import { Lan } from "../../../pages/index";
+import { Lan, ModalStatus } from "../../../pages/index";
 import { ProfileDetails } from "../../../Types";
 import {
   ModalWrapper,
@@ -9,7 +9,7 @@ import {
 } from "../viewVideoModal/ViewVideoModal";
 
 type Props = {
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   language: Lan;
   profileDetails: ProfileDetails;
 };

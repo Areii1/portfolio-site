@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
-import { Lan } from "../../pages/index";
+import { Lan, ModalStatus } from "../../pages/index";
 import { ToggleLanguage } from "../toggleLanguage/ToggleLanguage";
 import "./Header.css";
 import { TopButtonsList } from "./topButtonsList/TopButtonsList";
@@ -12,7 +12,7 @@ type PropTypes = {
   name: string;
   jobTitle: string;
   language: Lan;
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   cv: FileDetails;
 };
 
@@ -33,7 +33,7 @@ export const Header = (props: PropTypes) => {
         <ToggleLanguage isBlack={false} language={props.language} />
       </LanguageToggleWrapper>
       <TopButtonsList
-        toggleModalOpen={props.toggleModalOpen}
+        updateModalOpen={props.updateModalOpen}
         language={props.language}
         cv={props.cv}
       />

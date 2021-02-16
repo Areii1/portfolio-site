@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { TransparentButton } from "../../../buttons/transparentButton/TransparentButton";
 import { PlayIcon } from "../../../icons/PlayIcon";
 import { ViewDocumentIcon } from "../../../icons/ViewDocument";
-import { Lan } from "../../../../pages/index";
+import { Lan, ModalStatus } from "../../../../pages/index";
 import {
   buttonLabelsFi,
   buttonLabelsEn,
@@ -12,7 +12,7 @@ import { UseCase } from "../../../buttons/generalButton/GeneralButton";
 import { FileDetails } from "../../../../Types";
 
 type Props = {
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   language: Lan;
   useCase: UseCase;
   cv: FileDetails;
@@ -29,7 +29,7 @@ export const TopButtonsListItem = (props: Props) => {
     >
       {props.useCase === UseCase.VIDEO && (
         <TransparentButton
-          handleClick={() => props.toggleModalOpen()}
+          handleClick={() => props.updateModalOpen(ModalStatus.VIDEO)}
           title={buttonLabels.videoButton}
         >
           <PlayIcon
@@ -41,7 +41,10 @@ export const TopButtonsListItem = (props: Props) => {
         </TransparentButton>
       )}
       {props.useCase === UseCase.CV && (
-        <TransparentButton link={props.cv.fileUrl} title={buttonLabels.viewPdf}>
+        <TransparentButton
+          handleClick={() => props.updateModalOpen(ModalStatus.ASKFORCV)}
+          title={buttonLabels.viewPdf}
+        >
           <ViewDocumentIcon
             startFillColor="white"
             endFillColor="white"

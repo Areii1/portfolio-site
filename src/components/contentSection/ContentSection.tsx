@@ -8,7 +8,7 @@ import {
   ExperienceItemDetails,
   TertiaryTitle,
 } from "./experienceItemDetails/ExperienceItemDetails";
-import { Lan } from "../../pages/index";
+import { Lan, ModalStatus } from "../../pages/index";
 import { GeneralButton, UseCase } from "../buttons/generalButton/GeneralButton";
 import {
   contentSectionLabelsEn,
@@ -33,7 +33,7 @@ export type Content =
 type Props = {
   content: Content;
   language: Lan;
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   cv?: FileDetails;
   backgroundIsWhite: boolean;
 };
@@ -90,7 +90,7 @@ export const ContentSection = (props: Props) => {
           />
           <ButtonWrapper>
             <GeneralButton
-              handleClick={() => props.toggleModalOpen()}
+              handleClick={() => props.updateModalOpen(UseCase.VIDEO ? ModalStatus.VIDEO : ModalStatus.ASKFORCV)}
               useCase={
                 props.content.type === ContentSectionUseCase.INTRODUCTION
                   ? UseCase.VIDEO

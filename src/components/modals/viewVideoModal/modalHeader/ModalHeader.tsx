@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { ToggleLanguage } from "../../../toggleLanguage/ToggleLanguage";
-import { Lan } from "../../../../pages/index";
+import { Lan, ModalStatus } from "../../../../pages/index";
 import { TransparentButton } from "../../../buttons/transparentButton/TransparentButton";
 import {
   modalHeaderContentLabelsEn,
@@ -9,7 +9,7 @@ import {
 } from "./ModalHeaderLabels";
 
 type ModalHeader = {
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   language: Lan;
 };
 
@@ -23,7 +23,7 @@ export const ModalHeader = (props: ModalHeader) => {
       <ToggleLanguage isBlack language={props.language} />
       <ButtonWrapper>
         <TransparentButton
-          handleClick={() => props.toggleModalOpen()}
+          handleClick={() => props.updateModalOpen(ModalStatus.NONE)}
           title={modalContentLabels.closeModal}
         >
           <CloseButtonText>X</CloseButtonText>

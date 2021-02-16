@@ -12,7 +12,8 @@ import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
 import "./index.css";
 import { ProjectsSection } from "../components/projectsSection/ProjectsSection";
-import { ContentSectionUseCase } from '../components/contentSection/ContentSection';
+import { ContentSectionUseCase } from "../components/contentSection/ContentSection";
+import { AskForCvModal } from "../components/modals/askForCvModal/AskForCvModal";
 
 export enum Lan {
   FINNISH,
@@ -28,9 +29,17 @@ export type SetDialogBoxContent = (
   content: DialogBoxContent | undefined
 ) => void;
 
+export enum ModalStatus {
+  VIDEO,
+  ASKFORCV,
+  NONE,
+}
+
 const IndexPage = (props: any) => {
   const [language, setLanguage] = React.useState<Lan>(Lan.FINNISH);
-  const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+  const [modalOpen, setModalOpen] = React.useState<ModalStatus>(
+    ModalStatus.NONE
+  );
   const [dialogBoxContent, setDialogBoxContent] = React.useState<
     DialogBoxContent | undefined
   >(undefined);
@@ -48,8 +57,8 @@ const IndexPage = (props: any) => {
       }, 7000);
     }
   }, [dialogBoxContent]);
-  const toggleModalOpen = () => {
-    setModalOpen(!modalOpen);
+  const updateModalOpen = (status: ModalStatus) => {
+    setModalOpen(status);
   };
   const content = language === Lan.ENGLISH ? ContentEn : ContentFi;
   return (
@@ -58,19 +67,24 @@ const IndexPage = (props: any) => {
         title="Ari-Pekka Jääskeläinen"
         lang={"fi"}
         description="personal cv page"
-        keywords={['front-end developer', 'react.js', 'react', 'computer science']}
+        keywords={[
+          "front-end developer",
+          "react.js",
+          "react",
+          "computer science",
+        ]}
       />
       <Header
         name={`${content.profile.firstName} ${content.profile.lastName}`}
         jobTitle={content.profile.jobTitle}
         language={language}
-        toggleModalOpen={toggleModalOpen}
+        updateModalOpen={updateModalOpen}
         cv={content.profile.cv}
       />
       <ProfileBallWrapper>
         <ProfileBall
           language={language}
-          handleClick={() => toggleModalOpen()}
+          handleClick={() => updateModalOpen(ModalStatus.NONE)}
         />
       </ProfileBallWrapper>
       <ContentSection
@@ -79,7 +93,7 @@ const IndexPage = (props: any) => {
           sectionContent: content.description,
         }}
         language={language}
-        toggleModalOpen={toggleModalOpen}
+        updateModalOpen={updateModalOpen}
         backgroundIsWhite={false}
       />
       <ContentSection
@@ -88,7 +102,7 @@ const IndexPage = (props: any) => {
           sectionContent: content.experience,
         }}
         language={language}
-        toggleModalOpen={toggleModalOpen}
+        updateModalOpen={updateModalOpen}
         cv={content.profile.cv}
         backgroundIsWhite
       />
@@ -98,10 +112,17 @@ const IndexPage = (props: any) => {
         language={language}
         setDialogBoxContent={setDialogBoxContent}
       />
-      {modalOpen && (
-        <Modal
+      {modalOpen === ModalStatus.VIDEO && (
+        <ViewVideoModal
           language={language}
-          toggleModalOpen={toggleModalOpen}
+          updateModalOpen={updateModalOpen}
+          profileDetails={content.profile}
+        />
+      )}
+      {modalOpen === ModalStatus.ASKFORCV && (
+        <AskForCvModal
+          language={language}
+          updateModalOpen={updateModalOpen}
           profileDetails={content.profile}
         />
       )}

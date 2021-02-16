@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Lan } from "../../../pages/index";
+import { Lan, ModalStatus } from "../../../pages/index";
 import { ModalHeader } from "./modalHeader/ModalHeader";
 import { ProfileDetails } from "../../../Types";
 import {
@@ -11,7 +11,7 @@ import {
 } from "./ModalUtilityFunctions";
 
 type Props = {
-  toggleModalOpen: () => void;
+  updateModalOpen: (value: ModalStatus) => void;
   language: Lan;
   profileDetails: ProfileDetails;
 };
@@ -22,7 +22,7 @@ export const ViewVideoModal = (props: Props) => {
       <ModalBox>
         <ContentWrapper>
           <ModalHeader
-            toggleModalOpen={props.toggleModalOpen}
+            updateModalOpen={props.updateModalOpen}
             language={props.language}
           />
           {/* video needs to be re rendered if language is changed */}
