@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Lan } from "../../pages/index";
+import { Lan } from "../../../pages/index";
 import { ModalHeader } from "./modalHeader/ModalHeader";
-import { ProfileDetails } from "../../Types";
+import { ProfileDetails } from "../../../Types";
 import {
   getModalBoxTopPosition,
   getModalBoxLeftPosition,
@@ -16,7 +16,7 @@ type Props = {
   profileDetails: ProfileDetails;
 };
 
-export const Modal = (props: Props) => {
+export const ViewVideoModal = (props: Props) => {
   return (
     <ModalWrapper>
       <ModalBox>
@@ -62,7 +62,7 @@ export const Modal = (props: Props) => {
   );
 };
 
-const ModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -71,7 +71,7 @@ const ModalWrapper = styled.div`
   background-color: rgba(0, 0, 15, 0.7);
 `;
 
-const ModalBox = styled.div`
+export const ModalBox = styled.div`
   position: fixed;
   background-color: white;
   top: ${getModalBoxTopPosition(false)};
@@ -86,7 +86,7 @@ const ModalBox = styled.div`
   }
 `;
 
-const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;

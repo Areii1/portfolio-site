@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { ToggleLanguage } from "../../toggleLanguage/ToggleLanguage";
-import { Lan } from "../../../pages/index";
-import { TransparentButton } from "../../buttons/transparentButton/TransparentButton";
+import { ToggleLanguage } from "../../../toggleLanguage/ToggleLanguage";
+import { Lan } from "../../../../pages/index";
+import { TransparentButton } from "../../../buttons/transparentButton/TransparentButton";
 import {
   modalHeaderContentLabelsEn,
   modalHeaderContentLabelsFi,

@@ -7,7 +7,7 @@ import { ContentFi } from "../ContentFi";
 import { ProfileBall } from "../components/profileBall/ProfileBall";
 import { ContentSection } from "../components/contentSection/ContentSection";
 import { InformationSection } from "../components/informationSection/InformationSection";
-import { Modal } from "../components/modal/Modal";
+import { ViewVideoModal } from "../components/modals/viewVideoModal/ViewVideoModal";
 import { DialogBox } from "../components/dialogBox/DialogBox";
 import withLocation from "../hocs/withLocation";
 import "./index.css";
